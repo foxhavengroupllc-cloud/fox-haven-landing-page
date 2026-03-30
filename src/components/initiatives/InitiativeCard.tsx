@@ -295,295 +295,140 @@ function HeatAppVisual() {
 }
 
 /* ────────────────────────────────────────────────────
-   CARD 1 — Balm (reversed layout, cream visual)
+   CARD 1 — Balm (image gallery + live app link)
    ──────────────────────────────────────────────────── */
 
 function BalmVisual() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeImg, setActiveImg] = useState(0);
 
-  const tabs = [
-    { icon: '\u2616', label: 'Home' },
-    { icon: '\u{1F4C5}', label: 'Calendar' },
-    { icon: '\u2611', label: 'Tasks' },
-    { icon: '\u{1F6D2}', label: 'Shopping' },
-    { icon: '\u2728', label: 'AI' },
+  const screens = [
+    { src: '/images/balm/balm-home.png', alt: 'Balm dashboard — weekly overview, tasks, shopping list, and focus section', label: 'Dashboard' },
+    { src: '/images/balm/balm-calendar.png', alt: 'Balm shared family calendar with Google sync', label: 'Calendar' },
   ];
 
-  /* ── Screen content renderers ── */
-
-  const HomeScreen = () => (
-    <div className="px-4 pt-3 pb-2 overflow-y-auto" style={{ height: 340 }}>
-      {/* Date badge */}
-      <div className="inline-block bg-[#2a2b44] rounded-full px-3 py-1 text-[10px] text-white/60 tracking-[.08em] uppercase mb-2">
-        MON &middot; MAR 30
-      </div>
-      {/* Greeting */}
-      <div className="text-[18px] font-bold text-white mb-0.5">Up late, Stu.</div>
-      <div className="text-[11px] text-white/40 mb-4">Clear today, Stu. Nothing on your list.</div>
-      {/* Week strip */}
-      <div className="flex gap-1.5 mb-4">
-        {[
-          { day: 'Mon', date: '30', active: true },
-          { day: 'Tue', date: '31', active: false },
-          { day: 'Wed', date: '1', active: false },
-          { day: 'Thu', date: '2', active: false },
-          { day: 'Fri', date: '3', active: false },
-        ].map((d) => (
-          <div
-            key={d.day}
-            className={`flex-1 text-center py-1.5 rounded-lg text-[10px] ${d.active ? 'bg-[#6c5ce7] text-white' : 'bg-[#2a2b44] text-white/40'}`}
-          >
-            <div className="font-medium">{d.day}</div>
-            <div className="text-[13px] font-bold mt-0.5">{d.date}</div>
-          </div>
-        ))}
-      </div>
-      {/* Two cards side by side */}
-      <div className="grid grid-cols-2 gap-2 mb-3">
-        <div className="bg-[#2a2b44] rounded-xl p-3">
-          <div className="text-[10px] text-white/40 uppercase tracking-[.06em] mb-1">Shopping List</div>
-          <div className="text-[20px] font-bold text-white">0</div>
-          <div className="text-[10px] text-white/30">items</div>
-        </div>
-        <div className="bg-[#2a2b44] rounded-xl p-3">
-          <div className="text-[10px] text-white/40 uppercase tracking-[.06em] mb-1">Open Tasks</div>
-          <div className="text-[20px] font-bold text-white">0</div>
-          <div className="text-[10px] text-white/30">tasks</div>
-        </div>
-      </div>
-      {/* Focus now */}
-      <div className="mb-3">
-        <div className="text-[9px] text-white/30 uppercase tracking-[.12em] mb-1.5">Focus Now</div>
-        <div className="bg-[#2a2b44] rounded-xl p-3.5">
-          <div className="text-[12px] text-white/70">Nothing urgent, Stu.</div>
-        </div>
-      </div>
-      {/* Stat counters */}
-      <div className="flex justify-between mb-3">
-        {[
-          { val: '0', lbl: 'Events' },
-          { val: '0', lbl: 'Open' },
-          { val: '0', lbl: 'Items' },
-          { val: '1', lbl: 'People' },
-        ].map((s) => (
-          <div key={s.lbl} className="text-center flex-1">
-            <div className="text-[16px] font-bold text-[#6c5ce7]">{s.val}</div>
-            <div className="text-[9px] text-white/30 uppercase tracking-[.06em]">{s.lbl}</div>
-          </div>
-        ))}
-      </div>
-      {/* Quick tiles */}
-      <div className="grid grid-cols-2 gap-1.5">
-        {['All tasks', 'Shopping', 'Family Load', 'Unlock AI'].map((t) => (
-          <div key={t} className="bg-[#2a2b44] rounded-lg px-3 py-2 text-[10px] text-white/50 text-center">
-            {t}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
-  const CalendarScreen = () => (
-    <div className="px-4 pt-3 pb-2 overflow-y-auto" style={{ height: 340 }}>
-      <div className="text-[14px] font-bold text-white mb-3">March 2026</div>
-      {/* Calendar grid header */}
-      <div className="grid grid-cols-7 gap-0.5 mb-1">
-        {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((d, i) => (
-          <div key={`${d}${i}`} className="text-[9px] text-white/30 text-center py-1">{d}</div>
-        ))}
-      </div>
-      {/* Calendar grid */}
-      <div className="grid grid-cols-7 gap-0.5 mb-4">
-        {/* offset for March 2026 starting on Sunday */}
-        {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
-          <div
-            key={d}
-            className={`text-[10px] text-center py-1.5 rounded-md ${d === 30 ? 'bg-[#6c5ce7] text-white font-bold' : 'text-white/40 hover:bg-[#2a2b44]'}`}
-          >
-            {d}
-          </div>
-        ))}
-      </div>
-      {/* Buttons */}
-      <div className="flex flex-col gap-2">
-        <div className="bg-[#6c5ce7]/20 border border-[#6c5ce7]/30 rounded-xl py-2.5 text-center text-[11px] text-[#7c6df0] font-semibold">
-          Connect Google
-        </div>
-        <div className="bg-[#6c5ce7] rounded-xl py-2.5 text-center text-[11px] text-white font-semibold">
-          Add event
-        </div>
-      </div>
-    </div>
-  );
-
-  const TasksScreen = () => (
-    <div className="px-4 pt-3 pb-2 overflow-y-auto" style={{ height: 340 }}>
-      {/* Add task input */}
-      <div className="bg-[#2a2b44] rounded-xl px-3.5 py-2.5 text-[11px] text-white/25 mb-3">
-        Add a task...
-      </div>
-      {/* Filter tabs */}
-      <div className="flex gap-1 mb-3 overflow-x-auto">
-        {['All', 'Mine', 'To Do', 'In Progress', 'Done'].map((f, i) => (
-          <div
-            key={f}
-            className={`shrink-0 px-2.5 py-1 rounded-full text-[10px] ${i === 0 ? 'bg-[#6c5ce7] text-white' : 'bg-[#2a2b44] text-white/40'}`}
-          >
-            {f}
-          </div>
-        ))}
-      </div>
-      {/* Task items */}
-      {[
-        { text: 'Dentist appointment', assignee: 'ST', color: '#6c5ce7', status: 'To Do' },
-        { text: 'Grocery run', assignee: 'ST', color: '#e05e14', status: 'In Progress' },
-        { text: 'School pickup at 3:30', assignee: 'ST', color: '#16a34a', status: 'Done' },
-      ].map((t) => (
-        <div key={t.text} className="flex items-center gap-2.5 bg-[#2a2b44] rounded-xl px-3.5 py-2.5 mb-1.5">
-          <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: t.color }} />
-          <div className="flex-1 min-w-0">
-            <div className={`text-[11px] text-white/80 ${t.status === 'Done' ? 'line-through text-white/30' : ''}`}>{t.text}</div>
-            <div className="text-[9px] text-white/25 mt-0.5">{t.status}</div>
-          </div>
-          <div className="w-5 h-5 rounded-full bg-[#6c5ce7] flex items-center justify-center text-[8px] text-white font-bold shrink-0">
-            {t.assignee}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-
-  const ShoppingScreen = () => (
-    <div className="px-4 pt-3 pb-2 overflow-y-auto" style={{ height: 340 }}>
-      {/* Add item input */}
-      <div className="bg-[#2a2b44] rounded-xl px-3.5 py-2.5 text-[11px] text-white/25 mb-3">
-        Add item...
-      </div>
-      {/* Category + Browse */}
-      <div className="flex gap-2 mb-4">
-        <div className="flex-1 bg-[#2a2b44] rounded-xl px-3 py-2 text-[10px] text-white/35 flex items-center justify-between">
-          <span>Category</span>
-          <span className="text-white/20">&darr;</span>
-        </div>
-        <div className="bg-[#6c5ce7] rounded-xl px-4 py-2 text-[10px] text-white font-semibold">
-          Browse
-        </div>
-      </div>
-      {/* Sample list */}
-      <div className="text-[10px] text-white/30 uppercase tracking-[.08em] mb-2">Your List</div>
-      <div className="text-center py-8">
-        <div className="text-[24px] mb-2 opacity-30">{'\u{1F6D2}'}</div>
-        <div className="text-[11px] text-white/25">No items yet</div>
-        <div className="text-[10px] text-white/15 mt-1">Add items above to get started</div>
-      </div>
-    </div>
-  );
-
-  const AIScreen = () => (
-    <div className="px-4 pt-3 pb-2 overflow-y-auto" style={{ height: 340 }}>
-      <div className="text-[14px] font-bold text-white mb-1">AI Assistant</div>
-      <div className="text-[11px] text-white/40 mb-4">Powered by GPT-4o</div>
-      {/* Feature card */}
-      <div className="bg-[#2a2b44] rounded-xl p-4 mb-3">
-        <div className="text-[11px] text-[#7c6df0] font-semibold mb-2.5 uppercase tracking-[.06em]">What I can do</div>
-        {[
-          'Create events from natural language',
-          'Assign tasks by just asking',
-          'Add shopping items by voice',
-          'Family schedule queries',
-        ].map((f) => (
-          <div key={f} className="flex items-start gap-2 mb-2 last:mb-0">
-            <span className="text-[#6c5ce7] text-[10px] mt-px shrink-0">{'\u2728'}</span>
-            <span className="text-[11px] text-white/60">{f}</span>
-          </div>
-        ))}
-      </div>
-      {/* Chat input mock */}
-      <div className="bg-[#2a2b44] rounded-xl px-3.5 py-2.5 text-[11px] text-white/25 flex items-center justify-between">
-        <span>Ask Balm anything...</span>
-        <span className="text-[#6c5ce7]">&uarr;</span>
-      </div>
-    </div>
-  );
-
-  const screens = [HomeScreen, CalendarScreen, TasksScreen, ShoppingScreen, AIScreen];
-  const ActiveScreen = screens[activeTab];
-
   return (
-    <div className="h-full bg-gradient-to-br from-[#1a1035] to-[#0d0b1a] flex items-center justify-center p-8 min-h-[340px] lg:min-h-0">
-      {/* Phone frame */}
+    <div className="h-full bg-gradient-to-br from-[#1a1035] to-[#0d0b1a] flex flex-col min-h-[520px] lg:min-h-0 relative overflow-hidden">
+      {/* Ambient glow */}
       <div
-        className="w-full max-w-[300px] rounded-[28px] overflow-hidden relative"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          background: '#1a1b2e',
-          boxShadow: '0 0 40px rgba(108,92,231,.25), 0 20px 60px rgba(0,0,0,.4)',
+          background: 'radial-gradient(ellipse 80% 50% at 50% 30%, rgba(108,92,231,.12) 0%, transparent 60%)',
         }}
-      >
-        {/* Status bar */}
-        <div className="flex justify-between items-center px-4 pt-2.5 pb-1">
-          <span className="text-[10px] text-white/30 font-medium">9:41</span>
-          <div className="flex items-center gap-1.5">
-            <div className="w-3.5 h-2 border border-white/25 rounded-sm relative">
-              <div className="absolute inset-[1px] right-[2px] bg-white/25 rounded-[1px]" />
-            </div>
-          </div>
-        </div>
+      />
 
-        {/* App header bar */}
-        <div className="flex justify-between items-center px-4 py-2 border-b border-white/[.06]">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-lg bg-[#6c5ce7] flex items-center justify-center">
-              <span className="text-[11px]">{'\u{1F9E0}'}</span>
-            </div>
-            <span className="text-[13px] font-bold text-white">Fox Fam</span>
-          </div>
-          <div className="w-7 h-7 rounded-full bg-[#6c5ce7] flex items-center justify-center text-[10px] font-bold text-white">
-            ST
-          </div>
-        </div>
-
-        {/* Screen content with fade transition */}
-        <div className="relative" style={{ height: 340 }}>
+      {/* Main image area */}
+      <div className="relative flex-1 min-h-[320px]">
+        {screens.map((img, i) => (
           <div
-            key={activeTab}
-            style={{
-              animation: 'balmFadeIn 250ms ease-out',
-            }}
+            key={img.src}
+            className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
+            style={{ opacity: i === activeImg ? 1 : 0 }}
           >
-            <ActiveScreen />
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority={i === 0}
+            />
+            {/* Gradient overlays */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0b1a] via-[#0d0b1a]/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0d0b1a]/20 to-transparent" />
           </div>
+        ))}
+
+        {/* Floating badge */}
+        <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 bg-black/50 backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5">
+          <div className="w-5 h-5 rounded-md bg-[#6c5ce7] flex items-center justify-center">
+            <span className="text-[10px]">{'\u{1F9E0}'}</span>
+          </div>
+          <span className="text-[10px] text-white/80 font-semibold tracking-[.04em]">Live App</span>
         </div>
 
-        {/* Bottom nav */}
-        <div className="flex border-t border-white/[.06] bg-[#1a1b2e]">
-          {tabs.map((tab, i) => (
+        {/* Current screen label */}
+        <div className="absolute top-4 right-4 z-10 bg-black/40 backdrop-blur-md border border-[#6c5ce7]/30 rounded-full px-3 py-1.5">
+          <span className="text-[10px] text-[#6c5ce7] font-semibold tracking-[.06em]">{screens[activeImg].label}</span>
+        </div>
+
+        {/* Image nav dots */}
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {screens.map((s, i) => (
+            <button
+              key={s.label}
+              type="button"
+              onClick={() => setActiveImg(i)}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                i === activeImg
+                  ? 'bg-[#6c5ce7] w-6'
+                  : 'bg-white/25 w-2 hover:bg-white/40'
+              }`}
+              aria-label={`View ${s.label}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Feature highlights bar */}
+      <div className="relative z-10 px-5 pb-5 -mt-16">
+        {/* Feature grid */}
+        <div className="grid grid-cols-4 gap-2 mb-3">
+          {[
+            { icon: '\u{1F4CB}', value: '200+', label: 'Templates' },
+            { icon: '\u{1F4C5}', value: 'Sync', label: 'Calendar' },
+            { icon: '\u{1F9E0}', value: 'AI', label: 'Assistant' },
+            { icon: '\u{1F4CA}', value: 'Load', label: 'Dashboard' },
+          ].map((s) => (
+            <div
+              key={s.label}
+              className="bg-white/[.06] backdrop-blur-md border border-white/[.08] rounded-xl p-2.5 text-center"
+            >
+              <div className="text-[14px] mb-0.5">{s.icon}</div>
+              <div className="font-mono text-[12px] text-[#6c5ce7] font-medium leading-none">
+                {s.value}
+              </div>
+              <div className="text-[8px] text-white/35 uppercase tracking-[.08em] mt-1">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Screen tabs — clickable to switch screenshots */}
+        <div className="bg-white/[.04] backdrop-blur-md border border-white/[.06] rounded-xl px-3 py-2.5 flex items-center justify-between">
+          {[
+            { icon: '\u2302', label: 'Home', idx: 0 },
+            { icon: '\u{1F4C5}', label: 'Calendar', idx: 1 },
+            { icon: '\u2611', label: 'Tasks', idx: -1 },
+            { icon: '\u{1F6D2}', label: 'Shopping', idx: -1 },
+            { icon: '\u2728', label: 'AI', idx: -1 },
+          ].map((tab) => (
             <button
               key={tab.label}
               type="button"
-              onClick={() => setActiveTab(i)}
-              className={`flex-1 flex flex-col items-center gap-0.5 py-2.5 transition-colors cursor-pointer ${
-                i === activeTab ? 'text-[#6c5ce7]' : 'text-white/25 hover:text-white/40'
+              onClick={() => tab.idx >= 0 && setActiveImg(tab.idx)}
+              className={`flex flex-col items-center gap-0.5 flex-1 transition-colors cursor-pointer ${
+                tab.idx === activeImg ? 'text-[#6c5ce7]' : 'text-white/25 hover:text-white/40'
               }`}
             >
-              <span className="text-[16px]">{tab.icon}</span>
-              <span className="text-[8px] font-medium tracking-[.04em]">{tab.label}</span>
+              <span className="text-[14px]">{tab.icon}</span>
+              <span className="text-[7px] font-medium tracking-[.04em]">{tab.label}</span>
             </button>
           ))}
         </div>
 
-        {/* Home indicator */}
-        <div className="flex justify-center pb-2 pt-1 bg-[#1a1b2e]">
-          <div className="w-[100px] h-[4px] bg-white/15 rounded-full" />
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mt-3">
+          {['Mental Load', 'Shared Calendar', 'Task Templates', 'AI Powered', 'Family Sync'].map((tag) => (
+            <div
+              key={tag}
+              className="bg-white/[.04] border border-white/[.06] rounded-full px-2.5 py-0.5 text-[8px] text-white/30"
+            >
+              {tag}
+            </div>
+          ))}
         </div>
       </div>
-
-      {/* Inline keyframes for fade animation */}
-      <style>{`
-        @keyframes balmFadeIn {
-          from { opacity: 0; transform: translateY(6px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   );
 }
@@ -890,10 +735,10 @@ export default function InitiativeCard({ initiative, index }: Props) {
     );
   }
 
-  // Card 1: Balm reversed (visual left, body right)
+  // Card 1: Balm reversed (visual left, body right — taller for gallery)
   if (index === 1) {
     return (
-      <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-2 rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[480px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
+      <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[560px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
         <div className="order-2 lg:order-1">
           <BalmVisual />
         </div>
