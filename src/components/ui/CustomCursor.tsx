@@ -11,7 +11,7 @@ type CursorTheme = 'dark' | 'light' | 'auto';
 
 const DOT_SIZE = 10;
 const RING_SIZE = 34;
-const RING_LAG = 0.12;
+const RING_LAG = 1;
 const CLICK_PULSE_SCALE = 1.5;
 const CLICK_PULSE_DURATION = 350;
 const TRANSITION_DURATION = '0.2s';
