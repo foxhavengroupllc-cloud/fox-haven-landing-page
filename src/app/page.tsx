@@ -1,25 +1,29 @@
 import Nav from '@/components/layout/Nav';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
-import ImpactBar from '@/components/sections/ImpactBar';
-import BalmSpotlight from '@/components/sections/BalmSpotlight';
+import MissionBand from '@/components/sections/MissionBand';
+import Pillars from '@/components/sections/Pillars';
+import Ticker from '@/components/sections/Ticker';
+import TemperatureJourney from '@/components/sections/TemperatureJourney';
 import Initiatives from '@/components/sections/Initiatives';
-import Mission from '@/components/sections/Mission';
 import Testimonials from '@/components/sections/Testimonials';
 import CtaSection from '@/components/sections/CtaSection';
+import CustomCursor from '@/components/ui/CustomCursor';
 
 export default function Home() {
   return (
     <main>
       <Nav />
       <Hero />
-      <ImpactBar />
-      <BalmSpotlight />
+      <MissionBand />
+      <Pillars />
+      <Ticker />
+      <TemperatureJourney />
       <Initiatives />
-      <Mission />
       <Testimonials />
       <CtaSection />
       <Footer />
+      <CustomCursor />
     </main>
   );
 }

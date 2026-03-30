@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif, DM_Sans } from 'next/font/google';
+import { Cormorant_Garamond, DM_Sans, DM_Mono } from 'next/font/google';
 import './globals.css';
 import ScrollRevealProvider from '@/components/ScrollRevealProvider';
 import IntentWidget from '@/components/intent-widget/IntentWidget';
 import { ExperienceProviders } from '@/components/ExperienceProviders';
 
-const instrumentSerif = Instrument_Serif({
-  variable: '--font-instrument-serif',
+const cormorantGaramond = Cormorant_Garamond({
+  variable: '--font-cormorant-garamond',
   subsets: ['latin'],
-  weight: '400',
+  weight: ['300', '400', '600', '700'],
   style: ['normal', 'italic'],
   display: 'swap',
 });
@@ -17,6 +17,13 @@ const dmSans = DM_Sans({
   variable: '--font-dm-sans',
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+});
+
+const dmMono = DM_Mono({
+  variable: '--font-dm-mono',
+  subsets: ['latin'],
+  weight: ['400', '500'],
   display: 'swap',
 });
 
@@ -43,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSerif.variable} ${dmSans.variable} antialiased`}
+        className={`${cormorantGaramond.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
       >
         <ExperienceProviders>
           <ScrollRevealProvider />

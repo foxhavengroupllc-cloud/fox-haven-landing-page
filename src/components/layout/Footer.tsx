@@ -2,117 +2,105 @@
 
 import { scrollToSection } from '@/lib/scroll';
 
-const sections = [
+const NAV_LINKS = [
+  { label: 'Mission', target: '#mission-band' },
   { label: 'Initiatives', target: '#initiatives' },
-  { label: 'Mission', target: '#mission' },
-  { label: 'About', target: '#about' },
+  { label: 'Community', target: '#voices' },
   { label: 'Get Involved', target: '#cta' },
 ];
 
-const initiatives = [
-  { label: 'Heat Relief Solar Shelters', target: '#initiatives' },
-  { label: 'Heat Relief App', target: '#initiatives' },
-  { label: 'Family Hub', target: '#initiatives' },
+const INITIATIVE_LINKS = [
+  { label: 'Heat Relief App', target: '#ic1' },
+  { label: 'Balm \u2014 Family Hub', target: '#ic2' },
+  { label: 'Heat Relief Solar Shelters', target: '#ic3' },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-deep-slate text-white">
-      {/* Top border */}
-      <div className="h-px bg-gradient-to-r from-transparent via-heat-amber/30 to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
-          {/* Brand */}
-          <div className="md:col-span-5">
+    <footer className="bg-[#040b14] border-t border-[#f4ede0]/8" style={{ padding: '56px 0 0' }}>
+      <div className="max-w-[1200px] mx-auto px-6">
+        {/* 3-column grid */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-14"
+          style={{ paddingBottom: 56 }}
+        >
+          {/* Brand column */}
+          <div>
             <button
               onClick={() => scrollToSection('#hero')}
-              className="flex items-center gap-3 mb-6 group cursor-pointer"
+              className="flex items-center gap-3 mb-5 group cursor-pointer"
             >
-              <div className="w-10 h-10 bg-heat-amber group-hover:bg-heat-amber-light rounded-xl flex items-center justify-center transition-colors shadow-md">
-                <span className="display-text text-white text-lg leading-none">F</span>
+              <div className="w-9 h-9 bg-[#e05e14] group-hover:bg-[#c45212] rounded-lg flex items-center justify-center transition-colors">
+                <span className="font-display text-white text-base font-bold leading-none">
+                  F
+                </span>
               </div>
-              <div>
-                <div className="font-display text-lg text-white leading-none mb-0.5">
-                  Fox Haven Group
-                </div>
-                <div className="font-body text-xs text-white/40 tracking-widest uppercase">
-                  Phoenix, Arizona
-                </div>
+              <div className="font-display text-[#f4ede0] text-lg leading-none">
+                Fox <strong>Haven</strong>{' '}
+                <span className="text-[#f4ede0]/40">Group</span>
               </div>
             </button>
 
-            <p className="font-body text-white/50 text-sm leading-relaxed max-w-xs">
-              Building technology and infrastructure that protects lives, empowers
-              communities, and simplifies modern family life — starting in Phoenix.
+            <p className="font-body text-[#f4ede0]/40 text-sm leading-relaxed max-w-xs mb-4">
+              Building technology and infrastructure that protects lives,
+              empowers communities, and simplifies modern family life — starting
+              in Phoenix.
             </p>
 
-            <div className="mt-8 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-heat-amber animate-pulse-slow" />
-              <span className="font-body text-xs text-white/40 tracking-wider">
-                Actively building — Est. 2024
-              </span>
-            </div>
+            <p className="font-body text-[12px] text-[#f4ede0]/25 flex items-center gap-1.5">
+              <span className="w-[5px] h-[5px] bg-[#16a34a] rounded-full inline-block" />
+              Actively building — Est. 2024
+            </p>
           </div>
 
-          {/* Links */}
-          <div className="md:col-span-3">
-            <h4 className="font-body text-xs font-semibold text-white/40 tracking-widest uppercase mb-5">
+          {/* Navigation column */}
+          <div>
+            <h4 className="font-body text-[11px] font-semibold text-[#f4ede0]/30 tracking-[0.14em] uppercase mb-5">
               Navigation
             </h4>
             <ul className="space-y-3">
-              {sections.map((s) => (
-                <li key={s.target}>
+              {NAV_LINKS.map((link) => (
+                <li key={link.target}>
                   <button
-                    onClick={() => scrollToSection(s.target)}
-                    className="font-body text-sm text-white/60 hover:text-white transition-colors cursor-pointer"
+                    onClick={() => scrollToSection(link.target)}
+                    className="font-body text-sm text-[#f4ede0]/50 hover:text-[#f4ede0] transition-colors cursor-pointer"
                   >
-                    {s.label}
+                    {link.label}
                   </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="md:col-span-4">
-            <h4 className="font-body text-xs font-semibold text-white/40 tracking-widest uppercase mb-5">
+          {/* Initiatives column */}
+          <div>
+            <h4 className="font-body text-[11px] font-semibold text-[#f4ede0]/30 tracking-[0.14em] uppercase mb-5">
               Initiatives
             </h4>
             <ul className="space-y-3">
-              {initiatives.map((i) => (
-                <li key={i.label}>
+              {INITIATIVE_LINKS.map((link) => (
+                <li key={link.label}>
                   <button
-                    onClick={() => scrollToSection(i.target)}
-                    className="font-body text-sm text-white/60 hover:text-heat-amber-light transition-colors cursor-pointer text-left"
+                    onClick={() => scrollToSection(link.target)}
+                    className="font-body text-sm text-[#f4ede0]/50 hover:text-[#f4ede0] transition-colors cursor-pointer text-left"
                   >
-                    {i.label}
+                    {link.label}
                   </button>
                 </li>
               ))}
             </ul>
-
-            <div className="mt-8 p-4 rounded-2xl border border-heat-amber/20 bg-heat-amber/5">
-              <p className="font-body text-xs text-white/50 mb-3">
-                Interested in partnering or investing?
-              </p>
-              <button
-                onClick={() => scrollToSection('#cta')}
-                className="font-body text-sm text-heat-amber-light hover:text-solar-gold transition-colors font-medium cursor-pointer"
-              >
-                Let's talk →
-              </button>
-            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-6 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-body text-xs text-white/30">
-            © {new Date().getFullYear()} Fox Haven Group. All rights reserved.
-          </p>
-          <p className="font-body text-xs text-white/30">
+        <div className="border-t border-[#f4ede0]/8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="font-body text-xs text-[#f4ede0]/25">
+            &copy; {new Date().getFullYear()} Fox Haven Group. All rights
+            reserved.
+          </span>
+          <span className="font-body text-xs text-[#f4ede0]/25">
             Built with purpose — for Phoenix and beyond.
-          </p>
+          </span>
         </div>
       </div>
     </footer>

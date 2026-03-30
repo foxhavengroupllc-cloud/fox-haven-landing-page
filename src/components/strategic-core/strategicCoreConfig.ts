@@ -7,7 +7,7 @@ export type NodeAction =
   | { kind: 'route'; href: string }
   | { kind: 'scroll'; targetId: string };
 
-export type NodeAccent = 'amber' | 'blue' | 'teal';
+export type NodeAccent = 'amber' | 'blue' | 'teal' | 'green';
 
 /**
  * Orbital tier determines visual hierarchy and orbit radius.
@@ -41,6 +41,7 @@ export const ACCENT: Record<NodeAccent, { dot: string; ring: string; label: stri
   amber: { dot: '#F2C94C', ring: '#E8821A40', label: '#F5A64A', line: '#F2C94C30' },
   blue:  { dot: '#38bdf8', ring: '#1A6B9A40', label: '#7dd3fc', line: '#38bdf830' },
   teal:  { dot: '#22d3ee', ring: '#0D4F7340', label: '#67e8f9', line: '#22d3ee30' },
+  green: { dot: '#4ade80', ring: '#16a34a40', label: '#86efac', line: '#4ade8030' },
 };
 
 export const STRATEGIC_NODES: CoreNode[] = [
@@ -97,7 +98,21 @@ export const STRATEGIC_NODES: CoreNode[] = [
     panel: {
       title: 'Balm — Family Control Center',
       body: "Stop carrying it alone. Balm tracks your family's mental load, syncs schedules, and uses AI to ensure household work gets shared — live and free.",
-      cta: { label: 'Try Balm free', href: 'https://balm-puyebvbqba-uc.a.run.app/signup' },
+      cta: { label: 'Try Balm free', href: 'https://balm-1092892651956.us-central1.run.app/signup' },
+    },
+  },
+  {
+    id: 'ai-consulting',
+    label: 'AI for Business',
+    sublabel: 'Initiative 04',
+    phi: 90, theta: 340,
+    action: { kind: 'scroll', targetId: '#initiatives' },
+    accent: 'green',
+    tier: 'primary',
+    panel: {
+      title: 'AI for Small Business',
+      body: 'We help small businesses bridge the gap to AI — with strategies that are practical, affordable, and environmentally conscious. Right-sized technology, no wasted compute.',
+      cta: { label: 'Start a conversation', scrollTo: '#cta' },
     },
   },
   {

@@ -6,7 +6,7 @@ export type IntentClassification =
   | 'get-involved'
   | 'general';
 
-export type Initiative = 'heat-relief-shelters' | 'heat-relief-app' | 'family-hub';
+export type Initiative = 'heat-relief-shelters' | 'heat-relief-app' | 'family-hub' | 'ai-consulting';
 
 export interface Action {
   label: string;
