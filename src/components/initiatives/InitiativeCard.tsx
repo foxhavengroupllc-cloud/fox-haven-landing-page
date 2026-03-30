@@ -618,7 +618,7 @@ function ShelterVisual() {
         {images.map((img, i) => (
           <div
             key={img.src}
-            className="absolute inset-0 transition-opacity duration-500"
+            className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
             style={{ opacity: i === activeImg ? 1 : 0 }}
           >
             <Image
