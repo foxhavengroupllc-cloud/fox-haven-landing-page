@@ -304,7 +304,13 @@ function BalmVisual() {
   const screens = [
     { src: '/images/balm/balm-home.png', alt: 'Balm dashboard — weekly overview, tasks, shopping list, and focus section', label: 'Dashboard' },
     { src: '/images/balm/balm-calendar.png', alt: 'Balm shared family calendar with Google sync', label: 'Calendar' },
+    { src: '/images/balm/balm-tasks.png', alt: 'Balm task manager — assign tasks, set due dates, track progress', label: 'Tasks' },
+    { src: '/images/balm/balm-shopping.png', alt: 'Balm shared shopping list — add items, browse categories', label: 'Shopping' },
+    { src: '/images/balm/balm-ai.png', alt: 'Balm AI assistant — natural language task and event creation', label: 'AI' },
   ];
+
+  const prev = () => setActiveImg((i) => (i - 1 + screens.length) % screens.length);
+  const next = () => setActiveImg((i) => (i + 1) % screens.length);
 
   return (
     <div className="h-full bg-gradient-to-br from-[#1a1035] to-[#0d0b1a] flex flex-col min-h-[520px] lg:min-h-0 relative overflow-hidden">
@@ -317,7 +323,7 @@ function BalmVisual() {
       />
 
       {/* Main image area */}
-      <div className="relative flex-1 min-h-[320px]">
+      <div className="relative flex-1 min-h-[320px] group">
         {screens.map((img, i) => (
           <div
             key={img.src}
@@ -346,26 +352,48 @@ function BalmVisual() {
           <span className="text-[10px] text-white/80 font-semibold tracking-[.04em]">Live App</span>
         </div>
 
-        {/* Current screen label */}
-        <div className="absolute top-4 right-4 z-10 bg-black/40 backdrop-blur-md border border-[#6c5ce7]/30 rounded-full px-3 py-1.5">
+        {/* Image counter badge */}
+        <div className="absolute top-4 right-4 z-10 bg-black/50 backdrop-blur-md border border-[#6c5ce7]/30 rounded-full px-3 py-1.5 flex items-center gap-2">
           <span className="text-[10px] text-[#6c5ce7] font-semibold tracking-[.06em]">{screens[activeImg].label}</span>
+          <span className="text-[9px] text-white/40 font-mono">{activeImg + 1}/{screens.length}</span>
         </div>
 
-        {/* Image nav dots */}
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-          {screens.map((s, i) => (
-            <button
-              key={s.label}
-              type="button"
-              onClick={() => setActiveImg(i)}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                i === activeImg
-                  ? 'bg-[#6c5ce7] w-6'
-                  : 'bg-white/25 w-2 hover:bg-white/40'
-              }`}
-              aria-label={`View ${s.label}`}
-            />
-          ))}
+        {/* Large arrow buttons — always visible */}
+        <button
+          type="button"
+          onClick={prev}
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:bg-[#6c5ce7]/30 hover:border-[#6c5ce7]/50 transition-all cursor-pointer"
+          aria-label="Previous screenshot"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+        <button
+          type="button"
+          onClick={next}
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:bg-[#6c5ce7]/30 hover:border-[#6c5ce7]/50 transition-all cursor-pointer"
+          aria-label="Next screenshot"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+
+        {/* Nav dots + counter */}
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3">
+          <div className="flex gap-2">
+            {screens.map((s, i) => (
+              <button
+                key={s.label}
+                type="button"
+                onClick={() => setActiveImg(i)}
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  i === activeImg
+                    ? 'bg-[#6c5ce7] w-7'
+                    : 'bg-white/30 w-2.5 hover:bg-white/50'
+                }`}
+                aria-label={`View ${s.label}`}
+              />
+            ))}
+          </div>
+          <span className="text-[10px] text-white/40 font-mono tracking-wider">Swipe to browse</span>
         </div>
       </div>
 
@@ -395,24 +423,26 @@ function BalmVisual() {
         </div>
 
         {/* Screen tabs — clickable to switch screenshots */}
-        <div className="bg-white/[.04] backdrop-blur-md border border-white/[.06] rounded-xl px-3 py-2.5 flex items-center justify-between">
+        <div className="bg-white/[.04] backdrop-blur-md border border-white/[.06] rounded-xl px-2 py-2 flex items-center justify-between gap-1">
           {[
             { icon: '\u2302', label: 'Home', idx: 0 },
             { icon: '\u{1F4C5}', label: 'Calendar', idx: 1 },
-            { icon: '\u2611', label: 'Tasks', idx: -1 },
-            { icon: '\u{1F6D2}', label: 'Shopping', idx: -1 },
-            { icon: '\u2728', label: 'AI', idx: -1 },
+            { icon: '\u2611', label: 'Tasks', idx: 2 },
+            { icon: '\u{1F6D2}', label: 'Shopping', idx: 3 },
+            { icon: '\u2728', label: 'AI', idx: 4 },
           ].map((tab) => (
             <button
               key={tab.label}
               type="button"
-              onClick={() => tab.idx >= 0 && setActiveImg(tab.idx)}
-              className={`flex flex-col items-center gap-0.5 flex-1 transition-colors cursor-pointer ${
-                tab.idx === activeImg ? 'text-[#6c5ce7]' : 'text-white/25 hover:text-white/40'
+              onClick={() => setActiveImg(tab.idx)}
+              className={`flex flex-col items-center gap-0.5 flex-1 transition-all cursor-pointer rounded-lg py-1.5 ${
+                tab.idx === activeImg
+                  ? 'text-[#6c5ce7] bg-[#6c5ce7]/10'
+                  : 'text-white/30 hover:text-white/50 hover:bg-white/[.03]'
               }`}
             >
               <span className="text-[14px]">{tab.icon}</span>
-              <span className="text-[7px] font-medium tracking-[.04em]">{tab.label}</span>
+              <span className="text-[8px] font-semibold tracking-[.04em]">{tab.label}</span>
             </button>
           ))}
         </div>

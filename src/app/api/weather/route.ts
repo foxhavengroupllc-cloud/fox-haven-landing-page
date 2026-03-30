@@ -9,7 +9,20 @@
  * third-party APIs on every page load.
  */
 
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+
+// --- Rate limiter (30 req/min per IP) ---
+const hits = new Map<string, { count: number; reset: number }>();
+function rateOk(ip: string): boolean {
+  const now = Date.now();
+  const entry = hits.get(ip);
+  if (!entry || now > entry.reset) {
+    hits.set(ip, { count: 1, reset: now + 60_000 });
+    return true;
+  }
+  entry.count++;
+  return entry.count <= 30;
+}
 
 // Phoenix, AZ
 const LAT = 33.4484;
@@ -55,7 +68,15 @@ const NWS_HEADERS = {
   Accept: 'application/geo+json',
 };
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  if (!rateOk(ip)) {
+    return NextResponse.json(
+      { error: 'Too many requests. Try again in a minute.' },
+      { status: 429 },
+    );
+  }
+
   try {
     const [weatherRes, alertsRes] = await Promise.all([
       fetch(
