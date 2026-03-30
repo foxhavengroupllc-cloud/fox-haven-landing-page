@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { InitiativeConfig } from '@/lib/intent-config';
 import { scrollToSection } from '@/lib/scroll';
@@ -588,53 +589,144 @@ function BalmVisual() {
 }
 
 /* ────────────────────────────────────────────────────
-   CARD 2 — Solar Shelters (normal layout, dark visual)
+   CARD 2 — Solar Shelters (image gallery + specs)
    ──────────────────────────────────────────────────── */
 
 function ShelterVisual() {
+  const [activeImg, setActiveImg] = useState(0);
+
+  const images = [
+    { src: '/images/shelter/shelter-front.png', alt: 'Solar cooling shelter — front view showing steel columns, PV roof, benches, and equipment kiosk' },
+    { src: '/images/shelter/shelter-aerial.png', alt: 'Aerial view of 24×24 ft shelter footprint with four roof cassettes' },
+    { src: '/images/shelter/shelter-people.png', alt: 'Community members seated under the shelter in Phoenix heat' },
+    { src: '/images/shelter/shelter-angle.png', alt: 'Three-quarter angle showing high-SRI roof and open perimeter design' },
+    { src: '/images/shelter/shelter-interior.png', alt: 'Interior view showing ceiling fans, steel frame, and shaded seating' },
+  ];
+
   return (
-    <div className="h-full bg-gradient-to-br from-[#091728] via-[#0f2540] to-[#162d50] flex items-center justify-center p-11 min-h-[260px] lg:min-h-0">
-      <div className="w-full max-w-[340px] bg-white/[.04] border border-white/[.09] rounded-[18px] p-[30px]">
-        {/* Header */}
-        <div className="flex items-start justify-between mb-[22px]">
-          <div>
-            <div className="text-[17px] font-bold text-white">&#9728;&#65039; Solar Shelter</div>
-            <div className="text-[11px] text-white/40 mt-[3px]">
-              8&prime; &times; 12&prime; &middot; R-16 &middot; Off-Grid
-            </div>
+    <div className="h-full bg-gradient-to-br from-[#091728] via-[#0f2540] to-[#162d50] flex flex-col min-h-[520px] lg:min-h-0 relative overflow-hidden">
+      {/* Ambient glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 80% 50% at 50% 20%, rgba(224,94,20,.08) 0%, transparent 60%)',
+        }}
+      />
+
+      {/* Main image area */}
+      <div className="relative flex-1 min-h-[280px]">
+        {images.map((img, i) => (
+          <div
+            key={img.src}
+            className="absolute inset-0 transition-opacity duration-500"
+            style={{ opacity: i === activeImg ? 1 : 0 }}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority={i === 0}
+            />
+            {/* Gradient overlay for text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#091728] via-[#091728]/40 to-transparent" />
           </div>
-          <div className="flex items-center gap-[5px] bg-[#e05e14]/15 border border-[#e05e14]/30 rounded-full px-[9px] py-1 text-[10px] text-[#e05e14] font-semibold shrink-0">
-            <div className="w-[5px] h-[5px] bg-[#e05e14] rounded-full animate-pulse" />
-            Dev
-          </div>
+        ))}
+
+        {/* Floating badge */}
+        <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 bg-black/50 backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5">
+          <div className="w-[5px] h-[5px] bg-[#e05e14] rounded-full animate-pulse" />
+          <span className="text-[10px] text-white/80 font-semibold tracking-[.06em]">Concept Package Complete</span>
         </div>
-        {/* Metrics grid */}
-        <div className="grid grid-cols-2 gap-2.5">
+
+        {/* Image nav dots */}
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setActiveImg(i)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                i === activeImg
+                  ? 'bg-[#e05e14] w-6'
+                  : 'bg-white/25 hover:bg-white/40'
+              }`}
+              aria-label={`View image ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Specs bar */}
+      <div className="relative z-10 px-5 pb-5 -mt-12">
+        {/* Compact spec grid */}
+        <div className="grid grid-cols-4 gap-2 mb-3">
           {[
-            { value: '\u226530%', label: 'Heat Reduction' },
-            { value: '<2hr', label: 'Deploy' },
-            { value: 'ADA', label: 'Compliant' },
-            { value: '100%', label: 'Solar' },
-          ].map((m) => (
+            { value: '24×24', unit: 'ft', label: 'Footprint' },
+            { value: '4.4', unit: 'kW', label: 'Solar PV' },
+            { value: '14.3', unit: 'kWh', label: 'Battery' },
+            { value: '<4', unit: 'hrs', label: 'Assembly' },
+          ].map((s) => (
             <div
-              key={m.label}
-              className="bg-white/5 border border-white/[.07] rounded-[10px] p-3 text-center"
+              key={s.label}
+              className="bg-white/[.06] backdrop-blur-md border border-white/[.08] rounded-xl p-2.5 text-center"
             >
-              <div className="font-mono text-[19px] text-[#e05e14] font-medium">{m.value}</div>
-              <div className="text-[10px] text-white/35 uppercase tracking-[.08em] mt-0.5">
-                {m.label}
+              <div className="font-mono text-[15px] text-[#e05e14] font-medium leading-none">
+                {s.value}<span className="text-[10px] text-[#e05e14]/60 ml-0.5">{s.unit}</span>
+              </div>
+              <div className="text-[8px] text-white/35 uppercase tracking-[.08em] mt-1">
+                {s.label}
               </div>
             </div>
           ))}
         </div>
-        {/* Footer */}
-        <div className="mt-4 flex justify-between items-center text-[11px] text-white/30">
-          <span>Pilot &middot; Summer 2026</span>
-          <span className="bg-[#e05e14]/10 border border-[#e05e14]/20 rounded-[6px] px-2 py-[3px] text-[10px] text-[#e05e14]/70">
-            Phoenix, AZ
-          </span>
+
+        {/* Deployment sequence */}
+        <div className="bg-white/[.04] backdrop-blur-md border border-white/[.06] rounded-xl px-4 py-3">
+          <div className="text-[8px] text-white/30 uppercase tracking-[.12em] mb-2.5">Deployment Sequence</div>
+          <div className="flex items-center">
+            {[
+              { step: '1', label: 'Site Prep' },
+              { step: '2', label: 'Columns' },
+              { step: '3', label: 'Roof' },
+              { step: '4', label: 'Commission' },
+            ].map((s, i) => (
+              <div key={s.step} className="flex items-center flex-1">
+                <div className="flex flex-col items-center flex-1">
+                  <div className="w-5 h-5 rounded-full bg-[#e05e14]/20 border border-[#e05e14]/40 flex items-center justify-center text-[8px] font-bold text-[#e05e14]">
+                    {s.step}
+                  </div>
+                  <div className="text-[7px] text-white/30 mt-1">{s.label}</div>
+                </div>
+                {i < 3 && (
+                  <div className="h-px flex-1 -mt-3 bg-[#e05e14]/20" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* System tags */}
+        <div className="flex flex-wrap gap-1.5 mt-3">
+          {['6 HSS Columns', 'DC Fans', 'LFP Battery', 'ADA Compliant', '2024 Phoenix Code'].map((tag) => (
+            <div
+              key={tag}
+              className="bg-white/[.04] border border-white/[.06] rounded-full px-2.5 py-0.5 text-[8px] text-white/30"
+            >
+              {tag}
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Inline keyframes */}
+      <style>{`
+        @keyframes shelterFade {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
     </div>
   );
 }
@@ -812,10 +904,10 @@ export default function InitiativeCard({ initiative, index }: Props) {
     );
   }
 
-  // Card 2: Solar Shelters normal (body left, visual right)
+  // Card 2: Solar Shelters normal (body left, visual right — taller for gallery)
   if (index === 2) {
     return (
-      <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-2 rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[480px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
+      <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[560px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
         <CardBody initiative={initiative} />
         <ShelterVisual />
       </div>
