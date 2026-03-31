@@ -31,12 +31,12 @@ export function usePortalExpansion(): PortalExpansionState {
   const close = useCallback(() => {
     setIsOpen(false);
 
-    // Wait for exit animation, then unmount
+    // Wait for exit animation to complete, then unmount
     setTimeout(() => {
       setActivePortal(null);
       document.body.style.overflow = "";
       previousFocus.current?.focus();
-    }, 400);
+    }, 450);
   }, []);
 
   // Escape key
