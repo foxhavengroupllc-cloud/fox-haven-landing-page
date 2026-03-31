@@ -8,6 +8,7 @@ import TemperatureJourney from '@/components/sections/TemperatureJourney';
 import Initiatives from '@/components/sections/Initiatives';
 import Testimonials from '@/components/sections/Testimonials';
 import CtaSection from '@/components/sections/CtaSection';
+import Contact from '@/components/Contact';
 import CustomCursor from '@/components/ui/CustomCursor';
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <Initiatives />
       <Testimonials />
       <CtaSection />
+      <Contact />
       <Footer />
       <CustomCursor />
     </main>
