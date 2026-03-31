@@ -1,17 +1,34 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { scrollToSection } from '@/lib/scroll';
 import MagneticButton from '@/components/ui/MagneticButton';
 import PortalCard from '@/components/portal/PortalCard';
 import PortalOverlay from '@/components/portal/PortalOverlay';
 import { PORTALS } from '@/components/portal/portalConfig';
+import type { PortalId } from '@/components/portal/portalConfig';
 import { usePortalExpansion } from '@/hooks/usePortalExpansion';
 
 export default function CtaSection() {
   const { activePortal, isOpen, open, close } = usePortalExpansion();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Listen for external portal open requests (e.g. from initiative cards)
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const portalId = (e as CustomEvent).detail as PortalId;
+      // Use the section element as the anchor for the overlay
+      if (sectionRef.current) {
+        open(portalId, sectionRef.current);
+      }
+    };
+    window.addEventListener('open-portal', handler);
+    return () => window.removeEventListener('open-portal', handler);
+  }, [open]);
 
   return (
     <section
+      ref={sectionRef}
       id="cta"
       className="relative overflow-hidden bg-[#060f1d]"
       style={{ padding: '140px 0' }}

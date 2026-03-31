@@ -70,7 +70,16 @@ function CtaLink({
         </a>
       ) : (
         <button
-          onClick={() => scrollToSection(initiative.primaryAction.scrollTo ?? '#cta')}
+          onClick={() => {
+            const target = initiative.primaryAction.scrollTo ?? '#cta';
+            scrollToSection(target);
+            // If scrolling to CTA, open the partner portal after scroll
+            if (target === '#cta') {
+              setTimeout(() => {
+                window.dispatchEvent(new CustomEvent('open-portal', { detail: 'partner' }));
+              }, 600);
+            }
+          }}
           className="text-[#e05e14] text-[13px] font-semibold tracking-[.04em] inline-flex items-center gap-1.5 transition-[gap] duration-200 hover:gap-2.5 cursor-pointer"
         >
           {label} &rarr;
