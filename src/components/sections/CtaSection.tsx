@@ -2,55 +2,14 @@
 
 import { scrollToSection } from '@/lib/scroll';
 import MagneticButton from '@/components/ui/MagneticButton';
-import useTiltCard from '@/hooks/useTiltCard';
-
-const CARDS = [
-  {
-    icon: '\u2600\uFE0F',
-    title: 'Partner with Us',
-    description:
-      "Business, organization, or city agency? Let's build something together.",
-    cta: 'Start a conversation \u2192',
-  },
-  {
-    icon: '\uD83D\uDCF1',
-    title: 'Join the App Beta',
-    description:
-      'Be first to use the Heat Relief App. Your feedback shapes the product.',
-    cta: 'Get early access \u2192',
-  },
-  {
-    icon: '\uD83E\uDD1D',
-    title: 'Volunteer or Donate',
-    description:
-      "Help expand our reach. Time, skills, or resources \u2014 every bit matters.",
-    cta: 'Get involved \u2192',
-  },
-];
-
-function CtaCard({ card, index }: { card: typeof CARDS[number]; index: number }) {
-  const tiltRef = useTiltCard<HTMLDivElement>({ maxTilt: 12, scale: 1.04, glareColor: 'rgba(224,94,20,0.08)' });
-  return (
-    <div
-      ref={tiltRef}
-      className="bg-[#0b1c2e]/60 border border-[#f4ede0]/8 rounded-[18px] p-[26px] text-left hover:bg-[#0b1c2e]/90 hover:border-[#e05e14]/20 transition-all duration-300 reveal"
-      style={{ transitionDelay: `${index * 0.08}s`, transformStyle: 'preserve-3d' }}
-    >
-      <div className="text-2xl mb-3">{card.icon}</div>
-      <h3 className="font-body text-[15px] font-bold text-[#f4ede0] mb-2">
-        {card.title}
-      </h3>
-      <p className="font-body text-[13px] text-[#f4ede0]/40 leading-relaxed mb-4">
-        {card.description}
-      </p>
-      <span className="font-body text-[13px] text-[#e05e14] font-medium">
-        {card.cta}
-      </span>
-    </div>
-  );
-}
+import PortalCard from '@/components/portal/PortalCard';
+import PortalOverlay from '@/components/portal/PortalOverlay';
+import { PORTALS } from '@/components/portal/portalConfig';
+import { usePortalExpansion } from '@/hooks/usePortalExpansion';
 
 export default function CtaSection() {
+  const { activePortal, isOpen, open, close } = usePortalExpansion();
+
   return (
     <section
       id="cta"
@@ -91,14 +50,19 @@ export default function CtaSection() {
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-          {CARDS.map((card, i) => (
-            <CtaCard key={card.title} card={card} index={i} />
+        {/* Portal Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+          {PORTALS.map((portal, i) => (
+            <PortalCard
+              key={portal.id}
+              config={portal}
+              index={i}
+              onOpen={open}
+            />
           ))}
         </div>
 
-        {/* Buttons */}
+        {/* Buttons — unchanged */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
           <MagneticButton
             onClick={() => scrollToSection('#contact')}
@@ -114,6 +78,15 @@ export default function CtaSection() {
           </MagneticButton>
         </div>
       </div>
+
+      {/* Portal Overlay */}
+      {activePortal && (
+        <PortalOverlay
+          portalId={activePortal}
+          isOpen={isOpen}
+          onClose={close}
+        />
+      )}
     </section>
   );
 }
