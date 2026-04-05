@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/db';
 import { QUESTIONS } from '@/lib/audit/questions';
+import { checkRateLimit } from '@/lib/utils/rateLimit';
+import { isValidToken } from '@/lib/utils/tokens';
 
 const VALID_QUESTION_IDS = new Set(QUESTIONS.map((q) => q.id));
 
@@ -14,6 +16,12 @@ export async function POST(request: Request) {
 
     if (!token || !questionId || !answer)
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+
+    if (!isValidToken(token))
+      return NextResponse.json({ error: 'Invalid token' }, { status: 400 });
+
+    if (!checkRateLimit(`answer:${token}`, 30, 3600_000))
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
 
     if (!VALID_QUESTION_IDS.has(questionId))
       return NextResponse.json({ error: 'Invalid question' }, { status: 400 });
@@ -43,7 +51,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error('Audit answer error:', error);
+    console.error('Audit answer error:', error instanceof Error ? error.message : 'unknown');
     return NextResponse.json({ error: 'Failed to save answer' }, { status: 500 });
   }
 }

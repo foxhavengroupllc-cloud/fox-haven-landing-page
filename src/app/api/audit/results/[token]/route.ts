@@ -1,9 +1,18 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/db';
+import { checkRateLimit, getClientIp } from '@/lib/utils/rateLimit';
+import { isValidToken } from '@/lib/utils/tokens';
 
 export async function GET(_request: Request, { params }: { params: Promise<{ token: string }> }) {
   try {
     const { token } = await params;
+
+    if (!isValidToken(token))
+      return NextResponse.json({ error: 'Invalid token' }, { status: 400 });
+
+    const ip = getClientIp(_request);
+    if (!checkRateLimit(`results:${ip}`, 20, 3600_000))
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
 
     const { data: session, error: sessionErr } = await supabase
       .from('audit_sessions')

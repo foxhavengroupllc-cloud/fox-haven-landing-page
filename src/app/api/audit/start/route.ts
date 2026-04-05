@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/db';
 import { generateToken } from '@/lib/utils/tokens';
+import { checkRateLimit, getClientIp } from '@/lib/utils/rateLimit';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_LEN = { name: 200, email: 320, company: 200, title: 200, industry: 100, revenue: 50 };
@@ -10,25 +11,10 @@ function sanitize(val: unknown, maxLen: number): string {
   return val.trim().slice(0, maxLen);
 }
 
-// Simple in-memory rate limiter: 5 requests per IP per hour
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-function checkRateLimit(ip: string): boolean {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-  if (!entry || now > entry.resetAt) {
-    rateLimitMap.set(ip, { count: 1, resetAt: now + 3600_000 });
-    return true;
-  }
-  if (entry.count >= 5) return false;
-  entry.count++;
-  return true;
-}
-
 export async function POST(request: Request) {
   try {
-    // Rate limit by IP
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
-    if (!checkRateLimit(ip))
+    const ip = getClientIp(request);
+    if (!checkRateLimit(`start:${ip}`, 5, 3600_000))
       return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
 
     const body = await request.json();

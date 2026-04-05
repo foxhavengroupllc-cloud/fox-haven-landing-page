@@ -3,11 +3,17 @@ import { supabase } from '@/db';
 import { scoreAudit } from '@/lib/audit/scoring';
 import { generateOpportunities, generateBlockers } from '@/lib/audit/recommendations';
 import { sendResultsEmail } from '@/lib/email/sendResults';
+import { checkRateLimit } from '@/lib/utils/rateLimit';
+import { isValidToken } from '@/lib/utils/tokens';
 
 export async function POST(request: Request) {
   try {
     const { token } = await request.json();
     if (!token) return NextResponse.json({ error: 'Missing token' }, { status: 400 });
+    if (!isValidToken(token)) return NextResponse.json({ error: 'Invalid token' }, { status: 400 });
+
+    if (!checkRateLimit(`complete:${token}`, 3, 3600_000))
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
 
     const { data: session, error: fetchErr } = await supabase
       .from('audit_sessions')

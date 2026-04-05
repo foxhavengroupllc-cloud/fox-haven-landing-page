@@ -54,7 +54,7 @@ export function middleware(request: NextRequest) {
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob:",
       "font-src 'self' data:",
-      "connect-src 'self' https://api.open-meteo.com https://api.weather.gov https://*.supabase.co",
+      "connect-src 'self' https://api.open-meteo.com https://api.weather.gov https://yusezaanxcehwofdagvk.supabase.co",
       "frame-ancestors 'self'",
       "base-uri 'self'",
       "form-action 'self'",
