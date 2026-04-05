@@ -2,9 +2,11 @@ import Anthropic from '@anthropic-ai/sdk';
 import type { IntentResponse, IntentClassification, Action } from './intent-types';
 import { getInitiativeContext } from './intent-config';
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+function getClient() {
+  return new Anthropic({
+    apiKey: process.env.ANTHROPIC_API_KEY,
+  });
+}
 
 const SYSTEM_PROMPT = `You are the Fox Haven Group assistant — warm, knowledgeable, and focused on community wellbeing.
 
@@ -108,7 +110,7 @@ export async function classifyAndRespond(
   ];
 
   try {
-    const apiResponse = await client.messages.create({
+    const apiResponse = await getClient().messages.create({
       model: 'claude-opus-4-6',
       max_tokens: isEmergencyFastPath ? 300 : 600,
       system: SYSTEM_PROMPT,

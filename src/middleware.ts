@@ -2,6 +2,26 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
+  // Enforce basic auth on admin routes at the middleware level
+  const { pathname } = request.nextUrl;
+  if (pathname.startsWith('/admin') || pathname.startsWith('/api/admin')) {
+    const auth = request.headers.get('authorization');
+    if (!auth || !auth.startsWith('Basic ')) {
+      return new NextResponse('Authentication required', {
+        status: 401,
+        headers: { 'WWW-Authenticate': 'Basic realm="Fox Haven Admin"' },
+      });
+    }
+    const decoded = Buffer.from(auth.slice(6), 'base64').toString();
+    const [user, pass] = decoded.split(':');
+    if (user !== process.env.ADMIN_USER || pass !== process.env.ADMIN_PASS) {
+      return new NextResponse('Invalid credentials', {
+        status: 401,
+        headers: { 'WWW-Authenticate': 'Basic realm="Fox Haven Admin"' },
+      });
+    }
+  }
+
   const response = NextResponse.next();
 
   // Prevent clickjacking — block iframe embedding on other sites
@@ -30,11 +50,11 @@ export function middleware(request: NextRequest) {
     'Content-Security-Policy',
     [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+      "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob:",
       "font-src 'self' data:",
-      "connect-src 'self' https://api.open-meteo.com https://api.weather.gov",
+      "connect-src 'self' https://api.open-meteo.com https://api.weather.gov https://*.supabase.co",
       "frame-ancestors 'self'",
       "base-uri 'self'",
       "form-action 'self'",
