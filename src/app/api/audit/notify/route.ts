@@ -4,7 +4,8 @@ import { generateImplementationPlan } from '@/lib/audit/generatePlan';
 import { sendInternalReport } from '@/lib/email/sendInternalReport';
 import { isValidToken } from '@/lib/utils/tokens';
 
-export const maxDuration = 60;
+// Vercel Hobby plan: max 10s. Pro plan: set to 60.
+export const maxDuration = 10;
 
 async function processNotification(token: string) {
   const { data: session } = await supabase
