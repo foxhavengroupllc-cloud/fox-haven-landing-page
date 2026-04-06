@@ -733,6 +733,34 @@ function AIConsultingVisual() {
           </div>
         </div>
 
+        {/* Audit CTA callout */}
+        <Link
+          href="/audit"
+          className="block bg-gradient-to-r from-[#e05e14]/15 to-[#e05e14]/5 border border-[#e05e14]/30 rounded-[14px] p-4 backdrop-blur-sm hover:border-[#e05e14]/50 transition-colors group"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <div className="bg-[#e05e14]/20 border border-[#e05e14]/30 rounded-full px-2.5 py-0.5 text-[9px] text-[#e05e14] font-bold tracking-[.1em] uppercase">
+                  Free Assessment
+                </div>
+              </div>
+              <div className="text-[13px] text-white font-semibold">
+                Find out what you&rsquo;re losing to inefficiency
+              </div>
+              <div className="text-[10px] text-white/40 mt-0.5">
+                5 minutes &middot; Instant scored report &middot; No commitment
+              </div>
+            </div>
+            <div className="text-right flex-shrink-0 ml-4">
+              <div className="font-mono text-[28px] text-[#e05e14] font-bold leading-none">??<span className="text-[14px] text-white/30">/100</span></div>
+              <div className="text-[9px] text-[#e05e14]/60 mt-1 group-hover:text-[#e05e14] transition-colors">
+                Get your score &rarr;
+              </div>
+            </div>
+          </div>
+        </Link>
+
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5">
           {['Workflow AI', 'Data Strategy', 'Green Compute', 'Staff Training', 'Cost Optimization'].map((tag) => (

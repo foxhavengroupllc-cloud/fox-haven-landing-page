@@ -107,10 +107,10 @@ export const INITIATIVES: InitiativeConfig[] = [
     ],
     status: 'Now accepting clients',
     statusType: 'beta',
-    primaryAction: { label: 'Start a conversation', scrollTo: '#cta' },
+    primaryAction: { label: 'Take the free assessment', href: '/audit' },
     accentColor: '#16a34a',
     bgClass: 'bg-green-600',
-    experienceHref: '#cta',
+    experienceHref: '/initiatives/ai-for-business',
     experienceLabel: 'Learn more',
     performanceStats: [
       { value: '40%', label: 'Avg Cost Savings' },
