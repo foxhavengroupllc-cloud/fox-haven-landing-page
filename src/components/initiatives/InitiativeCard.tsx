@@ -48,14 +48,7 @@ function CtaLink({
 }: {
   initiative: InitiativeConfig;
 }) {
-  const label =
-    initiative.number === '01'
-      ? 'Open the app'
-      : initiative.number === '02'
-        ? 'Try Balm free'
-        : initiative.number === '04'
-          ? 'Start a conversation'
-          : 'Partner with us';
+  const label = initiative.primaryAction.label;
 
   return (
     <div className="flex flex-wrap items-center gap-4">
@@ -773,22 +766,8 @@ export default function InitiativeCard({ initiative, index }: Props) {
     );
   }
 
-  // Card 1: Balm reversed (visual left, body right — taller for gallery)
+  // Card 1: Solar Shelters (body left, visual right — taller for gallery)
   if (index === 1) {
-    return (
-      <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[560px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
-        <div className="order-2 lg:order-1">
-          <BalmVisual />
-        </div>
-        <div className="order-1 lg:order-2">
-          <CardBody initiative={initiative} className="h-full" />
-        </div>
-      </div>
-    );
-  }
-
-  // Card 2: Solar Shelters normal (body left, visual right — taller for gallery)
-  if (index === 2) {
     return (
       <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[560px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
         <CardBody initiative={initiative} />
@@ -797,11 +776,25 @@ export default function InitiativeCard({ initiative, index }: Props) {
     );
   }
 
-  // Card 3: AI Consulting reversed (visual left, body right)
+  // Card 2: AI Consulting reversed (visual left, body right)
+  if (index === 2) {
+    return (
+      <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-2 rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[480px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
+        <div className="order-2 lg:order-1">
+          <AIConsultingVisual />
+        </div>
+        <div className="order-1 lg:order-2">
+          <CardBody initiative={initiative} className="h-full" />
+        </div>
+      </div>
+    );
+  }
+
+  // Card 3: Balm reversed (visual left, body right — taller for gallery)
   return (
-    <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-2 rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[480px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
+    <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[560px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
       <div className="order-2 lg:order-1">
-        <AIConsultingVisual />
+        <BalmVisual />
       </div>
       <div className="order-1 lg:order-2">
         <CardBody initiative={initiative} className="h-full" />
