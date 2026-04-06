@@ -69,13 +69,13 @@ export async function POST(request: Request) {
           token,
         });
       } catch (emailError) {
-        console.error('Failed to send results email:', emailError);
+        console.error('Failed to send results email:', emailError instanceof Error ? emailError.message : 'unknown');
       }
     }
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error('Audit complete error:', error);
+    console.error('Audit complete error:', error instanceof Error ? error.message : 'unknown');
     return NextResponse.json({ error: 'Failed to complete audit' }, { status: 500 });
   }
 }

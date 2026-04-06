@@ -60,7 +60,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ tok
       completedAt: session.updated_at,
     });
   } catch (error) {
-    console.error('Results fetch error:', error);
+    console.error('Results fetch error:', error instanceof Error ? error.message : 'unknown');
     return NextResponse.json({ error: 'Failed to fetch results' }, { status: 500 });
   }
 }

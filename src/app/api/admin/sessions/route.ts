@@ -1,10 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/db';
 import { requireBasicAuth } from '@/lib/utils/auth';
+import { checkRateLimit, getClientIp } from '@/lib/utils/rateLimit';
+
+const VALID_STAGES = ['new', 'scored', 'notified', 'contacted', 'meeting_scheduled', 'proposal_sent', 'closed_won', 'closed_lost'];
 
 export async function GET(request: NextRequest) {
   const authResponse = requireBasicAuth(request);
   if (authResponse) return authResponse;
+
+  const ip = getClientIp(request);
+  if (!checkRateLimit(`admin:${ip}`, 30, 3600_000))
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
 
   try {
     const { data: sessions, error } = await supabase
@@ -51,7 +58,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ sessions: enriched });
   } catch (error) {
-    console.error('Admin sessions error:', error);
+    console.error('Admin sessions error:', error instanceof Error ? error.message : 'unknown');
     return NextResponse.json({ error: 'Failed to fetch sessions' }, { status: 500 });
   }
 }
@@ -60,10 +67,17 @@ export async function PATCH(request: NextRequest) {
   const authResponse = requireBasicAuth(request);
   if (authResponse) return authResponse;
 
+  const ip = getClientIp(request);
+  if (!checkRateLimit(`admin:${ip}`, 30, 3600_000))
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+
   try {
     const { id, outreachStage } = await request.json();
     if (!id || !outreachStage)
       return NextResponse.json({ error: 'Missing id or outreachStage' }, { status: 400 });
+
+    if (!VALID_STAGES.includes(outreachStage))
+      return NextResponse.json({ error: 'Invalid stage' }, { status: 400 });
 
     // Update the follow-up stage
     const { data: session } = await supabase
@@ -82,7 +96,7 @@ export async function PATCH(request: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error('Admin patch error:', error);
+    console.error('Admin patch error:', error instanceof Error ? error.message : 'unknown');
     return NextResponse.json({ error: 'Failed to update session' }, { status: 500 });
   }
 }

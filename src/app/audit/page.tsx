@@ -217,6 +217,12 @@ export default function AuditIntakePage() {
               >
                 {loading ? 'Starting...' : 'Start the Audit \u2192'}
               </button>
+              <p className="text-[11px] text-[#4A5A78] font-[family-name:var(--font-body)] mt-4 text-center leading-relaxed">
+                By starting this assessment, you agree that Fox Haven Group may use your responses to generate a personalized report. Your information is kept confidential and never sold to third parties. See our{' '}
+                <a href="https://foxhavengrouphq.com/privacy" className="text-[#9BAAC2] underline hover:text-[var(--color-orange)] transition-colors">
+                  privacy policy
+                </a>.
+              </p>
             </div>
           </form>
         </div>
