@@ -10,6 +10,9 @@ RULES:
 - Keep every string concise and presentation-safe. No paragraphs.
 - Avoid buzzwords. Be specific and concrete.
 - Focus on: time loss, revenue leakage, slow response, manual process burden, uncontrolled AI use risk.
+- When AI Audit Results are provided, treat them as verified evidence — use confident language ("the audit revealed", "assessment confirmed") rather than directional language for audit-backed claims.
+- When audit results include inefficiency estimates, use those figures for impactEstimate instead of generating new ones.
+- Cite audit findings in evidenceNotes (e.g. "AI Solutions Audit scored operations at 32/100").
 - Never include bullet markers in strings.
 - Never exceed the character limits specified in the schema.
 - All content must fit on presentation slides — short, punchy, clear.
@@ -49,6 +52,13 @@ export function buildUserPrompt(
   if (input.contactName) parts.push(`Contact: ${input.contactName}`);
   if (input.contactTitle) parts.push(`Title: ${input.contactTitle}`);
   if (input.notes) parts.push(`Notes: ${input.notes}`);
+
+  if (input.auditFindings) {
+    parts.push('');
+    parts.push('=== AI SOLUTIONS AUDIT RESULTS (verified, from structured assessment) ===');
+    parts.push(input.auditFindings);
+    parts.push('(These are verified findings from a completed audit — prioritize them over inferred data when building pains, inefficiencies, opportunities, and impact estimates.)');
+  }
 
   if (enrichment) {
     parts.push('');

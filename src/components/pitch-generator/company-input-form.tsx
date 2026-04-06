@@ -39,8 +39,10 @@ export default function CompanyInputForm({ onSubmit, isLoading }: Props) {
     contactName: '',
     contactTitle: '',
     notes: '',
+    auditFindings: '',
     useWebsiteEnrichment: true,
   });
+  const [showAudit, setShowAudit] = useState(false);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -184,6 +186,40 @@ export default function CompanyInputForm({ onSubmit, isLoading }: Props) {
           disabled={isLoading}
         />
       </Field>
+
+      <div className="border border-white/[.08] rounded-xl overflow-hidden">
+        <button
+          type="button"
+          onClick={() => setShowAudit(!showAudit)}
+          className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-white/[.02] transition-colors"
+          disabled={isLoading}
+        >
+          <span className="text-[12px] tracking-[.06em] uppercase text-white/50 font-medium">
+            AI Audit Results
+          </span>
+          <span className={cn(
+            'text-white/30 text-[13px] transition-transform',
+            showAudit && 'rotate-180',
+          )}>
+            ▼
+          </span>
+        </button>
+        {showAudit && (
+          <div className="px-4 pb-4">
+            <p className="text-[12px] text-white/30 mb-2">
+              Paste findings from a completed AI Solutions Audit. The deck will use verified data instead of estimates.
+            </p>
+            <textarea
+              value={form.auditFindings}
+              onChange={(e) => update('auditFindings', e.target.value)}
+              placeholder={`Score: 42/100 (Needs Work)\nInefficiency estimate: $28K–$56K/year\n\nOpportunities:\n- Automate sales follow-up ($8K–$30K/yr)\n- Eliminate duplicate data entry ($5K–$20K/yr)\n\nBlockers:\n- No owner for process improvement (Critical)\n- High resistance to change (Moderate)\n\nKey findings:\n- Lead response time > 24 hours\n- 10+ hours/week on manual admin\n- All follow-up is manual`}
+              rows={8}
+              className={cn(inputClass, 'resize-none text-[13px]')}
+              disabled={isLoading}
+            />
+          </div>
+        )}
+      </div>
 
       <label className="flex items-center gap-3 cursor-pointer group">
         <input

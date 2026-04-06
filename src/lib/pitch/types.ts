@@ -79,6 +79,7 @@ export const companyInputSchema = z.object({
   contactName: z.string().optional(),
   contactTitle: z.string().optional(),
   notes: z.string().optional(),
+  auditFindings: z.string().optional(),
   useWebsiteEnrichment: z.boolean().default(false),
 });
 
