@@ -34,7 +34,7 @@ export async function POST(request: Request) {
 
     const { data: company, error: companyErr } = await supabase
       .from('audit_companies')
-      .insert({ name: companyName, industry: industry || null, revenue_band: revenueRange || null })
+      .insert({ name: companyName, industry: industry || 'Not specified', revenue_band: revenueRange || null })
       .select()
       .single();
 
