@@ -53,14 +53,23 @@ function CtaLink({
   return (
     <div className="flex flex-wrap items-center gap-4">
       {initiative.primaryAction.href ? (
+        initiative.primaryAction.href.startsWith('/') ? (
+        <Link
+          href={initiative.primaryAction.href}
+          className="bg-[#e05e14] hover:bg-[#c4500f] text-white text-[15px] font-semibold tracking-[.02em] inline-flex items-center gap-2 px-6 py-3 rounded-full transition-colors"
+        >
+          {label} &rarr;
+        </Link>
+        ) : (
         <a
           href={initiative.primaryAction.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#e05e14] text-[13px] font-semibold tracking-[.04em] inline-flex items-center gap-1.5 transition-[gap] duration-200 hover:gap-2.5"
+          className="bg-[#e05e14] hover:bg-[#c4500f] text-white text-[15px] font-semibold tracking-[.02em] inline-flex items-center gap-2 px-6 py-3 rounded-full transition-colors"
         >
           {label} &rarr;
         </a>
+        )
       ) : (
         <button
           onClick={() => {
@@ -736,25 +745,25 @@ function AIConsultingVisual() {
         {/* Audit CTA callout */}
         <Link
           href="/audit"
-          className="block bg-gradient-to-r from-[#e05e14]/15 to-[#e05e14]/5 border border-[#e05e14]/30 rounded-[14px] p-4 backdrop-blur-sm hover:border-[#e05e14]/50 transition-colors group"
+          className="block bg-gradient-to-r from-[#e05e14]/20 to-[#e05e14]/5 border-2 border-[#e05e14]/40 rounded-[16px] p-5 backdrop-blur-sm hover:border-[#e05e14]/70 hover:from-[#e05e14]/25 transition-all group"
         >
           <div className="flex items-center justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-1.5">
-                <div className="bg-[#e05e14]/20 border border-[#e05e14]/30 rounded-full px-2.5 py-0.5 text-[9px] text-[#e05e14] font-bold tracking-[.1em] uppercase">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="bg-[#e05e14]/25 border border-[#e05e14]/40 rounded-full px-3 py-1 text-[11px] text-[#e05e14] font-bold tracking-[.1em] uppercase">
                   Free Assessment
                 </div>
               </div>
-              <div className="text-[13px] text-white font-semibold">
+              <div className="text-[16px] text-white font-bold leading-snug">
                 Find out what you&rsquo;re losing to inefficiency
               </div>
-              <div className="text-[10px] text-white/40 mt-0.5">
+              <div className="text-[12px] text-white/45 mt-1">
                 5 minutes &middot; Instant scored report &middot; No commitment
               </div>
             </div>
-            <div className="text-right flex-shrink-0 ml-4">
-              <div className="font-mono text-[28px] text-[#e05e14] font-bold leading-none">??<span className="text-[14px] text-white/30">/100</span></div>
-              <div className="text-[9px] text-[#e05e14]/60 mt-1 group-hover:text-[#e05e14] transition-colors">
+            <div className="text-right flex-shrink-0 ml-5">
+              <div className="font-mono text-[36px] text-[#e05e14] font-bold leading-none">??<span className="text-[18px] text-white/30">/100</span></div>
+              <div className="text-[11px] text-[#e05e14]/70 mt-1.5 font-semibold group-hover:text-[#e05e14] transition-colors">
                 Get your score &rarr;
               </div>
             </div>
