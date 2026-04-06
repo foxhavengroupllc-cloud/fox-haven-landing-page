@@ -64,8 +64,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ token });
   } catch (error) {
-    const msg = error instanceof Error ? error.message : 'unknown';
-    console.error('Audit start error:', msg);
-    return NextResponse.json({ error: 'Failed to start audit', debug: msg }, { status: 500 });
+    console.error('Audit start error:', error instanceof Error ? error.message : 'unknown');
+    return NextResponse.json({ error: 'Failed to start audit' }, { status: 500 });
   }
 }
