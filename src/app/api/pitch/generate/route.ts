@@ -3,6 +3,8 @@ import { validateCompanyInput } from '@/lib/pitch/validators';
 import { runPitchGenerationPipeline } from '@/lib/pitch/run-pipeline';
 import { checkAdminAuth } from '@/lib/utils/admin-auth';
 
+export const maxDuration = 60;
+
 export async function POST(req: NextRequest) {
   const authError = checkAdminAuth(req);
   if (authError) return authError;

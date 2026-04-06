@@ -1,7 +1,6 @@
-import { writeFile, mkdir } from 'fs/promises';
-import path from 'path';
+import { supabase } from '@/db';
 
-const DECK_DIR = '/tmp/pitch-decks';
+const BUCKET = 'pitch-decks';
 
 function slugify(str: string): string {
   return str
@@ -14,14 +13,22 @@ export async function saveDeck(
   buffer: Buffer,
   companyName: string,
 ): Promise<string> {
-  await mkdir(DECK_DIR, { recursive: true });
-
   const date = new Date().toISOString().slice(0, 10);
   const slug = slugify(companyName);
   const filename = `fox-haven-pitch-${slug}-${date}.pptx`;
-  const filePath = path.join(DECK_DIR, filename);
+  const storagePath = `decks/${filename}`;
 
-  await writeFile(filePath, buffer);
+  const { error } = await supabase.storage
+    .from(BUCKET)
+    .upload(storagePath, buffer, {
+      contentType:
+        'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+      upsert: true,
+    });
 
-  return filePath;
+  if (error) {
+    throw new Error(`Failed to upload deck to storage: ${error.message}`);
+  }
+
+  return storagePath;
 }

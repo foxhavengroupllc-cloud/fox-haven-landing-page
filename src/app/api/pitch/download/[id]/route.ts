@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/db';
-import { readFile } from 'fs/promises';
 import { checkAdminAuth } from '@/lib/utils/admin-auth';
+
+const BUCKET = 'pitch-decks';
 
 export async function GET(
   req: NextRequest,
@@ -29,7 +30,16 @@ export async function GET(
       .eq('id', run.company_id)
       .single();
 
-    const buffer = await readFile(run.pptx_file_path);
+    const { data: fileData, error: downloadErr } = await supabase.storage
+      .from(BUCKET)
+      .download(run.pptx_file_path);
+
+    if (downloadErr || !fileData) {
+      console.error('[pitch/download] storage error:', downloadErr);
+      return NextResponse.json({ error: 'File not found in storage' }, { status: 404 });
+    }
+
+    const buffer = Buffer.from(await fileData.arrayBuffer());
     const slug = (company?.name ?? 'deck')
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
