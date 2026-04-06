@@ -7,7 +7,7 @@ function getClient() {
 }
 
 function getModel() {
-  return process.env.ANTHROPIC_MODEL ?? 'claude-sonnet-4-5';
+  return process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5';
 }
 
 interface GenerationResult {
