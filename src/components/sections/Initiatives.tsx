@@ -1,7 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import { INITIATIVES } from '@/lib/intent-config';
 import InitiativeCard from '@/components/initiatives/InitiativeCard';
+import LearnMoreModal from '@/components/ai-small-biz/LearnMoreModal';
 
 export default function Initiatives() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section id="initiatives" className="py-[120px] bg-[#ede3d2]" data-cursor="light">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-16">
@@ -29,10 +35,21 @@ export default function Initiatives() {
         {/* Initiative cards */}
         <div className="flex flex-col gap-7">
           {INITIATIVES.map((initiative, i) => (
-            <InitiativeCard key={initiative.id} initiative={initiative} index={i} />
+            <InitiativeCard
+              key={initiative.id}
+              initiative={initiative}
+              index={i}
+              onLearnMoreClick={
+                initiative.id === 'ai-consulting'
+                  ? () => setModalOpen(true)
+                  : undefined
+              }
+            />
           ))}
         </div>
       </div>
+
+      <LearnMoreModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

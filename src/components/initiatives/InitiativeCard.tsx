@@ -10,6 +10,7 @@ import useTiltCard from '@/hooks/useTiltCard';
 interface Props {
   initiative: InitiativeConfig;
   index: number;
+  onLearnMoreClick?: () => void;
 }
 
 /* ────────────────────────────────────────────────────
@@ -45,8 +46,10 @@ function StatsGrid({ stats }: { stats: { value: string; label: string }[] }) {
 
 function CtaLink({
   initiative,
+  onLearnMoreClick,
 }: {
   initiative: InitiativeConfig;
+  onLearnMoreClick?: () => void;
 }) {
   const label = initiative.primaryAction.label;
 
@@ -86,13 +89,23 @@ function CtaLink({
           {label} &rarr;
         </button>
       )}
-      <Link
-        href={initiative.experienceHref}
-        className="text-[#0b1c2e]/50 text-[12px] font-medium hover:text-[#e05e14] transition-colors inline-flex items-center gap-1.5"
-      >
-        <span aria-hidden="true">&#9654;</span>
-        {initiative.experienceLabel}
-      </Link>
+      {onLearnMoreClick ? (
+        <button
+          onClick={onLearnMoreClick}
+          className="text-[#0b1c2e]/50 text-[12px] font-medium hover:text-[#e05e14] transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+        >
+          <span aria-hidden="true">&#9654;</span>
+          {initiative.experienceLabel}
+        </button>
+      ) : (
+        <Link
+          href={initiative.experienceHref}
+          className="text-[#0b1c2e]/50 text-[12px] font-medium hover:text-[#e05e14] transition-colors inline-flex items-center gap-1.5"
+        >
+          <span aria-hidden="true">&#9654;</span>
+          {initiative.experienceLabel}
+        </Link>
+      )}
     </div>
   );
 }
@@ -100,9 +113,11 @@ function CtaLink({
 function CardBody({
   initiative,
   className,
+  onLearnMoreClick,
 }: {
   initiative: InitiativeConfig;
   className?: string;
+  onLearnMoreClick?: () => void;
 }) {
   return (
     <div className={`bg-white p-[52px_48px] flex flex-col justify-between ${className ?? ''}`}>
@@ -125,7 +140,7 @@ function CardBody({
       </div>
       <div>
         {initiative.performanceStats && <StatsGrid stats={initiative.performanceStats} />}
-        <CtaLink initiative={initiative} />
+        <CtaLink initiative={initiative} onLearnMoreClick={onLearnMoreClick} />
       </div>
     </div>
   );
@@ -790,7 +805,7 @@ function AIConsultingVisual() {
    Main component
    ──────────────────────────────────────────────────── */
 
-export default function InitiativeCard({ initiative, index }: Props) {
+export default function InitiativeCard({ initiative, index, onLearnMoreClick }: Props) {
   const tiltRef = useTiltCard<HTMLDivElement>({ maxTilt: 4, scale: 1.01, glareColor: 'rgba(224,94,20,0.04)' });
 
   // Card 0: Heat App full-bleed (body left, screens right, wider right col)
@@ -821,7 +836,7 @@ export default function InitiativeCard({ initiative, index }: Props) {
           <AIConsultingVisual />
         </div>
         <div className="order-1 lg:order-2">
-          <CardBody initiative={initiative} className="h-full" />
+          <CardBody initiative={initiative} className="h-full" onLearnMoreClick={onLearnMoreClick} />
         </div>
       </div>
     );

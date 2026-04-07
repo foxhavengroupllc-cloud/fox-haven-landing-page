@@ -20,6 +20,7 @@ type Database = {
       audit_contacts: TableDef;
       audit_sessions: TableDef;
       audit_follow_ups: TableDef;
+      leads: TableDef;
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;

@@ -22,6 +22,15 @@
   --color-cream-warm: #ede3d2;
   --color-orange: #e05e14;
 
+  /* Sharp Signal dark tokens (AI service page + modal) */
+  --color-navy-card: #161D2E;
+  --color-border: #1E293B;
+  --color-text: #F1F5F9;
+  --color-text-2: #94A3B8;
+  --color-muted: #475569;
+  --color-gold: #FBBF24;
+  --color-orange-glow: rgba(249, 115, 22, 0.10);
+
   /* Legacy aliases — initiative sub-pages may still reference these */
   --color-heat-amber: #e05e14;
   --color-heat-amber-light: #F5A64A;
@@ -271,6 +280,11 @@
     opacity: 1;
     transform: none;
   }
+}
+
+/* ── Hide Nav CTA on service pages ── */
+.hide-nav-cta nav .bg-orange {
+  display: none !important;
 }
 
 /* ══════════════════════════════════════════════════════
