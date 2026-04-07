@@ -524,24 +524,24 @@ export function PhaseNavigation({
       </div>
 
       {/* Prev / Next */}
-      <div className="flex items-center gap-4 pointer-events-auto">
+      <div className="flex items-center gap-6 pointer-events-auto">
         {canGoPrev && (
           <button
             onClick={onPrev}
             disabled={isTransitioning}
-            className="text-slate-600 hover:text-slate-400 text-xs font-mono tracking-wider transition-colors disabled:opacity-30 cursor-pointer disabled:cursor-default"
+            className="text-slate-300 hover:text-white text-sm font-mono tracking-wider transition-colors disabled:opacity-30 cursor-pointer disabled:cursor-default"
           >
             ← PREV
           </button>
         )}
-        <span className="text-slate-800 text-xs font-mono">
+        <span className="text-slate-400 text-sm font-mono font-medium">
           {PHASE_LABELS[phase]?.toUpperCase() ?? ''}
         </span>
         {canGoNext && (
           <button
             onClick={onNext}
             disabled={isTransitioning}
-            className="text-slate-400 hover:text-white text-xs font-mono tracking-wider transition-colors disabled:opacity-30 cursor-pointer disabled:cursor-default"
+            className="text-slate-300 hover:text-white text-sm font-mono tracking-wider transition-colors disabled:opacity-30 cursor-pointer disabled:cursor-default"
           >
             NEXT →
           </button>
