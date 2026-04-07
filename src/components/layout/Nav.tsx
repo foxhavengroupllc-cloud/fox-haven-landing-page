@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { scrollToSection } from '@/lib/scroll';
 
 const LINKS = [
@@ -13,6 +14,19 @@ const LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const navigateOrScroll = useCallback(
+    (target: string) => {
+      if (pathname === '/') {
+        scrollToSection(target);
+      } else {
+        router.push('/' + target);
+      }
+    },
+    [pathname, router],
+  );
 
   useEffect(() => {
     function onScroll() {
@@ -33,7 +47,7 @@ export default function Nav() {
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <button
-          onClick={() => scrollToSection('#hero')}
+          onClick={() => navigateOrScroll('#hero')}
           className="flex items-center gap-2.5 group cursor-pointer"
         >
           <div className="w-[34px] h-[34px] bg-orange rounded-[9px] flex items-center justify-center">
@@ -53,7 +67,7 @@ export default function Nav() {
           {LINKS.map((link) => (
             <button
               key={link.target}
-              onClick={() => scrollToSection(link.target)}
+              onClick={() => navigateOrScroll(link.target)}
               className="font-body text-[13px] font-medium tracking-[0.04em] text-cream/50 hover:text-cream transition-colors duration-200 cursor-pointer"
             >
               {link.label}
@@ -64,7 +78,7 @@ export default function Nav() {
         {/* Desktop CTA */}
         <div className="hidden md:block">
           <button
-            onClick={() => scrollToSection('#cta')}
+            onClick={() => navigateOrScroll('#cta')}
             className="bg-orange text-white px-[22px] py-2.5 rounded-full font-body text-[13px] font-semibold tracking-[0.03em] hover:bg-[#f07033] hover:-translate-y-px hover:shadow-[0_8px_28px_rgba(224,94,20,0.35)] transition-all duration-200 cursor-pointer"
           >
             Get Help Now &rarr;

@@ -102,7 +102,7 @@ function SphereNode({ node, proj, isHovered, isActive, onHover, onActivate }: No
       tabIndex={0}
       aria-label={`${node.label} — ${node.sublabel}`}
       aria-pressed={isActive}
-      style={{ opacity, cursor: 'pointer' }}
+      style={{ opacity, cursor: 'pointer', outline: 'none' }}
       onMouseEnter={() => onHover(node.id)}
       onMouseLeave={() => onHover(null)}
       onClick={() => onActivate(node)}

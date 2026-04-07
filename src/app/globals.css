@@ -282,6 +282,12 @@
   }
 }
 
+/* ── SVG interactive nodes — remove browser focus ring ── */
+svg g[role="button"]:focus,
+svg g[role="button"]:focus-visible {
+  outline: none;
+}
+
 /* ── Hide Nav CTA on service pages ── */
 .hide-nav-cta nav .bg-orange {
   display: none !important;
