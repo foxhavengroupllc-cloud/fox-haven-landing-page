@@ -2,13 +2,15 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { scrollToSection } from '@/lib/scroll';
 
-const LINKS = [
-  { label: 'Mission', target: '#mission-band' },
-  { label: 'Initiatives', target: '#initiatives' },
-  { label: 'Community', target: '#voices' },
-  { label: 'Get Involved', target: '#cta' },
+const LINKS: { label: string; target: string; type: 'scroll' | 'route' }[] = [
+  { label: 'Mission', target: '#mission-band', type: 'scroll' },
+  { label: 'Initiatives', target: '#initiatives', type: 'scroll' },
+  { label: 'AI Solutions', target: '/ai-solutions', type: 'route' },
+  { label: 'Community', target: '#voices', type: 'scroll' },
+  { label: 'Get Involved', target: '#cta', type: 'scroll' },
 ];
 
 export default function Nav() {
@@ -64,15 +66,25 @@ export default function Nav() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-9">
-          {LINKS.map((link) => (
-            <button
-              key={link.target}
-              onClick={() => navigateOrScroll(link.target)}
-              className="font-body text-[13px] font-medium tracking-[0.04em] text-cream/50 hover:text-cream transition-colors duration-200 cursor-pointer"
-            >
-              {link.label}
-            </button>
-          ))}
+          {LINKS.map((link) =>
+            link.type === 'route' ? (
+              <Link
+                key={link.target}
+                href={link.target}
+                className="font-body text-[13px] font-medium tracking-[0.04em] text-cream/50 hover:text-cream transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <button
+                key={link.target}
+                onClick={() => navigateOrScroll(link.target)}
+                className="font-body text-[13px] font-medium tracking-[0.04em] text-cream/50 hover:text-cream transition-colors duration-200 cursor-pointer"
+              >
+                {link.label}
+              </button>
+            ),
+          )}
         </div>
 
         {/* Desktop CTA */}
@@ -113,21 +125,32 @@ export default function Nav() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
           menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
-        } bg-navy-deep/95 backdrop-blur-xl`}
+        } bg-navy-deep`}
       >
         <div className="py-4 border-t border-cream/[0.08]">
-          {LINKS.map((link) => (
-            <button
-              key={link.target}
-              onClick={() => {
-                scrollToSection(link.target);
-                setMenuOpen(false);
-              }}
-              className="block w-full text-left px-6 py-3 font-body text-base font-medium text-cream/80 hover:text-cream transition-colors cursor-pointer"
-            >
-              {link.label}
-            </button>
-          ))}
+          {LINKS.map((link) =>
+            link.type === 'route' ? (
+              <Link
+                key={link.target}
+                href={link.target}
+                onClick={() => setMenuOpen(false)}
+                className="block w-full text-left px-6 py-3 font-body text-base font-medium text-cream/80 hover:text-cream transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <button
+                key={link.target}
+                onClick={() => {
+                  scrollToSection(link.target);
+                  setMenuOpen(false);
+                }}
+                className="block w-full text-left px-6 py-3 font-body text-base font-medium text-cream/80 hover:text-cream transition-colors cursor-pointer"
+              >
+                {link.label}
+              </button>
+            ),
+          )}
           <div className="px-6 pt-3 pb-2">
             <button
               onClick={() => {

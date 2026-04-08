@@ -5,8 +5,58 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 const NOTIFY_EMAIL = process.env.LEAD_NOTIFY_EMAIL ?? 'hello@foxhavengrouphq.com';
 
+/* ── Rate limiter (per IP, 5 submissions per 15 min) ── */
+const rateMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 5;
+const RATE_WINDOW = 15 * 60 * 1000; // 15 minutes
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW });
+    return false;
+  }
+  entry.count++;
+  return entry.count > RATE_LIMIT;
+}
+
+/* ── HTML sanitizer — escape all user input before embedding in HTML ── */
+function esc(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/* ── Allowed source values (prevent injection via source field) ── */
+const ALLOWED_SOURCES = [
+  'ai-small-biz-page',
+  'ai-solutions-hub',
+  'ai-solutions-pricing',
+  'ai-solutions-faq',
+];
+
+function sanitizeSource(source: unknown): string {
+  if (typeof source === 'string' && (ALLOWED_SOURCES.includes(source) || source.startsWith('ai-solutions-'))) {
+    return source.replace(/[^a-z0-9-]/gi, '');
+  }
+  return 'ai-small-biz-page';
+}
+
 export async function POST(req: NextRequest) {
   try {
+    /* Rate limiting */
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Too many submissions. Please try again later.' },
+        { status: 429 },
+      );
+    }
+
     const body = await req.json();
     const { fullName, email, company, painPoint, source } = body;
 
@@ -14,17 +64,28 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Name and email are required.' }, { status: 400 });
     }
 
+    /* Input length limits */
+    if (fullName.length > 200 || email.length > 254 || (company && company.length > 200) || (painPoint && painPoint.length > 500)) {
+      return NextResponse.json({ error: 'Input too long.' }, { status: 400 });
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
     }
 
+    const safeName = fullName.trim();
+    const safeEmail = email.trim().toLowerCase();
+    const safeCompany = company?.trim() || null;
+    const safePainPoint = painPoint?.trim() || null;
+    const safeSource = sanitizeSource(source);
+
     const { error: dbError } = await supabase.from('leads').insert({
-      full_name: fullName.trim(),
-      email: email.trim().toLowerCase(),
-      company: company?.trim() || null,
-      pain_point: painPoint?.trim() || null,
-      source: source ?? 'ai-small-biz-page',
+      full_name: safeName,
+      email: safeEmail,
+      company: safeCompany,
+      pain_point: safePainPoint,
+      source: safeSource,
     });
 
     if (dbError) {
@@ -35,14 +96,14 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: 'Fox Haven HQ <noreply@foxhavengrouphq.com>',
       to: NOTIFY_EMAIL,
-      subject: `New lead: ${fullName} — ${company ?? 'Unknown company'}`,
+      subject: `New lead: ${esc(safeName)} — ${esc(safeCompany ?? 'Unknown company')}`,
       html: `
         <h2>New AI for Small Business Lead</h2>
-        <p><strong>Name:</strong> ${fullName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Company:</strong> ${company ?? '—'}</p>
-        <p><strong>Biggest pain point:</strong> ${painPoint ?? '—'}</p>
-        <p><strong>Source:</strong> ${source ?? 'ai-small-biz-page'}</p>
+        <p><strong>Name:</strong> ${esc(safeName)}</p>
+        <p><strong>Email:</strong> ${esc(safeEmail)}</p>
+        <p><strong>Company:</strong> ${esc(safeCompany ?? '—')}</p>
+        <p><strong>Biggest pain point:</strong> ${esc(safePainPoint ?? '—')}</p>
+        <p><strong>Source:</strong> ${esc(safeSource)}</p>
       `,
     });
 

@@ -110,8 +110,8 @@ export const INITIATIVES: InitiativeConfig[] = [
     primaryAction: { label: 'Take the free assessment', href: '/audit' },
     accentColor: '#16a34a',
     bgClass: 'bg-green-600',
-    experienceHref: '/initiatives/ai-for-business',
-    experienceLabel: 'Learn more',
+    experienceHref: '/ai-solutions',
+    experienceLabel: 'Explore AI Solutions',
     performanceStats: [
       { value: '40%', label: 'Avg Cost Savings' },
       { value: '60%', label: 'Less Compute' },

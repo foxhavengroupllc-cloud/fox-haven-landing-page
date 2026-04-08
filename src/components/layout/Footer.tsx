@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { scrollToSection } from '@/lib/scroll';
 
 const NAV_LINKS = [
@@ -15,13 +16,20 @@ const INITIATIVE_LINKS = [
   { label: 'Heat Relief Solar Shelters', target: '#ic3' },
 ];
 
+const AI_SOLUTIONS_LINKS = [
+  { label: 'AI Solutions', href: '/ai-solutions' },
+  { label: 'All Services', href: '/ai-solutions/services' },
+  { label: 'Pricing', href: '/ai-solutions/pricing' },
+  { label: 'Free Audit', href: '/audit' },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-[#040b14] border-t border-[#f4ede0]/8" style={{ padding: '56px 0 0' }}>
       <div className="max-w-[1200px] mx-auto px-6">
         {/* 3-column grid */}
         <div
-          className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-14"
+          className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-14"
           style={{ paddingBottom: 56 }}
         >
           {/* Brand column */}
@@ -86,6 +94,25 @@ export default function Footer() {
                   >
                     {link.label}
                   </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* AI Solutions column */}
+          <div>
+            <h4 className="font-body text-[11px] font-semibold text-[#f4ede0]/30 tracking-[0.14em] uppercase mb-5">
+              AI Solutions
+            </h4>
+            <ul className="space-y-3">
+              {AI_SOLUTIONS_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="font-body text-sm text-[#f4ede0]/50 hover:text-[#f4ede0] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>

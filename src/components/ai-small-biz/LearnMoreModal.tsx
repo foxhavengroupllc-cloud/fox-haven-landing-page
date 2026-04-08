@@ -148,7 +148,7 @@ export default function LearnMoreModal({ isOpen, onClose }: LearnMoreModalProps)
               <button
                 onClick={() => {
                   onClose();
-                  router.push('/ai-for-small-business');
+                  router.push('/ai-solutions');
                 }}
                 className="flex-1 text-center border border-[#1E293B] text-[#F1F5F9] font-medium rounded-lg py-2.5 text-[13px] hover:border-[#e05e14]/40 transition-colors cursor-pointer"
               >
