@@ -2,8 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 
-const SCRAMBLE_CHARS =
-  '!@#$%^&*()_+-=[]{}|;:,.<>?/~`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+const SCRAMBLE_CHARS = '01';
 
 interface TextScrambleProps {
   text: string;
@@ -26,7 +25,6 @@ export default function TextScramble({
   const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const [displayText, setDisplayText] = useState(text);
-  const [resolved, setResolved] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   // Detect reduced motion preference on mount
@@ -99,7 +97,6 @@ export default function TextScramble({
             cancelAnimationFrame(frameRef.current);
             frameRef.current = null;
           }
-          setResolved(true);
         }
       }, i * stagger);
       timeoutsRef.current.push(t);
@@ -110,7 +107,6 @@ export default function TextScramble({
   useEffect(() => {
     if (prefersReducedMotion) {
       setDisplayText(text);
-      setResolved(true);
       return;
     }
 
@@ -149,14 +145,13 @@ export default function TextScramble({
   // Reset if text prop changes
   useEffect(() => {
     hasAnimatedRef.current = false;
-    setResolved(false);
     setDisplayText(text);
   }, [text]);
 
   return (
     <Tag
       ref={elRef}
-      className={`${!resolved ? 'font-mono' : ''} ${className}`.trim()}
+      className={className}
     >
       {displayText}
     </Tag>
