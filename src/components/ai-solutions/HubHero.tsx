@@ -1,8 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import TextScramble from '@/components/ui/TextScramble';
-
 const STATS = [
   { value: '8', label: 'AI Services' },
   { value: '40%', label: 'Avg Cost Savings' },
@@ -23,11 +21,7 @@ export default function HubHero() {
 
         <div className="hero-line-anim" style={{ '--hero-delay': '0.1s' } as React.CSSProperties}>
           <h1 className="font-[family-name:var(--font-display)] font-bold text-3xl md:text-5xl leading-[1.15]">
-            <TextScramble
-              text="AI that works for your business"
-              as="span"
-              className="font-[family-name:var(--font-display)] font-bold"
-            />
+            AI that works for your business
             <br />
             <span className="text-[#e05e14]">&mdash; not the other way around</span>
           </h1>
