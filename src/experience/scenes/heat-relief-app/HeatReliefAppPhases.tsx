@@ -133,16 +133,22 @@ export function Phase0Emergency({ transitionState }: { transitionState: PhaseTra
         {/* Temperature */}
         <h1
           className={`font-black leading-none mb-4 transition-opacity duration-500 ${isLoading ? 'opacity-40' : 'opacity-100'}`}
-          style={{
-            fontSize: 'clamp(4.5rem, 18vw, 12rem)',
-            background: risk.tempGrad,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
           aria-label={`${d.temp} degrees Fahrenheit`}
         >
-          {d.temp}°F
+          <span
+            style={{
+              fontSize: 'clamp(4.5rem, 18vw, 12rem)',
+              display: 'inline-block',
+              lineHeight: 1,
+              color: '#f59e0b',
+              backgroundImage: risk.tempGrad,
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            {d.temp}°F
+          </span>
         </h1>
 
         <p className="text-xl sm:text-2xl text-white font-light mb-2">

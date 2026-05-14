@@ -21,7 +21,7 @@ export default function SubNav() {
   }
 
   return (
-    <div className="sticky top-[68px] z-[150] border-b border-[#1E293B] bg-[#0b1c2e]/90 backdrop-blur-xl">
+    <div className="sticky top-[71px] z-[150] border-b border-[#1E293B] bg-[#0b1c2e]/90 backdrop-blur-xl">
       <div className="max-w-[1200px] mx-auto px-6">
         <nav
           className="flex items-center gap-1 overflow-x-auto scrollbar-none -mx-1 px-1"
