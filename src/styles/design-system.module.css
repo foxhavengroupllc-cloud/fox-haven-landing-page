@@ -2600,3 +2600,19 @@
   text-transform: uppercase;
   color: rgba(255, 244, 223, 0.5);
 }
+
+/* ─── Detail section: lead form variant ─── */
+/* Used when the right column of a .detailSection is a form (e.g. the
+   AI Solutions hub CTA section with LeadForm). Gives the form a card
+   look that matches the rest of the design language. */
+
+.detailLeadForm {
+  position: relative;
+  align-self: center;
+  width: 100%;
+  padding: clamp(1.2rem, 2vw, 1.8rem);
+  border-radius: 12px;
+  border: 1px solid rgba(33, 20, 14, 0.12);
+  background: rgba(255, 248, 236, 0.88);
+  box-shadow: 0 18px 42px rgba(11, 28, 46, 0.14);
+}
