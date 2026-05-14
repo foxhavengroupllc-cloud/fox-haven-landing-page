@@ -1,86 +1,131 @@
-'use client';
-
 import Link from 'next/link';
-import PricingTable from '@/components/ai-solutions/PricingTable';
+import styles from '@/styles/design-system.module.css';
 import LeadForm from '@/components/ai-small-biz/LeadForm';
-import { FAQ_ITEMS } from '@/lib/ai-solutions-config';
+import { PRICING_TIERS, FAQ_ITEMS } from '@/lib/ai-solutions-config';
+
+/**
+ * Pricing page — restyled to use design-system archetypes.
+ * Data unchanged: PRICING_TIERS (4) + first 3 pricing-category FAQ items.
+ */
 
 const pricingFAQ = FAQ_ITEMS.filter((f) => f.category === 'pricing').slice(0, 3);
 
 export default function PricingPage() {
   return (
     <>
-      <section className="pt-24 pb-8 px-4">
-        <div className="max-w-[680px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-6 hero-line-anim" style={{ '--hero-delay': '0s' } as React.CSSProperties}>
-            <div className="w-5 h-px bg-[#e05e14]" />
-            <span className="text-[10px] tracking-[0.16em] uppercase text-[#e05e14] font-semibold">
-              ◈ PRICING
-            </span>
-          </div>
-
-          <h1
-            className="font-[family-name:var(--font-display)] font-bold text-3xl md:text-4xl leading-[1.15] hero-line-anim"
-            style={{ '--hero-delay': '0.1s' } as React.CSSProperties}
-          >
-            Every engagement starts with a{' '}
-            <em className="text-[#e05e14] not-italic">free audit</em>
-          </h1>
-
-          <p
-            className="text-[16px] text-[#94A3B8] max-w-[520px] mx-auto mt-5 leading-[1.75] hero-line-anim"
-            style={{ '--hero-delay': '0.2s' } as React.CSSProperties}
-          >
-            Know your ROI before you commit. The audit is free, and every plan
-            is scoped to your specific needs — not a one-size-fits-all package.
+      {/* ── Hero ── */}
+      <section className={styles.detailSection}>
+        <div className={styles.detailIntro}>
+          <p className={styles.eyebrow}>◈ PRICING</p>
+          <h2>Every engagement starts with a free audit.</h2>
+          <p>
+            Know your ROI before you commit. The audit is free, and every plan is scoped to your
+            specific needs — not a one-size-fits-all package.
           </p>
+          <div className={styles.detailActions}>
+            <Link className={styles.solidButton} href="/audit">
+              Start the free audit
+              <span className={styles.linkArrow} aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="py-12 px-4">
-        <div className="max-w-[1100px] mx-auto">
-          <PricingTable />
-        </div>
-      </section>
-
-      {pricingFAQ.length > 0 && (
-        <section className="py-12 px-4">
-          <div className="max-w-[680px] mx-auto">
-            <div className="text-[10px] tracking-[0.14em] uppercase text-[#e05e14] font-semibold mb-4">
-              ◉ COMMON PRICING QUESTIONS
+      {/* ── Pricing tiers ── */}
+      <div className={styles.pricingGrid}>
+        {PRICING_TIERS.map((tier) => (
+          <article
+            key={tier.name}
+            className={`${styles.pricingTier} ${tier.highlighted ? styles.pricingTierHighlighted : ''}`}
+          >
+            {tier.highlighted && <span className={styles.pricingPopular}>Most Popular</span>}
+            <h3 className={styles.pricingTierName}>{tier.name}</h3>
+            <div className={styles.pricingPriceRow}>
+              <span className={styles.pricingPrice}>{tier.price}</span>
+              {tier.priceNote && (
+                <span className={styles.pricingPriceNote}>{tier.priceNote}</span>
+              )}
             </div>
-            <div className="space-y-4">
-              {pricingFAQ.map((faq, i) => (
-                <div key={i} className="reveal bg-[#112440] border border-[#1E293B] rounded-lg p-5">
-                  <h3 className="text-[#F1F5F9] font-semibold text-[14px] mb-2">{faq.question}</h3>
-                  <p className="text-[#94A3B8] text-[13px] leading-relaxed">{faq.answer}</p>
-                </div>
+            <p className={styles.pricingDescription}>{tier.description}</p>
+            <ul className={styles.pricingFeatures}>
+              {tier.features.map((feature, i) => (
+                <li key={i}>
+                  <span className={styles.pricingCheck} aria-hidden="true">
+                    ✓
+                  </span>
+                  <span>{feature}</span>
+                </li>
               ))}
+            </ul>
+            <div className={styles.pricingCtaRow}>
+              {tier.cta.href.startsWith('/') ? (
+                <Link
+                  className={tier.highlighted ? styles.solidButton : styles.outlineButton}
+                  href={tier.cta.href}
+                >
+                  {tier.cta.label}
+                  <span className={styles.linkArrow} aria-hidden="true">
+                    →
+                  </span>
+                </Link>
+              ) : (
+                <a
+                  className={tier.highlighted ? styles.solidButton : styles.outlineButton}
+                  href={tier.cta.href}
+                >
+                  {tier.cta.label}
+                  <span className={styles.linkArrow} aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              )}
             </div>
-            <div className="text-center mt-6">
-              <Link
-                href="/ai-solutions/faq"
-                className="inline-flex items-center gap-2 text-[#e05e14] font-medium text-[14px] hover:text-[#f07033] transition-colors"
-              >
-                See all FAQ &rarr;
+          </article>
+        ))}
+      </div>
+
+      {/* ── Pricing FAQ ── */}
+      {pricingFAQ.length > 0 && (
+        <section className={styles.detailSection}>
+          <div className={styles.detailIntro}>
+            <p className={styles.eyebrow}>◉ COMMON PRICING QUESTIONS</p>
+            <h2>Quick answers.</h2>
+            <p>The questions teams ask most before signing on. The full FAQ has the rest.</p>
+            <div className={styles.detailActions}>
+              <Link className={styles.outlineButton} href="/ai-solutions/faq">
+                See all FAQ
+                <span className={styles.linkArrow} aria-hidden="true">
+                  →
+                </span>
               </Link>
             </div>
           </div>
+
+          <ul className={styles.detailFeatures}>
+            {pricingFAQ.map((faq, i) => (
+              <li key={i}>
+                <strong>{faq.question}</strong>
+                <span>{faq.answer}</span>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 
-      <section id="contact" className="py-16 px-4">
-        <div className="max-w-[520px] mx-auto">
-          <div className="text-[10px] tracking-[0.14em] uppercase text-[#e05e14] font-semibold mb-3">
-            ◉ TALK TO US
-          </div>
-          <h2 className="font-[family-name:var(--font-display)] font-semibold text-[28px] text-[#F1F5F9]">
-            Ready to scope <em className="text-[#e05e14] not-italic">your project?</em>
-          </h2>
-          <p className="text-[14px] text-[#94A3B8] mt-2 mb-6 leading-relaxed">
-            Tell us about your business and we&apos;ll send you the audit link
-            — or book a call to discuss your needs directly.
+      {/* ── CTA + Lead form ── */}
+      <section id="contact" className={styles.detailSection}>
+        <div className={styles.detailIntro}>
+          <p className={styles.eyebrow}>◉ TALK TO US</p>
+          <h2>Ready to scope your project?</h2>
+          <p>
+            Tell us about your business and we&rsquo;ll send you the audit link — or book a call
+            to discuss your needs directly.
           </p>
+        </div>
+
+        <div className={styles.detailLeadForm}>
           <LeadForm source="ai-solutions-pricing" />
         </div>
       </section>

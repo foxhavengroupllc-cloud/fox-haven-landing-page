@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { ConstellationBg } from '@/components/ui/ConstellationBg';
+import { Header, Footer } from '@/components/new-home/SiteChrome';
 import { ResultsHero } from '@/components/results/ResultsHero';
 import { ImpactEstimate } from '@/components/results/ImpactEstimate';
 import { ScoreBreakdown } from '@/components/results/ScoreBreakdown';
@@ -79,14 +80,7 @@ export default function ResultsPage() {
       <div className="relative">
         <ConstellationBg />
         <div className="relative" style={{ zIndex: 10 }}>
-          <div className="flex items-center px-6 py-4">
-            <Link href="/" className="flex items-center gap-3 no-underline">
-              <div className="w-8 h-8 rounded-md bg-[var(--color-orange)] flex items-center justify-center">
-                <span className="text-white font-[family-name:var(--font-display)] font-bold text-sm">F</span>
-              </div>
-              <span className="text-[var(--color-cream)] font-[family-name:var(--font-body)] font-medium text-sm tracking-wide">Fox Haven Group</span>
-            </Link>
-          </div>
+          <Header />
           <ResultsHero score={data.score} tier={tier} inefficiencyLow={data.inefficiencyLow} inefficiencyHigh={data.inefficiencyHigh} />
           <ImpactEstimate low={data.inefficiencyLow} high={data.inefficiencyHigh} />
           <ScoreBreakdown sections={data.sections} />
@@ -95,6 +89,7 @@ export default function ResultsPage() {
         </div>
       </div>
       <ResultsCTA token={token} />
+      <Footer />
     </div>
   );
 }

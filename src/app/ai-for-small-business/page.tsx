@@ -1,20 +1,22 @@
-'use client';
-
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FileText, Map, Users } from 'lucide-react';
-import Nav from '@/components/layout/Nav';
-import Footer from '@/components/layout/Footer';
-import { ConstellationBg } from '@/components/ui/ConstellationBg';
-import ServiceGrid from '@/components/ai-small-biz/ServiceGrid';
-import ProcessSteps from '@/components/ai-small-biz/ProcessSteps';
+import { Header, Footer } from '@/components/new-home/SiteChrome';
+import styles from '@/styles/design-system.module.css';
 import LeadForm from '@/components/ai-small-biz/LeadForm';
+import { AI_SERVICES, PROCESS_STEPS } from '@/lib/ai-solutions-config';
+
+/**
+ * AI Solutions for Everyone landing — restyled on design archetypes.
+ * Same content beats as before (hero stats, what-we-do, how-it-works,
+ * what-you-get, lead form). Now uses .detailSection / .detailStats /
+ * .serviceGrid / .processTimeline / .learnGrid.
+ */
 
 const HERO_STATS = [
-  { value: '$28K–65K', label: 'Avg annual loss from process drag' },
-  { value: '12 min', label: 'To complete the audit' },
-  { value: '3–6 wk', label: 'Typical deployment' },
+  { value: '$28K–65K', label: 'Avg Annual Loss from Process Drag' },
+  { value: '12 min', label: 'To Complete the Audit' },
+  { value: '3–6 wk', label: 'Typical Deployment' },
+  { value: 'Free', label: 'Initial Audit' },
 ];
 
 const DELIVERABLES = [
@@ -25,7 +27,7 @@ const DELIVERABLES = [
   },
   {
     Icon: Map,
-    title: 'Prioritized roadmap',
+    title: 'Prioritised roadmap',
     body: 'A ranked list of automation opportunities, ordered by ROI — highest-value fixes first.',
   },
   {
@@ -35,170 +37,151 @@ const DELIVERABLES = [
   },
 ];
 
-function fade(delay: number) {
-  return {
-    initial: { opacity: 0, y: 16 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] as const },
-  };
-}
+// Use a slim 4-up subset of the full AI_SERVICES catalog for this
+// landing page so it reads as "four focus areas" rather than the
+// full 8-service grid that lives on /ai-solutions/services.
+const FOCUS_SLUGS = ['lead-response', 'data-reporting', 'scheduling-ops', 'custom-ai-agents'];
 
 export default function AIForSmallBusinessPage() {
-  useEffect(() => {
-    const prev = document.body.style.backgroundColor;
-    document.body.style.backgroundColor = '#0b1c2e';
-    return () => { document.body.style.backgroundColor = prev; };
-  }, []);
+  const focus = AI_SERVICES.filter((s) => FOCUS_SLUGS.includes(s.slug));
 
   return (
-    <div className="relative min-h-screen text-[#F1F5F9] hide-nav-cta">
-      {/* Constellation canvas */}
-      <div className="fixed inset-0 pointer-events-none" aria-hidden="true">
-        <ConstellationBg />
-      </div>
+    <main className={styles.pageShell}>
+      <Header />
 
-      <div className="relative z-10">
-        <Nav />
-
-        {/* ── Hero ── */}
-        <section className="pt-20 pb-16 px-4">
-          <div className="max-w-[680px] mx-auto text-center">
-            <motion.div {...fade(0)} className="flex items-center justify-center gap-2 mb-6">
-              <div className="w-5 h-px bg-[#e05e14]" />
-              <span className="text-[10px] tracking-[0.16em] uppercase text-[#e05e14] font-semibold">
-                ◈ AI FOR SMALL BUSINESS
+      {/* ── Hero ── */}
+      <section className={styles.detailSection}>
+        <div className={styles.detailIntro}>
+          <p className={styles.eyebrow}>◈ AI SOLUTIONS FOR EVERYONE</p>
+          <h2>
+            Your team is working hard. The systems shouldn&rsquo;t be.
+          </h2>
+          <p>
+            Fox Haven builds AI-powered automation that eliminates the repetitive, manual drag
+            costing your business time and money — without replacing the people who make it run.
+          </p>
+          <div className={styles.detailActions}>
+            <Link className={styles.solidButton} href="/audit">
+              Start the free audit
+              <span className={styles.linkArrow} aria-hidden="true">
+                →
               </span>
-            </motion.div>
-
-            <motion.h1
-              {...fade(0.1)}
-              className="font-[family-name:var(--font-display)] font-bold text-3xl md:text-5xl leading-[1.15]"
-            >
-              Your team is working hard.
-              <br />
-              The <em className="text-[#e05e14] not-italic font-bold">systems</em> shouldn&apos;t be.
-            </motion.h1>
-
-            <motion.p
-              {...fade(0.2)}
-              className="text-[16px] text-[#94A3B8] max-w-[520px] mx-auto mt-5 leading-[1.75]"
-            >
-              Fox Haven builds AI-powered automation that eliminates the repetitive, manual drag
-              costing your business time and money — without replacing the people who make it run.
-            </motion.p>
-
-            <motion.div {...fade(0.3)} className="flex flex-wrap items-center justify-center gap-3 mt-7">
-              <Link
-                href="/audit"
-                className="bg-[#e05e14] hover:bg-[#c4500f] text-white font-semibold text-[14px] px-6 py-3 rounded-full transition-colors"
-              >
-                Start the free audit →
-              </Link>
-              <a
-                href="#contact"
-                className="border border-[#1E293B] text-[#F1F5F9] font-medium text-[14px] px-6 py-3 rounded-full hover:border-[#e05e14]/40 transition-colors"
-              >
-                Talk to a consultant
-              </a>
-            </motion.div>
-
-            <motion.div
-              {...fade(0.4)}
-              className="mt-10 border border-[#1E293B] rounded-[10px] flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-[#1E293B]"
-            >
-              {HERO_STATS.map((s) => (
-                <div key={s.label} className="flex-1 py-4 px-4 text-center">
-                  <div className="font-[family-name:var(--font-display)] font-bold text-[22px] text-[#e05e14]">
-                    {s.value}
-                  </div>
-                  <div className="text-[10px] uppercase tracking-[0.08em] text-[#94A3B8] mt-1">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
+            </Link>
+            <a className={styles.outlineButton} href="#contact">
+              Talk to a consultant
+              <span className={styles.playArrow} aria-hidden="true">
+                ▷
+              </span>
+            </a>
           </div>
-        </section>
+        </div>
 
-        {/* ── What we do ── */}
-        <section className="py-16 px-4">
-          <div className="max-w-[760px] mx-auto">
-            <div className="text-[10px] tracking-[0.14em] uppercase text-[#e05e14] font-semibold mb-3">
-              ◉ WHAT WE DO
-            </div>
-            <h2 className="font-[family-name:var(--font-display)] font-semibold text-[28px] text-[#F1F5F9]">
-              Four areas where AI{' '}
-              <em className="text-[#e05e14] not-italic">actually moves the needle</em>
-            </h2>
-            <p className="text-[14px] text-[#94A3B8] mt-3 leading-relaxed max-w-[600px]">
-              We focus exclusively on the operational gaps that cost small businesses the most — not
-              trendy tech for its own sake.
-            </p>
-            <ServiceGrid />
+        <ul className={styles.detailFeatures}>
+          {DELIVERABLES.map((d) => (
+            <li key={d.title}>
+              <strong>{d.title}</strong>
+              <span>{d.body}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* ── Stats strip ── */}
+      <div className={styles.detailStats}>
+        {HERO_STATS.map((s) => (
+          <div key={s.label} className={styles.detailStat}>
+            <span className={styles.detailStatValue}>{s.value}</span>
+            <span className={styles.detailStatLabel}>{s.label}</span>
           </div>
-        </section>
-
-        {/* ── How it works ── */}
-        <section className="py-16 px-4">
-          <div className="max-w-[560px] mx-auto">
-            <div className="text-[10px] tracking-[0.14em] uppercase text-[#e05e14] font-semibold mb-3">
-              ◉ HOW IT WORKS
-            </div>
-            <h2 className="font-[family-name:var(--font-display)] font-semibold text-[28px] text-[#F1F5F9]">
-              From <em className="text-[#e05e14] not-italic">audit to automation</em> in six weeks
-            </h2>
-            <ProcessSteps />
-          </div>
-        </section>
-
-        {/* ── What you get ── */}
-        <section className="py-16 px-4">
-          <div className="max-w-[760px] mx-auto">
-            <div className="text-[10px] tracking-[0.14em] uppercase text-[#e05e14] font-semibold mb-3">
-              ◉ WHAT YOU GET
-            </div>
-            <h2 className="font-[family-name:var(--font-display)] font-semibold text-[28px] text-[#F1F5F9] mb-8">
-              Three things in your hands after the audit
-            </h2>
-            <div className="flex flex-col md:flex-row gap-4">
-              {DELIVERABLES.map((d, i) => (
-                <motion.div
-                  key={d.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex-1 bg-[#112440] border border-[#1E293B] rounded-xl p-6"
-                >
-                  <div className="w-10 h-10 flex items-center justify-center bg-[rgba(249,115,22,0.12)] rounded-lg mb-4">
-                    <d.Icon size={20} className="text-[#e05e14]" />
-                  </div>
-                  <h3 className="text-[#F1F5F9] font-semibold text-[15px]">{d.title}</h3>
-                  <p className="text-[#94A3B8] text-[13px] mt-2 leading-relaxed">{d.body}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Lead form ── */}
-        <section id="contact" className="py-16 px-4">
-          <div className="max-w-[520px] mx-auto">
-            <div className="text-[10px] tracking-[0.14em] uppercase text-[#e05e14] font-semibold mb-3">
-              ◉ GET STARTED
-            </div>
-            <h2 className="font-[family-name:var(--font-display)] font-semibold text-[28px] text-[#F1F5F9]">
-              Ready to see <em className="text-[#e05e14] not-italic">your numbers?</em>
-            </h2>
-            <p className="text-[14px] text-[#94A3B8] mt-2 mb-6 leading-relaxed">
-              Tell us where to send the audit link — or jump straight to booking a call.
-            </p>
-            <LeadForm source="ai-small-biz-page" />
-          </div>
-        </section>
-
-        <Footer />
+        ))}
       </div>
-    </div>
+
+      {/* ── What we do (4-up focus areas) ── */}
+      <section className={styles.detailSection}>
+        <div className={styles.detailIntro}>
+          <p className={styles.eyebrow}>◉ WHAT WE DO</p>
+          <h2>Four areas where AI actually moves the needle.</h2>
+          <p>
+            We focus exclusively on the operational gaps that cost businesses the most — not
+            trendy tech for its own sake.
+          </p>
+          <div className={styles.detailActions}>
+            <Link className={styles.outlineButton} href="/ai-solutions/services">
+              See all 8 services
+              <span className={styles.linkArrow} aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <div className={styles.serviceGrid}>
+        {focus.map((svc) => (
+          <Link
+            key={svc.slug}
+            className={styles.serviceCard}
+            href={`/ai-solutions/services/${svc.slug}`}
+          >
+            <span className={styles.serviceCategory}>{svc.category.replace('-', ' ')}</span>
+            <h3 className={styles.serviceTitle}>{svc.shortTitle}</h3>
+            <p className={styles.serviceOutcome}>{svc.outcome}</p>
+          </Link>
+        ))}
+      </div>
+
+      {/* ── How it works ── */}
+      <section className={styles.detailSection}>
+        <div className={styles.detailIntro}>
+          <p className={styles.eyebrow}>◉ HOW IT WORKS</p>
+          <h2>From audit to automation in six weeks.</h2>
+          <p>The same proven process we run with every client. No surprises, no fluff.</p>
+          <div className={styles.detailActions}>
+            <Link className={styles.outlineButton} href="/ai-solutions/process">
+              See the full process
+              <span className={styles.linkArrow} aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <ol className={styles.processTimeline}>
+        {PROCESS_STEPS.slice(0, 4).map((step) => (
+          <li key={step.num} className={styles.processTimelineItem}>
+            <span className={styles.processTimelineNumber} aria-hidden="true">
+              {step.num}
+            </span>
+            <div className={styles.processTimelineBody}>
+              <div className={styles.processTimelineTitleRow}>
+                <h3 className={styles.processTimelineTitle}>{step.title}</h3>
+                {step.timeframe && (
+                  <span className={styles.processTimelineTimeframe}>{step.timeframe}</span>
+                )}
+              </div>
+              <p className={styles.processTimelineDesc}>{step.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      {/* ── Lead form ── */}
+      <section id="contact" className={styles.detailSection}>
+        <div className={styles.detailIntro}>
+          <p className={styles.eyebrow}>◉ GET STARTED</p>
+          <h2>Ready to see your numbers?</h2>
+          <p>
+            Tell us where to send the audit link — or jump straight to booking a call.
+          </p>
+        </div>
+
+        <div className={styles.detailLeadForm}>
+          <LeadForm source="ai-small-biz-page" />
+        </div>
+      </section>
+
+      <Footer />
+    </main>
   );
 }

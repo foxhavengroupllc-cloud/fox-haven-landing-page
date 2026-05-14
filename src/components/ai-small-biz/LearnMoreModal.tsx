@@ -88,7 +88,7 @@ export default function LearnMoreModal({ isOpen, onClose }: LearnMoreModalProps)
             {/* Header */}
             <div className="mb-5">
               <div className="text-[10px] tracking-[0.14em] uppercase text-[#e05e14] font-semibold mb-3">
-                ◉ AI FOR SMALL BUSINESS
+                ◉ AI SOLUTIONS FOR EVERYONE
               </div>
               <h2 className="font-[family-name:var(--font-display)] font-bold text-[22px] text-[#F1F5F9] leading-tight">
                 Stop losing revenue to{' '}

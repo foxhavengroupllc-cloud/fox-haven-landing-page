@@ -4,7 +4,7 @@ export interface Blocker { title: string; description: string; severity: 'CRITIC
 export function generateOpportunities(answers: Record<string, string>): Opportunity[] {
   const opps: Opportunity[] = [];
   if (answers['sales_03'] === 'all_manual' || answers['sales_03'] === 'mostly_manual')
-    opps.push({ title: 'Automate Sales Follow-Up Sequences', description: 'Your team is manually managing follow-ups \u2014 the single largest revenue leak we see in small businesses. Automated sequences ensure no lead falls through the cracks.', impact: 'HIGH', savingsEstimate: '$8K\u2013$30K/yr' });
+    opps.push({ title: 'Automate Sales Follow-Up Sequences', description: 'Your team is manually managing follow-ups \u2014 the single largest revenue leak we see across businesses. Automated sequences ensure no lead falls through the cracks.', impact: 'HIGH', savingsEstimate: '$8K\u2013$30K/yr' });
   if (answers['sales_01'] === 'next_day' || answers['sales_01'] === 'days_plus')
     opps.push({ title: 'Implement Instant Lead Response', description: 'Your current response time is costing you conversions. An automated first-touch response within 5 minutes can recover up to 80% of leads that currently go cold.', impact: 'HIGH', savingsEstimate: '$12K\u2013$25K/yr' });
   if (answers['ops_03'] === 'constantly' || answers['ops_03'] === 'often')

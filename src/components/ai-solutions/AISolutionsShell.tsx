@@ -1,11 +1,19 @@
 'use client';
 
 import { useEffect } from 'react';
-import Nav from '@/components/layout/Nav';
-import Footer from '@/components/layout/Footer';
-import { ConstellationBg } from '@/components/ui/ConstellationBg';
+import { Header, Footer } from '@/components/new-home/SiteChrome';
+import styles from '@/styles/design-system.module.css';
 import SubNav from './SubNav';
 
+/**
+ * Wraps every /ai-solutions/* page with the new design system's chrome
+ * (Header + Footer from SiteChrome), keeping the existing SubNav for
+ * inter-page navigation between the hub and its sub-routes.
+ *
+ * The body bg is forced to a dark navy here because some pages inside
+ * mix dark sections with the cream design-system sections, and a dark
+ * floor reads better in transition gaps than the default cream.
+ */
 export default function AISolutionsShell({
   children,
 }: {
@@ -20,18 +28,11 @@ export default function AISolutionsShell({
   }, []);
 
   return (
-    <div className="relative min-h-screen text-[#F1F5F9]">
-      {/* Constellation canvas */}
-      <div className="fixed inset-0 pointer-events-none" aria-hidden="true">
-        <ConstellationBg />
-      </div>
-
-      <div className="relative z-10">
-        <Nav />
-        <SubNav />
-        {children}
-        <Footer />
-      </div>
-    </div>
+    <main className={styles.pageShell}>
+      <Header />
+      <SubNav />
+      {children}
+      <Footer />
+    </main>
   );
 }
