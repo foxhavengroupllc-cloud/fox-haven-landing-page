@@ -6,7 +6,7 @@ import LeadForm from '@/components/ai-small-biz/LeadForm';
 import { AI_SERVICES, PROCESS_STEPS } from '@/lib/ai-solutions-config';
 
 /**
- * AI for Small Business landing — restyled on design archetypes.
+ * AI Solutions for Everyone landing — restyled on design archetypes.
  * Same content beats as before (hero stats, what-we-do, how-it-works,
  * what-you-get, lead form). Now uses .detailSection / .detailStats /
  * .serviceGrid / .processTimeline / .learnGrid.

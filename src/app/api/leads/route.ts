@@ -37,10 +37,17 @@ const ALLOWED_SOURCES = [
   'ai-solutions-hub',
   'ai-solutions-pricing',
   'ai-solutions-faq',
+  'partner-page',
+  'home-bottom-cta',
 ];
 
 function sanitizeSource(source: unknown): string {
-  if (typeof source === 'string' && (ALLOWED_SOURCES.includes(source) || source.startsWith('ai-solutions-'))) {
+  if (
+    typeof source === 'string' &&
+    (ALLOWED_SOURCES.includes(source) ||
+      source.startsWith('ai-solutions-') ||
+      source.startsWith('partner-'))
+  ) {
     return source.replace(/[^a-z0-9-]/gi, '');
   }
   return 'ai-small-biz-page';
@@ -93,16 +100,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
     }
 
+    const isPartner = safeSource.startsWith('partner-') || safeSource === 'home-bottom-cta';
+    const leadHeading = isPartner ? 'New Partner / Beta Lead' : 'New AI Solutions Lead';
+    const detailLabel = isPartner ? 'Partner type / note' : 'Biggest pain point';
+    const subjectPrefix = isPartner ? 'New partner lead' : 'New lead';
+
     await resend.emails.send({
       from: 'Fox Haven HQ <noreply@foxhavengrouphq.com>',
       to: NOTIFY_EMAIL,
-      subject: `New lead: ${esc(safeName)} — ${esc(safeCompany ?? 'Unknown company')}`,
+      subject: `${subjectPrefix}: ${esc(safeName)} — ${esc(safeCompany ?? 'Unknown organization')}`,
       html: `
-        <h2>New AI Solutions Lead</h2>
+        <h2>${leadHeading}</h2>
         <p><strong>Name:</strong> ${esc(safeName)}</p>
         <p><strong>Email:</strong> ${esc(safeEmail)}</p>
-        <p><strong>Company:</strong> ${esc(safeCompany ?? '—')}</p>
-        <p><strong>Biggest pain point:</strong> ${esc(safePainPoint ?? '—')}</p>
+        <p><strong>Organization:</strong> ${esc(safeCompany ?? '—')}</p>
+        <p><strong>${detailLabel}:</strong> ${esc(safePainPoint ?? '—')}</p>
         <p><strong>Source:</strong> ${esc(safeSource)}</p>
       `,
     });

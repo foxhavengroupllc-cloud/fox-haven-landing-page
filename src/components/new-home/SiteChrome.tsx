@@ -8,14 +8,14 @@ import styles from '@/styles/design-system.module.css';
  * so the same Header works from any page in this group.
  */
 
-const HOMEPAGE_PATH = '/preview/new-home';
+const HOMEPAGE_PATH = '/';
 
 export const navItems = [
-  { label: 'Platform', href: `${HOMEPAGE_PATH}#platform` },
-  { label: 'Projects', href: `${HOMEPAGE_PATH}#building-now` },
-  { label: 'Mission', href: `${HOMEPAGE_PATH}#hero` },
-  { label: 'Journal', href: `${HOMEPAGE_PATH}#footer` },
-  { label: 'Contact', href: `${HOMEPAGE_PATH}#partnership` },
+  { label: 'Platform', href: '/platform' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Mission', href: '/mission' },
+  { label: 'Partner', href: '/partner' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export function Brand() {
@@ -46,7 +46,7 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <a className={styles.primaryNavButton} href={`${HOMEPAGE_PATH}#partnership`}>
+        <a className={styles.primaryNavButton} href="/partner">
           Get Involved
           <span className={styles.linkArrow} aria-hidden="true">
             →
@@ -60,7 +60,7 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            <a href={`${HOMEPAGE_PATH}#partnership`}>Get Involved</a>
+            <a href="/partner">Get Involved</a>
           </div>
         </details>
       </div>

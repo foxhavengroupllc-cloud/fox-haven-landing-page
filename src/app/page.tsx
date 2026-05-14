@@ -64,25 +64,25 @@ const platformCards = [
   {
     title: 'CIVIC INFRASTRUCTURE',
     body: 'Resilient systems. Smarter communities.',
-    href: undefined as string | undefined,
+    href: '/platform#civic-infrastructure' as string | undefined,
     image: '/images/new-design/homepage-redesign/platform/civic-infrastructure.png',
   },
   {
     title: 'POPULATION FLOW',
     body: 'Urban activity pulse from public signals.',
-    href: undefined as string | undefined,
+    href: '/population-flow' as string | undefined,
     image: '/images/new-design/homepage-redesign/platform/population-flow.png',
   },
   {
     title: 'AI CONCIERGE',
     body: 'Ask. Understand. Get things done.',
-    href: undefined as string | undefined,
+    href: '/platform#ai-concierge' as string | undefined,
     image: '/images/new-design/homepage-redesign/platform/ai-concierge.png',
   },
   {
     title: 'OPERATIONAL WORLDS',
     body: 'Design, simulate, and operate living worlds.',
-    href: undefined as string | undefined,
+    href: '/platform#operational-worlds' as string | undefined,
     image: '/images/new-design/homepage-redesign/platform/operational-worlds.png',
   },
 ];
@@ -147,18 +147,18 @@ function Hero() {
           Fox Haven Group builds AI-native civic systems for real-world resilience—starting with extreme heat in Phoenix.
         </p>
         <div className={styles.heroActions}>
-          <a className={styles.solidButton} href="#building-now">
+          <Link className={styles.solidButton} href="/projects">
             Explore Heat Relief
             <span className={styles.linkArrow} aria-hidden="true">
               →
             </span>
-          </a>
-          <a className={styles.outlineButton} href="#platform">
+          </Link>
+          <Link className={styles.outlineButton} href="/platform">
             View the Platform
             <span className={styles.playArrow} aria-hidden="true">
               ▷
             </span>
-          </a>
+          </Link>
         </div>
 
         <div className={styles.heroVideoTile}>
@@ -189,12 +189,12 @@ function BuildingNow() {
         <p className={styles.eyebrow}>WHAT WE ARE BUILDING NOW</p>
         <h2>Phoenix Heat Relief Network</h2>
         <p>A connected network of tools, places, and people designed to keep communities safe during extreme heat.</p>
-        <a className={styles.solidButton} href="#platform">
+        <Link className={styles.solidButton} href="/projects">
           Explore the Network
           <span className={styles.linkArrow} aria-hidden="true">
             →
           </span>
-        </a>
+        </Link>
       </div>
 
       <div className={styles.moduleGrid}>
@@ -245,12 +245,12 @@ function Platform() {
           <p className={styles.eyebrow}>THE PLATFORM BEHIND IT</p>
           <h2>AI-native systems for human-centered outcomes.</h2>
         </div>
-        <a className={styles.outlineButton} href="#partnership">
+        <Link className={styles.outlineButton} href="/platform">
           Explore the Platform
           <span className={styles.playArrow} aria-hidden="true">
             ▷
           </span>
-        </a>
+        </Link>
       </div>
 
       <div className={styles.platformGrid}>
@@ -311,18 +311,18 @@ function BottomCta() {
         </p>
       </div>
       <div className={styles.ctaActions}>
-        <a className={styles.solidButton} href="#footer">
+        <Link className={styles.solidButton} href="/partner">
           Partner With Us
           <span className={styles.linkArrow} aria-hidden="true">
             →
           </span>
-        </a>
-        <a className={styles.outlineLightButton} href="#footer">
+        </Link>
+        <Link className={styles.outlineLightButton} href="/partner#partner-form">
           Join the Beta
           <span className={styles.linkArrow} aria-hidden="true">
             →
           </span>
-        </a>
+        </Link>
       </div>
     </section>
   );
