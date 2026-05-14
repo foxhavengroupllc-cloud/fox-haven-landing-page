@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ConstellationBg } from '@/components/ui/ConstellationBg';
-import Link from 'next/link';
+import { Header, Footer } from '@/components/new-home/SiteChrome';
 
 const INDUSTRIES = [
   'Professional Services',
@@ -73,17 +73,7 @@ export default function AuditIntakePage() {
       <ConstellationBg />
 
       <div className="relative" style={{ zIndex: 10 }}>
-        {/* Nav */}
-        <div className="flex items-center px-6 py-4">
-          <Link href="/" className="flex items-center gap-3 no-underline">
-            <div className="w-8 h-8 rounded-md bg-[var(--color-orange)] flex items-center justify-center">
-              <span className="text-white font-[family-name:var(--font-display)] font-bold text-sm">F</span>
-            </div>
-            <span className="text-[var(--color-cream)] font-[family-name:var(--font-body)] font-medium text-sm tracking-wide">
-              Fox Haven Group
-            </span>
-          </Link>
-        </div>
+        <Header />
 
         {/* Content */}
         <div className="max-w-[560px] mx-auto px-6 py-12">
@@ -226,6 +216,8 @@ export default function AuditIntakePage() {
             </div>
           </form>
         </div>
+
+        <Footer />
       </div>
     </div>
   );

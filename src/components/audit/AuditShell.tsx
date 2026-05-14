@@ -1,8 +1,8 @@
 'use client';
 
 import { ConstellationBg } from '@/components/ui/ConstellationBg';
+import { Header } from '@/components/new-home/SiteChrome';
 import { ProgressBar } from './ProgressBar';
-import Link from 'next/link';
 
 interface AuditShellProps {
   children: React.ReactNode;
@@ -18,21 +18,14 @@ export function AuditShell({ children, currentStep, totalSteps, sectionLabel }: 
     <div className="relative min-h-screen bg-[var(--color-navy)]">
       <ConstellationBg />
       <div className="relative" style={{ zIndex: 10 }}>
-        <div className="flex items-center justify-between px-6 py-4">
-          <Link href="/" className="flex items-center gap-3 no-underline">
-            <div className="w-8 h-8 rounded-md bg-[var(--color-orange)] flex items-center justify-center">
-              <span className="text-white font-[family-name:var(--font-display)] font-bold text-sm">F</span>
-            </div>
-            <span className="text-[var(--color-cream)] font-[family-name:var(--font-body)] font-medium text-sm tracking-wide">
-              Fox Haven Group
-            </span>
-          </Link>
-          {showProgress && (
+        <Header />
+        {showProgress && (
+          <div className="flex items-center justify-end px-6 py-3">
             <span className="text-[var(--color-warm-gray)] font-[family-name:var(--font-body)] text-sm">
               Question {currentStep! + 1} of {totalSteps}
             </span>
-          )}
-        </div>
+          </div>
+        )}
         {showProgress && <ProgressBar current={currentStep! + 1} total={totalSteps!} />}
         {sectionLabel && (
           <div className="text-center mt-6">
