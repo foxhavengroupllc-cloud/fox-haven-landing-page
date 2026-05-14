@@ -2,8 +2,19 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/db';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const NOTIFY_EMAIL = process.env.LEAD_NOTIFY_EMAIL ?? 'hello@foxhavengrouphq.com';
+
+/**
+ * Lazily construct the Resend client so a missing RESEND_API_KEY does not
+ * crash `next build` while collecting page data for this route. Returns
+ * null if the key is missing; the POST handler degrades to a database-only
+ * write and logs a warning instead of failing the request.
+ */
+function getResendClient(): Resend | null {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  return new Resend(key);
+}
 
 /* ── Rate limiter (per IP, 5 submissions per 15 min) ── */
 const rateMap = new Map<string, { count: number; resetAt: number }>();
@@ -105,19 +116,30 @@ export async function POST(req: NextRequest) {
     const detailLabel = isPartner ? 'Partner type / note' : 'Biggest pain point';
     const subjectPrefix = isPartner ? 'New partner lead' : 'New lead';
 
-    await resend.emails.send({
-      from: 'Fox Haven HQ <noreply@foxhavengrouphq.com>',
-      to: NOTIFY_EMAIL,
-      subject: `${subjectPrefix}: ${esc(safeName)} — ${esc(safeCompany ?? 'Unknown organization')}`,
-      html: `
-        <h2>${leadHeading}</h2>
-        <p><strong>Name:</strong> ${esc(safeName)}</p>
-        <p><strong>Email:</strong> ${esc(safeEmail)}</p>
-        <p><strong>Organization:</strong> ${esc(safeCompany ?? '—')}</p>
-        <p><strong>${detailLabel}:</strong> ${esc(safePainPoint ?? '—')}</p>
-        <p><strong>Source:</strong> ${esc(safeSource)}</p>
-      `,
-    });
+    const resend = getResendClient();
+    if (resend) {
+      try {
+        await resend.emails.send({
+          from: 'Fox Haven HQ <noreply@foxhavengrouphq.com>',
+          to: NOTIFY_EMAIL,
+          subject: `${subjectPrefix}: ${esc(safeName)} — ${esc(safeCompany ?? 'Unknown organization')}`,
+          html: `
+            <h2>${leadHeading}</h2>
+            <p><strong>Name:</strong> ${esc(safeName)}</p>
+            <p><strong>Email:</strong> ${esc(safeEmail)}</p>
+            <p><strong>Organization:</strong> ${esc(safeCompany ?? '—')}</p>
+            <p><strong>${detailLabel}:</strong> ${esc(safePainPoint ?? '—')}</p>
+            <p><strong>Source:</strong> ${esc(safeSource)}</p>
+          `,
+        });
+      } catch (emailErr) {
+        // Don't fail the user-facing submission if the email send blows up —
+        // the lead is already in the database. Surface for monitoring only.
+        console.error('[leads/route] Resend send failed:', emailErr);
+      }
+    } else {
+      console.warn('[leads/route] RESEND_API_KEY not configured — lead saved to DB without notification email');
+    }
 
     return NextResponse.json({ success: true });
   } catch (err) {
