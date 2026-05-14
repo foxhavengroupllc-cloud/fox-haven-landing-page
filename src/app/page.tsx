@@ -64,7 +64,7 @@ const platformCards = [
   {
     title: 'CIVIC INFRASTRUCTURE',
     body: 'Resilient systems. Smarter communities.',
-    href: '/platform#civic-infrastructure' as string | undefined,
+    href: '/civic-infrastructure' as string | undefined,
     image: '/images/new-design/homepage-redesign/platform/civic-infrastructure.png',
   },
   {
@@ -76,13 +76,13 @@ const platformCards = [
   {
     title: 'AI CONCIERGE',
     body: 'Ask. Understand. Get things done.',
-    href: '/platform#ai-concierge' as string | undefined,
+    href: '/ai-concierge' as string | undefined,
     image: '/images/new-design/homepage-redesign/platform/ai-concierge.png',
   },
   {
     title: 'OPERATIONAL WORLDS',
     body: 'Design, simulate, and operate living worlds.',
-    href: '/platform#operational-worlds' as string | undefined,
+    href: '/operational-worlds' as string | undefined,
     image: '/images/new-design/homepage-redesign/platform/operational-worlds.png',
   },
 ];

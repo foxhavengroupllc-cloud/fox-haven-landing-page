@@ -30,8 +30,8 @@ const PILLARS = [
       'Field-tested in Phoenix, designed to travel to any heat-stressed metro',
     ],
     image: '/images/new-design/homepage-redesign/platform/civic-infrastructure.png',
-    href: '/initiatives/heat-relief-app',
-    linkLabel: 'See Heat Relief App',
+    href: '/civic-infrastructure',
+    linkLabel: 'Explore Civic Infrastructure',
   },
   {
     title: 'POPULATION FLOW',
@@ -45,8 +45,8 @@ const PILLARS = [
       'Operator dashboards designed for the people doing the work',
     ],
     image: '/images/new-design/homepage-redesign/platform/population-flow.png',
-    href: undefined,
-    linkLabel: undefined,
+    href: '/population-flow',
+    linkLabel: 'Explore Population Flow',
   },
   {
     title: 'AI CONCIERGE',
@@ -60,8 +60,8 @@ const PILLARS = [
       'Human-in-the-loop escalation for clinical, legal, or safety-critical asks',
     ],
     image: '/images/new-design/homepage-redesign/platform/ai-concierge.png',
-    href: '/ai-solutions/services',
-    linkLabel: 'Explore AI services',
+    href: '/ai-concierge',
+    linkLabel: 'Explore AI Concierge',
   },
   {
     title: 'OPERATIONAL WORLDS',
@@ -75,8 +75,8 @@ const PILLARS = [
       'Pipes directly into Civic Infrastructure for live operations',
     ],
     image: '/images/new-design/homepage-redesign/platform/operational-worlds.png',
-    href: undefined,
-    linkLabel: undefined,
+    href: '/operational-worlds',
+    linkLabel: 'Explore Operational Worlds',
   },
 ];
 
