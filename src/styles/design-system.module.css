@@ -3107,3 +3107,181 @@
 .caseStudyServices ul li a:hover {
   background: rgba(224, 94, 20, 0.18);
 }
+
+/* ─── Audit form (cream theme) ─── */
+
+.auditCallout {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: clamp(1rem, 1.6vw, 1.4rem);
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(33, 20, 14, 0.14);
+  background: rgba(255, 248, 236, 0.6);
+  max-width: max-content;
+}
+
+.auditCalloutValue {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  color: var(--terracotta);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.auditCalloutLabel {
+  font-size: clamp(0.74rem, 0.86vw, 0.84rem);
+  line-height: 1.35;
+  color: rgba(33, 20, 14, 0.7);
+}
+
+.auditField {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.auditLabel {
+  font-family: var(--font-dm-mono), monospace;
+  font-size: clamp(0.66rem, 0.78vw, 0.74rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(33, 20, 14, 0.7);
+}
+
+.auditRequired {
+  color: var(--terracotta);
+}
+
+.auditInput {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid rgba(33, 20, 14, 0.18);
+  background: rgba(255, 255, 255, 0.6);
+  color: #21140e;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: clamp(0.86rem, 0.96vw, 0.94rem);
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.auditInput::placeholder {
+  color: rgba(33, 20, 14, 0.36);
+}
+
+.auditInput:focus {
+  outline: none;
+  border-color: var(--terracotta);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.auditHelper {
+  margin: 0.25rem 0 0;
+  font-size: clamp(0.68rem, 0.78vw, 0.74rem);
+  color: rgba(33, 20, 14, 0.5);
+}
+
+.auditError {
+  margin: 0.6rem 0;
+  padding: 0.55rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(224, 68, 68, 0.1);
+  border: 1px solid rgba(224, 68, 68, 0.3);
+  color: #b81d1d;
+  font-size: clamp(0.78rem, 0.9vw, 0.86rem);
+}
+
+.auditSubmit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.1rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--terracotta), #c4500f);
+  color: #fff;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: clamp(0.86rem, 1vw, 0.96rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: filter 160ms ease, transform 160ms ease;
+}
+
+.auditSubmit:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.auditSubmit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.auditFooterCopy {
+  margin: 0.85rem 0 0;
+  font-size: clamp(0.66rem, 0.78vw, 0.74rem);
+  line-height: 1.55;
+  color: rgba(33, 20, 14, 0.55);
+  text-align: center;
+}
+
+.auditFooterLink {
+  color: var(--terracotta);
+  text-decoration: underline;
+}
+
+/* ─── Learn-cards grid (used on /initiatives/ai-for-business) ─── */
+
+.learnGrid {
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.6rem, 1vw, 0.85rem);
+}
+
+@media (max-width: 720px) {
+  .learnGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.learnCard {
+  display: grid;
+  gap: 0.32rem;
+  padding: clamp(0.9rem, 1.3vw, 1.1rem);
+  border: 1px solid rgba(33, 20, 14, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 248, 236, 0.85);
+}
+
+.learnCardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--terracotta), #c4500f);
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.learnCardTitle {
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(0.96rem, 1.15vw, 1.1rem);
+  color: #21140e;
+  letter-spacing: 0.005em;
+}
+
+.learnCardBody {
+  margin: 0;
+  color: rgba(33, 20, 14, 0.7);
+  font-size: clamp(0.76rem, 0.88vw, 0.86rem);
+  line-height: 1.45;
+}
