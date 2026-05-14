@@ -31,7 +31,7 @@ function PopulationFlowTile({ disabled: _disabled }: { disabled?: boolean }) {
     </div>
   );
 }
-import styles from '../_design/design-system.module.css';
+import styles from '@/styles/design-system.module.css';
 import useReducedMotion from './useReducedMotion';
 
 const resources = ['Cooling Centers', 'Hydration Stations', 'Mobile Units', 'Shelters'];

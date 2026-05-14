@@ -1,6 +1,6 @@
 import HeroPin from './HeroPin';
 import { heroPins } from './heroPins';
-import styles from '../_design/design-system.module.css';
+import styles from '@/styles/design-system.module.css';
 
 type HeroPinLayerProps = {
   isInteractive: boolean;

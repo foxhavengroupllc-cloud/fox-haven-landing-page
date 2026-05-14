@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from 'react';
 import { useEffect, useMemo, useState } from 'react';
-import styles from '../_design/design-system.module.css';
+import styles from '@/styles/design-system.module.css';
 import useReducedMotion from './useReducedMotion';
 
 const REFRESH_MS = 300_000;

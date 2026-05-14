@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import HeroVisual from './_components/HeroVisual';
-import styles from './_design/design-system.module.css';
-import { Header, Footer } from './_components/SiteChrome';
+import HeroVisual from '@/components/new-home/HeroVisual';
+import styles from '@/styles/design-system.module.css';
+import { Header, Footer } from '@/components/new-home/SiteChrome';
 
 /**
  * Preview of the new design-system homepage on production content.

@@ -1,4 +1,4 @@
-import styles from '../_design/design-system.module.css';
+import styles from '@/styles/design-system.module.css';
 
 /**
  * Shared chrome (Header, Footer, Brand) for the homepage-redesign sandbox

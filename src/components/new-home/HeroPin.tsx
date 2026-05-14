@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import type { HeroPin as HeroPinConfig } from './heroPins';
-import styles from '../_design/design-system.module.css';
+import styles from '@/styles/design-system.module.css';
 
 type HeroPinProps = {
   pin: HeroPinConfig;

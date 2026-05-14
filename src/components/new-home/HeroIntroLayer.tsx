@@ -1,4 +1,4 @@
-import styles from '../_design/design-system.module.css';
+import styles from '@/styles/design-system.module.css';
 
 type HeroIntroLayerProps = {
   isComplete: boolean;

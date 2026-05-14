@@ -1,7 +1,7 @@
 'use client';
 
 import type { PointerEvent, ReactNode } from 'react';
-import styles from '../_design/design-system.module.css';
+import styles from '@/styles/design-system.module.css';
 
 export type TileLayout = {
   x: number;
