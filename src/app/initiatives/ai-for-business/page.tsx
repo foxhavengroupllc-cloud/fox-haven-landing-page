@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Nav from '@/components/layout/Nav';
-import Footer from '@/components/layout/Footer';
+import { Header as Nav, Footer } from '@/components/new-home/SiteChrome';
 
 export const metadata: Metadata = {
   title: 'AI Solutions for Everyone — Fox Haven Group',
