@@ -1,20 +1,23 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import HeroEditableTile, { type TileLayout } from './HeroEditableTile';
 import HeroIntroLayer from './HeroIntroLayer';
 import HeroPinLayer from './HeroPinLayer';
 import LiveTemperatureTile from './LiveTemperatureTile';
+import useReducedMotion from './useReducedMotion';
+import styles from '@/styles/design-system.module.css';
+
 // Lightweight static stand-in for the sandbox's PopulationFlowTile.
 // The real component pulls from /api/urban-pulse + framer-motion + a
-// types lib that doesn't exist in production. For the preview we just
-// need the visual block at the right position — restore the live tile
-// once the urban-pulse data layer is ported (or remove if we don't want
-// it here in production).
-function PopulationFlowTile({ disabled: _disabled }: { disabled?: boolean }) {
-  return (
-    <div className={styles.previewFlowTile}>
+// types lib that doesn't exist in production. We render a clickable
+// preview tile that links out to the Population Flow detail page so
+// users can read about the platform layer the tile represents.
+function PopulationFlowTile({ disabled }: { disabled?: boolean }) {
+  const inner = (
+    <>
       <div className={styles.previewFlowTileHeader}>
         <span className={styles.previewFlowTileEyebrow}>POPULATION FLOW</span>
         <span className={styles.previewFlowTileArrow} aria-hidden="true">
@@ -28,11 +31,23 @@ function PopulationFlowTile({ disabled: _disabled }: { disabled?: boolean }) {
         <span>LIVE</span>
         <span>Public signals</span>
       </div>
-    </div>
+    </>
+  );
+
+  if (disabled) {
+    return <div className={styles.previewFlowTile}>{inner}</div>;
+  }
+
+  return (
+    <Link
+      href="/population-flow"
+      className={styles.previewFlowTile}
+      aria-label="Population Flow — learn more"
+    >
+      {inner}
+    </Link>
   );
 }
-import styles from '@/styles/design-system.module.css';
-import useReducedMotion from './useReducedMotion';
 
 const resources = ['Cooling Centers', 'Hydration Stations', 'Mobile Units', 'Shelters'];
 const networkNodes = ['18', '26', '34', '42', '50', '58', '66', '74', '82'];
@@ -181,14 +196,30 @@ export default function HeroVisual() {
           editMode={editMode}
           onChange={updateDashboardLayout}
         >
-          <article className={`${styles.dashboardTile} ${styles.resourceTile}`}>
-            <p>RESOURCE NODES</p>
-            <ul className={styles.resourceList}>
-              {resources.map((resource) => (
-                <li key={resource}>{resource}</li>
-              ))}
-            </ul>
-          </article>
+          {editMode ? (
+            <article className={`${styles.dashboardTile} ${styles.resourceTile}`}>
+              <p>RESOURCE NODES</p>
+              <ul className={styles.resourceList}>
+                {resources.map((resource) => (
+                  <li key={resource}>{resource}</li>
+                ))}
+              </ul>
+            </article>
+          ) : (
+            <Link
+              href="/resource-nodes"
+              className={`${styles.dashboardTile} ${styles.resourceTile}`}
+              aria-label="Resource Nodes — open the Phoenix resource map"
+              style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
+            >
+              <p>RESOURCE NODES</p>
+              <ul className={styles.resourceList}>
+                {resources.map((resource) => (
+                  <li key={resource}>{resource}</li>
+                ))}
+              </ul>
+            </Link>
+          )}
         </HeroEditableTile>
 
         <HeroEditableTile
@@ -198,10 +229,22 @@ export default function HeroVisual() {
           editMode={editMode}
           onChange={updateDashboardLayout}
         >
-          <article className={`${styles.dashboardTile} ${styles.layerTile}`}>
-            <p>AI COORDINATION LAYER</p>
-            <span>Active operations across 128 zones</span>
-          </article>
+          {editMode ? (
+            <article className={`${styles.dashboardTile} ${styles.layerTile}`}>
+              <p>AI COORDINATION LAYER</p>
+              <span>Active operations across 128 zones</span>
+            </article>
+          ) : (
+            <Link
+              href="/ai-coordination-layer"
+              className={`${styles.dashboardTile} ${styles.layerTile}`}
+              aria-label="AI Coordination Layer — open the coordination layer overview"
+              style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
+            >
+              <p>AI COORDINATION LAYER</p>
+              <span>Active operations across 128 zones</span>
+            </Link>
+          )}
         </HeroEditableTile>
 
         <HeroEditableTile
