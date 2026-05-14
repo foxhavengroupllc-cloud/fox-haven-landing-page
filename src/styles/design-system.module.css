@@ -2616,3 +2616,44 @@
   background: rgba(255, 248, 236, 0.88);
   box-shadow: 0 18px 42px rgba(11, 28, 46, 0.14);
 }
+
+/* ─── Service detail page elements ─── */
+
+.serviceDetailProblem {
+  align-self: stretch;
+  padding: clamp(1rem, 1.6vw, 1.4rem);
+  border-radius: 12px;
+  border: 1px solid rgba(33, 20, 14, 0.12);
+  border-left: 3px solid var(--terracotta);
+  background: rgba(255, 248, 236, 0.7);
+}
+
+.serviceDetailProblem p {
+  margin: 0;
+  color: rgba(33, 20, 14, 0.72);
+  font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+  line-height: 1.55;
+}
+
+.serviceDetailProblem .eyebrow,
+.serviceDetailProblem p:first-child {
+  margin-bottom: 0.6rem;
+}
+
+.serviceDetailFeatureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.serviceDetailFeatureCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--terracotta), #c4500f);
+  color: #fff;
+}
