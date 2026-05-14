@@ -28,7 +28,7 @@ export default function CaseStudiesPage() {
             className="text-[16px] text-[#94A3B8] max-w-[520px] mx-auto mt-5 leading-[1.75] hero-line-anim"
             style={{ '--hero-delay': '0.2s' } as React.CSSProperties}
           >
-            See how small businesses like yours recovered revenue, saved time,
+            See how teams like yours recovered revenue, saved time,
             and eliminated operational drag with Fox Haven AI solutions.
           </p>
         </div>

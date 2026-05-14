@@ -110,8 +110,8 @@ export const STRATEGIC_NODES: CoreNode[] = [
     accent: 'green',
     tier: 'primary',
     panel: {
-      title: 'AI for Small Business',
-      body: 'We help small businesses bridge the gap to AI — with strategies that are practical, affordable, and environmentally conscious. Right-sized technology, no wasted compute.',
+      title: 'AI Solutions for Everyone',
+      body: 'We help everyone bridge the gap to AI — with strategies that are practical, affordable, and environmentally conscious. Right-sized technology, no wasted compute.',
       cta: { label: 'Start a conversation', scrollTo: '#cta' },
     },
   },

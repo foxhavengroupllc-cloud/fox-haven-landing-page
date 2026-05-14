@@ -92,11 +92,11 @@ export const INITIATIVES: InitiativeConfig[] = [
   {
     id: 'ai-consulting',
     number: '03',
-    name: 'AI for Small Business',
+    name: 'AI Solutions for Everyone',
     shortName: 'AI Consulting',
     tagline: 'Smarter operations. Smaller footprint.',
     description:
-      'We help small businesses bridge the gap between where they are today and where AI can take them — with strategies that are practical, affordable, and environmentally conscious. No bloated enterprise tools. No wasted compute. Just the right technology, deployed the right way.',
+      'We help businesses of every size bridge the gap between where they are today and where AI can take them — with strategies that are practical, affordable, and environmentally conscious. No bloated enterprise tools. No wasted compute. Just the right technology, deployed the right way.',
     details: [
       'AI readiness assessments tailored to your current tech stack and budget',
       'Workflow automation that reduces manual effort and energy consumption',
@@ -115,7 +115,7 @@ export const INITIATIVES: InitiativeConfig[] = [
     performanceStats: [
       { value: '40%', label: 'Avg Cost Savings' },
       { value: '60%', label: 'Less Compute' },
-      { value: 'SMB', label: 'Focused' },
+      { value: 'Any', label: 'Business Size' },
       { value: 'Green', label: 'AI First' },
     ],
   },

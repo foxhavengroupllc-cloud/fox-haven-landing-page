@@ -632,7 +632,7 @@ function ShelterVisual() {
 }
 
 /* ────────────────────────────────────────────────────
-   CARD 3 — AI for Small Business (reversed, dark green)
+   CARD 3 — AI Solutions for Everyone (reversed, dark green)
    ──────────────────────────────────────────────────── */
 
 function AIConsultingVisual() {

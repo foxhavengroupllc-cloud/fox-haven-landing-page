@@ -55,7 +55,7 @@ export const QUESTIONS: Question[] = [
     { value: 'under_hour', label: 'Within an hour', scoreImpact: 6 },
     { value: 'same_day', label: 'Same day, usually', scoreImpact: 2 },
     { value: 'next_day', label: 'Next business day', scoreImpact: -4, hint: 'Most leads have moved on by the next day.' },
-    { value: 'days_plus', label: 'Several days or whenever we get to it', scoreImpact: -10, hint: 'This is one of the largest revenue leaks for small businesses.' },
+    { value: 'days_plus', label: 'Several days or whenever we get to it', scoreImpact: -10, hint: 'This is one of the largest revenue leaks for any business.' },
   ]},
   { id: 'sales_02', section: 'sales', text: 'How are leads qualified before reaching a salesperson or owner?', type: 'single', weight: 2, options: [
     { value: 'automated_scoring', label: 'Automatically \u2014 we have scoring or intake filters', scoreImpact: 8 },

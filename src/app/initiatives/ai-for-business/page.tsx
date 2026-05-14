@@ -4,13 +4,13 @@ import Nav from '@/components/layout/Nav';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'AI for Small Business — Fox Haven Group',
+  title: 'AI Solutions for Everyone — Fox Haven Group',
   description:
     'Find out where AI can move the needle for your business. Take a free 5-minute AI readiness audit and get a clear picture of where you\'re losing time and revenue.',
   openGraph: {
-    title: 'AI for Small Business — Fox Haven Group',
+    title: 'AI Solutions for Everyone — Fox Haven Group',
     description:
-      'A free AI readiness assessment for small businesses — 16 questions, instant results, actionable next steps.',
+      'A free AI readiness assessment for any business — 16 questions, instant results, actionable next steps.',
     type: 'website',
     url: 'https://foxhavengroup.org/initiatives/ai-for-business',
   },

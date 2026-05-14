@@ -66,7 +66,7 @@ export default function AIForSmallBusinessPage() {
             <motion.div {...fade(0)} className="flex items-center justify-center gap-2 mb-6">
               <div className="w-5 h-px bg-[#e05e14]" />
               <span className="text-[10px] tracking-[0.16em] uppercase text-[#e05e14] font-semibold">
-                ◈ AI FOR SMALL BUSINESS
+                ◈ AI SOLUTIONS FOR EVERYONE
               </span>
             </motion.div>
 
@@ -131,7 +131,7 @@ export default function AIForSmallBusinessPage() {
               <em className="text-[#e05e14] not-italic">actually moves the needle</em>
             </h2>
             <p className="text-[14px] text-[#94A3B8] mt-3 leading-relaxed max-w-[600px]">
-              We focus exclusively on the operational gaps that cost small businesses the most — not
+              We focus exclusively on the operational gaps that cost businesses the most — not
               trendy tech for its own sake.
             </p>
             <ServiceGrid />

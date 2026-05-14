@@ -68,7 +68,7 @@ export async function generateImplementationPlan(auditData: {
 
   const client = new Anthropic({ apiKey });
 
-  const prompt = `You are a small business automation consultant. Based on this audit data, generate a JSON implementation plan.
+  const prompt = `You are a business automation consultant. Based on this audit data, generate a JSON implementation plan.
 
 Company: ${auditData.companyName}
 Industry: ${auditData.industry || 'Not specified'}

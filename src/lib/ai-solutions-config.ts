@@ -58,7 +58,7 @@ export const AI_SERVICES: AIService[] = [
     tagline:
       'Automated qualification and follow-up sequences that respond in seconds, not hours.',
     description:
-      'Most small businesses take 5+ hours to respond to inbound leads. By then, your prospect has already called three competitors. We build AI-powered response systems that qualify, score, and follow up with leads within seconds — keeping your pipeline alive while your team focuses on closing.',
+      'Most teams take 5+ hours to respond to inbound leads. By then, your prospect has already called three competitors. We build AI-powered response systems that qualify, score, and follow up with leads within seconds — keeping your pipeline alive while your team focuses on closing.',
     problemStatement:
       'Every hour you wait to respond to a lead, your close rate drops by 10%. Manual follow-up is inconsistent, slow, and the first thing your team drops when they get busy.',
     features: [
@@ -226,7 +226,7 @@ export const AI_SERVICES: AIService[] = [
     description:
       'Before you spend a dollar on AI tools, you need to know where the real opportunities are and which investments will actually move the needle. We provide hands-on strategic consulting that cuts through the hype and gives you a concrete plan based on your business reality.',
     problemStatement:
-      'The AI market is flooded with tools promising to transform your business, but most small businesses don\'t know where to start, what to prioritize, or how to avoid expensive mistakes. Strategy without context is just noise.',
+      'The AI market is flooded with tools promising to transform your business, but most teams don\'t know where to start, what to prioritize, or how to avoid expensive mistakes. Strategy without context is just noise.',
     features: [
       'Comprehensive AI readiness assessment across all business functions',
       'Prioritized roadmap based on ROI and implementation complexity',
@@ -551,7 +551,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'Can you integrate with our existing systems?',
     answer:
-      'Yes. We specialize in connecting the tools small businesses already use — HubSpot, Salesforce, QuickBooks, Google Workspace, Outlook, Slack, and hundreds more through custom API integrations.',
+      'Yes. We specialize in connecting the tools teams already use — HubSpot, Salesforce, QuickBooks, Google Workspace, Outlook, Slack, and hundreds more through custom API integrations.',
     category: 'technical',
   },
   {

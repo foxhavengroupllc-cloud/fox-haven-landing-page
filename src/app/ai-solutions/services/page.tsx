@@ -28,7 +28,7 @@ export default function ServicesPage() {
             style={{ '--hero-delay': '0.15s' } as React.CSSProperties}
           >
             From automated lead response to custom AI agents and strategic
-            consulting — every service is designed for small businesses that need
+            consulting — every service is designed for teams that need
             results, not demos.
           </p>
         </div>

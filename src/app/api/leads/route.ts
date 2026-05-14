@@ -98,7 +98,7 @@ export async function POST(req: NextRequest) {
       to: NOTIFY_EMAIL,
       subject: `New lead: ${esc(safeName)} — ${esc(safeCompany ?? 'Unknown company')}`,
       html: `
-        <h2>New AI for Small Business Lead</h2>
+        <h2>New AI Solutions Lead</h2>
         <p><strong>Name:</strong> ${esc(safeName)}</p>
         <p><strong>Email:</strong> ${esc(safeEmail)}</p>
         <p><strong>Company:</strong> ${esc(safeCompany ?? '—')}</p>

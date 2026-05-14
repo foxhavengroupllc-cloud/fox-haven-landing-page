@@ -91,7 +91,7 @@ export default function AuditIntakePage() {
           <div className="flex items-center gap-2 mb-6">
             <div className="w-2 h-2 rounded-full bg-[var(--color-orange)]" />
             <span className="text-[11px] font-medium tracking-[0.12em] uppercase text-[var(--color-orange)] font-[family-name:var(--font-body)]">
-              AI FOR SMALL BUSINESS &middot; FREE ASSESSMENT
+              AI SOLUTIONS FOR EVERYONE &middot; FREE ASSESSMENT
             </span>
           </div>
 

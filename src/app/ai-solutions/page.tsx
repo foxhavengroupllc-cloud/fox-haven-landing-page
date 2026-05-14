@@ -27,7 +27,7 @@ export default function AISolutionsPage() {
             </h2>
             <p className="text-[14px] text-[#94A3B8] mt-3 leading-relaxed max-w-[600px]">
               From automated lead response to custom AI agents — we focus on the
-              operational gaps that cost small businesses the most.
+              operational gaps that cost businesses the most.
             </p>
           </div>
 
