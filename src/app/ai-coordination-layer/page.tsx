@@ -27,13 +27,6 @@ import styles from '@/styles/design-system.module.css';
  * coordinator's daily ops view.
  */
 
-const COORDINATION_STATS = [
-  { value: '128', label: 'Active operational zones' },
-  { value: '5', label: 'Live signal sources orchestrated' },
-  { value: '~12 s', label: 'Median signal → recommendation time' },
-  { value: '100%', label: 'Recommendations routed through a human' },
-];
-
 const SIGNALS_IN = [
   {
     Icon: Activity,
@@ -88,23 +81,23 @@ const REASONING_STEPS = [
 const GUARDRAILS = [
   {
     Icon: ShieldCheck,
-    title: 'Privacy boundary holds',
-    body: 'The coordination layer inherits Population Flow’s aggregate-only contract. No individual GPS trails, no device IDs, no personal movement history — at any layer of the stack.',
+    title: 'Privacy is inherited, not added',
+    body: 'The coordination layer reads from Population Flow, which only sees aggregated signals. There are no individual location trails, device IDs, or movement records anywhere in the stack.',
   },
   {
     Icon: Eye,
-    title: 'Every recommendation is explainable',
-    body: 'Every recommendation is rendered with the signals that produced it, the model confidence, and the alternatives it considered. Operators see the reasoning, not just the answer.',
+    title: 'Show your work',
+    body: 'Each recommendation is paired with the signals that produced it and the alternatives the model considered. Operators see the reasoning, not just the answer.',
   },
   {
     Icon: AlertTriangle,
-    title: 'Refusal is a first-class output',
-    body: 'When the signal stack is too thin or contradictory, the layer says so — and falls back to a published, lower-confidence playbook instead of fabricating a confident-sounding recommendation.',
+    title: 'It can say "I don\'t know"',
+    body: 'When the signal stack is thin or contradictory, the layer falls back to a published, lower-confidence playbook. We would rather flag uncertainty than invent a confident answer.',
   },
   {
     Icon: Workflow,
-    title: 'Human-in-the-loop, always',
-    body: 'No clinical, dispatch, or safety-critical action is automated end-to-end. The layer drafts; a named operator decides; the system logs both the draft and the decision.',
+    title: 'A person makes the call',
+    body: 'Nothing clinical, dispatch-related, or safety-critical happens automatically. The layer drafts. A named operator decides. Both the draft and the decision are logged.',
   },
 ];
 
@@ -159,45 +152,32 @@ export default function AiCoordinationLayerPage() {
               </h1>
               <p className="mt-4 text-sm leading-relaxed text-[#f4ede0]/62">
                 The reasoning layer that connects civic signals, resource inventory, and the
-                people running heat operations on the ground. Every recommendation it produces
-                is explainable, every action it surfaces is approved by a human.
+                people running heat operations. Every recommendation comes with its inputs
+                attached, and a person always makes the final call.
               </p>
             </div>
 
-            {/* Active operations card */}
+            {/* Pilot status card */}
             <div className="rounded-[8px] border border-[#f1a13a]/20 bg-[#02070d]/66 p-4">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                 <p className="font-mono text-[0.6rem] font-bold uppercase tracking-[0.13em] text-[#f1a13a]">
-                  Active operations · today
+                  Pilot status · Phoenix
                 </p>
                 <span className="rounded-full border border-[#f1a13a]/32 px-2.5 py-1 font-mono text-[0.5rem] font-bold uppercase tracking-[0.1em] text-[#f1a13a]">
                   Concept preview
                 </span>
               </div>
-              <p className="font-mono text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#fff4df]/46">
-                Coordinated zones
+              <p className="mt-2 text-sm leading-relaxed text-[#f4ede0]/72">
+                Two NWS feeds are live in the development environment. Four other signal
+                sources (air quality, transit, Phoenix Open Data, partner shelter inventory)
+                are in scoped fallback while we negotiate the integrations.
               </p>
-              <h2 className="mt-2 font-display text-[2.6rem] font-light leading-tight text-[#fff4df]">
-                128
-              </h2>
-              <p className="mt-1 text-sm text-[#f4ede0]/52">
-                Across the Phoenix metro pilot · refreshed every 3 minutes
+              <p className="mt-3 text-sm leading-relaxed text-[#f4ede0]/52">
+                Operational metrics — zones coordinated, median latency, decision logs —
+                will be published once the first deployment season closes. We&rsquo;d rather
+                ship those numbers when they&rsquo;re real than ship them when they look
+                good.
               </p>
-
-              <div className="mt-4 grid gap-2 border-t border-[#f4ede0]/8 pt-4 text-xs text-[#f4ede0]/58">
-                <div className="flex items-center justify-between gap-3">
-                  <span>Signal sources orchestrated</span>
-                  <strong className="text-right font-mono text-[#fff4df]/82">5 live</strong>
-                </div>
-                <div className="flex items-center justify-between gap-3">
-                  <span>Median ingest → recommend</span>
-                  <strong className="text-right font-mono text-[#f1a13a]">~12 s</strong>
-                </div>
-                <div className="flex items-center justify-between gap-3">
-                  <span>Human approval rate</span>
-                  <strong className="text-right font-mono text-[#f1a13a]">100%</strong>
-                </div>
-              </div>
             </div>
 
             <div className="mt-4 rounded-[8px] border border-[#f1a13a]/18 bg-[#07111c]/68 p-3">
@@ -206,8 +186,8 @@ export default function AiCoordinationLayerPage() {
                 Reasoning principle
               </div>
               <p className="text-xs leading-relaxed text-[#f4ede0]/56">
-                Operator decides. The layer drafts, scores, and explains — but never
-                auto-executes a heat-response action.
+                The layer drafts. A named operator decides. We do not auto-execute
+                heat-response actions, ever.
               </p>
             </div>
 
@@ -229,23 +209,6 @@ export default function AiCoordinationLayerPage() {
 
           {/* ── Main column ── */}
           <div className="relative z-10 grid gap-5">
-            {/* Stats strip */}
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-              {COORDINATION_STATS.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-[8px] border border-[#f4ede0]/10 bg-[#02070d]/56 p-4"
-                >
-                  <p className="font-display text-2xl font-light leading-none text-[#fff4df]">
-                    {s.value}
-                  </p>
-                  <p className="mt-2 font-mono text-[0.6rem] uppercase tracking-[0.13em] text-[#f4ede0]/56">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-
             {/* Signals in */}
             <section className="rounded-[8px] border border-[#f1a13a]/14 bg-[#04101a]/74 p-5">
               <div className="mb-4 flex flex-wrap items-center justify-between gap-3">

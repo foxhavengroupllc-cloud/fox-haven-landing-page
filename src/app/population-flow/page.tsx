@@ -182,8 +182,9 @@ export default function PopulationFlowPage() {
                 Heat Relief Deployment Intelligence
               </h1>
               <p className="mt-4 text-sm leading-relaxed text-[#f4ede0]/62">
-                A privacy-first civic intelligence layer for identifying high-priority outdoor
-                heat exposure zones before relief resources are deployed.
+                A civic intelligence layer for spotting where outdoor heat is hitting hardest
+                in Phoenix, so partner teams can move relief resources before the call volume
+                spikes. Aggregate signals only. No individual tracking.
               </p>
             </div>
 
