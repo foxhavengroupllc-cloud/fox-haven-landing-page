@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * CanvasContainer — standardized wrapper for immersive canvas elements.
+ * CanvasContainer, standardized wrapper for immersive canvas elements.
  *
  * Enforces:
  * - aria-hidden="true" on the canvas (always decorative)

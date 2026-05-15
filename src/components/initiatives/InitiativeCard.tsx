@@ -78,7 +78,7 @@ function CtaLink({
           onClick={() => {
             const target = initiative.primaryAction.scrollTo ?? '#cta';
             if (target === '#cta') {
-              // Open partner portal directly — no scroll first
+              // Open partner portal directly, no scroll first
               window.dispatchEvent(new CustomEvent('open-portal', { detail: 'partner' }));
             } else {
               scrollToSection(target);
@@ -147,7 +147,7 @@ function CardBody({
 }
 
 /* ────────────────────────────────────────────────────
-   CARD 0 — Heat App (full-bleed immersive)
+   CARD 0, Heat App (full-bleed immersive)
    ──────────────────────────────────────────────────── */
 
 function HeatAppVisual() {
@@ -162,7 +162,7 @@ function HeatAppVisual() {
         }}
       />
 
-      {/* S1: Dashboard — spans both columns */}
+      {/* S1: Dashboard, spans both columns */}
       <div className="col-span-2 bg-white/[.06] border border-white/10 rounded-[14px] backdrop-blur-[8px] overflow-hidden relative z-[1]">
         {/* Chrome bar */}
         <div className="bg-black/30 px-3 py-2 flex items-center gap-1.5 border-b border-white/[.07]">
@@ -320,18 +320,18 @@ function HeatAppVisual() {
 }
 
 /* ────────────────────────────────────────────────────
-   CARD 1 — Balm (image gallery + live app link)
+   CARD 1, Balm (image gallery + live app link)
    ──────────────────────────────────────────────────── */
 
 function BalmVisual() {
   const [activeImg, setActiveImg] = useState(0);
 
   const screens = [
-    { src: '/images/balm/balm-home.png', alt: 'Balm dashboard — weekly overview, tasks, shopping list, and focus section', label: 'Dashboard' },
+    { src: '/images/balm/balm-home.png', alt: 'Balm dashboard, weekly overview, tasks, shopping list, and focus section', label: 'Dashboard' },
     { src: '/images/balm/balm-calendar.png', alt: 'Balm shared family calendar with Google sync', label: 'Calendar' },
-    { src: '/images/balm/balm-tasks.png', alt: 'Balm task manager — assign tasks, set due dates, track progress', label: 'Tasks' },
-    { src: '/images/balm/balm-shopping.png', alt: 'Balm shared shopping list — add items, browse categories', label: 'Shopping' },
-    { src: '/images/balm/balm-ai.png', alt: 'Balm AI assistant — natural language task and event creation', label: 'AI' },
+    { src: '/images/balm/balm-tasks.png', alt: 'Balm task manager, assign tasks, set due dates, track progress', label: 'Tasks' },
+    { src: '/images/balm/balm-shopping.png', alt: 'Balm shared shopping list, add items, browse categories', label: 'Shopping' },
+    { src: '/images/balm/balm-ai.png', alt: 'Balm AI assistant, natural language task and event creation', label: 'AI' },
   ];
 
   const prev = () => setActiveImg((i) => (i - 1 + screens.length) % screens.length);
@@ -383,7 +383,7 @@ function BalmVisual() {
           <span className="text-[9px] text-white/40 font-mono">{activeImg + 1}/{screens.length}</span>
         </div>
 
-        {/* Large arrow buttons — always visible */}
+        {/* Large arrow buttons, always visible */}
         <button
           type="button"
           onClick={prev}
@@ -447,7 +447,7 @@ function BalmVisual() {
           ))}
         </div>
 
-        {/* Screen tabs — clickable to switch screenshots */}
+        {/* Screen tabs, clickable to switch screenshots */}
         <div className="bg-white/[.04] backdrop-blur-md border border-white/[.06] rounded-xl px-2 py-2 flex items-center justify-between gap-1">
           {[
             { icon: '\u2302', label: 'Home', idx: 0 },
@@ -489,14 +489,14 @@ function BalmVisual() {
 }
 
 /* ────────────────────────────────────────────────────
-   CARD 2 — Solar Shelters (image gallery + specs)
+   CARD 2, Solar Shelters (image gallery + specs)
    ──────────────────────────────────────────────────── */
 
 function ShelterVisual() {
   const [activeImg, setActiveImg] = useState(0);
 
   const images = [
-    { src: '/images/shelter/shelter-front.png', alt: 'Solar cooling shelter — front view showing steel columns, PV roof, benches, and equipment kiosk' },
+    { src: '/images/shelter/shelter-front.png', alt: 'Solar cooling shelter, front view showing steel columns, PV roof, benches, and equipment kiosk' },
     { src: '/images/shelter/shelter-aerial.png', alt: 'Aerial view of 24×24 ft shelter footprint with four roof cassettes' },
     { src: '/images/shelter/shelter-people.png', alt: 'Community members seated under the shelter in Phoenix heat' },
     { src: '/images/shelter/shelter-angle.png', alt: 'Three-quarter angle showing high-SRI roof and open perimeter design' },
@@ -632,7 +632,7 @@ function ShelterVisual() {
 }
 
 /* ────────────────────────────────────────────────────
-   CARD 3 — AI Solutions for Everyone (reversed, dark green)
+   CARD 3, AI Solutions for Everyone (reversed, dark green)
    ──────────────────────────────────────────────────── */
 
 function AIConsultingVisual() {
@@ -818,7 +818,7 @@ export default function InitiativeCard({ initiative, index, onLearnMoreClick }: 
     );
   }
 
-  // Card 1: Solar Shelters (body left, visual right — taller for gallery)
+  // Card 1: Solar Shelters (body left, visual right, taller for gallery)
   if (index === 1) {
     return (
       <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[560px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
@@ -842,7 +842,7 @@ export default function InitiativeCard({ initiative, index, onLearnMoreClick }: 
     );
   }
 
-  // Card 3: Balm reversed (visual left, body right — taller for gallery)
+  // Card 3: Balm reversed (visual left, body right, taller for gallery)
   return (
     <div ref={tiltRef} className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] rounded-[22px] overflow-hidden border border-[#0b1c2e]/[.08] min-h-[560px] hover:shadow-[0_32px_80px_rgba(11,28,46,.12)] transition-shadow reveal" style={{ transformStyle: 'preserve-3d' }}>
       <div className="order-2 lg:order-1">

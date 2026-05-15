@@ -1,6 +1,6 @@
 // strategicCoreConfig.ts
 // Config-driven node data for the Foxhaven Strategic Core.
-// Add new nodes here — no other files need changing for basic additions.
+// Add new nodes here, no other files need changing for basic additions.
 
 export type NodeAction =
   | { kind: 'panel' }
@@ -55,7 +55,7 @@ export const STRATEGIC_NODES: CoreNode[] = [
     tier: 'secondary',
     panel: {
       title: 'Our Mission',
-      body: 'Fox Haven Group builds technology and infrastructure to protect lives, empower communities, and simplify modern family life — starting in Phoenix, scaling everywhere.',
+      body: 'Fox Haven Group builds technology and infrastructure to protect lives, empower communities, and simplify modern family life, starting in Phoenix, scaling everywhere.',
       cta: { label: 'Learn more', scrollTo: '#mission' },
     },
   },
@@ -69,7 +69,7 @@ export const STRATEGIC_NODES: CoreNode[] = [
     tier: 'primary',
     panel: {
       title: 'Heat Relief Solar Shelters',
-      body: 'Solar-powered cooling stations across Phoenix — free air conditioning, water, and emergency resources during extreme heat events. No ID required.',
+      body: 'Solar-powered cooling stations across Phoenix, free air conditioning, water, and emergency resources during extreme heat events. No ID required.',
       cta: { label: 'Explore initiative', href: '/initiatives/solar-shelter' },
     },
   },
@@ -96,8 +96,8 @@ export const STRATEGIC_NODES: CoreNode[] = [
     accent: 'teal',
     tier: 'primary',
     panel: {
-      title: 'Balm — Family Control Center',
-      body: "Stop carrying it alone. Balm tracks your family's mental load, syncs schedules, and uses AI to ensure household work gets shared — live and free.",
+      title: 'Balm, Family Control Center',
+      body: "Stop carrying it alone. Balm tracks your family's mental load, syncs schedules, and uses AI to ensure household work gets shared, live and free.",
       cta: { label: 'Try Balm free', href: 'https://balm-1092892651956.us-central1.run.app/signup' },
     },
   },
@@ -111,7 +111,7 @@ export const STRATEGIC_NODES: CoreNode[] = [
     tier: 'primary',
     panel: {
       title: 'AI Solutions for Everyone',
-      body: 'We help everyone bridge the gap to AI — with strategies that are practical, affordable, and environmentally conscious. Right-sized technology, no wasted compute.',
+      body: 'We help everyone bridge the gap to AI, with strategies that are practical, affordable, and environmentally conscious. Right-sized technology, no wasted compute.',
       cta: { label: 'Start a conversation', scrollTo: '#cta' },
     },
   },
@@ -139,7 +139,7 @@ export const STRATEGIC_NODES: CoreNode[] = [
     tier: 'secondary',
     panel: {
       title: 'Get Involved',
-      body: "Whether you're a community partner, investor, future user, or just someone who cares — we'd love to hear from you.",
+      body: "Whether you're a community partner, investor, future user, or just someone who cares, we'd love to hear from you.",
       cta: { label: 'Contact us', scrollTo: '#cta' },
     },
   },

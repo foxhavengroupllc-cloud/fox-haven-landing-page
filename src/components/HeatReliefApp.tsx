@@ -4,7 +4,7 @@ import { Smartphone, Bell, MapPin, Thermometer, ArrowRight, AlertTriangle, Navig
 import Link from "next/link";
 import { scrollToSection } from "@/lib/scroll";
 
-/* Explicit Tailwind-safe classes — no dynamic class construction */
+/* Explicit Tailwind-safe classes, no dynamic class construction */
 const appFeatures = [
   {
     icon: Bell,
@@ -17,7 +17,7 @@ const appFeatures = [
   {
     icon: MapPin,
     title: "Cooling Center Map",
-    description: "Live map of open cooling centers, misting stations, and solar shelters — updated in real time.",
+    description: "Live map of open cooling centers, misting stations, and solar shelters, updated in real time.",
     iconBg:   "bg-orange-500/15",
     iconBorder: "border-orange-500/25",
     iconColor: "text-orange-400",
@@ -66,7 +66,7 @@ const mockScreens = [
       { type: "header", text: "⚠️ EXTREME HEAT WARNING" },
       { type: "temp",   text: "116°F" },
       { type: "sub",    text: "Heat index: 122°F" },
-      { type: "badge",  text: "Dangerous — Take Action Now" },
+      { type: "badge",  text: "Dangerous, Take Action Now" },
       { type: "item",   text: "📍 3 cooling centers nearby" },
       { type: "item",   text: "🔋 2 charging stations open" },
       { type: "button", text: "Find Shelter Now" },
@@ -78,12 +78,12 @@ const mockScreens = [
     bg: "from-slate-800 to-slate-900",
     content: [
       { type: "header", text: "Cooling Centers Near You" },
-      { type: "item",   text: "🏛️ Burton Barr Library — 0.3mi" },
-      { type: "item",   text: "🏪 Albertsons (AC) — 0.5mi" },
-      { type: "item",   text: "⛪ St. Mary's — 0.8mi" },
+      { type: "item",   text: "🏛️ Burton Barr Library, 0.3mi" },
+      { type: "item",   text: "🏪 Albertsons (AC), 0.5mi" },
+      { type: "item",   text: "⛪ St. Mary's, 0.8mi" },
       { type: "divider", text: "" },
-      { type: "item",   text: "☀️ Solar Shelter #1 — 0.2mi" },
-      { type: "item",   text: "☀️ Solar Shelter #2 — 0.6mi" },
+      { type: "item",   text: "☀️ Solar Shelter #1, 0.2mi" },
+      { type: "item",   text: "☀️ Solar Shelter #2, 0.6mi" },
       { type: "button", text: "Get Directions" },
     ],
   },
@@ -113,7 +113,7 @@ export default function HeatReliefApp() {
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
             A mobile-first platform that connects Phoenix residents to real-time heat
-            emergency alerts, cooling resources, and safety guidance — when every
+            emergency alerts, cooling resources, and safety guidance, when every
             minute matters.
           </p>
         </div>

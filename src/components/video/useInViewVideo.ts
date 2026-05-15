@@ -15,7 +15,7 @@ interface UseInViewVideoResult {
   /** True while the container is intersecting the viewport. Updates each frame. */
   isInView: boolean;
   /**
-   * One-way trigger — flips to true the first time the container enters
+   * One-way trigger, flips to true the first time the container enters
    * the viewport and stays true forever. Use this to imperatively set
    * `videoRef.current.src` so the video is only fetched once.
    */

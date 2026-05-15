@@ -1,12 +1,12 @@
 'use client';
 /**
- * Solar Shelter Experience — Main Scene Component
+ * Solar Shelter Experience, Main Scene Component
  *
  * Hybrid architecture:
- *   Layer 1 (canvas): HeatRenderer — particle field shifts from hot orange
+ *   Layer 1 (canvas): HeatRenderer, particle field shifts from hot orange
  *                     to cool blue-white as the narrative progresses
- *   Layer 2 (DOM):    Phase content — narrative text, stats, diagrams, hotspots
- *   Layer 3 (DOM):    Phase navigation — progress dots, prev/next controls
+ *   Layer 2 (DOM):    Phase content, narrative text, stats, diagrams, hotspots
+ *   Layer 3 (DOM):    Phase navigation, progress dots, prev/next controls
  *
  * Five narrative phases:
  *   0 Problem → 1 Contrast → 2 Solution → 3 Proof → 4 Action
@@ -27,7 +27,7 @@ import {
 import { HeatRenderer } from './HeatRenderer';
 import type { SceneProps } from '../../types/core';
 
-// Heat level per phase — drops as narrative moves toward resolution
+// Heat level per phase, drops as narrative moves toward resolution
 const HEAT_LEVELS = [1.0, 0.72, 0.42, 0.18, 0.07] as const;
 
 // Particle count: standard tier vs premium tier
@@ -165,7 +165,7 @@ export function SolarShelterScene({
 
       {/* ── Accessibility: hidden phase announcer ────────────────── */}
       <div className="sr-only" role="status" aria-live="assertive" aria-atomic="true">
-        {`Now showing: ${['Problem', 'Contrast', 'Solution', 'Proof', 'Action'][phase] ?? ''} — use arrow keys or navigation buttons to move between phases`}
+        {`Now showing: ${['Problem', 'Contrast', 'Solution', 'Proof', 'Action'][phase] ?? ''}, use arrow keys or navigation buttons to move between phases`}
       </div>
     </div>
   );

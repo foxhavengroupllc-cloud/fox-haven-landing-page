@@ -1,18 +1,18 @@
 'use client';
 /**
- * Heat Relief App Experience — Phase Content Components
+ * Heat Relief App Experience, Phase Content Components
  *
  * Each phase renders the narrative content layer over the city-grid canvas.
  * All content is authored here, separate from rendering logic.
  *
  * Phases:
- *   0 — Emergency:  "116°F. No shelter. Find one now."
- *   1 — Discovery:  "17 cooling centers found within 1 mile."
- *   2 — Navigate:   "Closest route: 4 minutes on foot."
- *   3 — Decide:     "Filter. Compare. Check capacity."
- *   4 — Act:        "Download. Find. Stay cool."
+ *   0, Emergency:  "116°F. No shelter. Find one now."
+ *   1, Discovery:  "17 cooling centers found within 1 mile."
+ *   2, Navigate:   "Closest route: 4 minutes on foot."
+ *   3, Decide:     "Filter. Compare. Check capacity."
+ *   4, Act:        "Download. Find. Stay cool."
  *
- * Color primary: cyan (#06b6d4) — contrast with shelter's orange.
+ * Color primary: cyan (#06b6d4), contrast with shelter's orange.
  */
 
 import React, { useState, useCallback, useEffect } from 'react';
@@ -95,7 +95,7 @@ export function Phase0Emergency({ transitionState }: { transitionState: PhaseTra
       .catch(() => {}); // silently fall back to DEMO values
   }, []);
 
-  // Live Phoenix clock — updates every minute
+  // Live Phoenix clock, updates every minute
   useEffect(() => {
     const fmt = () =>
       new Date().toLocaleString('en-US', {
@@ -108,7 +108,7 @@ export function Phase0Emergency({ transitionState }: { transitionState: PhaseTra
     return () => clearInterval(id);
   }, []);
 
-  // Resolved values — live data if available, demo fallback otherwise
+  // Resolved values, live data if available, demo fallback otherwise
   const d = wx ?? DEMO;
   const risk = RISK_STYLES[d.heatRisk] ?? RISK_STYLES.DANGEROUS;
   const isLoading = wx === null;
@@ -425,7 +425,7 @@ export function Phase3Decide({
   onSelectCenter,
 }: {
   transitionState: PhaseTransitionState;
-  /** Called when the user picks a center — advances the experience to Phase 4. */
+  /** Called when the user picks a center, advances the experience to Phase 4. */
   onSelectCenter: () => void;
 }) {
   const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
@@ -504,7 +504,7 @@ export function Phase3Decide({
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50
                     ${c.accentClass}
                     ${c.recommended ? 'hover:border-cyan-500/60' : 'hover:border-white/25'}`}
-                  aria-label={`Select ${c.name} — ${c.dist}, ${c.hours}`}
+                  aria-label={`Select ${c.name}, ${c.dist}, ${c.hours}`}
                 >
                   {c.recommended && (
                     <div className="absolute -top-2.5 left-4 bg-cyan-500 text-black text-[9px] font-black px-2.5 py-0.5 rounded-full font-mono">
@@ -524,7 +524,7 @@ export function Phase3Decide({
                         <span className="text-slate-400">{c.hours}</span>
                       </div>
                     </div>
-                    {/* Arrow — appears on hover */}
+                    {/* Arrow, appears on hover */}
                     <Navigation
                       className="w-3.5 h-3.5 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 mt-0.5"
                       aria-hidden="true"
@@ -548,7 +548,7 @@ export function Phase3Decide({
                     </div>
                   </div>
 
-                  {/* Tags — clicking activates that filter */}
+                  {/* Tags, clicking activates that filter */}
                   <div className="flex flex-wrap gap-1.5">
                     {c.tags.map((t) => {
                       const tagActive = activeFilters.has(t);
@@ -643,7 +643,7 @@ export function Phase4Act({
           {/* ── Realistic app phone mockup ─────────────────────────────── */}
           <PhoneMockup
             statusTime="14:52"
-            ariaLabel="Heat Relief App — live map view showing nearest cooling centers"
+            ariaLabel="Heat Relief App, live map view showing nearest cooling centers"
             width="210px"
             glowClass="drop-shadow-[0_0_32px_rgba(6,182,212,0.35)]"
             screenClassName="bg-[#07101e]"
@@ -687,7 +687,7 @@ export function Phase4Act({
                   <line x1="35%" y1="0" x2="35%" y2="100%" stroke="rgba(255,255,255,0.06)" strokeWidth="2.5"/>
                   <line x1="68%" y1="0" x2="68%" y2="100%" stroke="rgba(255,255,255,0.04)" strokeWidth="1.5"/>
 
-                  {/* Route line — user to Burton Barr */}
+                  {/* Route line, user to Burton Barr */}
                   <polyline
                     points="50%,80% 50%,55% 35%,55% 35%,35%"
                     fill="none" stroke="#06b6d4" strokeWidth="1.8"
@@ -695,16 +695,16 @@ export function Phase4Act({
                   />
 
                   {/* Location pins */}
-                  {/* Burton Barr — closest, cyan */}
+                  {/* Burton Barr, closest, cyan */}
                   <circle cx="35%" cy="35%" r="5" fill="#06b6d4" opacity="0.9"/>
                   <circle cx="35%" cy="35%" r="8" fill="none" stroke="#06b6d4" strokeWidth="1" opacity="0.4"/>
                   <circle cx="35%" cy="35%" r="11" fill="none" stroke="#06b6d4" strokeWidth="0.5" opacity="0.2"/>
 
-                  {/* Maryvale — cyan dimmer */}
+                  {/* Maryvale, cyan dimmer */}
                   <circle cx="72%" cy="28%" r="4" fill="#06b6d4" opacity="0.55"/>
                   <circle cx="72%" cy="28%" r="7" fill="none" stroke="#06b6d4" strokeWidth="0.8" opacity="0.25"/>
 
-                  {/* S. Mountain — slate */}
+                  {/* S. Mountain, slate */}
                   <circle cx="80%" cy="68%" r="3.5" fill="#64748b" opacity="0.6"/>
 
                   {/* User position */}
@@ -800,7 +800,7 @@ export function Phase4Act({
               {[
                 '17 verified cooling centers mapped in real time',
                 '47-second median time from open to route start',
-                'Offline mode — works without cell service',
+                'Offline mode, works without cell service',
                 'Wellness check-in for family members',
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2 text-slate-300">
@@ -869,7 +869,7 @@ export function AppPhaseNavigation({
       role="navigation"
       aria-label="Experience navigation"
     >
-      {/* Phase dots — cyan accent (vs orange for shelter) */}
+      {/* Phase dots, cyan accent (vs orange for shelter) */}
       <div className="flex items-center gap-3 pointer-events-auto">
         {Array.from({ length: totalPhases }).map((_, i) => (
           <button

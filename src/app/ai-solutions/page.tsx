@@ -15,13 +15,13 @@ import LeadForm from '@/components/ai-small-biz/LeadForm';
 import { AI_SERVICES, PROCESS_STEPS } from '@/lib/ai-solutions-config';
 
 /**
- * AI Solutions hub — restyled to use the new design-system archetypes
+ * AI Solutions hub, restyled to use the new design-system archetypes
  * (.detailSection / .detailIntro / .detailShots / .detailFeatures /
  * .detailStats / .serviceGrid / .serviceCard).
  *
  * Wrapped by AISolutionsShell which provides the Header + SubNav.
  * Data unchanged: pulls AI_SERVICES (all 8) and PROCESS_STEPS from
- * src/lib/ai-solutions-config.ts. LeadForm component is unchanged —
+ * src/lib/ai-solutions-config.ts. LeadForm component is unchanged , 
  * still posts to /api/leads.
  */
 
@@ -56,11 +56,11 @@ const HERO_FEATURES = [
   },
   {
     title: 'Hands-on implementation',
-    body: 'Staff training and rollout support — not just slide decks.',
+    body: 'Staff training and rollout support, not just slide decks.',
   },
   {
     title: 'Green-first model selection',
-    body: 'Right-sized AI that minimises compute waste — no wasted cycles, no wasted spend.',
+    body: 'Right-sized AI that minimises compute waste, no wasted cycles, no wasted spend.',
   },
   {
     title: 'Ongoing optimisation',
@@ -82,7 +82,7 @@ export default function AISolutionsHubPage() {
       <section id="overview" className={styles.detailSection}>
         <div className={styles.detailIntro}>
           <p className={styles.eyebrow}>◈ AI SOLUTIONS FOR EVERYONE</p>
-          <h2>AI that works for your business — not the other way around.</h2>
+          <h2>AI that works for your business, not the other way around.</h2>
           <p>
             Fox Haven builds AI-powered automation, custom agents, and strategic consulting that
             eliminates the repetitive drag costing your business time and money. Eight specialised
@@ -109,7 +109,7 @@ export default function AISolutionsHubPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/new-design/homepage-redesign/system-solutions/system-globe.png"
-              alt="AI Solutions — a network of connected systems orchestrated by AI."
+              alt="AI Solutions, a network of connected systems orchestrated by AI."
             />
             <figcaption>Now accepting clients · Smarter operations, smaller footprint.</figcaption>
           </figure>
@@ -206,7 +206,7 @@ export default function AISolutionsHubPage() {
           <p className={styles.eyebrow}>◉ GET STARTED</p>
           <h2>Ready to see your numbers?</h2>
           <p>
-            Tell us where to send the audit link — or jump straight to booking a call. Every
+            Tell us where to send the audit link, or jump straight to booking a call. Every
             engagement starts with a free assessment.
           </p>
         </div>

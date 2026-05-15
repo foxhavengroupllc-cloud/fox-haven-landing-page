@@ -1,6 +1,6 @@
 'use client';
 /**
- * NEW PROJECT TEMPLATE — Fallback Component
+ * NEW PROJECT TEMPLATE, Fallback Component
  *
  * Rename this file to match your project, e.g., HeroAmbientFallback.tsx
  * Export the component with a descriptive name, e.g., export function HeroAmbientFallback
@@ -15,7 +15,7 @@
  *
  * REQUIREMENTS
  * ─────────────
- * 1. Must render synchronously — no async, no useEffect on first paint
+ * 1. Must render synchronously, no async, no useEffect on first paint
  * 2. Must never throw
  * 3. Must be visually acceptable as the permanent state (not a loading spinner)
  * 4. Must be indistinguishable from the full experience on reduced-motion devices
@@ -35,10 +35,10 @@ export function YourFallback({ reason, tier, reducedMotion }: FallbackProps) {
   // The fallback should match your experienceManifest.fallbackMode.description.
   //
   // Reasons you might want to handle differently:
-  //   'reduced-motion'    → user prefers no animation — show static version
-  //   'tier-too-low'      → lite device — show CSS-only version
-  //   'scene-error'       → something crashed — show graceful static state
-  //   'fps-watchdog'      → thermal throttle — show lighter static version
+  //   'reduced-motion'    → user prefers no animation, show static version
+  //   'tier-too-low'      → lite device, show CSS-only version
+  //   'scene-error'       → something crashed, show graceful static state
+  //   'fps-watchdog'      → thermal throttle, show lighter static version
   //
   // For most section-bg scenes, the fallback is identical for all reasons.
 

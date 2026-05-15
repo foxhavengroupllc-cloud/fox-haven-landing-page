@@ -6,7 +6,7 @@ import LeadForm from '@/components/ai-small-biz/LeadForm';
 import { AI_SERVICES, PROCESS_STEPS } from '@/lib/ai-solutions-config';
 
 /**
- * AI Solutions for Everyone landing — restyled on design archetypes.
+ * AI Solutions for Everyone landing, restyled on design archetypes.
  * Same content beats as before (hero stats, what-we-do, how-it-works,
  * what-you-get, lead form). Now uses .detailSection / .detailStats /
  * .serviceGrid / .processTimeline / .learnGrid.
@@ -28,7 +28,7 @@ const DELIVERABLES = [
   {
     Icon: Map,
     title: 'Prioritised roadmap',
-    body: 'A ranked list of automation opportunities, ordered by ROI — highest-value fixes first.',
+    body: 'A ranked list of automation opportunities, ordered by ROI, highest-value fixes first.',
   },
   {
     Icon: Users,
@@ -58,7 +58,7 @@ export default function AIForSmallBusinessPage() {
           </h2>
           <p>
             Fox Haven builds AI-powered automation that eliminates the repetitive, manual drag
-            costing your business time and money — without replacing the people who make it run.
+            costing your business time and money, without replacing the people who make it run.
           </p>
           <div className={styles.detailActions}>
             <Link className={styles.solidButton} href="/audit">
@@ -102,7 +102,7 @@ export default function AIForSmallBusinessPage() {
           <p className={styles.eyebrow}>◉ WHAT WE DO</p>
           <h2>Four areas where AI actually moves the needle.</h2>
           <p>
-            We focus exclusively on the operational gaps that cost businesses the most — not
+            We focus exclusively on the operational gaps that cost businesses the most, not
             trendy tech for its own sake.
           </p>
           <div className={styles.detailActions}>
@@ -172,7 +172,7 @@ export default function AIForSmallBusinessPage() {
           <p className={styles.eyebrow}>◉ GET STARTED</p>
           <h2>Ready to see your numbers?</h2>
           <p>
-            Tell us where to send the audit link — or jump straight to booking a call.
+            Tell us where to send the audit link, or jump straight to booking a call.
           </p>
         </div>
 

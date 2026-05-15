@@ -44,7 +44,7 @@ export default function ServicesPage() {
           <p className={styles.eyebrow}>◈ ALL SERVICES</p>
           <h2>Eight ways AI can move the needle.</h2>
           <p>
-            From automated lead response to custom AI agents and strategic consulting — every
+            From automated lead response to custom AI agents and strategic consulting, every
             service is designed for teams that need results, not demos.
           </p>
           <div className={styles.detailActions}>
@@ -88,7 +88,7 @@ export default function ServicesPage() {
           <p className={styles.eyebrow}>◉ NOT SURE WHERE TO START?</p>
           <h2>Start with the free audit.</h2>
           <p>
-            We&rsquo;ll identify exactly where automation can help — no commitment required.
+            We&rsquo;ll identify exactly where automation can help, no commitment required.
             Sixteen questions, five minutes, a scored report at the end.
           </p>
           <div className={styles.detailActions}>

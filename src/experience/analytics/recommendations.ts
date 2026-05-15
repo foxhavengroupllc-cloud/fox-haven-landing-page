@@ -5,12 +5,12 @@
  *   - A stable ID (e.g., RULE-EXIT-RATE-CRITICAL-P2) for auditability
  *   - A threshold that triggers it
  *   - Evidence extracted from the aggregated report
- *   - A recommended action (always for human review — never auto-applied)
+ *   - A recommended action (always for human review, never auto-applied)
  *   - A priority level
  *
  * CONSTRAINTS:
  *   - Rules NEVER modify files, components, or configuration
- *   - All recommendations carry requiresHumanReview: true — this is not a flag,
+ *   - All recommendations carry requiresHumanReview: true, this is not a flag,
  *     it is a type-enforced invariant
  *   - Rules are conservative: they flag anomalies, not prescribe solutions
  */

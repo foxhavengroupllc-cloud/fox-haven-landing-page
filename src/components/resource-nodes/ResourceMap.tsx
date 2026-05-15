@@ -15,7 +15,7 @@ import {
  * with clean typography). Pins are CircleMarkers colored by resource
  * category so the map reads cleanly at any zoom level.
  *
- * Pure client component — dynamically imported in page.tsx with
+ * Pure client component, dynamically imported in page.tsx with
  * `ssr: false` because Leaflet pokes at `window` on mount.
  */
 export default function ResourceMap() {

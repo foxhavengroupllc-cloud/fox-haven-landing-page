@@ -114,7 +114,7 @@ export default function PortalCard({ config, index, onOpen }: PortalCardProps) {
       ref={cardRef}
       role="button"
       tabIndex={0}
-      aria-label={`${config.title} — ${config.subtitle}`}
+      aria-label={`${config.title}, ${config.subtitle}`}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       onMouseEnter={() => setHovered(true)}

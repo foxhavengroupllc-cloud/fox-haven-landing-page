@@ -11,7 +11,7 @@ const hubFeatures = [
   {
     icon: Calendar,
     title: "Shared Family Calendar",
-    description: "One calendar for the whole family — synced across everyone's devices with smart scheduling.",
+    description: "One calendar for the whole family, synced across everyone's devices with smart scheduling.",
     iconBg: "bg-blue-500/15", iconBorder: "border-blue-500/25", iconColor: "text-blue-400",
   },
   {
@@ -41,7 +41,7 @@ const hubFeatures = [
   {
     icon: MessageCircle,
     title: "Family Messaging",
-    description: "A private family thread separate from work and social noise — just your people.",
+    description: "A private family thread separate from work and social noise, just your people.",
     iconBg: "bg-cyan-500/15", iconBorder: "border-cyan-500/25", iconColor: "text-cyan-400",
   },
 ];
@@ -50,7 +50,7 @@ const dashboardItems = [
   { icon: Calendar,    label: "Soccer Practice",  time: "Tue 4:30pm",  iconBg: "bg-blue-500/15",   iconColor: "text-blue-400" },
   { icon: ShoppingCart,label: "Groceries",         time: "12 items",    iconBg: "bg-green-500/15",  iconColor: "text-green-400" },
   { icon: Bell,        label: "Dentist Reminder",  time: "Thu 9am",     iconBg: "bg-amber-500/15",  iconColor: "text-amber-400" },
-  { icon: CheckSquare, label: "Lawn — Marcus",     time: "3/5 done",    iconBg: "bg-rose-500/15",   iconColor: "text-rose-400" },
+  { icon: CheckSquare, label: "Lawn, Marcus",     time: "3/5 done",    iconBg: "bg-rose-500/15",   iconColor: "text-rose-400" },
   { icon: CreditCard,  label: "Utilities Bill",    time: "$148 due",    iconBg: "bg-purple-500/15", iconColor: "text-purple-400" },
   { icon: Users,       label: "Family Check-in",   time: "Tonight 7pm", iconBg: "bg-cyan-500/15",   iconColor: "text-cyan-400" },
 ];
@@ -78,7 +78,7 @@ export default function FamilyHub() {
           <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Modern families juggle a hundred moving pieces. Family Hub brings
             schedules, tasks, budgets, documents, and communication into one
-            beautifully simple app — built to actually work the way families do.
+            beautifully simple app, built to actually work the way families do.
           </p>
         </div>
 
@@ -195,7 +195,7 @@ export default function FamilyHub() {
             Built for Real Families
           </h3>
           <p className="text-slate-400 mb-8 max-w-xl mx-auto">
-            From toddlers to teenagers to aging parents — Family Hub grows with your family
+            From toddlers to teenagers to aging parents, Family Hub grows with your family
             and adapts to how you actually live.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

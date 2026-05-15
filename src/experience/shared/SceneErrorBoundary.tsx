@@ -1,12 +1,12 @@
 'use client';
 
 /**
- * SceneErrorBoundary — React class component error boundary for scene components.
+ * SceneErrorBoundary, React class component error boundary for scene components.
  *
  * Catches render errors thrown by scene components and replaces them with the
  * provided fallback, without crashing the rest of the page.
  *
- * Must be a class component — React does not support hooks-based error boundaries.
+ * Must be a class component, React does not support hooks-based error boundaries.
  */
 
 import React from 'react';

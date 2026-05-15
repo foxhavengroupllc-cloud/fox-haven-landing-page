@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * SceneHost — the single component that page code uses to mount a scene.
+ * SceneHost, the single component that page code uses to mount a scene.
  *
  * Responsibilities:
  * - Reads TierContext to get the device tier
@@ -148,7 +148,7 @@ export function SceneHost({
     // 1. Scene not in registry
     if (!manifest) {
       console.warn(`[SceneHost] Scene "${sceneId}" not found in registry.`);
-      return; // Render nothing — SceneHost is inert when scene is unregistered
+      return; // Render nothing, SceneHost is inert when scene is unregistered
     }
 
     // 2. Reduced motion handling

@@ -1,6 +1,6 @@
 'use client';
 /**
- * ExperienceProviders — Client boundary wrapper for the experience engine.
+ * ExperienceProviders, Client boundary wrapper for the experience engine.
  *
  * Next.js App Router server layouts cannot import client components directly
  * as wrappers. This component provides the client boundary so TierProvider

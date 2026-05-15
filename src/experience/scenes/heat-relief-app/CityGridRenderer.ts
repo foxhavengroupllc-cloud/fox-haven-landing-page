@@ -1,12 +1,12 @@
 /**
- * CityGridRenderer — Canvas 2D city-block dot grid for the Heat Relief App experience.
+ * CityGridRenderer, Canvas 2D city-block dot grid for the Heat Relief App experience.
  *
  * Renders a sparse grid of dots representing city blocks. Visual mode shifts
  * with narrative phase: emergency (alert wave) → discovery (resource pings) →
  * navigate (animated path) → decide (comparison highlights) → act (calm).
  *
  * Extends Canvas2DRenderer (Phase 2 engine).
- * Does NOT contain project-specific copy or UI — only visual rendering.
+ * Does NOT contain project-specific copy or UI, only visual rendering.
  *
  * Color grammar: primarily cyan (#06b6d4), inverted from HeatRenderer's orange.
  * Represents wayfinding and utility, not thermal atmosphere.
@@ -286,18 +286,18 @@ export class CityGridRenderer extends Canvas2DRenderer {
     let dotRadius: number;
 
     switch (this.phase) {
-      case 0: // Emergency — orange-red, dim
+      case 0: // Emergency, orange-red, dim
         r = 249; g = 115; b = 22;
         alpha = d.isResource ? 0.25 + pulse * 0.08 : 0.07 + pulse * 0.04;
         dotRadius = d.isResource ? 3 : 1.8;
         break;
 
-      case 1: // Discovery — cyan, resources glow
+      case 1: // Discovery, cyan, resources glow
         alpha = d.isResource ? 0.75 + pulse * 0.2 : 0.10 + pulse * 0.04;
         dotRadius = d.isResource ? 3.5 : 1.8;
         break;
 
-      case 2: // Navigate — nearest resource bright, others very dim
+      case 2: // Navigate, nearest resource bright, others very dim
         if (i === this.nearestResourceIndex) {
           alpha = 0.9;
           dotRadius = 4.5;
@@ -310,12 +310,12 @@ export class CityGridRenderer extends Canvas2DRenderer {
         }
         break;
 
-      case 3: // Decide — resources highlighted for comparison
+      case 3: // Decide, resources highlighted for comparison
         alpha = d.isResource ? 0.7 + pulse * 0.2 : 0.05;
         dotRadius = d.isResource ? 4 : 1.5;
         break;
 
-      case 4: // Act — calm uniform glow
+      case 4: // Act, calm uniform glow
         alpha = d.isResource ? 0.45 + pulse * 0.15 : 0.12 + pulse * 0.06;
         dotRadius = d.isResource ? 3 : 1.8;
         break;

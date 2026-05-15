@@ -5,7 +5,7 @@ import styles from '@/styles/design-system.module.css';
 import { Header, Footer } from '@/components/new-home/SiteChrome';
 
 /**
- * Fox Haven Group homepage — new design system.
+ * Fox Haven Group homepage, new design system.
  *
  * Replaces the legacy multi-section homepage with the design refresh.
  * Content rules:
@@ -17,15 +17,15 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
  */
 
 export const metadata: Metadata = {
-  title: 'Fox Haven Group — Building Systems People Want to Inhabit',
+  title: 'Fox Haven Group | Building Systems People Want to Inhabit',
   description:
-    'AI-native civic systems for real-world resilience — starting with extreme heat in Phoenix. Heat Relief App, Solar Cooling Shelters, and AI Solutions for everyone.',
+    'AI-native civic systems for real-world resilience, starting with extreme heat in Phoenix. Heat Relief App, Solar Cooling Shelters, and AI Solutions for everyone.',
   keywords:
     'Fox Haven Group, civic technology, heat relief, solar shelters, Phoenix, AI solutions, civic infrastructure, urban resilience',
   openGraph: {
-    title: 'Fox Haven Group — Building Systems People Want to Inhabit',
+    title: 'Fox Haven Group | Building Systems People Want to Inhabit',
     description:
-      'AI-native civic systems for real-world resilience — starting with extreme heat in Phoenix.',
+      'AI-native civic systems for real-world resilience, starting with extreme heat in Phoenix.',
     type: 'website',
     url: 'https://foxhavengrouphq.com',
   },
@@ -144,7 +144,7 @@ function Hero() {
           <span>INHABIT.</span>
         </h1>
         <p className={styles.heroBody}>
-          Fox Haven Group builds AI-native civic systems for real-world resilience—starting with extreme heat in Phoenix.
+          Fox Haven Group builds AI-native civic systems for real-world resilience, starting with extreme heat in Phoenix.
         </p>
         <div className={styles.heroActions}>
           <Link className={styles.solidButton} href="/projects">

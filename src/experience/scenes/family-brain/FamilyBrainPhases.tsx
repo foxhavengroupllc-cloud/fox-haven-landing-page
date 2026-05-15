@@ -1,19 +1,19 @@
 'use client';
 /**
- * Family Brain Experience — Phase Content Components
+ * Family Brain Experience, Phase Content Components
  *
  * Each phase renders the narrative content layer over the orbital canvas.
  * All content authored here, separate from rendering logic.
  *
  * Phases:
- *   0 — Chaos:          "Tuesday, 7am. 12 tabs. 3 apps. 0 overview."
- *   1 — Fragmentation:  "Your life, siloed across 6 apps."
- *   2 — Organize:       "Family Brain connects everything."
- *   3 — Intelligence:   "AI that manages, not interrupts."
- *   4 — Clarity:        "Your family, finally in one place."
+ *   0, Chaos:          "Tuesday, 7am. 12 tabs. 3 apps. 0 overview."
+ *   1, Fragmentation:  "Your life, siloed across 6 apps."
+ *   2, Organize:       "Family Brain connects everything."
+ *   3, Intelligence:   "AI that manages, not interrupts."
+ *   4, Clarity:        "Your family, finally in one place."
  *
- * Color: blue/purple — distinct from shelter (orange) and heat app (cyan).
- * Register: warm, humanist — not urgency-driven.
+ * Color: blue/purple, distinct from shelter (orange) and heat app (cyan).
+ * Register: warm, humanist, not urgency-driven.
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -55,10 +55,10 @@ function PhaseWrapper({
 
 const CHAOS_FRAGMENTS = [
   { app: 'Messages',  text: '"Who\'s picking up Emma tonight?"', color: 'text-slate-400' },
-  { app: 'Reminders', text: 'Dentist — Thu 9am (overdue)',         color: 'text-rose-400/80' },
+  { app: 'Reminders', text: 'Dentist, Thu 9am (overdue)',         color: 'text-rose-400/80' },
   { app: 'Notes',     text: 'Grocery list: milk, eggs, bread…',   color: 'text-slate-400' },
   { app: 'Email',     text: 'RE: Soccer schedule change',          color: 'text-slate-500' },
-  { app: 'Venmo',     text: 'Utilities split — $74 each',         color: 'text-amber-400/70' },
+  { app: 'Venmo',     text: 'Utilities split, $74 each',         color: 'text-amber-400/70' },
   { app: 'Calendar',  text: 'Conflict: recital ↔ practice Sat',   color: 'text-rose-400/80' },
 ];
 
@@ -84,7 +84,7 @@ export function Phase0Chaos({ transitionState }: { transitionState: PhaseTransit
           This is what running a family feels like today.
         </p>
 
-        {/* Fragment cards — scattered family data */}
+        {/* Fragment cards, scattered family data */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 w-full max-w-lg mb-10">
           {CHAOS_FRAGMENTS.map((f) => (
             <div
@@ -177,7 +177,7 @@ export function Phase1Fragmentation({ transitionState }: { transitionState: Phas
 const DASHBOARD_ITEMS = [
   { icon: Calendar,     label: 'Soccer Practice',  detail: 'Tue 4:30pm',    color: 'text-blue-400'   },
   { icon: ShoppingCart, label: 'Groceries',         detail: '12 items',      color: 'text-green-400'  },
-  { icon: CheckSquare,  label: 'Lawn — Marcus',     detail: '3/5 done',      color: 'text-rose-400'   },
+  { icon: CheckSquare,  label: 'Lawn, Marcus',     detail: '3/5 done',      color: 'text-rose-400'   },
   { icon: CreditCard,   label: 'Utilities Bill',    detail: '$148 due',      color: 'text-amber-400'  },
 ];
 
@@ -194,13 +194,13 @@ export function Phase2Organize({ transitionState }: { transitionState: PhaseTran
             Everything. One place.
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-md mx-auto">
-            Calendar, tasks, groceries, documents, budget, and messaging — sharing one data model.
+            Calendar, tasks, groceries, documents, budget, and messaging, sharing one data model.
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center gap-8 w-full max-w-2xl">
 
-          {/* PhoneMockup — validates reusability from Phase 5 */}
+          {/* PhoneMockup, validates reusability from Phase 5 */}
           <PhoneMockup
             statusTime="07:14"
             ariaLabel="Family Brain App dashboard"
@@ -254,7 +254,7 @@ export function Phase2Organize({ transitionState }: { transitionState: PhaseTran
             {[
               { icon: Calendar,     label: 'Conflict detected',  text: 'Recital ↔ practice conflict auto-flagged', color: 'text-blue-400'   },
               { icon: ShoppingCart, label: 'List auto-updated',  text: 'School event added ingredients to grocery list', color: 'text-green-400'  },
-              { icon: CreditCard,   label: 'Alert sent to all',  text: '$148 utilities due — reminder pushed to family', color: 'text-amber-400'  },
+              { icon: CreditCard,   label: 'Alert sent to all',  text: '$148 utilities due, reminder pushed to family', color: 'text-amber-400'  },
             ].map((item) => (
               <div
                 key={item.label}
@@ -326,7 +326,7 @@ export function Phase3Intelligence({ transitionState }: { transitionState: Phase
             It manages.<br />You decide.
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-md mx-auto">
-            Family Brain&rsquo;s AI works in the background — surfacing what matters, connecting what&rsquo;s related,
+            Family Brain&rsquo;s AI works in the background, surfacing what matters, connecting what&rsquo;s related,
             without interrupting.
           </p>
         </div>
@@ -396,7 +396,7 @@ export function Phase4Clarity({
         </h2>
 
         <p className="text-slate-400 text-base sm:text-lg max-w-lg mb-10 leading-relaxed">
-          Everything your household needs, in one place — with AI that quietly handles
+          Everything your household needs, in one place, with AI that quietly handles
           the connections you don&rsquo;t have time to make yourself.
         </p>
 
@@ -479,7 +479,7 @@ export function BrainPhaseNavigation({
       role="navigation"
       aria-label="Experience navigation"
     >
-      {/* Phase dots — purple accent */}
+      {/* Phase dots, purple accent */}
       <div className="flex items-center gap-3 pointer-events-auto">
         {Array.from({ length: totalPhases }).map((_, i) => (
           <button

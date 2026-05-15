@@ -6,7 +6,7 @@ const VALUES = [
   {
     number: '1',
     title: 'Community First',
-    body: 'Every product we build starts with a real community need. We work alongside the people we serve — not just for them.',
+    body: 'Every product we build starts with a real community need. We work alongside the people we serve, not just for them.',
   },
   {
     number: '2',
@@ -25,7 +25,7 @@ export default function Mission() {
     <section id="mission" className="mission-bg py-24 lg:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Left — statement */}
+          {/* Left, statement */}
           <div className="lg:col-span-5 flex flex-col justify-center reveal">
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 mb-8 w-fit">
               <span className="font-body text-white text-[11px] font-semibold tracking-widest uppercase">
@@ -34,7 +34,7 @@ export default function Mission() {
             </div>
 
             <blockquote className="display-text text-white mb-8" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
-              "A haven isn't just a place — it's a feeling of{' '}
+              "A haven isn't just a place, it's a feeling of{' '}
               <span className="display-italic text-solar-gold">safety</span>,
               connection, and possibility."
             </blockquote>
@@ -46,7 +46,7 @@ export default function Mission() {
             </p>
 
             <cite className="font-body text-white/45 text-sm not-italic mb-10">
-              — Fox Haven Group Team, Phoenix AZ
+             , Fox Haven Group Team, Phoenix AZ
             </cite>
 
             <button
@@ -57,7 +57,7 @@ export default function Mission() {
             </button>
           </div>
 
-          {/* Right — values */}
+          {/* Right, values */}
           <div
             className="lg:col-span-7 space-y-6 reveal"
             style={{ transitionDelay: '0.15s' }}

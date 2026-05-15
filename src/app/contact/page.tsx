@@ -5,7 +5,7 @@ import PartnerLeadForm from '@/components/partner/PartnerLeadForm';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /contact — Get in touch
+ * /contact, Get in touch
  *
  * Single front door for every kind of inbound message. Routes specific
  * intents to the right form (partner, audit) and provides a general-purpose
@@ -41,7 +41,7 @@ const ROUTES = [
   },
   {
     title: 'You want the technical picture',
-    body: 'The platform behind every Fox Haven product — four layers: civic infrastructure, population flow, AI concierge, and operational worlds.',
+    body: 'The platform behind every Fox Haven product, four layers: civic infrastructure, population flow, AI concierge, and operational worlds.',
     href: '/platform',
     cta: 'Read the platform overview',
   },
@@ -59,7 +59,7 @@ export default function ContactPage() {
           <h2>Every message reaches a real human.</h2>
           <p>
             No call-center queues. No auto-responder drip. The form below goes to a small team
-            in Phoenix and we reply within two business days — even when the answer is
+            in Phoenix and we reply within two business days, even when the answer is
             &ldquo;we&rsquo;re not the right fit, here&rsquo;s who is.&rdquo;
           </p>
           <div className={styles.detailActions}>
@@ -146,7 +146,7 @@ export default function ContactPage() {
           <p className={styles.eyebrow}>◉ GENERAL MESSAGE</p>
           <h2>Or just write to us.</h2>
           <p>
-            Anything that doesn&rsquo;t fit one of the doors above — press, careers,
+            Anything that doesn&rsquo;t fit one of the doors above, press, careers,
             collaboration ideas, feedback, an honest question. The same team reads everything.
           </p>
           <p className={styles.auditFooterCopy} style={{ textAlign: 'left', marginTop: '0.6rem' }}>

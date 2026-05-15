@@ -8,7 +8,7 @@ const PAIN_POINTS = [
   { value: 'reporting', label: 'Manual reporting & data pulls' },
   { value: 'scheduling', label: 'Scheduling & calendar chaos' },
   { value: 'duplicate_entry', label: 'Duplicate data entry between systems' },
-  { value: 'not_sure', label: 'Not sure — need the audit first' },
+  { value: 'not_sure', label: 'Not sure, need the audit first' },
 ];
 
 interface LeadFormProps {

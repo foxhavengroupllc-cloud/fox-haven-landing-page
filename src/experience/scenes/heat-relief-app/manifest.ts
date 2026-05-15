@@ -1,5 +1,5 @@
 /**
- * Heat Relief App Experience — Manifest
+ * Heat Relief App Experience, Manifest
  *
  * ExperienceManifest: The complete narrative, visual, and technical definition.
  * SceneManifest:      The engine runtime contract.
@@ -31,15 +31,15 @@ export const experienceManifest: ExperienceManifest = {
     secondary:
       'City and county public health staff, community health workers, and developers interested in contributing to or partnering on the app.',
     painContext:
-      'During a heat emergency, people need to locate a cooling center in under 60 seconds — without requiring local knowledge, a car, or a reliable data connection. Current information is scattered across city websites that are slow, outdated, and not mobile-optimized.',
+      'During a heat emergency, people need to locate a cooling center in under 60 seconds, without requiring local knowledge, a car, or a reliable data connection. Current information is scattered across city websites that are slow, outdated, and not mobile-optimized.',
   },
 
   // ── Narrative Model ──────────────────────────────────────────────────────────
   narrative: {
     problem:
-      'During a 116°F Phoenix heat event, a person without air conditioning has roughly 20 minutes of safe outdoor exposure. Finding an open, accessible cooling center today requires searching multiple city websites, calling ahead, and guessing at routes — a process that takes far longer than is safe.',
+      'During a 116°F Phoenix heat event, a person without air conditioning has roughly 20 minutes of safe outdoor exposure. Finding an open, accessible cooling center today requires searching multiple city websites, calling ahead, and guessing at routes, a process that takes far longer than is safe.',
     contrast:
-      'The current patchwork of city resource pages, 311 hotlines, and printed flyers is designed for desktop browsing in comfortable conditions — not for a person in heat distress with a phone and limited data. Most resources list addresses but not real-time capacity, hours, or ADA accessibility.',
+      'The current patchwork of city resource pages, 311 hotlines, and printed flyers is designed for desktop browsing in comfortable conditions, not for a person in heat distress with a phone and limited data. Most resources list addresses but not real-time capacity, hours, or ADA accessibility.',
     solution:
       'The Heat Relief App shows every verified open cooling center within 1 mile on a real-time map, sorted by walk time. Capacity, accessibility, and hours update every 5 minutes from a unified data feed. Route guidance works offline.',
     proof:
@@ -50,7 +50,7 @@ export const experienceManifest: ExperienceManifest = {
 
   // ── CTA Goal ────────────────────────────────────────────────────────────────
   ctaGoal: {
-    primaryAction: 'Join the Beta — submit contact info to receive early access',
+    primaryAction: 'Join the Beta, submit contact info to receive early access',
     destination: '/#contact',
     successMetric: 'Contact form submission from Phoenix-area resident or public health partner',
     secondaryAction: 'Return to Heat Relief App overview on the main site',
@@ -60,7 +60,7 @@ export const experienceManifest: ExperienceManifest = {
   visualStyle: {
     theme: 'wayfinding-cyan',
     motif:
-      'A sparse city-block dot grid where cooling center dots ping to life as resources are discovered — shifting from emergency red to navigational cyan as the narrative moves from crisis to empowerment. Designed to feel like a public transit map or emergency dispatch screen, not an ambient atmosphere.',
+      'A sparse city-block dot grid where cooling center dots ping to life as resources are discovered, shifting from emergency red to navigational cyan as the narrative moves from crisis to empowerment. Designed to feel like a public transit map or emergency dispatch screen, not an ambient atmosphere.',
     colorPrimary: '#06b6d4',
     colorSecondary: '#ef4444',
     typography: 'technical-monospace',
@@ -70,12 +70,12 @@ export const experienceManifest: ExperienceManifest = {
   // ── Environment ──────────────────────────────────────────────────────────────
   environment: {
     setting:
-      'Abstract city grid — Phoenix street network at the scale of a neighborhood, rendered as a sparse dot map. Not an atmospheric scene; a utility interface in extremis.',
+      'Abstract city grid, Phoenix street network at the scale of a neighborhood, rendered as a sparse dot map. Not an atmospheric scene; a utility interface in extremis.',
     lighting:
-      'Phase 0: red-tinted emergency mode — danger is present. Phases 1–4: neutral dark with cyan as the only light source, communicating precision and navigability.',
+      'Phase 0: red-tinted emergency mode, danger is present. Phases 1–4: neutral dark with cyan as the only light source, communicating precision and navigability.',
     atmosphere:
-      'Phase 0: oppressive urgency. Phase 1–2: purposeful, scanning. Phase 3: analytical clarity. Phase 4: resolved calm — you know what to do.',
-    soundscape: 'No audio — experience is designed for users in public, often without headphones.',
+      'Phase 0: oppressive urgency. Phase 1–2: purposeful, scanning. Phase 3: analytical clarity. Phase 4: resolved calm, you know what to do.',
+    soundscape: 'No audio, experience is designed for users in public, often without headphones.',
   },
 
   // ── Technical Requirements ────────────────────────────────────────────────────
@@ -85,15 +85,15 @@ export const experienceManifest: ExperienceManifest = {
   requiredModules: [
     {
       name: 'Canvas2DRenderer',
-      purpose: 'Base class for CityGridRenderer — dot grid background with ping animations and path draw',
+      purpose: 'Base class for CityGridRenderer, dot grid background with ping animations and path draw',
     },
     {
       name: 'NarrativeSequencer',
-      purpose: 'Phase management — 5-phase story arc with keyboard and click navigation',
+      purpose: 'Phase management, 5-phase story arc with keyboard and click navigation',
     },
     {
       name: 'PhoneMockup',
-      purpose: 'Reusable phone frame — renders app screen UI inside narrative phases. Also reusable for Family Hub.',
+      purpose: 'Reusable phone frame, renders app screen UI inside narrative phases. Also reusable for Family Hub.',
     },
     {
       name: 'ImmersiveLayout',
@@ -102,7 +102,7 @@ export const experienceManifest: ExperienceManifest = {
   ],
 
   assetRequirements: [
-    // No external assets — experience uses Canvas 2D + CSS + inline JSX only.
+    // No external assets, experience uses Canvas 2D + CSS + inline JSX only.
   ],
 
   fallbackMode: {
@@ -122,7 +122,7 @@ export const experienceManifest: ExperienceManifest = {
     'Visual grammar deliberately inverted from solar-shelter: cyan dot-grid wayfinding vs orange heat particles. ' +
     'PhoneMockup module is new and genuinely reusable for Family Hub (Phase 6). ' +
     'CityGridRenderer is experience-specific (Manhattan path logic, ping system, alert wave) but extends Canvas2DRenderer cleanly. ' +
-    'Zero external assets — instant first paint.',
+    'Zero external assets, instant first paint.',
 };
 
 // ─── Scene Manifest ───────────────────────────────────────────────────────────
@@ -145,8 +145,8 @@ export const sceneManifest: SceneManifest = {
   reducedMotionBehavior: 'static-fallback',
   initiativeId: 'heat-relief-app',
   seoMetadata: {
-    title: 'Heat Relief App — Fox Haven Group',
+    title: 'Heat Relief App, Fox Haven Group',
     description:
-      'Find the nearest open cooling center in under a minute. The Fox Haven Heat Relief App maps every verified shelter in real time — designed for heat emergencies.',
+      'Find the nearest open cooling center in under a minute. The Fox Haven Heat Relief App maps every verified shelter in real time, designed for heat emergencies.',
   },
 };

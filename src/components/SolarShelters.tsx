@@ -34,7 +34,7 @@ const features = [
     icon: Sun,
     title: "Solar-Powered Thermal Relief",
     description:
-      "Integrated rooftop photovoltaic panels generate all power on-site — running cooling systems, fans, lighting, and charging stations with zero grid dependency. PV surplus powers the full shelter load with capacity to spare.",
+      "Integrated rooftop photovoltaic panels generate all power on-site, running cooling systems, fans, lighting, and charging stations with zero grid dependency. PV surplus powers the full shelter load with capacity to spare.",
   },
   {
     icon: Wind,
@@ -52,13 +52,13 @@ const features = [
     icon: Shield,
     title: "ADA Compliant & City-Ready",
     description:
-      "Designed to 2010 ADA Standards for Accessible Design — wheelchair-integrated seating, accessible routes, clear floor space at controls, and QR-code emergency call options.",
+      "Designed to 2010 ADA Standards for Accessible Design, wheelchair-integrated seating, accessible routes, clear floor space at controls, and QR-code emergency call options.",
   },
   {
     icon: MapPin,
     title: "Strategic Heat-Zone Placement",
     description:
-      "Sited near bus stops, park nodes, downtown corridors, and \"last-mile\" walking routes to cooling centers — exactly where heat exposure is highest and indoor relief is hardest to reach.",
+      "Sited near bus stops, park nodes, downtown corridors, and \"last-mile\" walking routes to cooling centers, exactly where heat exposure is highest and indoor relief is hardest to reach.",
   },
   {
     icon: Users,
@@ -134,7 +134,7 @@ export default function SolarShelters() {
               <span className="gradient-text">Solar Shelters</span>
             </h2>
             <p className="text-lg text-slate-400 leading-relaxed">
-              Phoenix summers are deadly — and getting worse. We&rsquo;re deploying
+              Phoenix summers are deadly, and getting worse. We&rsquo;re deploying
               modular, solar-powered cooling shelters that deliver measurable
               thermal-stress reduction right where people need it: bus stops,
               park nodes, and the last-mile walking routes where heat kills.
@@ -165,13 +165,13 @@ export default function SolarShelters() {
             <div className="relative">
               <div className="flex items-center gap-2 text-red-400 font-mono text-xs tracking-widest mb-5">
                 <AlertTriangle className="w-4 h-4" />
-                THE CRISIS — WHY THIS MATTERS
+                THE CRISIS, WHY THIS MATTERS
               </div>
               <p className="text-slate-300 leading-relaxed mb-8 max-w-3xl">
                 Phoenix has institutionalized extreme-heat response as a
                 municipal priority with a dedicated Office of Heat Response and
-                Mitigation. But existing infrastructure — indoor cooling centers
-                and simple shade canopies — leaves a critical gap. People die on
+                Mitigation. But existing infrastructure, indoor cooling centers
+                and simple shade canopies, leaves a critical gap. People die on
                 the walk <em>to</em> relief, not inside it.
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -207,14 +207,14 @@ export default function SolarShelters() {
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                 </div>
                 <span className="text-slate-500 text-xs font-mono tracking-wide">
-                  SHEET A-01 — Modular Solar Cooling Shelter
+                  SHEET A-01, Modular Solar Cooling Shelter
                 </span>
                 <span className="text-orange-500/60 text-xs font-mono">PDF</span>
               </div>
               <div className="bg-slate-900/50">
                 <Image
                   src="/images/solar-shelter-design.png"
-                  alt="Architectural drawings for the modular solar cooling shelter — front elevation, side elevation, plan view, and electrical schematic with insulated R-16 panels, solar-powered A/C, and ADA compliance"
+                  alt="Architectural drawings for the modular solar cooling shelter, front elevation, side elevation, plan view, and electrical schematic with insulated R-16 panels, solar-powered A/C, and ADA compliance"
                   width={2125}
                   height={2750}
                   className="w-full h-auto opacity-90"
@@ -249,7 +249,7 @@ export default function SolarShelters() {
               Thermal-Relief Micro-Infrastructure
             </h3>
             <p className="text-slate-500 text-sm leading-relaxed mb-6">
-              Not just shade — measurable cooling. Our shelters fill the gap
+              Not just shade, measurable cooling. Our shelters fill the gap
               between indoor cooling centers and simple canopies with a product
               that arrives pre-packaged for municipal procurement.
             </p>
@@ -350,7 +350,7 @@ export default function SolarShelters() {
                 MUNICIPAL COMPLIANCE READINESS
               </div>
               <p className="text-slate-400 text-sm leading-relaxed mb-5">
-                Cities don&rsquo;t buy prototypes — they buy risk-managed
+                Cities don&rsquo;t buy prototypes, they buy risk-managed
                 infrastructure. Every shelter ships with pre-packaged compliance
                 documentation ready for city inspectors.
               </p>
@@ -399,7 +399,7 @@ export default function SolarShelters() {
                   Bridging the Last Mile to Safety
                 </h3>
                 <p className="text-slate-400 leading-relaxed">
-                  Our shelters serve the most vulnerable — unsheltered individuals,
+                  Our shelters serve the most vulnerable, unsheltered individuals,
                   older adults, outdoor workers, and transit riders in peak heat.
                   Deployed as complementary nodes to existing cooling centers, each
                   unit delivers documented thermal relief, measurable usage data,

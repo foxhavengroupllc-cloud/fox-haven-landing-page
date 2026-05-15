@@ -19,7 +19,7 @@ export default function EmergencyBanner({ onDismiss }: Props) {
             >
               911
             </a>{' '}
-            immediately — or find cooling now.
+            immediately, or find cooling now.
           </p>
         </div>
       </div>

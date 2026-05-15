@@ -2,7 +2,7 @@
  * In-memory session event store.
  *
  * Collects all interaction events for the current browser session.
- * Events are lost on page reload — this is intentional for a session-scoped store.
+ * Events are lost on page reload, this is intentional for a session-scoped store.
  *
  * For persistent analytics, forward events to a real provider via the integration
  * point in utils/analytics.ts (emitSceneEvent). The store is for local reporting

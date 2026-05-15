@@ -1,12 +1,12 @@
 'use client';
 /**
- * Heat Relief App Experience — CSS Fallback
+ * Heat Relief App Experience, CSS Fallback
  *
  * Rendered synchronously when the Canvas scene cannot run.
  * No canvas, no async, no dynamic imports.
  * Visually coherent with the main site shell.
  *
- * Primary color: cyan (#06b6d4) — inverted from shelter orange.
+ * Primary color: cyan (#06b6d4), inverted from shelter orange.
  */
 
 import { MapPin, Navigation, Filter, Download, Zap, Clock, Users } from 'lucide-react';
@@ -44,7 +44,7 @@ const FEATURES = [
   {
     icon: Users,
     title: 'Wellness Check-Ins',
-    desc: 'Share your safe arrival with family members or a designated contact — no app required on their end.',
+    desc: 'Share your safe arrival with family members or a designated contact, no app required on their end.',
     accent: 'text-cyan-400',
     border: 'border-cyan-500/15',
   },
@@ -94,7 +94,7 @@ export function HeatReliefAppFallback({ reason }: FallbackProps) {
             <span className="text-cyan-400">the heat finds you.</span>
           </h1>
           <p className="text-slate-400 text-base sm:text-lg max-w-xl mx-auto">
-            The Heat Relief App maps every open cooling center near you in real time — so when a heat
+            The Heat Relief App maps every open cooling center near you in real time, so when a heat
             emergency hits, you spend seconds deciding, not minutes searching.
           </p>
         </div>

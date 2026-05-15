@@ -1,5 +1,5 @@
 /**
- * NarrativeSequencer — Reusable multi-phase narrative state manager
+ * NarrativeSequencer, Reusable multi-phase narrative state manager
  *
  * Manages progression through a fixed sequence of narrative phases.
  * Used by full-experience scenes that guide the user through a story arc.

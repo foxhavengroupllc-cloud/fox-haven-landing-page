@@ -32,7 +32,7 @@ function isRateLimited(ip: string): boolean {
   return entry.count > RATE_LIMIT;
 }
 
-/* ── HTML sanitizer — escape all user input before embedding in HTML ── */
+/* ── HTML sanitizer, escape all user input before embedding in HTML ── */
 function esc(str: string): string {
   return str
     .replace(/&/g, '&amp;')
@@ -122,23 +122,23 @@ export async function POST(req: NextRequest) {
         await resend.emails.send({
           from: 'Fox Haven HQ <noreply@foxhavengrouphq.com>',
           to: NOTIFY_EMAIL,
-          subject: `${subjectPrefix}: ${esc(safeName)} — ${esc(safeCompany ?? 'Unknown organization')}`,
+          subject: `${subjectPrefix}: ${esc(safeName)}, ${esc(safeCompany ?? 'Unknown organization')}`,
           html: `
             <h2>${leadHeading}</h2>
             <p><strong>Name:</strong> ${esc(safeName)}</p>
             <p><strong>Email:</strong> ${esc(safeEmail)}</p>
-            <p><strong>Organization:</strong> ${esc(safeCompany ?? '—')}</p>
-            <p><strong>${detailLabel}:</strong> ${esc(safePainPoint ?? '—')}</p>
+            <p><strong>Organization:</strong> ${esc(safeCompany ?? ', ')}</p>
+            <p><strong>${detailLabel}:</strong> ${esc(safePainPoint ?? ', ')}</p>
             <p><strong>Source:</strong> ${esc(safeSource)}</p>
           `,
         });
       } catch (emailErr) {
-        // Don't fail the user-facing submission if the email send blows up —
+        // Don't fail the user-facing submission if the email send blows up , 
         // the lead is already in the database. Surface for monitoring only.
         console.error('[leads/route] Resend send failed:', emailErr);
       }
     } else {
-      console.warn('[leads/route] RESEND_API_KEY not configured — lead saved to DB without notification email');
+      console.warn('[leads/route] RESEND_API_KEY not configured, lead saved to DB without notification email');
     }
 
     return NextResponse.json({ success: true });

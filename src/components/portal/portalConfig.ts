@@ -54,14 +54,14 @@ export const PORTALS: PortalConfig[] = [
     title: "Volunteer or Donate",
     subtitle: "Expand the impact",
     description:
-      "Help expand our reach. Time, skills, or resources — every bit matters.",
+      "Help expand our reach. Time, skills, or resources, every bit matters.",
     cta: "Get involved →",
     accentColor: "#f59e0b",
     accentGlow: "rgba(245,158,11,0.25)",
     glareColor: "rgba(245,158,11,0.10)",
     overlayTitle: "Make a Difference",
     overlayBody:
-      "Every contribution — whether time, talent, or financial support — directly powers our mission to protect families from extreme heat and build stronger communities.",
+      "Every contribution, whether time, talent, or financial support, directly powers our mission to protect families from extreme heat and build stronger communities.",
     overlayCta: "Get involved →",
   },
 ];

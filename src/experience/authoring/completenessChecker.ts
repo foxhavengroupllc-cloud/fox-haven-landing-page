@@ -61,7 +61,7 @@ export interface AssetDeliverySummary {
   delivered: number;
   inProduction: number;
   planned: number;
-  /** Required assets that have not been delivered — these block integration. */
+  /** Required assets that have not been delivered, these block integration. */
   requiredUndelivered: AssetRequirement[];
   /** Estimated total size of all required assets in KB. */
   requiredKB: number;
@@ -127,17 +127,17 @@ export function checkExperienceCompleteness(manifest: ExperienceManifest): Compl
 
   if (manifest.status !== 'complete') {
     blockers.push(
-      `status is "${manifest.status}" — must be "complete" before integration. ` +
+      `status is "${manifest.status}", must be "complete" before integration. ` +
       `Set status to "complete" only when all content is authored and reviewed.`
     );
   }
 
   if (manifest.status === 'draft') {
-    notes.push('This manifest is in "draft" status — authoring has not started.');
+    notes.push('This manifest is in "draft" status, authoring has not started.');
   } else if (manifest.status === 'in-progress') {
-    notes.push('This manifest is "in-progress" — content is being authored.');
+    notes.push('This manifest is "in-progress", content is being authored.');
   } else if (manifest.status === 'review') {
-    notes.push('This manifest is in "review" — awaiting sign-off to become "complete".');
+    notes.push('This manifest is in "review", awaiting sign-off to become "complete".');
   }
 
   // ── 3. Asset delivery gate ────────────────────────────────────────────────
@@ -147,18 +147,18 @@ export function checkExperienceCompleteness(manifest: ExperienceManifest): Compl
 
   assetSummary.requiredUndelivered.forEach((asset) => {
     blockers.push(
-      `Required asset "${asset.id}" (${asset.path}) has deliveryStatus "${asset.deliveryStatus}" — must be "delivered" before integration`
+      `Required asset "${asset.id}" (${asset.path}) has deliveryStatus "${asset.deliveryStatus}", must be "delivered" before integration`
     );
   });
 
   if (assetSummary.inProduction > 0) {
     notes.push(
-      `${assetSummary.inProduction} asset(s) are "in-production" — these will not block integration unless marked required`
+      `${assetSummary.inProduction} asset(s) are "in-production", these will not block integration unless marked required`
     );
   }
   if (assetSummary.planned > 0) {
     notes.push(
-      `${assetSummary.planned} asset(s) are still "planned" — verify whether any are required`
+      `${assetSummary.planned} asset(s) are still "planned", verify whether any are required`
     );
   }
 
@@ -170,14 +170,14 @@ export function checkExperienceCompleteness(manifest: ExperienceManifest): Compl
     // Proof should ideally contain a number or proper noun
     if (n.proof && !/\d|[A-Z][a-z]/.test(n.proof)) {
       gaps.push(
-        'narrative.proof contains no numbers or named references — proof is stronger with specific data (e.g., "143 families served") or named partners'
+        'narrative.proof contains no numbers or named references, proof is stronger with specific data (e.g., "143 families served") or named partners'
       );
     }
 
-    // Contrast should feel visceral — warn if it's short
+    // Contrast should feel visceral, warn if it's short
     if (n.contrast && n.contrast.trim().length < 40) {
       gaps.push(
-        'narrative.contrast is brief — a stronger contrast makes the problem feel real. Consider expanding with specific consequences.'
+        'narrative.contrast is brief, a stronger contrast makes the problem feel real. Consider expanding with specific consequences.'
       );
     }
   }
@@ -186,7 +186,7 @@ export function checkExperienceCompleteness(manifest: ExperienceManifest): Compl
 
   if (manifest.ctaGoal && !manifest.ctaGoal.secondaryAction) {
     gaps.push(
-      'ctaGoal.secondaryAction is not set — consider providing a lower-friction option for users not ready to take the primary action'
+      'ctaGoal.secondaryAction is not set, consider providing a lower-friction option for users not ready to take the primary action'
     );
   }
 
@@ -194,7 +194,7 @@ export function checkExperienceCompleteness(manifest: ExperienceManifest): Compl
 
   if (!manifest.initiativeId) {
     notes.push(
-      'initiativeId is not set — this experience will not be linked to an initiative in intent-config.ts. ' +
+      'initiativeId is not set, this experience will not be linked to an initiative in intent-config.ts. ' +
       'Set if this corresponds to an existing Fox Haven initiative.'
     );
   }
@@ -203,13 +203,13 @@ export function checkExperienceCompleteness(manifest: ExperienceManifest): Compl
 
   if (manifest.visualStyle && !manifest.visualStyle.colorSecondary) {
     gaps.push(
-      'visualStyle.colorSecondary is not set — a secondary color helps art direction. Set if the experience uses two colors.'
+      'visualStyle.colorSecondary is not set, a secondary color helps art direction. Set if the experience uses two colors.'
     );
   }
 
   if (manifest.environment && !manifest.environment.soundscape && manifest.minimumTier === 'premium') {
     gaps.push(
-      'environment.soundscape is not set for a premium-tier experience — consider whether audio direction is needed'
+      'environment.soundscape is not set for a premium-tier experience, consider whether audio direction is needed'
     );
   }
 
@@ -249,12 +249,12 @@ export function formatCompletenessReport(report: CompletenessReport): string {
   lines.push(`  Assets: ${a.delivered}/${a.total} delivered (${a.requiredUndelivered.length} required missing)`);
 
   if (report.blockers.length > 0) {
-    lines.push(`\n  BLOCKERS (${report.blockers.length}) — must resolve before integration:`);
+    lines.push(`\n  BLOCKERS (${report.blockers.length}), must resolve before integration:`);
     report.blockers.forEach((b) => lines.push(`    ✗ ${b}`));
   }
 
   if (report.gaps.length > 0) {
-    lines.push(`\n  GAPS (${report.gaps.length}) — not blocking but should be addressed:`);
+    lines.push(`\n  GAPS (${report.gaps.length}), not blocking but should be addressed:`);
     report.gaps.forEach((g) => lines.push(`    ⚠ ${g}`));
   }
 

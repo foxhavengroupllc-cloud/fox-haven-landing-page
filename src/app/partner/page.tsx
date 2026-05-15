@@ -5,7 +5,7 @@ import PartnerLeadForm from '@/components/partner/PartnerLeadForm';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /partner — Partner With Us
+ * /partner, Partner With Us
  *
  * Detailed landing page for cities, community orgs, healthcare providers,
  * mission-aligned businesses, funders, and beta testers who want to work
@@ -38,7 +38,7 @@ const PARTNER_TYPES = [
     Icon: Stethoscope,
     category: 'Care delivery',
     title: 'Healthcare Providers',
-    body: 'Hospitals, urgent care, federally qualified health centers, and public health departments — heat is a clinical problem and we treat it like one.',
+    body: 'Hospitals, urgent care, federally qualified health centers, and public health departments, heat is a clinical problem and we treat it like one.',
   },
   {
     Icon: Briefcase,
@@ -65,7 +65,7 @@ const PROCESS_STEPS = [
     num: '03',
     title: 'Deploy',
     timeframe: 'Weeks 4–8',
-    desc: 'Build, integrate, train, install. We do not hand off code and disappear — we stay on the ground until the system is running and your team owns it.',
+    desc: 'Build, integrate, train, install. We do not hand off code and disappear, we stay on the ground until the system is running and your team owns it.',
   },
   {
     num: '04',
@@ -108,7 +108,7 @@ export default function PartnerPage() {
           </h2>
           <p>
             Fox Haven Group is moving fast and building in the open. We&rsquo;re looking for
-            partners who want to put working systems on the ground — not commission another
+            partners who want to put working systems on the ground, not commission another
             report.
           </p>
           <div className={styles.detailActions}>
@@ -153,7 +153,7 @@ export default function PartnerPage() {
           <p className={styles.eyebrow}>◉ WHO WE PARTNER WITH</p>
           <h2>Four kinds of partners. One mission.</h2>
           <p>
-            We work with the organizations closest to the people heat hurts first — and the
+            We work with the organizations closest to the people heat hurts first, and the
             ones with the resources to act on what they see.
           </p>
         </div>
@@ -208,7 +208,7 @@ export default function PartnerPage() {
           <h2>Tell us what you&rsquo;re trying to build.</h2>
           <p>
             One form. One real human reading it. We reply within two business days with next
-            steps — or an honest &ldquo;we&rsquo;re not the right fit, here&rsquo;s who is.&rdquo;
+            steps, or an honest &ldquo;we&rsquo;re not the right fit, here&rsquo;s who is.&rdquo;
           </p>
           <p className={styles.auditFooterCopy} style={{ textAlign: 'left', marginTop: '0.6rem' }}>
             Prefer email? Write us at{' '}

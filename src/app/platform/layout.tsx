@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'The Platform — Fox Haven Group',
+  title: 'The Platform | Fox Haven Group',
   description:
-    'Systems for human-centered outcomes. Civic infrastructure, population flow, AI concierge, and operational worlds — the platform behind every Fox Haven Group initiative.',
+    'Systems for human-centered outcomes. Civic infrastructure, population flow, AI concierge, and operational worlds, the platform behind every Fox Haven Group initiative.',
   openGraph: {
-    title: 'The Platform — Fox Haven Group',
+    title: 'The Platform | Fox Haven Group',
     description:
       'Systems for human-centered outcomes. The platform behind every Fox Haven Group initiative.',
     type: 'website',

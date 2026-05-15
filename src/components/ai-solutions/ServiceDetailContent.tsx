@@ -113,7 +113,7 @@ export default function ServiceDetailContent({ service, related }: Props) {
             <em className="text-[#e05e14] not-italic">your business</em>
           </h2>
           <p className="text-[14px] text-[#94A3B8] mt-2 mb-6 leading-relaxed">
-            Start with a free audit to identify your biggest opportunities —
+            Start with a free audit to identify your biggest opportunities , 
             then we&apos;ll scope a plan together.
           </p>
           <div className="flex gap-3 mb-8">

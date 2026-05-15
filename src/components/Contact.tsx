@@ -49,7 +49,7 @@ export default function Contact() {
           </h2>
           <p className="text-slate-400 text-lg max-w-xl mx-auto">
             Whether you&rsquo;re a community partner, investor, potential user, or just
-            someone who cares about the mission — we&rsquo;d love to hear from you.
+            someone who cares about the mission, we&rsquo;d love to hear from you.
           </p>
         </div>
 

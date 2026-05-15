@@ -3,7 +3,7 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /mission — Our Mission
+ * /mission, Our Mission
  *
  * Standalone page that expands the "haven isn't just a place" mission
  * statement, lists the three core values, and connects to the partner
@@ -15,7 +15,7 @@ const MISSION_VALUES = [
   {
     number: '1',
     title: 'Community First',
-    body: 'Every product we build starts with a real community need. We work alongside the people we serve — not just for them.',
+    body: 'Every product we build starts with a real community need. We work alongside the people we serve, not just for them.',
   },
   {
     number: '2',
@@ -40,7 +40,7 @@ const PRINCIPLES = [
   },
   {
     title: 'Measure what matters',
-    body: 'Lives kept safe. Hours saved. Connections made. We publish the metrics that prove the work — not the ones that flatter it.',
+    body: 'Lives kept safe. Hours saved. Connections made. We publish the metrics that prove the work, not the ones that flatter it.',
   },
   {
     title: 'Open by default',
@@ -58,7 +58,7 @@ export default function MissionPage() {
         <div className={styles.detailIntro}>
           <p className={styles.eyebrow}>◈ OUR MISSION</p>
           <h2>
-            A haven isn&rsquo;t just a place — it&rsquo;s a feeling of safety, connection, and
+            A haven isn&rsquo;t just a place, it&rsquo;s a feeling of safety, connection, and
             possibility.
           </h2>
           <p>
@@ -68,10 +68,10 @@ export default function MissionPage() {
           </p>
           <p>
             Fox Haven Group exists to build the civic systems a hotter, faster-changing world
-            actually needs — starting with extreme heat in Phoenix, and designed from day one
+            actually needs, starting with extreme heat in Phoenix, and designed from day one
             to travel.
           </p>
-          <p className={styles.missionCite}>— Fox Haven Group Team, Phoenix AZ</p>
+          <p className={styles.missionCite}>,  Fox Haven Group Team, Phoenix AZ</p>
           <div className={styles.detailActions}>
             <Link className={styles.solidButton} href="/partner">
               Work with us
@@ -108,8 +108,8 @@ export default function MissionPage() {
           <h2>The systems we have were not built for the world we live in.</h2>
           <p>
             Phoenix crossed 110°F on more than 50 days in a single recent summer. Heat is now
-            the deadliest weather hazard in the United States, and the response — from public
-            agencies, healthcare systems, and the communities most affected — is still being
+            the deadliest weather hazard in the United States, and the response, from public
+            agencies, healthcare systems, and the communities most affected, is still being
             improvised one summer at a time.
           </p>
           <p>
@@ -151,7 +151,7 @@ export default function MissionPage() {
             Fox Haven Group is a Service-Disabled Veteran-Owned Small Business (SDVOSB)
             headquartered in Phoenix, Arizona. We are technologists, designers, and operators
             who share a conviction that civic infrastructure is too important to leave to
-            chance — or to vendors who disappear after the contract closes.
+            chance, or to vendors who disappear after the contract closes.
           </p>
           <p>
             We are small on purpose. Every engagement is owned end-to-end by a named person at
@@ -166,9 +166,9 @@ export default function MissionPage() {
           <p className={styles.eyebrow}>◉ WORK WITH US</p>
           <h2>Help build the first deployable heat resilience network in Phoenix.</h2>
           <p>
-            If any of this resonates — as a city agency, a community organization, a
+            If any of this resonates, as a city agency, a community organization, a
             healthcare provider, a mission-aligned business, or a person who wants to test
-            what we&rsquo;re building — we want to hear from you.
+            what we&rsquo;re building, we want to hear from you.
           </p>
           <div className={styles.detailActions}>
             <Link className={styles.solidButton} href="/partner">

@@ -113,14 +113,14 @@ export function useIntentChat() {
         setState((s) => ({
           ...s,
           isLoading: false,
-          error: 'Connection issue — please try again.',
+          error: 'Connection issue, please try again.',
           messages: [...s.messages, fallback],
         }));
       } else {
         setState((s) => ({ ...s, isLoading: false }));
       }
     }
-  }, []); // stable — uses refs for current values
+  }, []); // stable, uses refs for current values
 
   // Listen for external open events (e.g., from Hero intent bar)
   useEffect(() => {

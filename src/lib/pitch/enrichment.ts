@@ -164,7 +164,7 @@ function buildSummary(
   if (meta) parts.push(meta);
   // Take first ~300 chars of body for context
   if (body) parts.push(body.slice(0, 300));
-  return parts.join(' — ').slice(0, 600);
+  return parts.join(', ').slice(0, 600);
 }
 
 const SERVICE_KEYWORDS: Record<string, string[]> = {
@@ -197,9 +197,9 @@ const FRICTION_SIGNALS: Record<string, string> = {
   'get a quote': 'Manual quoting process',
   'schedule a': 'Scheduling likely manual or semi-automated',
   'email us': 'Email-dependent communication',
-  'request a callback': 'Callback request flow — likely manual dispatch',
+  'request a callback': 'Callback request flow, likely manual dispatch',
   'free estimate': 'Estimate process may involve manual follow-up',
-  'contact us': 'General contact form — no automated routing',
+  'contact us': 'General contact form, no automated routing',
 };
 
 function inferFriction(text: string): string[] {

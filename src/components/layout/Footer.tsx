@@ -51,13 +51,13 @@ export default function Footer() {
 
             <p className="font-body text-[#f4ede0]/40 text-sm leading-relaxed max-w-xs mb-4">
               Building technology and infrastructure that protects lives,
-              empowers communities, and simplifies modern family life — starting
+              empowers communities, and simplifies modern family life, starting
               in Phoenix.
             </p>
 
             <p className="font-body text-[12px] text-[#f4ede0]/25 flex items-center gap-1.5">
               <span className="w-[5px] h-[5px] bg-[#16a34a] rounded-full inline-block" />
-              Actively building — Est. 2024
+              Actively building, Est. 2024
             </p>
           </div>
 
@@ -126,7 +126,7 @@ export default function Footer() {
             reserved.
           </span>
           <span className="font-body text-xs text-[#f4ede0]/25">
-            Built with purpose — for Phoenix and beyond.
+            Built with purpose, for Phoenix and beyond.
           </span>
         </div>
       </div>

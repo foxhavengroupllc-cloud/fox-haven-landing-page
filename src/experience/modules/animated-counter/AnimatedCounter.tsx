@@ -1,6 +1,6 @@
 'use client';
 /**
- * AnimatedCounter — shared animated number display.
+ * AnimatedCounter, shared animated number display.
  *
  * Counts from 0 to `target` using an ease-out cubic curve over `duration` ms.
  * Includes a brief startup delay so the animation begins after the phase has
@@ -10,8 +10,8 @@
  * can re-run after the double-mount cycle.
  *
  * Used by:
- *   - SolarShelterPhases (Phase 3 — proof metrics)
- *   - HeatReliefAppPhases (Phase 1 — cooling center count)
+ *   - SolarShelterPhases (Phase 3, proof metrics)
+ *   - HeatReliefAppPhases (Phase 1, cooling center count)
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -46,7 +46,7 @@ export function AnimatedCounter({
     function step(timestamp: number) {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      // Ease out cubic — decelerates toward the target
+      // Ease out cubic, decelerates toward the target
       const eased = 1 - Math.pow(1 - progress, 3);
       setValue(Math.round(eased * target));
       if (progress < 1) {

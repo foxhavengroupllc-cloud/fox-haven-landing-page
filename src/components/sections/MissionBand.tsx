@@ -29,7 +29,7 @@ export default function MissionBand() {
           <p className="font-display text-[clamp(28px,3.5vw,52px)] font-light leading-[1.25] tracking-[-0.01em] text-navy">
             We create{' '}
             <em className="italic text-orange">innovative solutions</em> to the
-            challenges defining community life — from life-saving heat relief
+            challenges defining community life, from life-saving heat relief
             infrastructure to the family coordination tools that help people{' '}
             <em className="italic text-orange">thrive.</em>
           </p>

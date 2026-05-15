@@ -16,7 +16,7 @@ const values = [
   {
     icon: Lightbulb,
     title: "Innovation with Purpose",
-    description: "Technology is a tool, not a goal. We harness innovation to solve problems that matter — heat, safety, and family wellbeing.",
+    description: "Technology is a tool, not a goal. We harness innovation to solve problems that matter, heat, safety, and family wellbeing.",
     gradient: "from-amber-500 to-orange-600",
     glow: "glow-orange",
     border: "border-orange-500/20",
@@ -52,7 +52,7 @@ export default function About() {
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We&rsquo;re a group of innovators, designers, and community advocates who believe
             that technology and thoughtful infrastructure can fundamentally improve lives.
-            Our work spans physical infrastructure and digital tools — all connected by a
+            Our work spans physical infrastructure and digital tools, all connected by a
             single mission: build a better haven for every family.
           </p>
         </div>
@@ -86,10 +86,10 @@ export default function About() {
               Our Commitment
             </div>
             <blockquote className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-8 max-w-3xl mx-auto">
-              &ldquo;A haven isn&rsquo;t just a place — it&rsquo;s a feeling of safety,
+              &ldquo;A haven isn&rsquo;t just a place, it&rsquo;s a feeling of safety,
               connection, and possibility. We&rsquo;re building that, one innovation at a time.&rdquo;
             </blockquote>
-            <div className="text-slate-600 text-sm font-mono mb-8">— Fox Haven Group Team</div>
+            <div className="text-slate-600 text-sm font-mono mb-8">,  Fox Haven Group Team</div>
             <button
               onClick={() => scrollToSection("#contact")}
               className="inline-flex items-center gap-2 btn-neon-orange text-white px-7 py-3.5 rounded-xl font-semibold cursor-pointer"

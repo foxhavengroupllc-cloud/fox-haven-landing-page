@@ -3,7 +3,7 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /platform — The Platform
+ * /platform, The Platform
  *
  * Standalone page expanding the four platform pillars previewed on the
  * homepage. Each pillar gets a written breakdown, the existing platform
@@ -38,9 +38,9 @@ const PILLARS = [
     eyebrow: '◉ LAYER 02',
     body: 'Urban activity pulse from public signals.',
     body2:
-      'Real-time understanding of where people are moving, where pressure is building, and where help should land — built only from public, aggregated, and consented signals. Population Flow turns scattered observations into something an operator can act on in the next ten minutes.',
+      'Real-time understanding of where people are moving, where pressure is building, and where help should land, built only from public, aggregated, and consented signals. Population Flow turns scattered observations into something an operator can act on in the next ten minutes.',
     bullets: [
-      'Aggregated mobility, transit, and event signals — never individual tracking',
+      'Aggregated mobility, transit, and event signals, never individual tracking',
       'Heat-stress overlays mapped to neighborhoods, not zip codes',
       'Operator dashboards designed for the people doing the work',
     ],
@@ -53,9 +53,9 @@ const PILLARS = [
     eyebrow: '◉ LAYER 03',
     body: 'Ask. Understand. Get things done.',
     body2:
-      'A conversational layer that meets residents where they already are — text, web, or in person at a partner site — and routes them to the right resource without forcing them through a directory tree. Concierge is honest about what it does not know and escalates to a human the moment that matters.',
+      'A conversational layer that meets residents where they already are, text, web, or in person at a partner site, and routes them to the right resource without forcing them through a directory tree. Concierge is honest about what it does not know and escalates to a human the moment that matters.',
     bullets: [
-      'Multilingual by default — English, Spanish, and growing',
+      'Multilingual by default, English, Spanish, and growing',
       'Grounded in your partner network, not a generic LLM with no context',
       'Human-in-the-loop escalation for clinical, legal, or safety-critical asks',
     ],
@@ -110,7 +110,7 @@ export default function PlatformPage() {
           <p className={styles.eyebrow}>◈ THE PLATFORM</p>
           <h2>Systems for human-centered outcomes.</h2>
           <p>
-            Every Fox Haven product runs on a shared platform — four interoperable layers that
+            Every Fox Haven product runs on a shared platform, four interoperable layers that
             let civic, healthcare, and community teams operate at the speed of the problem,
             not the speed of paperwork.
           </p>
@@ -237,7 +237,7 @@ export default function PlatformPage() {
           <h2>Want to build on the platform?</h2>
           <p>
             Whether you&rsquo;re a city ready to pilot, a healthcare system looking to plug
-            in, or a business that needs the AI services for your own operations — every door
+            in, or a business that needs the AI services for your own operations, every door
             starts with the same conversation.
           </p>
           <div className={styles.detailActions}>

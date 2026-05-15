@@ -42,7 +42,7 @@ function PopulationFlowTile({ disabled }: { disabled?: boolean }) {
     <Link
       href="/population-flow"
       className={styles.previewFlowTile}
-      aria-label="Population Flow — learn more"
+      aria-label="Population Flow, learn more"
     >
       {inner}
     </Link>
@@ -209,7 +209,7 @@ export default function HeroVisual() {
             <Link
               href="/resource-nodes"
               className={`${styles.dashboardTile} ${styles.resourceTile}`}
-              aria-label="Resource Nodes — open the Phoenix resource map"
+              aria-label="Resource Nodes, open the Phoenix resource map"
               style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
             >
               <p>RESOURCE NODES</p>
@@ -238,7 +238,7 @@ export default function HeroVisual() {
             <Link
               href="/ai-coordination-layer"
               className={`${styles.dashboardTile} ${styles.layerTile}`}
-              aria-label="AI Coordination Layer — open the coordination layer overview"
+              aria-label="AI Coordination Layer, open the coordination layer overview"
               style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}
             >
               <p>AI COORDINATION LAYER</p>

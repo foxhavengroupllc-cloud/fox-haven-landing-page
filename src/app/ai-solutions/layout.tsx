@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   description:
     'AI-powered automation, custom agents, and strategy consulting for everyone. Start with a free audit and see where AI can move the needle.',
   openGraph: {
-    title: 'AI Solutions — Fox Haven Group',
+    title: 'AI Solutions | Fox Haven Group',
     description:
-      'Eight specialized AI services designed to eliminate process drag and recover lost revenue — for everyone.',
+      'Eight specialized AI services designed to eliminate process drag and recover lost revenue, for everyone.',
     url: 'https://foxhavengrouphq.com/ai-solutions',
   },
 };

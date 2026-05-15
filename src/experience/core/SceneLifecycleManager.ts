@@ -1,5 +1,5 @@
 /**
- * SceneLifecycleManager — state machine for a single mounted scene instance.
+ * SceneLifecycleManager, state machine for a single mounted scene instance.
  *
  * States:
  *   unregistered → loading → ready → running → paused → destroyed

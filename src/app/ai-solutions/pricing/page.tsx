@@ -4,7 +4,7 @@ import LeadForm from '@/components/ai-small-biz/LeadForm';
 import { PRICING_TIERS, FAQ_ITEMS } from '@/lib/ai-solutions-config';
 
 /**
- * Pricing page — restyled to use design-system archetypes.
+ * Pricing page, restyled to use design-system archetypes.
  * Data unchanged: PRICING_TIERS (4) + first 3 pricing-category FAQ items.
  */
 
@@ -20,7 +20,7 @@ export default function PricingPage() {
           <h2>Every engagement starts with a free audit.</h2>
           <p>
             Know your ROI before you commit. The audit is free, and every plan is scoped to your
-            specific needs — not a one-size-fits-all package.
+            specific needs, not a one-size-fits-all package.
           </p>
           <div className={styles.detailActions}>
             <Link className={styles.solidButton} href="/audit">
@@ -120,7 +120,7 @@ export default function PricingPage() {
           <p className={styles.eyebrow}>◉ TALK TO US</p>
           <h2>Ready to scope your project?</h2>
           <p>
-            Tell us about your business and we&rsquo;ll send you the audit link — or book a call
+            Tell us about your business and we&rsquo;ll send you the audit link, or book a call
             to discuss your needs directly.
           </p>
         </div>

@@ -31,7 +31,7 @@
   --color-gold: #FBBF24;
   --color-orange-glow: rgba(249, 115, 22, 0.10);
 
-  /* Legacy aliases — initiative sub-pages may still reference these */
+  /* Legacy aliases, initiative sub-pages may still reference these */
   --color-heat-amber: #e05e14;
   --color-heat-amber-light: #F5A64A;
   --color-deep-slate: #0b1c2e;
@@ -44,7 +44,7 @@
   --color-warm-gray: #9CA3AF;
   --color-slate-medium: #4A5568;
 
-  /* Typography — CSS vars set by next/font in layout.tsx */
+  /* Typography, CSS vars set by next/font in layout.tsx */
   --font-display: var(--font-cormorant-garamond), Georgia, serif;
   --font-body: var(--font-dm-sans), system-ui, sans-serif;
   --font-mono: var(--font-dm-mono), 'DM Mono', monospace;
@@ -184,7 +184,7 @@
   100% { transform: scale(2.5); opacity: 0; }
 }
 
-/* ── Strategic Core — Motion System ── */
+/* ── Strategic Core, Motion System ── */
 
 @keyframes scPanelEnter {
   from { opacity: 0; transform: translateY(-50%) scale(0.94); }
@@ -282,7 +282,7 @@
   }
 }
 
-/* ── SVG interactive nodes — remove browser focus ring ── */
+/* ── SVG interactive nodes, remove browser focus ring ── */
 svg g[role="button"]:focus,
 svg g[role="button"]:focus-visible {
   outline: none;
@@ -501,7 +501,7 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════
-   WIDGET (Intent Widget — do not modify)
+   WIDGET (Intent Widget, do not modify)
    ══════════════════════════════════════════════════════ */
 
 .widget-enter {

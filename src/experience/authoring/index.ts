@@ -1,5 +1,5 @@
 /**
- * Experience Authoring System — Public API
+ * Experience Authoring System, Public API
  *
  * The authoring system sits above the rendering engine (Phase 2) and ensures
  * every project experience is fully defined before it can be integrated.

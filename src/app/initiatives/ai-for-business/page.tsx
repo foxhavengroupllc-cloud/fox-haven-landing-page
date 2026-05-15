@@ -5,19 +5,19 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * AI Solutions for Everyone landing — restyled on design archetypes.
+ * AI Solutions for Everyone landing, restyled on design archetypes.
  * Functionally a marketing entry point for the audit funnel: the
  * primary CTA always points at /audit.
  */
 
 export const metadata: Metadata = {
-  title: 'AI Solutions for Everyone — Fox Haven Group',
+  title: 'AI Solutions for Everyone, Fox Haven Group',
   description:
     'Find out where AI can move the needle for your business. Take a free 5-minute AI readiness audit and get a clear picture of where you\'re losing time and revenue.',
   openGraph: {
-    title: 'AI Solutions for Everyone — Fox Haven Group',
+    title: 'AI Solutions for Everyone, Fox Haven Group',
     description:
-      'A free AI readiness assessment for any business — 16 questions, instant results, actionable next steps.',
+      'A free AI readiness assessment for any business, 16 questions, instant results, actionable next steps.',
     type: 'website',
     url: 'https://foxhavengrouphq.com/initiatives/ai-for-business',
   },
@@ -34,7 +34,7 @@ const STEPS = [
     number: '02',
     title: 'Get your score instantly',
     description:
-      'See where you stand across 7 operational dimensions — scored and weighted by business impact.',
+      'See where you stand across 7 operational dimensions, scored and weighted by business impact.',
   },
   {
     number: '03',
@@ -49,7 +49,7 @@ const LEARN_CARDS = [
     Icon: Zap,
     title: 'Lead Response Gaps',
     description:
-      'How fast you respond to inbound leads — and how much that speed gap costs you.',
+      'How fast you respond to inbound leads, and how much that speed gap costs you.',
   },
   {
     Icon: Settings,
@@ -61,7 +61,7 @@ const LEARN_CARDS = [
     Icon: Shield,
     title: 'AI Risk Exposure',
     description:
-      'Whether your team is using AI tools without guardrails — and what that means for quality and liability.',
+      'Whether your team is using AI tools without guardrails, and what that means for quality and liability.',
   },
   {
     Icon: Target,
@@ -83,7 +83,7 @@ export default function AIForBusinessPage() {
           <h2>Find out where AI can move the needle for your business.</h2>
           <p>
             16 questions. 5 minutes. A clear picture of where you&rsquo;re losing time and
-            revenue — and exactly where automation can help.
+            revenue, and exactly where automation can help.
           </p>
           <div className={styles.detailActions}>
             <Link className={styles.solidButton} href="/audit">
@@ -139,7 +139,7 @@ export default function AIForBusinessPage() {
           <p className={styles.eyebrow}>◉ WHAT YOU&rsquo;LL LEARN</p>
           <h2>Your report covers four dimensions.</h2>
           <p>
-            Concrete, business-specific findings — not generic AI advice. Sized so you can read
+            Concrete, business-specific findings, not generic AI advice. Sized so you can read
             it in one sitting and act on it the same week.
           </p>
         </div>
@@ -166,7 +166,7 @@ export default function AIForBusinessPage() {
           <p className={styles.eyebrow}>◉ READY?</p>
           <h2>See your score.</h2>
           <p>
-            No sales pressure. No commitment. Just a clear view of where your business stands —
+            No sales pressure. No commitment. Just a clear view of where your business stands , 
             and where it could go.
           </p>
           <div className={styles.detailActions}>

@@ -13,7 +13,7 @@ import {
 } from '@/lib/resource-nodes/locations';
 
 /**
- * /resource-nodes — Phoenix Heat Relief Network resource map
+ * /resource-nodes, Phoenix Heat Relief Network resource map
  *
  * Static Phoenix basemap with the resource catalog overlaid as colored
  * pins, plus a per-category list of every node. The Resource Nodes tile
@@ -63,7 +63,7 @@ export default function ResourceNodesPage() {
       <Header />
 
       <section
-        aria-label="Phoenix Heat Relief Network — Resource Nodes"
+        aria-label="Phoenix Heat Relief Network, Resource Nodes"
         className="relative isolate min-h-screen overflow-hidden bg-[#030711] text-[#f4ede0]"
       >
         {/* Background gradients + grid overlay (matches /population-flow chrome) */}
@@ -88,7 +88,7 @@ export default function ResourceNodesPage() {
               </h1>
               <p className="mt-4 text-sm leading-relaxed text-[#f4ede0]/62">
                 Every cooling center, hydration station, mobile unit, and overnight shelter
-                the Heat Relief App routes residents to — mapped to where it actually is in
+                the Heat Relief App routes residents to, mapped to where it actually is in
                 the metro.
               </p>
             </div>
@@ -147,7 +147,7 @@ export default function ResourceNodesPage() {
               <p className="mt-2 text-xs leading-relaxed text-[#f4ede0]/56">
                 Seed locations cross-referenced from MAG Heat Relief Network, Phoenix Open
                 Data, and Fox Haven partner outreach. Live status integration with the
-                operator app is in pilot — until that lands, status fields reflect the
+                operator app is in pilot, until that lands, status fields reflect the
                 published schedule.
               </p>
             </div>

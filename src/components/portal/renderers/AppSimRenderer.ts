@@ -1,5 +1,5 @@
 /**
- * AppSimRenderer — "Join the App Beta" portal animation.
+ * AppSimRenderer, "Join the App Beta" portal animation.
  * Abstract phone wireframe with auto-scrolling UI elements.
  * Conveys a product being built and refined.
  */

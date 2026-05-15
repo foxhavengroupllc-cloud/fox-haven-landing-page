@@ -1,12 +1,12 @@
 /**
- * HeatRenderer — Canvas 2D particle system for the solar shelter experience.
+ * HeatRenderer, Canvas 2D particle system for the solar shelter experience.
  *
  * Renders a heat distortion particle field whose intensity and color shift
  * with narrative phase. Phase 0 (problem) = dense hot orange.
  * Phase 4 (action) = sparse cool blue-white.
  *
  * Extends Canvas2DRenderer (Phase 2 engine).
- * Does NOT contain project-specific copy or UI — only visual rendering.
+ * Does NOT contain project-specific copy or UI, only visual rendering.
  */
 
 import { Canvas2DRenderer } from '../../renderers/Canvas2DRenderer';
@@ -135,7 +135,7 @@ export class HeatRenderer extends Canvas2DRenderer {
         continue;
       }
 
-      // Update position — slight sine drift on x
+      // Update position, slight sine drift on x
       const age = p.life / p.maxLife;
       p.y -= p.vy * dtSec;
       p.x += p.vx * dtSec * 0.3;
@@ -177,7 +177,7 @@ export class HeatRenderer extends Canvas2DRenderer {
   private drawAmbientGlow(ctx: CanvasRenderingContext2D, w: number, h: number): void {
     if (this.heatLevel < 0.05) return;
 
-    // Hot glow from bottom — feels like heated ground
+    // Hot glow from bottom, feels like heated ground
     const bottomGlow = ctx.createRadialGradient(w * 0.5, h, 0, w * 0.5, h, w * 0.7);
     const glowOpacity = this.heatLevel * 0.08;
     bottomGlow.addColorStop(0, `rgba(249, 115, 22, ${glowOpacity})`);

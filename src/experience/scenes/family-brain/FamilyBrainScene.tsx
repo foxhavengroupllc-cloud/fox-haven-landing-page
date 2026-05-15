@@ -1,17 +1,17 @@
 'use client';
 /**
- * Family Brain Experience — Main Scene Component
+ * Family Brain Experience, Main Scene Component
  *
  * Hybrid architecture:
- *   Layer 1 (canvas): OrbitalRenderer — node constellation shifts from chaotic
+ *   Layer 1 (canvas): OrbitalRenderer, node constellation shifts from chaotic
  *                     scatter to calm orbital system as narrative progresses
- *   Layer 2 (DOM):    Phase content — narrative text, phone mockup, AI insights
- *   Layer 3 (DOM):    Phase navigation — purple dots, prev/next controls
+ *   Layer 2 (DOM):    Phase content, narrative text, phone mockup, AI insights
+ *   Layer 3 (DOM):    Phase navigation, purple dots, prev/next controls
  *
  * Five narrative phases:
  *   0 Chaos → 1 Fragmentation → 2 Organize → 3 Intelligence → 4 Clarity
  *
- * Visual grammar: purple/blue orbital nodes — distinct from shelter (orange
+ * Visual grammar: purple/blue orbital nodes, distinct from shelter (orange
  * particles) and heat app (cyan city grid).
  */
 
@@ -160,7 +160,7 @@ export function FamilyBrainScene({
       <div className="sr-only" role="status" aria-live="assertive" aria-atomic="true">
         {`Now showing: ${
           ['Chaos', 'Fragmentation', 'Organize', 'Intelligence', 'Clarity'][phase] ?? ''
-        } — use arrow keys or navigation buttons to move between phases`}
+        }, use arrow keys or navigation buttons to move between phases`}
       </div>
     </div>
   );

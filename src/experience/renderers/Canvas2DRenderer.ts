@@ -1,5 +1,5 @@
 /**
- * Canvas2DRenderer — base class for Standard-tier scenes using HTML5 Canvas 2D.
+ * Canvas2DRenderer, base class for Standard-tier scenes using HTML5 Canvas 2D.
  *
  * Scene authors extend this class to build their Standard-tier scene.
  * The renderer handles canvas sizing, DPR scaling, RAF loop management,
@@ -23,7 +23,7 @@ import { DEFAULT_FPS_WATCHDOG } from '../types/performance';
 export interface Canvas2DRendererOptions {
   /** Device pixel ratio for high-DPI screens (default: window.devicePixelRatio) */
   dpr?: number;
-  /** FPS watchdog config — pass enabled:false to disable */
+  /** FPS watchdog config, pass enabled:false to disable */
   watchdog?: Partial<FPSWatchdogConfig>;
   /** Called when FPS watchdog triggers a downgrade */
   onDowngrade?: () => void;

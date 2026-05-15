@@ -24,7 +24,7 @@ export function middleware(request: NextRequest) {
 
   const response = NextResponse.next();
 
-  // Prevent clickjacking — block iframe embedding on other sites
+  // Prevent clickjacking, block iframe embedding on other sites
   response.headers.set('X-Frame-Options', 'SAMEORIGIN');
 
   // Prevent MIME-type sniffing attacks
@@ -45,7 +45,7 @@ export function middleware(request: NextRequest) {
     'camera=(), microphone=(), geolocation=(), payment=()'
   );
 
-  // Content Security Policy — allow your own assets + the external services you use
+  // Content Security Policy, allow your own assets + the external services you use
   response.headers.set(
     'Content-Security-Policy',
     [

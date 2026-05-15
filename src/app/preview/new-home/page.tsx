@@ -17,7 +17,7 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
  */
 
 export const metadata: Metadata = {
-  title: 'Fox Haven Group — Preview',
+  title: 'Fox Haven Group, Preview',
   description: 'Systems for a hotter world. Built for human thriving.',
   robots: { index: false, follow: false }, // do not index the preview
 };
@@ -135,7 +135,7 @@ function Hero() {
           <span>INHABIT.</span>
         </h1>
         <p className={styles.heroBody}>
-          Fox Haven Group builds AI-native civic systems for real-world resilience—starting with extreme heat in Phoenix.
+          Fox Haven Group builds AI-native civic systems for real-world resilience, starting with extreme heat in Phoenix.
         </p>
         <div className={styles.heroActions}>
           <a className={styles.solidButton} href="#building-now">

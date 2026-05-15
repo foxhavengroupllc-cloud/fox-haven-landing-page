@@ -1,9 +1,9 @@
 'use client';
 /**
- * usePhaseTracking — drop-in phase observation hook for NarrativeSequencer.
+ * usePhaseTracking, drop-in phase observation hook for NarrativeSequencer.
  *
  * Observes the phase value returned by useNarrativeSequencer and automatically
- * emits interaction analytics events. Does NOT wrap or replace the sequencer —
+ * emits interaction analytics events. Does NOT wrap or replace the sequencer , 
  * all existing scene code continues to work unchanged.
  *
  * Usage (add one line to any scene):
@@ -12,12 +12,12 @@
  *   const { phase, nextPhase, ... } = sequencer; // unchanged
  *
  * Events emitted:
- *   phase:viewed      — on mount and on each phase change
- *   phase:advanced    — user moved forward (N → N+1)
- *   phase:retreated   — user moved backward (N → N-1)
- *   phase:jumped      — user jumped to non-adjacent phase
- *   experience:complete — user reached the final phase
- *   phase:exit        — on unmount, from whichever phase the user is on
+ *   phase:viewed     , on mount and on each phase change
+ *   phase:advanced   , user moved forward (N → N+1)
+ *   phase:retreated  , user moved backward (N → N-1)
+ *   phase:jumped     , user jumped to non-adjacent phase
+ *   experience:complete, user reached the final phase
+ *   phase:exit       , on unmount, from whichever phase the user is on
  */
 
 import { useEffect, useRef } from 'react';
@@ -31,7 +31,7 @@ interface PhaseTrackingOptions {
   phaseLabels: string[];
 }
 
-/** Minimal interface — accepts any object with a numeric `phase` property. */
+/** Minimal interface, accepts any object with a numeric `phase` property. */
 interface SequencerLike {
   phase: number;
 }
@@ -53,7 +53,7 @@ export function usePhaseTracking(
   const sceneIdRef = useRef(sceneId);
   const totalPhasesRef = useRef(options.phaseLabels.length);
 
-  // Keep refs in sync (defensive — in practice these never change after mount)
+  // Keep refs in sync (defensive, in practice these never change after mount)
   labelsRef.current = options.phaseLabels;
   totalPhasesRef.current = options.phaseLabels.length;
 

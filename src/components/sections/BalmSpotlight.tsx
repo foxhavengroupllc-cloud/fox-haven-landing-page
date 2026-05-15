@@ -21,7 +21,7 @@ const CHIPS: { id: FeatureId; label: string }[] = [
   { id: 'shopping-list',   label: 'Shopping list' },
 ];
 
-// Header label shown in the frame — updates with the active view
+// Header label shown in the frame, updates with the active view
 const VIEW_LABEL: Record<FeatureId, string> = {
   'mental-load':     'Mental Load',
   'shared-calendar': 'Calendar',
@@ -31,7 +31,7 @@ const VIEW_LABEL: Record<FeatureId, string> = {
 };
 
 /* ─────────────────────────────────────────────────────────────
-   Preview variants — each renders inside the stable Balm frame.
+   Preview variants, each renders inside the stable Balm frame.
    All are designed to fill roughly the same vertical space.
    ───────────────────────────────────────────────────────────── */
 
@@ -65,8 +65,8 @@ function MentalLoadPreview() {
       {/* Task rows */}
       <div className="space-y-1.5">
         {[
-          { dot: 'bg-heat-amber', text: 'Dentist — schedule this week', who: 'You' },
-          { dot: 'bg-sky-blue',   text: 'School pickup — 3:30pm',       who: 'Partner' },
+          { dot: 'bg-heat-amber', text: 'Dentist, schedule this week', who: 'You' },
+          { dot: 'bg-sky-blue',   text: 'School pickup, 3:30pm',       who: 'Partner' },
           { dot: 'bg-solar-gold', text: 'Groceries synced ✓',           who: 'Kid' },
         ].map((item, i) => (
           <div key={i} className="flex items-center gap-2.5 bg-white/4 rounded-lg px-3 py-2">
@@ -171,7 +171,7 @@ function AIAssistantPreview() {
       label: 'Load insight',
     },
     {
-      text: 'Partner has open bandwidth Tuesday — 3 tasks could shift.',
+      text: 'Partner has open bandwidth Tuesday, 3 tasks could shift.',
       accent: 'border-sky-blue/40',
       label: 'Suggestion',
     },
@@ -317,7 +317,7 @@ export default function BalmSpotlight() {
 
   return (
     <section className="bg-deep-slate border-y border-white/8 py-16 lg:py-20 overflow-hidden relative">
-      {/* Ambient background glow — shifts subtly based on active feature */}
+      {/* Ambient background glow, shifts subtly based on active feature */}
       <div
         className="absolute inset-0 pointer-events-none transition-opacity duration-700"
         aria-hidden="true"
@@ -337,11 +337,11 @@ export default function BalmSpotlight() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-blue/12 border border-sky-blue/25 mb-6">
               <span className="w-2 h-2 rounded-full bg-sky-blue animate-pulse" />
               <span className="font-body text-sky-blue text-[11px] font-semibold tracking-[0.2em] uppercase">
-                Live now — free to join
+                Live now, free to join
               </span>
             </div>
 
-            {/* Heading — linked to balm app */}
+            {/* Heading, linked to balm app */}
             <h2
               className="display-text text-white mb-3"
               style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1 }}
@@ -352,7 +352,7 @@ export default function BalmSpotlight() {
                 rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity duration-200"
               >
-                Balm —{' '}
+                Balm , {' '}
                 <span className="display-italic text-sky-blue">Family Control Center</span>
               </a>
             </h2>
@@ -362,10 +362,10 @@ export default function BalmSpotlight() {
             </p>
             <p className="font-body text-white/40 text-base mb-8 leading-relaxed max-w-lg">
               Balm tracks your family's mental load, syncs schedules, and gives everyone
-              a way to contribute — powered by an AI that takes action, not just suggests.
+              a way to contribute, powered by an AI that takes action, not just suggests.
             </p>
 
-            {/* ── Feature chips — control the frame preview ── */}
+            {/* ── Feature chips, control the frame preview ── */}
             <div
               role="tablist"
               aria-label="Balm features"
@@ -426,7 +426,7 @@ export default function BalmSpotlight() {
               role="tabpanel"
               className="bg-white/5 rounded-2xl border border-white/10 overflow-hidden shadow-2xl"
             >
-              {/* Stable app header — view label fades gently on transition */}
+              {/* Stable app header, view label fades gently on transition */}
               <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/8 bg-sky-blue-deep/20">
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-full bg-sky-blue/30 border border-sky-blue/40 flex items-center justify-center">
@@ -446,7 +446,7 @@ export default function BalmSpotlight() {
                 </span>
               </div>
 
-              {/* Swappable inner content — fades out, swaps, fades in */}
+              {/* Swappable inner content, fades out, swaps, fades in */}
               <div
                 className="px-5 pt-4 pb-3"
                 style={{ minHeight: '200px' }}

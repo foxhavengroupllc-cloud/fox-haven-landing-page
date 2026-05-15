@@ -28,15 +28,15 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Fox Haven Group — Building a Better Haven for Every Family',
+  title: 'Fox Haven Group, Building a Better Haven for Every Family',
   description:
-    'Fox Haven Group develops technology and infrastructure that protect lives, empower communities, and simplify modern family life — starting in Phoenix, AZ.',
+    'Fox Haven Group develops technology and infrastructure that protect lives, empower communities, and simplify modern family life, starting in Phoenix, AZ.',
   keywords:
     'Fox Haven Group, heat relief, solar shelters, Phoenix, family app, community innovation, heat emergency',
   openGraph: {
-    title: 'Fox Haven Group — Building a Better Haven for Every Family',
+    title: 'Fox Haven Group, Building a Better Haven for Every Family',
     description:
-      'Solar heat relief shelters, a life-saving mobile app, and a family management platform — built for real communities.',
+      'Solar heat relief shelters, a life-saving mobile app, and a family management platform, built for real communities.',
     type: 'website',
     url: 'https://foxhavengroup.org',
   },

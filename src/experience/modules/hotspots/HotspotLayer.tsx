@@ -1,6 +1,6 @@
 'use client';
 /**
- * HotspotLayer — Reusable interactive hotspot overlay
+ * HotspotLayer, Reusable interactive hotspot overlay
  *
  * Renders labeled, accessible hotspot markers over a scene at percentage-based
  * positions. Clicking a hotspot opens an inline detail panel.

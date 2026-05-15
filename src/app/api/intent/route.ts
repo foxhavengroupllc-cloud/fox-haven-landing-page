@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { classifyAndRespond } from '@/lib/claude-client';
 import { isEmergencyIntent } from '@/lib/intent-config';
 
-// In-memory rate limiter — resets on server restart (fine for edge/serverless)
+// In-memory rate limiter, resets on server restart (fine for edge/serverless)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const MAX_PER_MINUTE = 20;
 

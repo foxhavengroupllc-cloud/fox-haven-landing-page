@@ -1,5 +1,5 @@
 /**
- * InteractionManager — orchestrates multiple InteractionModules on a surface element.
+ * InteractionManager, orchestrates multiple InteractionModules on a surface element.
  *
  * Normalizes pointer, touch, keyboard, and wheel events into InteractionEvents,
  * then dispatches them to all registered modules in order.

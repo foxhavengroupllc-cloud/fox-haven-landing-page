@@ -11,7 +11,7 @@ const STEPS = [
   {
     num: '2',
     title: '30-min results review',
-    desc: 'Walk through your audit results with a Fox Haven consultant. No pitch — just your roadmap.',
+    desc: 'Walk through your audit results with a Fox Haven consultant. No pitch, just your roadmap.',
   },
   {
     num: '3',

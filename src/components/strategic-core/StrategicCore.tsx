@@ -8,11 +8,11 @@ import { StrategicCorePanel } from './StrategicCorePanel';
 // ─── Sphere constants ─────────────────────────────────────────────────────────
 const CX          = 200;   // SVG centre X
 const CY          = 200;   // SVG centre Y
-const R_PRIMARY   = 158;   // outer orbit — initiative nodes
+const R_PRIMARY   = 158;   // outer orbit, initiative nodes
 const R_MID       = 133;   // decorative mid-orbit ring
-const R_SECONDARY = 108;   // inner orbit — info/nav nodes
-const NODE_R_P    = 9.5;   // base node radius — primary
-const NODE_R_S    = 6.5;   // base node radius — secondary
+const R_SECONDARY = 108;   // inner orbit, info/nav nodes
+const NODE_R_P    = 9.5;   // base node radius, primary
+const NODE_R_S    = 6.5;   // base node radius, secondary
 
 // ─── 3D → 2D projection ──────────────────────────────────────────────────────
 interface Projected {
@@ -70,7 +70,7 @@ function SphereNode({ node, proj, isHovered, isActive, onHover, onActivate }: No
   const baseR     = isPrimary ? NODE_R_P : NODE_R_S;
   const r         = baseR * nodeScale;
 
-  // Adaptive label placement — guards against viewBox edge clipping
+  // Adaptive label placement, guards against viewBox edge clipping
   const dx     = x - CX;
   const LPAD   = 11;
   const EDGE   = 8;
@@ -100,7 +100,7 @@ function SphereNode({ node, proj, isHovered, isActive, onHover, onActivate }: No
     <g
       role="button"
       tabIndex={0}
-      aria-label={`${node.label} — ${node.sublabel}`}
+      aria-label={`${node.label}, ${node.sublabel}`}
       aria-pressed={isActive}
       style={{ opacity, cursor: 'pointer', outline: 'none' }}
       onMouseEnter={() => onHover(node.id)}
@@ -263,10 +263,10 @@ export default function StrategicCore() {
     [projectedNodes],
   );
 
-  // Equatorial ring tilt factor — shared by all 3 orbit ellipses
+  // Equatorial ring tilt factor, shared by all 3 orbit ellipses
   const orbitTilt = Math.abs(Math.cos((rot.x * Math.PI) / 180)) * 0.30;
 
-  // ── Node activation — freeze panel position at click moment ────────────
+  // ── Node activation, freeze panel position at click moment ────────────
   const activateNode = useCallback((node: CoreNode) => {
     if (wasDrag()) return;
     const entry = projectedNodes.find(p => p.node.id === node.id);
@@ -319,7 +319,7 @@ export default function StrategicCore() {
         className="w-full aspect-square"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        aria-label="Foxhaven Strategic Core — interactive exploration map"
+        aria-label="Foxhaven Strategic Core, interactive exploration map"
         style={{ cursor: isDragging ? 'grabbing' : 'grab', touchAction: 'none' }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
@@ -360,11 +360,11 @@ export default function StrategicCore() {
           stroke="#F2C94C" strokeWidth="0.4" strokeOpacity="0.05" fill="none" />
 
         {/* ════════════════════════════════════════════════════════════
-            ORBIT RINGS — 3 layers, inner strongest → outer weakest
+            ORBIT RINGS, 3 layers, inner strongest → outer weakest
             Each ring: glow halo (wide, static) + dashed animated line
             ════════════════════════════════════════════════════════════ */}
 
-        {/* ── Inner ring (secondary nodes, R=108) — amber, CW 9s ─── */}
+        {/* ── Inner ring (secondary nodes, R=108), amber, CW 9s ─── */}
         <ellipse cx={CX} cy={CY} rx={R_SECONDARY} ry={R_SECONDARY * orbitTilt}
           stroke="#F2C94C" strokeWidth={5} strokeOpacity={0.14} fill="none" />
         <ellipse cx={CX} cy={CY} rx={R_SECONDARY} ry={R_SECONDARY * orbitTilt}
@@ -372,7 +372,7 @@ export default function StrategicCore() {
           strokeDasharray="3 10" fill="none"
           className="sc-orbit-secondary" />
 
-        {/* ── Mid ring (decorative, R=133) — warm gold, CCW 13s ─── */}
+        {/* ── Mid ring (decorative, R=133), warm gold, CCW 13s ─── */}
         <ellipse cx={CX} cy={CY} rx={R_MID} ry={R_MID * orbitTilt}
           stroke="#E8A030" strokeWidth={4} strokeOpacity={0.10} fill="none" />
         <ellipse cx={CX} cy={CY} rx={R_MID} ry={R_MID * orbitTilt}
@@ -380,7 +380,7 @@ export default function StrategicCore() {
           strokeDasharray="4 14" fill="none"
           className="sc-orbit-mid" />
 
-        {/* ── Outer ring (primary nodes, R=158) — blue, CW 20s ───── */}
+        {/* ── Outer ring (primary nodes, R=158), blue, CW 20s ───── */}
         <ellipse cx={CX} cy={CY} rx={R_PRIMARY} ry={R_PRIMARY * orbitTilt}
           stroke="#38bdf8" strokeWidth={4.5} strokeOpacity={0.12} fill="none" />
         <ellipse cx={CX} cy={CY} rx={R_PRIMARY} ry={R_PRIMARY * orbitTilt}
@@ -388,7 +388,7 @@ export default function StrategicCore() {
           strokeDasharray="5 20" fill="none"
           className="sc-orbit-primary" />
 
-        {/* ── Nodes — sorted back-to-front ─────────────────────────── */}
+        {/* ── Nodes, sorted back-to-front ─────────────────────────── */}
         {sorted.map(({ node, proj }) => (
           <SphereNode
             key={node.id}
@@ -432,7 +432,7 @@ export default function StrategicCore() {
         {reducedMotion ? 'tap a node to explore' : 'drag to rotate · tap to explore'}
       </p>
 
-      {/* ── Contextual panel — anchored near activated node ──────────── */}
+      {/* ── Contextual panel, anchored near activated node ──────────── */}
       {activeNode && (
         <StrategicCorePanel
           node={activeNode}
