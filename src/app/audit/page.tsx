@@ -76,7 +76,7 @@ export default function AuditIntakePage() {
           <p className={styles.eyebrow}>◈ AI SOLUTIONS FOR EVERYONE · FREE ASSESSMENT</p>
           <h2>Find out what your business is losing to inefficiency.</h2>
           <p>
-            Answer 12&ndash;15 questions. Get a scored report with concrete opportunities — in
+            Answer 12&ndash;15 questions. Get a scored report with concrete opportunities, in
             under 5 minutes. No commitment, no spam, no sales-call pressure.
           </p>
 

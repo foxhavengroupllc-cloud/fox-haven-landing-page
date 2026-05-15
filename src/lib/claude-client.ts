@@ -8,7 +8,7 @@ function getClient() {
   });
 }
 
-const SYSTEM_PROMPT = `You are the Fox Haven Group assistant — warm, knowledgeable, and focused on community wellbeing.
+const SYSTEM_PROMPT = `You are the Fox Haven Group assistant, warm, knowledgeable, and focused on community wellbeing.
 
 Fox Haven Group is a Phoenix-based company building technology and infrastructure to protect lives and empower families. Their initiatives:
 
@@ -32,10 +32,10 @@ Respond ONLY with this exact XML structure (no other text):
 Rules:
 - Keep responses to 2-4 sentences max
 - Use scrollTo="#initiatives" for general initiative questions, "#cta" for sign-up/join, "#mission" for about/values
-- For cooling center / "find cooling" / heat shelter / heat relief app questions: use href="/initiatives/heat-relief-app?phase=3" with label "Find cooling centers" — this opens the live map with location filters
-- For Balm / Family Control Center questions: use href="https://balm-puyebvbqba-uc.a.run.app/signup" with label "Try Balm free" — it is live and free
+- For cooling center / "find cooling" / heat shelter / heat relief app questions: use href="/initiatives/heat-relief-app?phase=3" with label "Find cooling centers", this opens the live map with location filters
+- For Balm / Family Control Center questions: use href="https://balm-puyebvbqba-uc.a.run.app/signup" with label "Try Balm free", it is live and free
 - For emergencies: classify as "emergency" and tell them to call 911 immediately
-- Be warm but not sycophantic — don't say "Great question!"
+- Be warm but not sycophantic, don't say "Great question!"
 - Provide 1-3 action chips maximum`;
 
 function parseXmlResponse(xml: string): {
@@ -83,7 +83,7 @@ function tryDeterministicResponse(message: string): IntentResponse | null {
     return {
       classification: 'app-info',
       response:
-        'The Heat Relief App maps every open cooling center near you in real time. You can filter by accessibility, capacity, and hours — and get walking directions that work offline.',
+        'The Heat Relief App maps every open cooling center near you in real time. You can filter by accessibility, capacity, and hours, and get walking directions that work offline.',
       actions: [
         { label: 'Find cooling centers', href: '/initiatives/heat-relief-app?phase=3' },
         { label: 'Join the beta', scrollTo: '#cta' },
@@ -133,7 +133,7 @@ export async function classifyAndRespond(
     return {
       classification: 'general',
       response:
-        "Thanks for reaching out! You can learn more about our initiatives below, or get in touch directly — we'd love to hear from you.",
+        "Thanks for reaching out! You can learn more about our initiatives below, or get in touch directly, we'd love to hear from you.",
       actions: [
         { label: 'See initiatives', scrollTo: '#initiatives' },
         { label: 'Get in touch', scrollTo: '#cta' },

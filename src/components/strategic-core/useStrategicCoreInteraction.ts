@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 
 interface Rot { x: number; y: number }
 
-const IDLE_SPEED_Y = 0.10;  // degrees/frame — slow ambient drift
+const IDLE_SPEED_Y = 0.10;  // degrees/frame, slow ambient drift
 const FRICTION      = 0.93;  // per-frame velocity damping after drag release
 const DRAG_SENS     = 0.38;  // mouse/touch drag sensitivity (degrees per pixel)
 const DRAG_VEL_MULT = 0.18;  // drag velocity carried to post-drag inertia

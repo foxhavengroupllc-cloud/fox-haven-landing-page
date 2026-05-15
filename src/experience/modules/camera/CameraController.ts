@@ -1,5 +1,5 @@
 /**
- * CameraController — manages camera state and user interaction for 3D scenes.
+ * CameraController, manages camera state and user interaction for 3D scenes.
  *
  * Works independently of any specific 3D library.
  * Scene components apply the output state to their Three.js/R3F camera each frame.

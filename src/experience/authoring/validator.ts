@@ -3,8 +3,8 @@
  *
  * validateExperienceManifest() performs two levels of checks:
  *
- *   1. STRUCTURAL — required fields present and of the correct type
- *   2. CONTENT — no placeholder values (TODO, [insert], empty strings, defaults)
+ *   1. STRUCTURAL, required fields present and of the correct type
+ *   2. CONTENT, no placeholder values (TODO, [insert], empty strings, defaults)
  *
  * It does NOT check completeness (whether a project is integration-ready).
  * For that, use checkExperienceCompleteness() in completenessChecker.ts.
@@ -74,7 +74,7 @@ function checkString(
     issues.push({
       severity: 'error',
       field,
-      message: `${field} appears to be a placeholder — fill in real content`,
+      message: `${field} appears to be a placeholder, fill in real content`,
       fix: `Replace with specific, authored content (min ${minLength} characters)`,
     });
     return false;
@@ -84,7 +84,7 @@ function checkString(
     issues.push({
       severity: 'error',
       field,
-      message: `${field} is too short (${value.trim().length} chars) — minimum ${minLength} characters`,
+      message: `${field} is too short (${value.trim().length} chars), minimum ${minLength} characters`,
       fix: `Expand with specific detail`,
     });
     return false;
@@ -167,7 +167,7 @@ function validateNarrative(m: ExperienceManifest, issues: ValidationIssue[]): vo
     issues.push({
       severity: 'error',
       field: 'narrative.emotionalArc',
-      message: 'narrative.emotionalArc is required — choose a canonical arc or describe a custom one',
+      message: 'narrative.emotionalArc is required, choose a canonical arc or describe a custom one',
       fix: 'e.g., "fear-to-relief" or "skepticism → evidence → action"',
     });
   }
@@ -208,7 +208,7 @@ function validateVisualStyle(m: ExperienceManifest, issues: ValidationIssue[]): 
     issues.push({
       severity: 'error',
       field: 'visualStyle.moodKeywords',
-      message: 'moodKeywords contains placeholder values — replace with real adjectives',
+      message: 'moodKeywords contains placeholder values, replace with real adjectives',
     });
   }
 }
@@ -246,7 +246,7 @@ function validateTechnical(m: ExperienceManifest, issues: ValidationIssue[]): vo
     issues.push({
       severity: 'warning',
       field: 'requiredModules',
-      message: 'requiredModules is empty — if this experience uses no engine modules, that may be intentional',
+      message: 'requiredModules is empty, if this experience uses no engine modules, that may be intentional',
     });
   } else {
     m.requiredModules.forEach((mod: RequiredModule, i: number) => {
@@ -280,7 +280,7 @@ function validateTechnical(m: ExperienceManifest, issues: ValidationIssue[]): vo
           severity: 'error',
           field: `assetRequirements[${i}].sizeEstimateKB`,
           message: 'sizeEstimateKB must be a positive number',
-          fix: 'Estimate in KB — rough is fine, order-of-magnitude accuracy required',
+          fix: 'Estimate in KB, rough is fine, order-of-magnitude accuracy required',
         });
       }
       if (!validDelivery.includes(asset.deliveryStatus)) {
@@ -351,7 +351,7 @@ function validateConsistency(m: ExperienceManifest, issues: ValidationIssue[]): 
       issues.push({
         severity: 'warning',
         field: 'narrative.action / ctaGoal.primaryAction',
-        message: 'narrative.action and ctaGoal.primaryAction share no keywords — verify they describe the same user action',
+        message: 'narrative.action and ctaGoal.primaryAction share no keywords, verify they describe the same user action',
       });
     }
   }
@@ -361,7 +361,7 @@ function validateConsistency(m: ExperienceManifest, issues: ValidationIssue[]): 
     issues.push({
       severity: 'warning',
       field: 'minimumTier / assetRequirements',
-      message: 'Premium-tier experience has no asset requirements — typical premium scenes use at least one texture or model',
+      message: 'Premium-tier experience has no asset requirements, typical premium scenes use at least one texture or model',
     });
   }
 
@@ -374,7 +374,7 @@ function validateConsistency(m: ExperienceManifest, issues: ValidationIssue[]): 
     issues.push({
       severity: 'warning',
       field: 'minimumTier / requiredModules',
-      message: 'Lite-tier minimum with WebGL module — lite tier only runs CSS. Raise minimumTier to "standard" or "premium".',
+      message: 'Lite-tier minimum with WebGL module, lite tier only runs CSS. Raise minimumTier to "standard" or "premium".',
     });
   }
 }
@@ -465,6 +465,6 @@ export function formatValidationResult(result: ValidationResult, manifestId?: st
     });
   }
 
-  lines.push(`\n  ${result.valid ? '✓ Valid' : '✗ Invalid'} — ${result.errors.length} error(s), ${result.warnings.length} warning(s)`);
+  lines.push(`\n  ${result.valid ? '✓ Valid' : '✗ Invalid'}, ${result.errors.length} error(s), ${result.warnings.length} warning(s)`);
   return lines.join('\n');
 }

@@ -70,7 +70,7 @@ export interface InteractionModule {
   onMount?: (surface: HTMLElement) => void;
   /** Called when the interaction surface is unmounted */
   onUnmount?: () => void;
-  /** Called every animation frame — for modules that need continuous updates */
+  /** Called every animation frame, for modules that need continuous updates */
   onFrame?: (deltaTime: number) => void;
   /** Whether this module is currently active */
   enabled: boolean;

@@ -1,7 +1,7 @@
 const TESTIMONIALS = [
   {
     quote:
-      "Phoenix summers are brutal — knowing there's a cooling center nearby that's actually open and accessible would be life-changing for families like ours.",
+      "Phoenix summers are brutal, knowing there's a cooling center nearby that's actually open and accessible would be life-changing for families like ours.",
     name: 'Maria G.',
     role: 'Phoenix Resident, South Mountain',
     initial: 'M',
@@ -89,7 +89,7 @@ export default function Testimonials() {
         {/* Footnote */}
         <p className="text-center font-body text-xs text-[#0b1c2e]/40 mt-10 reveal">
           * Quotes represent perspectives from community members engaged in early
-          research — not product endorsements.
+          research, not product endorsements.
         </p>
       </div>
     </section>

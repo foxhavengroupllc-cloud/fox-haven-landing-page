@@ -13,7 +13,7 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /ai-coordination-layer — Heat Relief Network coordination brain
+ * /ai-coordination-layer, Heat Relief Network coordination brain
  *
  * Dark deployment-intelligence page (matches /population-flow and
  * /resource-nodes) that expands the homepage hero's "AI COORDINATION
@@ -64,12 +64,12 @@ const REASONING_STEPS = [
   {
     num: '03',
     title: 'Recommend',
-    desc: 'For each high-priority zone the layer drafts a recommendation: which resource to move, when, and why — citing the underlying signals.',
+    desc: 'For each high-priority zone the layer drafts a recommendation: which resource to move, when, and why, citing the underlying signals.',
   },
   {
     num: '04',
     title: 'Hand to operator',
-    desc: 'Recommendations queue into the operator interface with full provenance. A human approves, declines, or edits — every time, no exceptions.',
+    desc: 'Recommendations queue into the operator interface with full provenance. A human approves, declines, or edits, every time, no exceptions.',
   },
   {
     num: '05',
@@ -116,7 +116,7 @@ const OPERATIONS_FACETS = [
   },
   {
     label: 'Cross-partner briefings',
-    body: 'A single live ops view assembled for mayors, hospital ops chiefs, and community-org directors — not a stack of agency PDFs.',
+    body: 'A single live ops view assembled for mayors, hospital ops chiefs, and community-org directors, not a stack of agency PDFs.',
   },
 ];
 
@@ -173,7 +173,7 @@ export default function AiCoordinationLayerPage() {
                 are in scoped fallback while we negotiate the integrations.
               </p>
               <p className="mt-3 text-sm leading-relaxed text-[#f4ede0]/52">
-                Operational metrics — zones coordinated, median latency, decision logs —
+                Operational metrics, zones coordinated, median latency, decision logs , 
                 will be published once the first deployment season closes. We&rsquo;d rather
                 ship those numbers when they&rsquo;re real than ship them when they look
                 good.

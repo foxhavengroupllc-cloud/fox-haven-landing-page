@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * ImmersiveLayout — layout wrapper for full-experience routes (/initiatives/*).
+ * ImmersiveLayout, layout wrapper for full-experience routes (/initiatives/*).
  *
  * Differences from the default Next.js layout:
  * - Body scroll is locked (overflow: hidden)
@@ -45,7 +45,7 @@ export function ImmersiveLayout({
       className="relative w-full"
       style={{ height: '100dvh', overflow: 'hidden' }}
     >
-      {/* Back navigation — positioned above the scene */}
+      {/* Back navigation, positioned above the scene */}
       {backHref && (
         <div
           className="absolute top-20 left-6 z-10"
@@ -62,7 +62,7 @@ export function ImmersiveLayout({
         </div>
       )}
 
-      {/* Scene mount area — full viewport */}
+      {/* Scene mount area, full viewport */}
       <div
         className="absolute inset-0"
         style={{ zIndex: 'var(--z-immersive-bg)' }}

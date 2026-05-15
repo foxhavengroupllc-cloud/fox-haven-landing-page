@@ -1,5 +1,5 @@
 /**
- * Phoenix Heat Relief Network — Resource Nodes
+ * Phoenix Heat Relief Network, Resource Nodes
  *
  * Static seed data backing the Resource Nodes map on /resource-nodes.
  * The Heat Relief App scene currently references a subset of these (see
@@ -49,7 +49,7 @@ export const RESOURCE_TYPE_META: Record<
     label: 'Hydration Stations',
     color: '#60a5fa', // blue-400
     pinColor: '#3b82f6',
-    description: 'Free water, electrolytes, and shade — staffed during peak heat hours.',
+    description: 'Free water, electrolytes, and shade, staffed during peak heat hours.',
   },
   'mobile-unit': {
     label: 'Mobile Units',

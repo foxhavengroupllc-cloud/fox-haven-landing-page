@@ -25,7 +25,7 @@ npx ts-node -e "
   console.log(formatCompletenessReport(checkExperienceCompleteness(experienceManifest)));
 "
 
-# 4. Register when complete — in registry.ts:
+# 4. Register when complete, in registry.ts:
 # import { registerExperience } from '../authoring';
 # import { experienceManifest, sceneManifest } from '../scenes/my-project/manifest';
 # registerExperience(experienceManifest, sceneManifest);
@@ -33,7 +33,7 @@ npx ts-node -e "
 
 ## Rules
 
-- Do not register with `registerScene()` directly — use `registerExperience()`
+- Do not register with `registerScene()` directly, use `registerExperience()`
 - Do not set `status: 'complete'` until all narrative fields are authored and reviewed
 - Do not set `deliveryStatus: 'delivered'` for assets not in `/public`
 - The Fallback must render synchronously and must never throw

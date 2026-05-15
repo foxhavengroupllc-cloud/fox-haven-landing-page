@@ -4,7 +4,7 @@
  * Phase 2: no-op implementation. All emit calls are logged in development only.
  * To integrate a real provider, replace the body of emitSceneEvent()
  * with calls to window.gtag, plausible(), posthog.capture(), etc.
- * The event names and shapes are stable — consumers never need to change.
+ * The event names and shapes are stable, consumers never need to change.
  */
 
 import type { DeviceTier, FallbackReason, SceneState } from '../types/core';

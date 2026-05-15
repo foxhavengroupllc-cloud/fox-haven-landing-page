@@ -52,10 +52,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getServiceBySlug(slug);
   if (!service) return {};
   return {
-    title: `${service.title} | AI Solutions — Fox Haven Group`,
+    title: `${service.title} | AI Solutions, Fox Haven Group`,
     description: service.tagline,
     openGraph: {
-      title: `${service.title} — Fox Haven Group AI Solutions`,
+      title: `${service.title}, Fox Haven Group AI Solutions`,
       description: service.tagline,
       url: `https://foxhavengrouphq.com/ai-solutions/services/${slug}`,
     },
@@ -187,7 +187,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           <p className={styles.eyebrow}>◉ GET STARTED</p>
           <h2>See how this applies to your business.</h2>
           <p>
-            Start with a free audit to identify your biggest opportunities — then we&rsquo;ll
+            Start with a free audit to identify your biggest opportunities, then we&rsquo;ll
             scope a plan together.
           </p>
           <div className={styles.detailActions}>

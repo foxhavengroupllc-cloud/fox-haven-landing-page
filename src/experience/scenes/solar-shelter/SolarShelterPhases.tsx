@@ -1,16 +1,16 @@
 'use client';
 /**
- * Solar Shelter Experience — Phase Content Components
+ * Solar Shelter Experience, Phase Content Components
  *
  * Each phase renders the narrative content layer over the heat canvas.
  * All content is authored here in one place, separate from rendering logic.
  *
  * Phases:
- *   0 — Problem:  "115°F. No shelter. Heat kills."
- *   1 — Contrast: "What exists today vs. what's needed"
- *   2 — Solution: "The Fox Haven Solar Shelter" (hotspots)
- *   3 — Proof:    "Built for Phoenix. Designed to scale."
- *   4 — Action:   "Be part of the shelter network."
+ *   0, Problem:  "115°F. No shelter. Heat kills."
+ *   1, Contrast: "What exists today vs. what's needed"
+ *   2, Solution: "The Fox Haven Solar Shelter" (hotspots)
+ *   3, Proof:    "Built for Phoenix. Designed to scale."
+ *   4, Action:   "Be part of the shelter network."
  */
 
 import React from 'react';
@@ -136,7 +136,7 @@ export function Phase1Contrast({ transitionState }: { transitionState: PhaseTran
                 '~30 min before surfaces reach 130°F+',
                 'Partial overhead shade only',
                 '1–2 people maximum',
-                'No cooling — radiates heat',
+                'No cooling, radiates heat',
                 'No power, no water access',
                 'No overnight capacity',
               ].map((item) => (
@@ -159,10 +159,10 @@ export function Phase1Contrast({ transitionState }: { transitionState: PhaseTran
             <h3 className="text-white font-bold text-lg mb-4">Solar Cooling Shelter</h3>
             <ul className="space-y-2.5 text-sm">
               {[
-                '72–78°F interior — genuine AC cooling',
+                '72–78°F interior, genuine AC cooling',
                 'Fully enclosed 8′×12′ structure',
                 'Up to 12 people simultaneously',
-                '100% solar — runs day and night',
+                '100% solar, runs day and night',
                 'Emergency charging stations',
                 'ADA accessible, always open',
               ].map((item) => (
@@ -192,7 +192,7 @@ const SHELTER_HOTSPOTS = [
     y: 14,
     label: 'Solar Panel Array',
     description:
-      'Rooftop monocrystalline PV panels generate sufficient power to run the AC unit, LED lighting, and charging stations continuously — day and night via battery storage.',
+      'Rooftop monocrystalline PV panels generate sufficient power to run the AC unit, LED lighting, and charging stations continuously, day and night via battery storage.',
     icon: <Sun className="w-4 h-4" />,
   },
   {
@@ -201,7 +201,7 @@ const SHELTER_HOTSPOTS = [
     y: 52,
     label: 'HVAC Cooling Unit',
     description:
-      'A mini-split AC system maintains 72–78°F inside regardless of exterior temperature. Capacity: 9,000 BTU — sufficient for the 8′×12′ enclosed space at full occupancy.',
+      'A mini-split AC system maintains 72–78°F inside regardless of exterior temperature. Capacity: 9,000 BTU, sufficient for the 8′×12′ enclosed space at full occupancy.',
     icon: <Wind className="w-4 h-4" />,
   },
   {
@@ -210,7 +210,7 @@ const SHELTER_HOTSPOTS = [
     y: 68,
     label: 'Emergency Charging',
     description:
-      'Free USB-A, USB-C, and standard power outlets keep residents connected to emergency services and family. All power is solar-sourced — zero utility cost.',
+      'Free USB-A, USB-C, and standard power outlets keep residents connected to emergency services and family. All power is solar-sourced, zero utility cost.',
     icon: <Zap className="w-4 h-4" />,
   },
   {
@@ -228,7 +228,7 @@ const SHELTER_HOTSPOTS = [
     y: 28,
     label: 'Occupancy Sensor',
     description:
-      'IoT sensor reports occupancy count and interior temperature to the Fox Haven monitoring dashboard in real time — enabling dispatch coordination during heat emergencies.',
+      'IoT sensor reports occupancy count and interior temperature to the Fox Haven monitoring dashboard in real time, enabling dispatch coordination during heat emergencies.',
     icon: <Users className="w-4 h-4" />,
   },
 ];
@@ -360,7 +360,7 @@ const PROOF_METRICS = [
     prefix: '',
     value: 100,
     suffix: '%',
-    label: 'Solar-powered — zero ongoing utility cost',
+    label: 'Solar-powered, zero ongoing utility cost',
     accentClass: 'text-orange-400',
   },
   {

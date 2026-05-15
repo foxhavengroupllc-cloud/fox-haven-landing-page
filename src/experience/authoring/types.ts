@@ -1,5 +1,5 @@
 /**
- * Experience Authoring Types — Fox Haven Experience Platform
+ * Experience Authoring Types, Fox Haven Experience Platform
  *
  * An ExperienceManifest is the authoring-time definition of a project experience.
  * It captures narrative, visual, and technical requirements before any code is written.
@@ -19,10 +19,10 @@ import type { DeviceTier, MountType, ReducedMotionBehavior } from '../types/core
  * Only 'complete' manifests may be registered into the scene registry.
  */
 export type ExperienceStatus =
-  | 'draft'         // Initial skeleton — do not build yet
-  | 'in-progress'   // Actively being authored — incomplete fields expected
-  | 'review'        // Content complete — awaiting sign-off
-  | 'complete';     // Signed off — integration allowed
+  | 'draft'         // Initial skeleton, do not build yet
+  | 'in-progress'   // Actively being authored, incomplete fields expected
+  | 'review'        // Content complete, awaiting sign-off
+  | 'complete';     // Signed off, integration allowed
 
 // ─── Audience ─────────────────────────────────────────────────────────────────
 
@@ -33,7 +33,7 @@ export interface AudienceProfile {
   secondary?: string;
   /**
    * The specific pain, context, or emotional state the audience arrives with.
-   * This is what the experience meets them at — not a generic description.
+   * This is what the experience meets them at, not a generic description.
    */
   painContext: string;
 }
@@ -51,7 +51,7 @@ export type EmotionalArc =
   | 'urgency-to-action'     // Crisis → immediate path → empowerment
   | 'aspiration-to-achievement' // Dream → proof → belief it's real
   | 'doubt-to-trust'        // Skepticism → evidence → confidence
-  | string;                 // Custom arc — describe in plain language
+  | string;                 // Custom arc, describe in plain language
 
 export interface NarrativeModel {
   /**
@@ -60,7 +60,7 @@ export interface NarrativeModel {
    */
   problem: string;
   /**
-   * What life looks like without this solution — the contrast that makes the solution valuable.
+   * What life looks like without this solution, the contrast that makes the solution valuable.
    * Should make the cost of inaction visceral, not theoretical.
    */
   contrast: string;
@@ -112,7 +112,7 @@ export type TypographyCharacter =
   | 'humanist-sans'        // Warm, accessible, community-oriented
   | 'editorial-serif'      // Authority, trust, longform
   | 'display-expressive'   // Impact, motion, bold statements
-  | string;               // Custom — describe the character
+  | string;               // Custom, describe the character
 
 export interface VisualStyle {
   /**
@@ -128,7 +128,7 @@ export interface VisualStyle {
   motif: string;
   /** Primary brand hex color for this experience. */
   colorPrimary: string;
-  /** Secondary accent hex color. Optional — inherit from theme if omitted. */
+  /** Secondary accent hex color. Optional, inherit from theme if omitted. */
   colorSecondary?: string;
   /** Typography character that sets the emotional register. */
   typography: TypographyCharacter;
@@ -144,7 +144,7 @@ export interface VisualStyle {
 export interface EnvironmentSpec {
   /**
    * Physical or conceptual setting of the scene.
-   * e.g., 'Phoenix rooftop at dusk', 'Abstract data space', 'Interior living room — summer'
+   * e.g., 'Phoenix rooftop at dusk', 'Abstract data space', 'Interior living room, summer'
    */
   setting: string;
   /**
@@ -158,7 +158,7 @@ export interface EnvironmentSpec {
    */
   atmosphere: string;
   /**
-   * Audio or soundscape direction. Optional — for experiences that include audio.
+   * Audio or soundscape direction. Optional, for experiences that include audio.
    * e.g., 'City ambient with AC hum, children laughing faintly in background'
    */
   soundscape?: string;
@@ -173,7 +173,7 @@ export interface RequiredModule {
    * e.g., 'CameraController', 'InteractionManager', 'custom:heat-particle-system'
    */
   name: string;
-  /** Why this module is needed — makes gaps visible during authoring review. */
+  /** Why this module is needed, makes gaps visible during authoring review. */
   purpose: string;
 }
 
@@ -207,7 +207,7 @@ export interface AssetRequirement {
 
 export interface FallbackMode {
   /**
-   * What the fallback looks like — written for a non-engineer reader.
+   * What the fallback looks like, written for a non-engineer reader.
    * e.g., 'Static orange gradient with headline text only. No animation.'
    */
   description: string;
@@ -277,7 +277,7 @@ export interface ExperienceManifest {
   minimumTier: DeviceTier;
   /** How this experience is mounted in the page. */
   mountType: MountType;
-  /** Engine modules this experience needs. List all — gaps surface integration risk. */
+  /** Engine modules this experience needs. List all, gaps surface integration risk. */
   requiredModules: RequiredModule[];
   /**
    * All assets this experience needs.
@@ -303,7 +303,7 @@ export interface ExperienceManifest {
   initiativeId?: string;
   /**
    * Notes for reviewers: decisions made, tradeoffs accepted, known constraints.
-   * Not validated — for human readers only.
+   * Not validated, for human readers only.
    */
   notes?: string;
 }

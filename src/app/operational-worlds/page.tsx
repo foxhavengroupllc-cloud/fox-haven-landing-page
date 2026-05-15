@@ -3,7 +3,7 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /operational-worlds — Platform layer detail page
+ * /operational-worlds, Platform layer detail page
  *
  * Q&A format. Deliberately not shaped like the other layer detail pages.
  * A short intro, then five questions a thoughtful partner would actually
@@ -17,7 +17,7 @@ const QA = [
   },
   {
     q: 'What does a partner actually do with it on day one?',
-    a: 'Run a scenario against last summer. Pull the heat-stress data we observed, model the cooling-center inventory you actually had, and ask what would have changed if two more sites had been open from June to September. The answer comes back the same way a live recommendation would — with the signals it leaned on and the alternatives it considered.',
+    a: 'Run a scenario against last summer. Pull the heat-stress data we observed, model the cooling-center inventory you actually had, and ask what would have changed if two more sites had been open from June to September. The answer comes back the same way a live recommendation would, with the signals it leaned on and the alternatives it considered.',
   },
   {
     q: 'How is this different from a dashboard?',
@@ -25,11 +25,11 @@ const QA = [
   },
   {
     q: 'What does the data come from?',
-    a: 'For Phoenix, the same Civic Infrastructure feeds the live system uses — NWS, AirNow, Valley Metro, partner shelter and cooling-center inventories. Anything still pending in the pilot (vulnerability indicators from ACS, mobility partners) is clearly labeled in the scenario output so you never confuse modeled data for measured data.',
+    a: 'For Phoenix, the same Civic Infrastructure feeds the live system uses, NWS, AirNow, Valley Metro, partner shelter and cooling-center inventories. Anything still pending in the pilot (vulnerability indicators from ACS, mobility partners) is clearly labeled in the scenario output so you never confuse modeled data for measured data.',
   },
   {
     q: 'Who is supposed to be using it?',
-    a: 'Operations leads at partner organizations, primarily. City emergency-management staff. Hospital ops chiefs. The director of a community organization deciding whether to add a Saturday-shift outreach team for August. Not residents — Operational Worlds is for the people doing the planning.',
+    a: 'Operations leads at partner organizations, primarily. City emergency-management staff. Hospital ops chiefs. The director of a community organization deciding whether to add a Saturday-shift outreach team for August. Not residents, Operational Worlds is for the people doing the planning.',
   },
 ];
 

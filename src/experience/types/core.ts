@@ -1,6 +1,6 @@
 /**
  * Core types for the Fox Haven Experience Engine.
- * All engine consumers interact with these types — never with internal implementations.
+ * All engine consumers interact with these types, never with internal implementations.
  */
 
 import type React from 'react';
@@ -62,7 +62,7 @@ export interface AssetManifest {
 // ─── Scene Manifest ───────────────────────────────────────────────────────────
 
 export interface SceneManifest {
-  /** Unique slug identifier — used as registry key */
+  /** Unique slug identifier, used as registry key */
   id: string;
   /** Human-readable name for dev tooling and analytics */
   displayName: string;
@@ -77,7 +77,7 @@ export interface SceneManifest {
    * Must not be called at module initialization time (SSR-safe).
    */
   component: () => Promise<{ default: React.ComponentType<SceneProps> }>;
-  /** Always-sync fallback component — rendered when scene cannot run */
+  /** Always-sync fallback component, rendered when scene cannot run */
   fallback: React.ComponentType<FallbackProps>;
   /** Label forwarded to analytics events */
   analyticsLabel: string;
@@ -96,7 +96,7 @@ export interface SceneManifest {
 
 /** Props passed to every scene component by SceneHost */
 export interface SceneProps {
-  /** Assigned hardware tier — scene should adjust quality accordingly */
+  /** Assigned hardware tier, scene should adjust quality accordingly */
   tier: DeviceTier;
   /** Whether prefers-reduced-motion is active */
   reducedMotion: boolean;
@@ -104,7 +104,7 @@ export interface SceneProps {
   width: number;
   /** Canvas height in CSS pixels */
   height: number;
-  /** Tab visibility state — scene should pause work when false */
+  /** Tab visibility state, scene should pause work when false */
   isVisible: boolean;
   /** Call this to trigger graceful fallback from within the scene */
   onError: (err: Error) => void;
@@ -133,7 +133,7 @@ export type FallbackReason =
 // ─── SceneHost Props ──────────────────────────────────────────────────────────
 
 export interface SceneHostProps {
-  /** Registry key — must match a registered SceneManifest.id */
+  /** Registry key, must match a registered SceneManifest.id */
   sceneId: string;
   mountType: MountType;
   /** Section element ID to position against (section-bg only) */

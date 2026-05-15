@@ -4,7 +4,7 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /ai-concierge — Platform layer detail page
+ * /ai-concierge, Platform layer detail page
  *
  * Companion to /population-flow, /civic-infrastructure, /ai-coordination-layer.
  * Linked from the homepage Platform card for "AI CONCIERGE".
@@ -44,7 +44,7 @@ const BOUNDARIES = [
   },
   {
     title: 'Audit log on every conversation',
-    body: 'Every exchange is logged for partner review — both the model output and the operator decisions that followed. Partner orgs get quarterly reviews.',
+    body: 'Every exchange is logged for partner review, both the model output and the operator decisions that followed. Partner orgs get quarterly reviews.',
   },
   {
     title: 'Bad answers get flagged in one tap',

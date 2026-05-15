@@ -6,7 +6,7 @@ export default function AuditBanner() {
       <div className="min-w-0">
         <p className="text-[#F1F5F9] text-[12px] font-semibold">Already ready to start?</p>
         <p className="text-[#94A3B8] text-[11px] mt-0.5 leading-snug">
-          Skip the form — take the audit directly.
+          Skip the form, take the audit directly.
         </p>
       </div>
       <Link

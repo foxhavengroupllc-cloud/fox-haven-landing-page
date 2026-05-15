@@ -57,7 +57,7 @@ export default function PartnerLeadForm({ source = 'partner-page' }: PartnerLead
       // Combine partner type + free-form note into pain_point so it shows up
       // in the lead email without changing the leads table schema.
       const painPointParts = [partnerType, message.trim()].filter(Boolean);
-      const composedPainPoint = painPointParts.length > 0 ? painPointParts.join(' — ') : undefined;
+      const composedPainPoint = painPointParts.length > 0 ? painPointParts.join(', ') : undefined;
 
       const res = await fetch('/api/leads', {
         method: 'POST',
@@ -91,7 +91,7 @@ export default function PartnerLeadForm({ source = 'partner-page' }: PartnerLead
           Your message is in.
         </h3>
         <p className={styles.auditFooterCopy} style={{ marginTop: 0 }}>
-          We&rsquo;ll reply within two business days. No automated drip — a real human at Fox
+          We&rsquo;ll reply within two business days. No automated drip, a real human at Fox
           Haven will read it.
         </p>
       </div>

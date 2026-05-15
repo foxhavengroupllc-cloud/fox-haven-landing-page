@@ -91,7 +91,7 @@ export default function Hero() {
         <ParticleField particleCount={100} className="z-[1]" />
       </div>
 
-      {/* ── Hero Content — 2 column on desktop ── */}
+      {/* ── Hero Content, 2 column on desktop ── */}
       <div className="relative z-[2] w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
         {/* Left: Text */}

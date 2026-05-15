@@ -3,7 +3,7 @@ import styles from '@/styles/design-system.module.css';
 import { PROCESS_STEPS } from '@/lib/ai-solutions-config';
 
 /**
- * Process page — full six-step timeline using design-system archetypes.
+ * Process page, full six-step timeline using design-system archetypes.
  * Pulls PROCESS_STEPS from src/lib/ai-solutions-config.ts (unchanged).
  */
 
@@ -16,7 +16,7 @@ export default function ProcessPage() {
           <p className={styles.eyebrow}>◈ OUR PROCESS</p>
           <h2>From discovery to deployment in six clear steps.</h2>
           <p>
-            Every engagement follows the same proven process — designed to minimise risk,
+            Every engagement follows the same proven process, designed to minimise risk,
             maximise ROI, and get you to results as fast as possible.
           </p>
           <div className={styles.detailActions}>
@@ -56,7 +56,7 @@ export default function ProcessPage() {
           <p className={styles.eyebrow}>◉ READY TO START?</p>
           <h2>The free audit takes 12 minutes.</h2>
           <p>
-            You get a scored report with concrete recommendations — no commitment required, no
+            You get a scored report with concrete recommendations, no commitment required, no
             sales-call pressure.
           </p>
           <div className={styles.detailActions}>

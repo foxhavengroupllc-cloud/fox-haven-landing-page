@@ -1,5 +1,5 @@
 /**
- * ExperienceRuntime — singleton that tracks all active scene instances.
+ * ExperienceRuntime, singleton that tracks all active scene instances.
  *
  * Responsibilities:
  * - Maintains a registry of all mounted SceneLifecycleManagers
@@ -103,7 +103,7 @@ export class ExperienceRuntime {
     };
   }
 
-  /** Reset the singleton — for testing only */
+  /** Reset the singleton, for testing only */
   static reset(): void {
     ExperienceRuntime._instance = null;
   }

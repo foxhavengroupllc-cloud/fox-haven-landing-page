@@ -1,5 +1,5 @@
 /**
- * Scene Registry — central Map of all registered SceneManifests.
+ * Scene Registry, central Map of all registered SceneManifests.
  *
  * Scene authors add one line here to make their scene available to SceneHost.
  * The engine reads this Map; it never writes to it after boot.
@@ -18,7 +18,7 @@ const _registry = new Map<string, SceneManifest>();
 
 // ─── Scene Registrations ──────────────────────────────────────────────────────
 // Use registerExperience() (from authoring system) for all new experiences.
-// This enforces the integration gate — incomplete manifests cannot register.
+// This enforces the integration gate, incomplete manifests cannot register.
 
 import { registerExperience } from '../authoring/integrationGate';
 import { experienceManifest as solarExperience, sceneManifest as solarScene }

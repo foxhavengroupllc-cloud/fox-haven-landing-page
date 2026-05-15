@@ -1,5 +1,5 @@
 /**
- * RippleRenderer — "Volunteer or Donate" portal animation.
+ * RippleRenderer, "Volunteer or Donate" portal animation.
  * Warm concentric ripples with orbiting particles.
  * Conveys human warmth and expanding impact.
  */

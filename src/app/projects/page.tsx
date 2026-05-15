@@ -3,7 +3,7 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /projects — Active projects
+ * /projects, Active projects
  *
  * Hub for the three production initiatives currently in build: System
  * Solutions (AI Solutions for Everyone), Heat Relief App, and Solar
@@ -36,7 +36,7 @@ const PROJECTS: Project[] = [
     title: 'SYSTEM SOLUTIONS',
     tagline: 'AI Solutions for Everyone',
     body:
-      'AI-powered automation that eliminates the repetitive, manual drag costing teams time and money. Eight production services — lead response, reporting, scheduling, custom agents, and more — deployable in three to six weeks.',
+      'AI-powered automation that eliminates the repetitive, manual drag costing teams time and money. Eight production services, lead response, reporting, scheduling, custom agents, and more, deployable in three to six weeks.',
     status: 'Now accepting clients',
     image: '/images/new-design/homepage-redesign/system-solutions/system-globe.png',
     href: '/ai-solutions',
@@ -87,7 +87,7 @@ export default function ProjectsPage() {
       <section className={styles.detailSection}>
         <div className={styles.detailIntro}>
           <p className={styles.eyebrow}>◈ WHAT WE&rsquo;RE BUILDING NOW</p>
-          <h2>The Phoenix Heat Relief Network — three connected initiatives, one mission.</h2>
+          <h2>The Phoenix Heat Relief Network, three connected initiatives, one mission.</h2>
           <p>
             Fox Haven Group is in active build on three production initiatives, each one
             designed to interoperate with the others. Resident-facing tools, physical
@@ -180,7 +180,7 @@ export default function ProjectsPage() {
           <h2>What the Solar Shelter actually looks like.</h2>
           <p>
             Renders, prototype shots, and field studies from the shelter design process. Every
-            decision — from the canopy angle to the seating layout — is shaped by how people
+            decision, from the canopy angle to the seating layout, is shaped by how people
             actually use shaded space during a Phoenix summer.
           </p>
         </div>
@@ -207,7 +207,7 @@ export default function ProjectsPage() {
           <p className={styles.eyebrow}>◉ GET INVOLVED</p>
           <h2>Help us deploy faster.</h2>
           <p>
-            Every active project needs partners — cities to host, healthcare providers to
+            Every active project needs partners, cities to host, healthcare providers to
             integrate, community organizations to ground-truth, and funders to accelerate.
           </p>
           <div className={styles.detailActions}>

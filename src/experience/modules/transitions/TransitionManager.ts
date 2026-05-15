@@ -1,5 +1,5 @@
 /**
- * TransitionManager — applies CSS-based entry and exit transitions to a scene container.
+ * TransitionManager, applies CSS-based entry and exit transitions to a scene container.
  *
  * Works by manipulating CSS custom properties and class names on the container element.
  * Does not depend on any animation library.

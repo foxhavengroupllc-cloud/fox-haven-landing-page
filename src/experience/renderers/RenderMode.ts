@@ -35,7 +35,7 @@ export function selectRenderMode(tier: DeviceTier): RenderMode {
       const webglLevel = probeWebGL();
       if (webglLevel === 'webgl2') return 'webgl2';
       if (webglLevel === 'webgl1') return 'webgl';
-      // WebGL disappeared (context lost?) — fall back to 2D
+      // WebGL disappeared (context lost?), fall back to 2D
       return 'canvas-2d';
     }
   }

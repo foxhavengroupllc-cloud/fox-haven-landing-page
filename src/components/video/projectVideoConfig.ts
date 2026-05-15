@@ -4,7 +4,7 @@
  * Per-project teaser video configuration for the Foxhaven landing page.
  *
  * HOW TO ADD A REAL VIDEO:
- *   1. Produce a short teaser clip — ideally 15–45s, muted-safe, loopable.
+ *   1. Produce a short teaser clip, ideally 15–45s, muted-safe, loopable.
  *   2. Encode as H.264 MP4 (broad compatibility) + WebM VP9 (optional, smaller).
  *   3. Upload to a CDN (Cloudinary, Vercel Blob, Bunny.net, etc.).
  *   4. Set `teaserSrc` to the CDN URL below for the relevant project.
@@ -14,7 +14,7 @@
  *   - Duration: 15–45 seconds (loopable)
  *   - Resolution: 1280×960 (4:3) or 1920×1440
  *   - File size: < 6 MB (aim for 2–4 MB with H.264)
- *   - No audio required — all clips play muted
+ *   - No audio required, all clips play muted
  *
  * The component degrades gracefully: when `teaserSrc` is null, it shows
  * the illustrated SVG visual with a subtle play icon that links to the
@@ -27,7 +27,7 @@ export interface ProjectVideoConfig {
 
   /**
    * Short loop teaser video URL (MP4 recommended).
-   * null = poster-only mode — the illustrated visual is shown with a play CTA.
+   * null = poster-only mode, the illustrated visual is shown with a play CTA.
    *
    * Example:
    *   teaserSrc: 'https://cdn.foxhaven.org/teasers/shelter-teaser-v1.mp4',
@@ -59,7 +59,7 @@ export interface ProjectVideoConfig {
   /** Set true if ctaHref is an external URL (opens in new tab). */
   ctaExternal?: boolean;
 
-  /** Project accent hex color — used for subtle glow/highlight on the play button. */
+  /** Project accent hex color, used for subtle glow/highlight on the play button. */
   accentHex: string;
 }
 

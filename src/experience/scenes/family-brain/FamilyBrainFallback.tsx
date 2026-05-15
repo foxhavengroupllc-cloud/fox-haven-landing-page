@@ -1,10 +1,10 @@
 'use client';
 /**
- * Family Brain Experience — CSS Fallback
+ * Family Brain Experience, CSS Fallback
  *
  * Rendered synchronously when the Canvas scene cannot run.
  * No canvas, no async, no dynamic imports.
- * Purple/blue color register — distinct from shelter (orange) and heat app (cyan).
+ * Purple/blue color register, distinct from shelter (orange) and heat app (cyan).
  */
 
 import {
@@ -24,7 +24,7 @@ const FEATURES = [
   {
     icon: Calendar,
     title: 'Shared Family Calendar',
-    desc: 'One calendar for the whole family — synced across everyone\'s devices with smart scheduling.',
+    desc: 'One calendar for the whole family, synced across everyone\'s devices with smart scheduling.',
     iconColor: 'text-blue-400',
     border: 'border-blue-500/15',
   },
@@ -59,7 +59,7 @@ const FEATURES = [
   {
     icon: MessageCircle,
     title: 'Family Messaging',
-    desc: 'A private family thread — just your people, no work or social noise.',
+    desc: 'A private family thread, just your people, no work or social noise.',
     iconColor: 'text-cyan-400',
     border: 'border-cyan-500/15',
   },
@@ -130,7 +130,7 @@ export function FamilyBrainFallback({ reason }: FallbackProps) {
           <div>
             <h3 className="text-white font-semibold mb-1">AI that organizes, not interrupts</h3>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Family Brain&rsquo;s AI quietly surfaces conflicts, patterns, and suggestions — not as a chatbot,
+              Family Brain&rsquo;s AI quietly surfaces conflicts, patterns, and suggestions, not as a chatbot,
               but as an invisible coordinator working in the background.
             </p>
           </div>

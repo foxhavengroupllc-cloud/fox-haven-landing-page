@@ -1,6 +1,6 @@
 'use client';
 /**
- * Solar Shelter Experience — Fallback Component
+ * Solar Shelter Experience, Fallback Component
  *
  * Rendered when:
  *   - Device is lite tier (no canvas support)
@@ -18,13 +18,13 @@ import type { FallbackProps } from '../../types/core';
 const stats = [
   { value: '480+', label: 'Heat deaths in Maricopa County, 2023' },
   { value: '8′×12′', label: 'Enclosed, air-conditioned shelter unit' },
-  { value: '100%', label: 'Solar-powered — zero grid dependency' },
+  { value: '100%', label: 'Solar-powered, zero grid dependency' },
   { value: '12', label: 'People sheltered per unit simultaneously' },
 ];
 
 const features = [
   { icon: Sun, label: 'Solar-Powered', desc: 'Rooftop PV panels generate all power on-site.' },
-  { icon: Zap, label: 'Always Cooling', desc: 'Enclosed AC interior — not partial shade, real relief.' },
+  { icon: Zap, label: 'Always Cooling', desc: 'Enclosed AC interior, not partial shade, real relief.' },
   { icon: Shield, label: 'ADA Compliant', desc: 'Every community member can access life-saving cooling.' },
   { icon: MapPin, label: 'Sited for Impact', desc: 'Near bus stops and high-exposure pedestrian corridors.' },
 ];
@@ -65,7 +65,7 @@ export function SolarShelterFallback({ reason }: FallbackProps) {
 
           {reason === 'reduced-motion' && (
             <p className="mt-4 text-xs text-slate-600 font-mono" role="status">
-              [ REDUCED MOTION — STATIC VERSION ]
+              [ REDUCED MOTION, STATIC VERSION ]
             </p>
           )}
         </div>

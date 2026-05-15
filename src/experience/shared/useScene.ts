@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * useScene — hook for scene components to access engine state.
+ * useScene, hook for scene components to access engine state.
  *
  * Provides:
  * - tier and reducedMotion from TierContext
@@ -28,7 +28,7 @@ interface UseSceneResult {
   shouldAnimate: boolean;
   /** The render mode to use for this scene */
   renderMode: ReturnType<typeof selectRenderMode>;
-  /** Stable error reporter — call this to trigger graceful fallback */
+  /** Stable error reporter, call this to trigger graceful fallback */
   reportError: (err: Error) => void;
 }
 

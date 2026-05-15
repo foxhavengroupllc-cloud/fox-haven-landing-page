@@ -3,7 +3,7 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /civic-infrastructure — Platform layer detail page
+ * /civic-infrastructure, Platform layer detail page
  *
  * Short-form essay layout. Single column. A hero image, three or four
  * substantive paragraphs, a single CTA at the end. Deliberately not

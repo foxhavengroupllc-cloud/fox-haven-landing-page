@@ -1,5 +1,5 @@
 /**
- * Session reporter — aggregates raw interaction events into structured summaries.
+ * Session reporter, aggregates raw interaction events into structured summaries.
  *
  * All exported functions are pure: they accept event arrays and return report
  * objects. They never modify the store or emit events.
@@ -34,9 +34,9 @@ export interface PhaseStats {
   retreatCount: number;
   /** Times a user exited the experience while on this phase. */
   exitCount: number;
-  /** exitCount / viewCount — probability of exiting from this phase. */
+  /** exitCount / viewCount, probability of exiting from this phase. */
   exitRate: number;
-  /** advanceCount / viewCount — probability of advancing from this phase (non-final phases). */
+  /** advanceCount / viewCount, probability of advancing from this phase (non-final phases). */
   completionRate: number;
 }
 

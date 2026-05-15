@@ -1,5 +1,5 @@
 /**
- * Fox Haven Experience Engine — Public API
+ * Fox Haven Experience Engine, Public API
  *
  * Import engine components and utilities from '@/experience'.
  *

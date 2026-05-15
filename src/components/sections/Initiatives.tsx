@@ -28,7 +28,7 @@ export default function Initiatives() {
             </h2>
           </div>
           <p className="text-[17px] leading-[1.75] text-[#0b1c2e]/55 font-light self-end">
-            Each initiative addresses a real, urgent need — and every one is designed to scale beyond Phoenix to communities everywhere.
+            Each initiative addresses a real, urgent need, and every one is designed to scale beyond Phoenix to communities everywhere.
           </p>
         </div>
 

@@ -3,7 +3,7 @@ import styles from '@/styles/design-system.module.css';
 import { CASE_STUDIES, AI_SERVICES } from '@/lib/ai-solutions-config';
 
 /**
- * Case studies page — restyled to use design-system archetypes.
+ * Case studies page, restyled to use design-system archetypes.
  * Data unchanged: CASE_STUDIES from src/lib/ai-solutions-config.ts.
  */
 

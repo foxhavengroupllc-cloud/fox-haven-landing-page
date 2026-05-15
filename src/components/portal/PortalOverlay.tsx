@@ -47,7 +47,7 @@ export default function PortalOverlay({
       aria-modal="true"
       aria-labelledby="portal-overlay-title"
     >
-      {/* Backdrop — fades in first */}
+      {/* Backdrop, fades in first */}
       <div
         className="absolute inset-0 bg-[#060f1d]/85"
         style={{
@@ -60,7 +60,7 @@ export default function PortalOverlay({
         aria-hidden="true"
       />
 
-      {/* Panel container — rises up after backdrop */}
+      {/* Panel container, rises up after backdrop */}
       <div
         className="absolute inset-0 flex items-center justify-center p-4 sm:p-8 pointer-events-none"
         style={{
@@ -82,7 +82,7 @@ export default function PortalOverlay({
             transition: "box-shadow 600ms ease-out 150ms",
           }}
         >
-          {/* Accent line at top — grows in */}
+          {/* Accent line at top, grows in */}
           <div
             className="absolute top-0 left-0 right-0 h-[2px] rounded-full"
             style={{
@@ -95,7 +95,7 @@ export default function PortalOverlay({
           />
 
           <div className="p-8 sm:p-10">
-            {/* Close button — fades in late */}
+            {/* Close button, fades in late */}
             <button
               ref={closeRef}
               onClick={onClose}
@@ -119,7 +119,7 @@ export default function PortalOverlay({
               </svg>
             </button>
 
-            {/* Content — staggers in after panel lands */}
+            {/* Content, staggers in after panel lands */}
             <div
               style={{
                 opacity: showContent ? 1 : 0,

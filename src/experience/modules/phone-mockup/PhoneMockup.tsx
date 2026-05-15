@@ -1,6 +1,6 @@
 'use client';
 /**
- * PhoneMockup — Reusable smartphone frame component
+ * PhoneMockup, Reusable smartphone frame component
  *
  * Renders a styled phone outline with status bar and screen area.
  * Content is passed as children and rendered inside the screen.
@@ -16,7 +16,7 @@ export interface PhoneMockupProps {
   children: React.ReactNode;
   /** Additional className for the outermost wrapper */
   className?: string;
-  /** className applied to the screen area only — use for bg-gradient etc. */
+  /** className applied to the screen area only, use for bg-gradient etc. */
   screenClassName?: string;
   /** Status bar time. Default: "14:22" */
   statusTime?: string;

@@ -15,17 +15,17 @@ const VALUE_PROPS = [
   {
     Icon: Link2,
     title: 'Systems integration',
-    desc: 'We connect your existing tools so data flows automatically — no more duplicate entry or manual handoffs.',
+    desc: 'We connect your existing tools so data flows automatically, no more duplicate entry or manual handoffs.',
   },
   {
     Icon: Zap,
     title: 'AI workflow automation',
-    desc: 'Repetitive tasks — follow-ups, scheduling, reporting — handled automatically so your team focuses on what matters.',
+    desc: 'Repetitive tasks, follow-ups, scheduling, reporting, handled automatically so your team focuses on what matters.',
   },
   {
     Icon: Activity,
     title: 'Ongoing intelligence layer',
-    desc: 'Live dashboards and alerts so you always know what\'s happening — not just what happened last month.',
+    desc: 'Live dashboards and alerts so you always know what\'s happening, not just what happened last month.',
   },
 ];
 
@@ -95,7 +95,7 @@ export default function LearnMoreModal({ isOpen, onClose }: LearnMoreModalProps)
                 <em className="text-[#e05e14] not-italic font-bold">process drag.</em>
               </h2>
               <p className="text-[13px] text-[#94A3B8] mt-2 leading-relaxed">
-                Fox Haven identifies exactly where your business is bleeding time and money — then
+                Fox Haven identifies exactly where your business is bleeding time and money, then
                 builds the AI systems to stop it.
               </p>
             </div>

@@ -35,7 +35,7 @@ export default function MessageBubble({ message, onAction }: Props) {
         </div>
       </div>
 
-      {/* Action chips — only for assistant */}
+      {/* Action chips, only for assistant */}
       {!isUser && message.actions && message.actions.length > 0 && (
         <div className="w-full pl-8">
           <ActionChips actions={message.actions} onAction={onAction} />

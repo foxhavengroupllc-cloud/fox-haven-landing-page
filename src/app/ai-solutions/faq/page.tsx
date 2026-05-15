@@ -8,7 +8,7 @@ import LeadForm from '@/components/ai-small-biz/LeadForm';
 import { FAQ_ITEMS, FAQ_CATEGORIES, type FAQItem } from '@/lib/ai-solutions-config';
 
 /**
- * FAQ page — restyled to use design-system archetypes.
+ * FAQ page, restyled to use design-system archetypes.
  * Replaces the legacy FAQAccordion component with an inline accordion
  * built on design-system classes (cream cards on cream background).
  * Same filtering UX (All + categories from FAQ_CATEGORIES).
@@ -38,7 +38,7 @@ export default function FAQPage() {
           <p className={styles.eyebrow}>◈ FAQ</p>
           <h2>Frequently asked questions.</h2>
           <p>
-            Everything you need to know about our AI solutions, process, and pricing — in one
+            Everything you need to know about our AI solutions, process, and pricing, in one
             place.
           </p>
         </div>
@@ -95,7 +95,7 @@ export default function FAQPage() {
           <p className={styles.eyebrow}>◉ STILL HAVE QUESTIONS?</p>
           <h2>Talk to a consultant.</h2>
           <p>
-            Drop us your info and we&rsquo;ll get back to you within 24 hours — or start with the
+            Drop us your info and we&rsquo;ll get back to you within 24 hours, or start with the
             free audit to see your numbers first.
           </p>
           <div className={styles.detailActions}>

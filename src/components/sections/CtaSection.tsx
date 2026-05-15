@@ -63,7 +63,7 @@ export default function CtaSection() {
           </h2>
           <p className="font-body text-[#f4ede0]/45 text-base leading-relaxed mt-5 max-w-xl mx-auto">
             Whether you&rsquo;re a community partner, investor, future user, or
-            just someone who cares — we&rsquo;d love to hear from you.
+            just someone who cares, we&rsquo;d love to hear from you.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export default function CtaSection() {
           ))}
         </div>
 
-        {/* Buttons — unchanged */}
+        {/* Buttons, unchanged */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
           <MagneticButton
             onClick={() => scrollToSection('#contact')}

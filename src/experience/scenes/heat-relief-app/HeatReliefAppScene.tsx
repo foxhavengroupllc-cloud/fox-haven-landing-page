@@ -1,12 +1,12 @@
 'use client';
 /**
- * Heat Relief App Experience — Main Scene Component
+ * Heat Relief App Experience, Main Scene Component
  *
  * Hybrid architecture:
- *   Layer 1 (canvas): CityGridRenderer — dot grid shifts from emergency red
+ *   Layer 1 (canvas): CityGridRenderer, dot grid shifts from emergency red
  *                     to navigational cyan as the narrative progresses
- *   Layer 2 (DOM):    Phase content — narrative text, phone mockups, resource cards
- *   Layer 3 (DOM):    Phase navigation — progress dots, prev/next controls
+ *   Layer 2 (DOM):    Phase content, narrative text, phone mockups, resource cards
+ *   Layer 3 (DOM):    Phase navigation, progress dots, prev/next controls
  *
  * Five narrative phases:
  *   0 Emergency → 1 Discovery → 2 Navigate → 3 Decide → 4 Act
@@ -186,7 +186,7 @@ export function HeatReliefAppScene({
       <div className="sr-only" role="status" aria-live="assertive" aria-atomic="true">
         {`Now showing: ${
           ['Emergency', 'Discovery', 'Navigate', 'Decide', 'Act'][phase] ?? ''
-        } — use arrow keys or navigation buttons to move between phases`}
+        }, use arrow keys or navigation buttons to move between phases`}
       </div>
     </div>
   );

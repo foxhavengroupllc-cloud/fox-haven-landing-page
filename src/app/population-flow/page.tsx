@@ -13,10 +13,10 @@ import { Header, Footer } from '@/components/new-home/SiteChrome';
 import styles from '@/styles/design-system.module.css';
 
 /**
- * /population-flow — Heat Relief Deployment Intelligence
+ * /population-flow, Heat Relief Deployment Intelligence
  *
  * Dark deployment-intelligence dashboard inspired by the sandbox
- * LiveUrbanFlowDiagram. Static / mocked data — no live adapters wired —
+ * LiveUrbanFlowDiagram. Static / mocked data, no live adapters wired , 
  * but the visual structure (left briefing aside, center map, right
  * source-status rail, signal cards strip) matches the design.
  *
@@ -45,7 +45,7 @@ const SOURCE_ROWS: Array<{ label: string; status: StatusTone; detail: string; hr
   {
     label: 'NWS Alerts',
     status: 'live',
-    detail: 'Excessive Heat Warnings, Watches, and Advisories — county-scoped.',
+    detail: 'Excessive Heat Warnings, Watches, and Advisories, county-scoped.',
     href: 'https://www.weather.gov/documentation/services-web-alerts',
   },
   {
@@ -63,7 +63,7 @@ const SOURCE_ROWS: Array<{ label: string; status: StatusTone; detail: string; hr
   {
     label: 'Phoenix Open Data',
     status: 'pending',
-    detail: 'Cooling-center inventory and capacity feed — partner integration pending.',
+    detail: 'Cooling-center inventory and capacity feed, partner integration pending.',
     href: 'https://www.phoenixopendata.com/',
   },
 ];
@@ -103,22 +103,22 @@ const SIGNAL_CARDS = [
     title: 'Cooling resource gap',
     description: 'Distance from active cooling centers, hydration stations, and shelters.',
     status: 'Mock' as const,
-    evidence: 'MAG Heat Relief Network — integration pending',
+    evidence: 'MAG Heat Relief Network, integration pending',
   },
   {
     Icon: Activity,
     title: 'Outdoor exposure pressure',
     description: 'Worker density, outdoor-recreation pulses, and informal-economy hot spots.',
     status: 'Mock' as const,
-    evidence: 'Aggregated mobility partners — phase 2',
+    evidence: 'Aggregated mobility partners, phase 2',
   },
   {
     Icon: Tent,
     title: 'Vulnerability index',
     description:
-      'Age, income, housing condition, and chronic-condition signals — aggregated to zone.',
+      'Age, income, housing condition, and chronic-condition signals, aggregated to zone.',
     status: 'Mock' as const,
-    evidence: 'ACS / Census — phase 2',
+    evidence: 'ACS / Census, phase 2',
   },
   {
     Icon: ShieldCheck,
@@ -279,7 +279,7 @@ export default function PopulationFlowPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/new-design/homepage-redesign/platform/phoenix-basemap.png"
-                alt="Phoenix metro basemap — Heat Relief Deployment Intelligence coverage area"
+                alt="Phoenix metro basemap, Heat Relief Deployment Intelligence coverage area"
                 className="absolute inset-0 h-full w-full object-cover opacity-90"
                 loading="lazy"
               />
@@ -372,7 +372,7 @@ export default function PopulationFlowPage() {
                       Alerts
                     </span>
                     <br />
-                    NWS Excessive Heat Warning — Maricopa County. Issued 5:14 AM MST.
+                    NWS Excessive Heat Warning, Maricopa County. Issued 5:14 AM MST.
                   </p>
                   <p>
                     <span className="font-mono text-[0.52rem] font-bold uppercase tracking-[0.1em] text-[#f1a13a]">
@@ -397,7 +397,7 @@ export default function PopulationFlowPage() {
                   Explainable Signal Cards
                 </p>
                 <p className="mt-1 text-sm text-[#f4ede0]/52">
-                  Each card states whether it is live, static, mock, or pending — so operators
+                  Each card states whether it is live, static, mock, or pending, so operators
                   know exactly what is informing the recommendation.
                 </p>
               </div>

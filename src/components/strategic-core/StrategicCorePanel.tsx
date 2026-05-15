@@ -14,7 +14,7 @@ interface Props {
 
 /**
  * Compact contextual panel anchored near the activated sphere node.
- * Position is frozen at click time — it doesn't chase the rotating sphere.
+ * Position is frozen at click time, it doesn't chase the rotating sphere.
  * Rendered as an absolutely-positioned overlay within the sphere's relative container.
  */
 export function StrategicCorePanel({ node, onClose, projPos }: Props) {

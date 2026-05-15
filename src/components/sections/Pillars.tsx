@@ -6,7 +6,7 @@ const PILLARS = [
   {
     num: '01',
     title: 'Community First',
-    desc: 'Every product we build starts with a real community need. We work alongside the people we serve — not just for them.',
+    desc: 'Every product we build starts with a real community need. We work alongside the people we serve, not just for them.',
   },
   {
     num: '02',

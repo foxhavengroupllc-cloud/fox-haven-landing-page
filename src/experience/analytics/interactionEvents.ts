@@ -27,7 +27,7 @@ export interface PhaseEventPayload {
   totalPhases: number;
   /** Time spent on the phase being left. 0 for phase:viewed. */
   dwellMs: number;
-  /** Only present for phase:jumped — the phase the user jumped from. */
+  /** Only present for phase:jumped, the phase the user jumped from. */
   fromPhase?: number;
 }
 

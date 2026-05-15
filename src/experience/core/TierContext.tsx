@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * TierContext — React context that provides the DeviceTier to all
+ * TierContext, React context that provides the DeviceTier to all
  * engine components and scene authors.
  *
  * TierProvider runs the capability probe once at mount and distributes

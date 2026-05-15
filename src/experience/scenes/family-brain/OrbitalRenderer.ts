@@ -1,20 +1,20 @@
 /**
- * OrbitalRenderer — Canvas 2D orbital node system for the Family Brain experience.
+ * OrbitalRenderer, Canvas 2D orbital node system for the Family Brain experience.
  *
  * Renders a constellation of colored nodes representing family life domains
  * (calendar, tasks, groceries, budget, documents, messages).
  *
  * Visual arc matches the narrative emotional arc:
- *   Phase 0 — Chaos:         nodes scattered, erratic bounce physics
- *   Phase 1 — Fragmentation: nodes cluster by category, isolated silos
- *   Phase 2 — Organize:      nodes converge to calm orbits around a home node
- *   Phase 3 — Intelligence:  same orbit, nodes pulse softly (AI annotation on DOM)
- *   Phase 4 — Clarity:       slowest orbit, maximum glow, resolved calm
+ *   Phase 0, Chaos:         nodes scattered, erratic bounce physics
+ *   Phase 1, Fragmentation: nodes cluster by category, isolated silos
+ *   Phase 2, Organize:      nodes converge to calm orbits around a home node
+ *   Phase 3, Intelligence:  same orbit, nodes pulse softly (AI annotation on DOM)
+ *   Phase 4, Clarity:       slowest orbit, maximum glow, resolved calm
  *
  * Extends Canvas2DRenderer (Phase 2 engine).
- * Does NOT contain project-specific copy or UI — only visual rendering.
+ * Does NOT contain project-specific copy or UI, only visual rendering.
  *
- * Color grammar: blue/purple/multi-category — distinct from orange (shelter) and cyan (heat app).
+ * Color grammar: blue/purple/multi-category, distinct from orange (shelter) and cyan (heat app).
  */
 
 import { Canvas2DRenderer } from '../../renderers/Canvas2DRenderer';
@@ -42,7 +42,7 @@ interface OrbitalNode {
   vy: number;
   category: number;        // 0–5 index into CATEGORIES
   size: number;
-  /** orbital angle in radians — increments in phase 2+ */
+  /** orbital angle in radians, increments in phase 2+ */
   orbitAngle: number;
   /** rad/s orbital speed (negative = clockwise) */
   orbitSpeed: number;
@@ -162,14 +162,14 @@ export class OrbitalRenderer extends Canvas2DRenderer {
       const baseOrbitAngle =
         (ringSlot / totalInRing) * Math.PI * 2 + (cat / CAT_COUNT) * 0.5;
 
-      // Cluster position — within the category's cluster
+      // Cluster position, within the category's cluster
       const clusterCx = clusterCenters[cat].x;
       const clusterCy = clusterCenters[cat].y;
       const clusterOffsetAngle = (offsetIndex / nodesPerCat) * Math.PI * 2;
       const clusterOffsetRadius = 20 + Math.random() * 25;
 
       const node: OrbitalNode = {
-        // Chaos start positions — scattered
+        // Chaos start positions, scattered
         x: w * 0.1 + Math.random() * w * 0.8,
         y: h * 0.1 + Math.random() * h * 0.8,
         vx: (Math.random() - 0.5) * 120,

@@ -11,7 +11,7 @@ import type { DeviceTier } from './core';
  * Determined by tier, browser capability, and scene minimumTier.
  */
 export type RenderMode =
-  | 'css-only'     // No canvas — CSS animations and DOM only (Lite)
+  | 'css-only'     // No canvas, CSS animations and DOM only (Lite)
   | 'canvas-2d'    // HTML5 Canvas 2D context (Standard)
   | 'webgl'        // WebGL context, typically Three.js/R3F (Premium)
   | 'webgl2';      // WebGL2 context (Premium, higher capability)

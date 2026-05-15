@@ -1,9 +1,9 @@
 /**
- * /api/weather — Live Phoenix weather for the Heat Relief App experience.
+ * /api/weather, Live Phoenix weather for the Heat Relief App experience.
  *
  * Sources (both free, no API key required):
- *   • Open-Meteo   — current temperature + apparent temperature (heat index)
- *   • NWS          — active heat alerts for the Phoenix metro zone (AZZ023)
+ *   • Open-Meteo  , current temperature + apparent temperature (heat index)
+ *   • NWS         , active heat alerts for the Phoenix metro zone (AZZ023)
  *
  * Cached for 5 minutes via Next.js fetch revalidation so we don't hammer
  * third-party APIs on every page load.
@@ -135,7 +135,7 @@ export async function GET(request: NextRequest) {
     });
   } catch (err) {
     console.error('[weather] fetch error:', err);
-    // Return 503 — UI will fall back to demo values
+    // Return 503, UI will fall back to demo values
     return NextResponse.json(
       { error: 'Weather service temporarily unavailable.' },
       { status: 503 },

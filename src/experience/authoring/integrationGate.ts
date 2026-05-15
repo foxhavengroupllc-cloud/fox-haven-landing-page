@@ -1,5 +1,5 @@
 /**
- * Integration Gate — The enforced checkpoint between authoring and the scene registry.
+ * Integration Gate, The enforced checkpoint between authoring and the scene registry.
  *
  * PURPOSE
  * -------
@@ -9,16 +9,16 @@
  *
  * Without the gate, a team member could import a draft manifest and register it
  * without filling in required narrative fields, asset requirements, or delivery
- * confirmation — silently shipping an incomplete experience.
+ * confirmation, silently shipping an incomplete experience.
  *
  * USAGE
  * -----
  * Replace direct registerScene() calls with registerExperience():
  *
- *   // Before (Phase 2 — no authoring gate):
+ *   // Before (Phase 2, no authoring gate):
  *   _registry.set(sceneManifest.id, sceneManifest)
  *
- *   // After (Phase 3 — gated registration):
+ *   // After (Phase 3, gated registration):
  *   registerExperience(experienceManifest, sceneManifest)
  *
  * registerExperience() will throw IntegrationBlockedError if the experience
@@ -147,7 +147,7 @@ export function registerExperienceForced(
   const report = checkExperienceCompleteness(experienceManifest);
 
   console.warn(
-    `\n⚠️  [experience-engine] FORCED REGISTRATION — "${experienceManifest.id}"\n` +
+    `\n⚠️  [experience-engine] FORCED REGISTRATION, "${experienceManifest.id}"\n` +
     `This bypasses the integration gate. DO NOT use in production.\n\n` +
     formatCompletenessReport(report) +
     `\n`

@@ -13,7 +13,7 @@ const SERVICES = [
     title: 'Data & reporting',
     outcome: 'Avg 8 hrs/wk recovered',
     description:
-      'Live dashboards pulling from all your tools — no more manual Excel pulls on Friday afternoon.',
+      'Live dashboards pulling from all your tools, no more manual Excel pulls on Friday afternoon.',
   },
   {
     title: 'Scheduling & ops',

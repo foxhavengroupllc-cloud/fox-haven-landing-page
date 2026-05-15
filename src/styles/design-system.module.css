@@ -330,7 +330,7 @@
   white-space: nowrap;
 }
 
-/* Hero video tile — sits under the action buttons in the left cream column.
+/* Hero video tile, sits under the action buttons in the left cream column.
    Locked to 16:9 for clean landscape video fit. */
 .heroVideoTile {
   position: relative;
@@ -2002,7 +2002,7 @@
   z-index: 2;
 }
 
-/* Readability scrim — soft left-to-right gradient over the image
+/* Readability scrim, soft left-to-right gradient over the image
    so the headline/body keep contrast. */
 .platformCard:has(.platformCardImage)::after {
   position: absolute;

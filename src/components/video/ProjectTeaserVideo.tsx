@@ -7,7 +7,7 @@
  *
  * Behaviour:
  *  - Poster-first: the illustrated `children` is always rendered and acts as the
- *    natural poster. There is zero layout shift — the children drive the height.
+ *    natural poster. There is zero layout shift, the children drive the height.
  *  - Lazy load: video `src` is set imperatively only after the container enters
  *    the viewport for the first time (`hasEnteredOnce`). Before that, `preload`
  *    is "none" and no bytes are fetched.
@@ -31,7 +31,7 @@ import { PROJECT_VIDEOS } from './projectVideoConfig';
 interface Props {
   /** Must match a key in PROJECT_VIDEOS (= initiative.id from InitiativeConfig). */
   projectId: string;
-  /** The illustrated SVG visual — rendered as the persistent poster layer. */
+  /** The illustrated SVG visual, rendered as the persistent poster layer. */
   children: React.ReactNode;
 }
 
@@ -202,7 +202,7 @@ export function ProjectTeaserVideo({ projectId, children }: Props) {
       {showVideo && (
         <video
           ref={videoRef}
-          // src is NOT set in JSX — lazy-loaded imperatively in useEffect
+          // src is NOT set in JSX, lazy-loaded imperatively in useEffect
           poster={posterSrc}
           muted
           loop
@@ -249,7 +249,7 @@ export function ProjectTeaserVideo({ projectId, children }: Props) {
       {/* ── Status badge (top-right) ─────────────────────────────────────── */}
       <div className="absolute top-3 right-3 pointer-events-none" aria-hidden="true">
         {videoReady ? (
-          /* Video is playing — show muted indicator */
+          /* Video is playing, show muted indicator */
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm">
             <MutedIcon />
             <span className="font-body text-[9px] text-white/65 font-medium">
@@ -257,7 +257,7 @@ export function ProjectTeaserVideo({ projectId, children }: Props) {
             </span>
           </div>
         ) : (
-          /* Poster-only mode — show "Preview" label */
+          /* Poster-only mode, show "Preview" label */
           <div
             className="flex items-center gap-1.5 px-2.5 py-1 rounded-full"
             style={{

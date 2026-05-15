@@ -1,5 +1,5 @@
 /**
- * NetworkRenderer — "Partner with Us" portal animation.
+ * NetworkRenderer, "Partner with Us" portal animation.
  * Drifting nodes connected by proximity-based edges.
  * Conveys ecosystem, partnership, and interconnection.
  */

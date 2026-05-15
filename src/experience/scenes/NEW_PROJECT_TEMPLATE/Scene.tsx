@@ -1,6 +1,6 @@
 'use client';
 /**
- * NEW PROJECT TEMPLATE — Scene Component
+ * NEW PROJECT TEMPLATE, Scene Component
  *
  * Rename this file to match your project, e.g., HeroAmbientScene.tsx
  * Export the component with a descriptive name, e.g., export function HeroAmbientScene
@@ -16,7 +16,7 @@ import type { SceneProps } from '../../types/core';
 
 // ─── Renderer (2D Canvas) ─────────────────────────────────────────────────────
 // Extend Canvas2DRenderer for Standard tier.
-// For Lite tier: render nothing here — show Fallback instead.
+// For Lite tier: render nothing here, show Fallback instead.
 // For Premium tier: swap in WebGL/Three.js.
 
 class YourSceneRenderer extends Canvas2DRenderer {

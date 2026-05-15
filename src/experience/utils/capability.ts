@@ -90,7 +90,7 @@ export function assignDeviceTier(): DeviceTier {
   // Guard: must be in browser
   if (typeof window === 'undefined') return 'lite';
 
-  // 1. Reduced motion — immediate lite (checked separately via useReducedMotion)
+  // 1. Reduced motion, immediate lite (checked separately via useReducedMotion)
   //    but we also short-circuit here so tier assignment is consistent
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     return 'lite';
@@ -145,7 +145,7 @@ export function getDeviceTier(): DeviceTier {
   return _cachedTier;
 }
 
-/** Clears the cached tier — for testing only */
+/** Clears the cached tier, for testing only */
 export function resetDeviceTierCache(): void {
   _cachedTier = null;
 }
