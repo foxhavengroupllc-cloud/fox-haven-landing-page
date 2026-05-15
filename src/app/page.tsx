@@ -173,7 +173,7 @@ function Hero() {
             aria-label="Animated glowing digital globe with radiating data connections"
           />
           <div className={styles.heroVideoTileCaption} aria-hidden="true">
-            GLOBAL · NETWORK
+            HUMAN-CENTERED · BY DESIGN
           </div>
         </div>
       </div>
