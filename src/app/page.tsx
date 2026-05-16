@@ -135,14 +135,7 @@ function Hero() {
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.heroCopy}>
-        <p className={styles.eyebrow}>AI-NATIVE SYSTEMS. REAL-WORLD IMPACT.</p>
-        <h1 aria-label="BUILDING SYSTEMS PEOPLE WANT TO INHABIT.">
-          <span>BUILDING</span>{' '}
-          <span>SYSTEMS</span>{' '}
-          <span className={styles.orangeWord}>PEOPLE</span>{' '}
-          <span>WANT TO</span>{' '}
-          <span>INHABIT.</span>
-        </h1>
+        <h1 aria-label="A haven isn't just a place, it's a feeling of safety, connection, and possibility.">A <span className={styles.orangeWord}>haven</span>{' '}isn’t just a place, it’s a feeling of safety, connection, and possibility.</h1>
         <p className={styles.heroBody}>
           Fox Haven Group builds AI-native civic systems for real-world resilience, starting with extreme heat in Phoenix.
         </p>

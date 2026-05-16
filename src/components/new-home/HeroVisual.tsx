@@ -60,7 +60,6 @@ const defaultDashboardLayouts = {
   heat: { x: 6, y: 28, w: 18, h: 19 },
   resource: { x: 6, y: 62, w: 24, h: 22 },
   layer: { x: 36, y: 70, w: 31, h: 14 },
-  health: { x: 76, y: 8, w: 18, h: 17 },
   flow: { x: 76, y: 35, w: 20, h: 18 },
 } satisfies Record<string, TileLayout>;
 
@@ -245,20 +244,6 @@ export default function HeroVisual() {
               <span>Active operations across 128 zones</span>
             </Link>
           )}
-        </HeroEditableTile>
-
-        <HeroEditableTile
-          id="health"
-          label="SYSTEM HEALTH"
-          layout={dashboardLayouts.health}
-          editMode={editMode}
-          onChange={updateDashboardLayout}
-        >
-          <article className={`${styles.dashboardTile} ${styles.healthTile}`}>
-            <p>SYSTEM HEALTH</p>
-            <strong>86</strong>
-            <span>Good</span>
-          </article>
         </HeroEditableTile>
 
         <HeroEditableTile
