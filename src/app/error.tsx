@@ -13,20 +13,60 @@ export default function Error({ error, reset }: ErrorProps) {
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-deep-slate flex items-center justify-center px-6">
-      <div className="max-w-md text-center">
-        <div className="w-14 h-14 bg-heat-amber/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
-          <span className="display-text text-heat-amber text-2xl">!</span>
+    <div
+      style={{
+        minHeight: '100svh',
+        background: 'var(--asphalt)',
+        color: 'var(--bone)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+        textAlign: 'center',
+      }}
+    >
+      <div style={{ maxWidth: '30rem' }}>
+        <div
+          style={{
+            width: '3.5rem',
+            height: '3.5rem',
+            margin: '0 auto 1.5rem',
+            display: 'grid',
+            placeItems: 'center',
+            border: '1px solid var(--gold)',
+            borderRadius: '3px',
+            color: 'var(--gold)',
+            fontFamily: 'var(--fhg-display)',
+            fontSize: '1.6rem',
+          }}
+        >
+          !
         </div>
-        <h1 className="display-text text-white mb-3" style={{ fontSize: '1.75rem' }}>
+        <h1 style={{ fontFamily: 'var(--fhg-display)', fontSize: '1.9rem', margin: '0 0 0.75rem' }}>
           Something went wrong
         </h1>
-        <p className="font-body text-white/50 text-sm leading-relaxed mb-8">
-          We encountered an unexpected error. If you need immediate assistance, please contact us directly.
+        <p style={{ color: 'var(--concrete)', fontSize: '0.98rem', lineHeight: 1.6, marginBottom: '2rem' }}>
+          We hit an unexpected error. Try again, or reach us directly at{' '}
+          <a href="mailto:hello@foxhavengrouphq.com" style={{ color: 'var(--teal)' }}>
+            hello@foxhavengrouphq.com
+          </a>
+          .
         </p>
         <button
           onClick={reset}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-heat-amber hover:bg-heat-amber-light text-white rounded-full font-body text-sm font-semibold transition-colors cursor-pointer"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.9rem 1.5rem',
+            background: 'var(--teal)',
+            color: 'var(--asphalt)',
+            borderRadius: '2px',
+            fontSize: '0.78rem',
+            fontWeight: 600,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+          }}
         >
           Try again
         </button>

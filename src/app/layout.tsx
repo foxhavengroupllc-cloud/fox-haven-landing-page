@@ -1,14 +1,21 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, DM_Sans, DM_Mono } from 'next/font/google';
+import { DM_Sans, DM_Mono, Playfair_Display, Anton } from 'next/font/google';
 import './globals.css';
 import ScrollRevealProvider from '@/components/ScrollRevealProvider';
-import IntentWidget from '@/components/intent-widget/IntentWidget';
-import { ExperienceProviders } from '@/components/ExperienceProviders';
 
-const cormorantGaramond = Cormorant_Garamond({
-  variable: '--font-cormorant-garamond',
+// Heavy condensed "poster" display face for the Civic Grit headlines.
+const anton = Anton({
+  variable: '--font-anton',
   subsets: ['latin'],
-  weight: ['300', '400', '600', '700'],
+  weight: '400',
+  display: 'swap',
+});
+
+// Editorial serif kept available for interior pages.
+const playfair = Playfair_Display({
+  variable: '--font-playfair',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
   style: ['normal', 'italic'],
   display: 'swap',
 });
@@ -28,17 +35,17 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Fox Haven Group, Building a Better Haven for Every Family',
+  title: 'Fox Haven Group | Evidence into Action. Systems into Motion.',
   description:
-    'Fox Haven Group develops technology and infrastructure that protect lives, empower communities, and simplify modern family life, starting in Phoenix, AZ.',
+    'Fox Haven Group helps public agencies, nonprofits, coalitions, and community systems turn evidence, policy, and strategy into implementation that works in real-world conditions.',
   keywords:
-    'Fox Haven Group, heat relief, solar shelters, Phoenix, family app, community innovation, heat emergency',
+    'Fox Haven Group, implementation science, systems change, technical assistance, policy translation, public health, public safety, behavioral health, strategic planning, evaluation, Phoenix',
   openGraph: {
-    title: 'Fox Haven Group, Building a Better Haven for Every Family',
+    title: 'Fox Haven Group | Evidence into Action. Systems into Motion.',
     description:
-      'Solar heat relief shelters, a life-saving mobile app, and a family management platform, built for real communities.',
+      'An implementation and systems-change firm for public health, public safety, behavioral health, and community systems. We close the gap between what works and what happens.',
     type: 'website',
-    url: 'https://foxhavengroup.org',
+    url: 'https://foxhavengrouphq.com',
   },
 };
 
@@ -48,15 +55,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${cormorantGaramond.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
-      >
-        <ExperienceProviders>
-          <ScrollRevealProvider />
-          {children}
-          <IntentWidget />
-        </ExperienceProviders>
+    <html
+      lang="en"
+      className={`${anton.variable} ${playfair.variable} ${dmSans.variable} ${dmMono.variable}`}
+    >
+      <body className="antialiased">
+        <ScrollRevealProvider />
+        {children}
       </body>
     </html>
   );

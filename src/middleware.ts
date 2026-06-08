@@ -1,60 +1,34 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
-  // Enforce basic auth on admin routes at the middleware level
-  const { pathname } = request.nextUrl;
-  if (pathname.startsWith('/admin') || pathname.startsWith('/api/admin')) {
-    const auth = request.headers.get('authorization');
-    if (!auth || !auth.startsWith('Basic ')) {
-      return new NextResponse('Authentication required', {
-        status: 401,
-        headers: { 'WWW-Authenticate': 'Basic realm="Fox Haven Admin"' },
-      });
-    }
-    const decoded = Buffer.from(auth.slice(6), 'base64').toString();
-    const [user, pass] = decoded.split(':');
-    if (user !== process.env.ADMIN_USER || pass !== process.env.ADMIN_PASS) {
-      return new NextResponse('Invalid credentials', {
-        status: 401,
-        headers: { 'WWW-Authenticate': 'Basic realm="Fox Haven Admin"' },
-      });
-    }
-  }
+const SUPABASE_URL = 'https://yusezaanxcehwofdagvk.supabase.co';
 
+const isDev = process.env.NODE_ENV !== 'production';
+
+export function middleware() {
   const response = NextResponse.next();
 
-  // Prevent clickjacking, block iframe embedding on other sites
+  // Prevent clickjacking
   response.headers.set('X-Frame-Options', 'SAMEORIGIN');
-
-  // Prevent MIME-type sniffing attacks
+  // Prevent MIME-type sniffing
   response.headers.set('X-Content-Type-Options', 'nosniff');
-
-  // Force HTTPS for 1 year (Vercel already does this, but belt-and-suspenders)
-  response.headers.set(
-    'Strict-Transport-Security',
-    'max-age=31536000; includeSubDomains'
-  );
-
-  // Control what info is sent in the Referer header
+  // Force HTTPS for 1 year (Vercel also does this)
+  response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  // Limit referrer info
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  // Block unused browser features
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
 
-  // Block access to browser features you don't use
-  response.headers.set(
-    'Permissions-Policy',
-    'camera=(), microphone=(), geolocation=(), payment=()'
-  );
-
-  // Content Security Policy, allow your own assets + the external services you use
+  // Content Security Policy — self-hosted assets + Supabase (lead capture).
   response.headers.set(
     'Content-Security-Policy',
     [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
+      // React dev mode needs eval() for debugging; production never uses it.
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org",
+      "img-src 'self' data: blob:",
       "font-src 'self' data:",
-      "connect-src 'self' https://api.open-meteo.com https://api.weather.gov https://yusezaanxcehwofdagvk.supabase.co https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org",
+      `connect-src 'self' ${SUPABASE_URL}`,
       "frame-ancestors 'self'",
       "base-uri 'self'",
       "form-action 'self'",

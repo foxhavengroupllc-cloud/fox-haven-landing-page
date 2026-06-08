@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Pin the Turbopack workspace root to this project so module resolution
+  // (e.g. the Tailwind v4 `@import "tailwindcss"`) is anchored here and does
+  // not walk up into the parent directory. process.cwd() is the project root
+  // both locally (`npm run dev` here) and on Vercel (repo root).
+  turbopack: {
+    root: process.cwd(),
+  },
   async headers() {
     return [
       {

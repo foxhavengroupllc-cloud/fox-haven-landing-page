@@ -44,12 +44,15 @@ function esc(str: string): string {
 
 /* ── Allowed source values (prevent injection via source field) ── */
 const ALLOWED_SOURCES = [
+  'contact-page',
+  'home-cta',
+  'home-bottom-cta',
+  'newsletter',
   'ai-small-biz-page',
   'ai-solutions-hub',
   'ai-solutions-pricing',
   'ai-solutions-faq',
   'partner-page',
-  'home-bottom-cta',
 ];
 
 function sanitizeSource(source: unknown): string {
@@ -61,7 +64,7 @@ function sanitizeSource(source: unknown): string {
   ) {
     return source.replace(/[^a-z0-9-]/gi, '');
   }
-  return 'ai-small-biz-page';
+  return 'contact-page';
 }
 
 export async function POST(req: NextRequest) {
@@ -111,10 +114,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
     }
 
-    const isPartner = safeSource.startsWith('partner-') || safeSource === 'home-bottom-cta';
-    const leadHeading = isPartner ? 'New Partner / Beta Lead' : 'New AI Solutions Lead';
-    const detailLabel = isPartner ? 'Partner type / note' : 'Biggest pain point';
-    const subjectPrefix = isPartner ? 'New partner lead' : 'New lead';
+    const leadHeading = 'New Inquiry — Fox Haven Group';
+    const detailLabel = 'Interest / message';
+    const subjectPrefix = 'New inquiry';
 
     const resend = getResendClient();
     if (resend) {

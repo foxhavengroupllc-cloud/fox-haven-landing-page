@@ -2,20 +2,50 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-deep-slate flex items-center justify-center px-6">
-      <div className="max-w-md text-center">
-        <div className="display-text text-heat-amber/20 leading-none mb-4" style={{ fontSize: '8rem' }}>
+    <div
+      style={{
+        minHeight: '100svh',
+        background: 'var(--asphalt)',
+        color: 'var(--bone)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+        textAlign: 'center',
+      }}
+    >
+      <div style={{ maxWidth: '30rem' }}>
+        <div
+          style={{
+            fontFamily: 'var(--fhg-display)',
+            fontSize: 'clamp(6rem, 18vw, 10rem)',
+            lineHeight: 1,
+            color: 'var(--teal)',
+          }}
+        >
           404
         </div>
-        <h1 className="display-text text-white mb-3" style={{ fontSize: '1.75rem' }}>
+        <h1 style={{ fontFamily: 'var(--fhg-display)', fontSize: '1.9rem', margin: '0.5rem 0 0.75rem' }}>
           Page not found
         </h1>
-        <p className="font-body text-white/50 text-sm leading-relaxed mb-8">
-          This page doesn&apos;t exist. Return home to explore Fox Haven&apos;s initiatives.
+        <p style={{ color: 'var(--concrete)', fontSize: '0.98rem', lineHeight: 1.6, marginBottom: '2rem' }}>
+          This page doesn&rsquo;t exist. Head back home to explore how we close the implementation gap.
         </p>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-heat-amber hover:bg-heat-amber-light text-white rounded-full font-body text-sm font-semibold transition-colors"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.9rem 1.5rem',
+            background: 'var(--teal)',
+            color: 'var(--asphalt)',
+            borderRadius: '2px',
+            fontSize: '0.78rem',
+            fontWeight: 600,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+          }}
         >
           ← Back home
         </Link>
