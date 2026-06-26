@@ -21,6 +21,7 @@ type Database = {
       audit_sessions: TableDef;
       audit_follow_ups: TableDef;
       leads: TableDef;
+      newsletter_issues: TableDef;
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;

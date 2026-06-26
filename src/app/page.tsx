@@ -159,7 +159,7 @@ export default function Home() {
                 </span>
               </h2>
               <p className={styles.problemBody}>
-                Communities don&rsquo;t fail because they lack evidence. They fail when policy,
+                Strategies don&rsquo;t fail because they lack evidence. They fail when policy,
                 funding, workforce, data, public safety, and community trust don&rsquo;t line up.
               </p>
               <p className={styles.workGaps}>We work in the gaps.</p>
@@ -216,7 +216,7 @@ export default function Home() {
               <h2 className={styles.bandTitle}>Our work. Many applications.</h2>
               <div className={styles.appGrid}>
                 {domains.map((d, i) => (
-                  <Link href="/domains" className={styles.appItem} key={d.t}>
+                  <Link href="/systems" className={styles.appItem} key={d.t}>
                     <d.Icon size={26} strokeWidth={1.5} color={alt(i)} />
                     <span>{d.t}</span>
                   </Link>
@@ -253,7 +253,7 @@ export default function Home() {
         <div className={styles.bigFooterInner}>
           <div className={styles.footerSlogan}>
             <Link href="/method"><b>Evidence</b></Link>
-            <Link href="/domains"><b>Policy</b></Link>
+            <Link href="/systems"><b>Policy</b></Link>
             <Link href="/services"><b>Practice</b></Link>
             <Link href="/about"><b>People</b></Link>
             <Link className={styles.footerSloganBox} href="/method">That&rsquo;s the bridge.</Link>

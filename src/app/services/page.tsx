@@ -1,31 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import {
-  ArrowRight,
-  Microscope,
-  Scale,
-  Users,
-  LifeBuoy,
-  Compass,
-  LineChart,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import styles from '@/styles/fhg.module.css';
 import { Header, Footer } from '@/components/fhg/SiteChrome';
+import { services } from '@/lib/services-data';
 
 export const metadata: Metadata = {
   title: 'Services & Engagements | Fox Haven Group',
   description:
     'Implementation science, policy translation, stakeholder engagement, technical assistance, strategic planning, and evaluation — packaged into four ways to engage.',
 };
-
-const services = [
-  { Icon: Microscope, title: 'Implementation Science', body: 'Apply rigorous science to real-world contexts — fidelity, adaptation, and the conditions that determine whether evidence-based practice actually takes hold.' },
-  { Icon: Scale, title: 'Policy Translation', body: 'Bridge research and policy into decisions, guidance, and field-ready action. We turn mandates and grant requirements into work the field can execute.' },
-  { Icon: Users, title: 'Stakeholder Engagement', body: 'Center the voices closest to the work, build durable partnerships, and drive collective action across agencies, providers, and community.' },
-  { Icon: LifeBuoy, title: 'Technical Assistance', body: 'Expert guidance, coaching, troubleshooting, and hands-on support. Technical assistance that changes execution — not another training binder.' },
-  { Icon: Compass, title: 'Strategic Planning', body: 'Chart bold, feasible paths toward systems change — plans built for field reality, with the governance and sequencing to make them hold.' },
-  { Icon: LineChart, title: 'Evaluation & Learning', body: 'Measure what matters, generate insight, and build the learning systems that turn activity into evidence and continuous improvement.' },
-];
 
 const offers = [
   {
@@ -78,14 +62,22 @@ export default function ServicesPage() {
             <h2 className={styles.h2}>What we do.</h2>
           </div>
           <div className={`${styles.cardGrid} reveal`}>
-            {services.map(({ Icon, title, body }) => (
-              <article className={styles.card} key={title}>
+            {services.map(({ Icon, slug, title, tileBlurb }) => (
+              <Link
+                className={`${styles.card} ${styles.cardLink}`}
+                key={slug}
+                href={`/services/${slug}`}
+              >
                 <span className={styles.cardIcon}>
                   <Icon size={22} strokeWidth={1.5} />
                 </span>
                 <h3>{title}</h3>
-                <p>{body}</p>
-              </article>
+                <p>{tileBlurb}</p>
+                <span className={styles.cardArrow}>
+                  Explore
+                  <ArrowRight size={14} className="arrow" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>

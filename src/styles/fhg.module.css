@@ -2029,3 +2029,307 @@
 .footerSlogan a:hover b { color: var(--teal); }
 .footerSloganBox { transition: background 0.2s ease, color 0.2s ease; }
 .footerSloganBox:hover { background: var(--teal); color: var(--ink); }
+
+/* ══════════════════════════════════════════════════════════════
+   SERVICES — clickable capability cards + detail-page pricing
+   Reuses brand tokens only (--teal, --gold, --fg, --card-bg, --line).
+   ══════════════════════════════════════════════════════════════ */
+
+/* Make a capability tile a whole-card link with a visible focus ring */
+.cardLink {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-color: color-mix(in srgb, var(--teal) 55%, var(--line));
+}
+
+/* "Explore →" affordance pinned to the bottom of each tile */
+.cardArrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-family: var(--fhg-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.cardArrow svg {
+  transition: transform 0.25s ease;
+}
+
+.cardLink:hover .cardArrow svg,
+.cardLink:focus-visible .cardArrow svg {
+  transform: translateX(4px);
+}
+
+/* Detail-page header: echo the tile icon, a touch larger */
+.serviceHeroIcon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 1.4rem;
+}
+
+/* Small "All services" back link above the detail-page title */
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--fhg-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: var(--teal);
+}
+
+.backLink svg {
+  transition: transform 0.2s ease;
+}
+
+.backLink:hover svg {
+  transform: translateX(-3px);
+}
+
+/* ── Priced product blocks ── */
+.priceList {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.4rem);
+}
+
+.priceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: clamp(1.5rem, 2.6vw, 2.2rem);
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+
+.priceCardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem 1.4rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.priceName {
+  margin: 0;
+  font-family: var(--fhg-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.15;
+  color: var(--fg);
+}
+
+.priceAmountWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  text-align: right;
+}
+
+.priceAmount {
+  font-family: var(--fhg-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.25;
+  color: var(--teal-deep);
+}
+
+.priceMeta {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.priceMetaRow {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0.4rem 1.4rem;
+  align-items: start;
+}
+
+.priceMetaLabel {
+  font-family: var(--fhg-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 0.15rem;
+}
+
+.priceMetaValue {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.priceProductNote {
+  margin: 0;
+  padding: 0.9rem 1.1rem;
+  border-left: 2px solid var(--gold);
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--fg-muted);
+}
+
+/* ── Standing pricing/ethics note ── */
+.priceNoteBlock {
+  margin-top: clamp(1.5rem, 3vw, 2.4rem);
+  padding: clamp(1.3rem, 2.4vw, 1.9rem);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--teal);
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--teal) 5%, transparent);
+}
+
+.priceNoteBlock p {
+  margin: 0;
+  max-width: 78ch;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
+
+.priceNoteBlock strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .priceCardHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .priceAmountWrap {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .priceMetaRow {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .priceMetaLabel {
+    padding-top: 0;
+  }
+}
+
+/* ══════════════════════ COMING SOON (private preview splash) ══════════════════════ */
+.comingSoon {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  background: var(--asphalt);
+  color: var(--bone);
+  font-family: var(--fhg-body);
+  padding: clamp(1.5rem, 5vw, 4rem);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.comingInner {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 660px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.comingBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.comingBrandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-family: var(--fhg-poster);
+  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.comingBrandText small {
+  font-size: 0.6em;
+  letter-spacing: 0.34em;
+  color: var(--bone-dim);
+}
+
+.comingKicker {
+  margin: 0.6rem 0 0;
+  font-family: var(--fhg-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  font-size: 0.72rem;
+  color: var(--teal);
+}
+
+.comingTitle {
+  margin: 0;
+  font-family: var(--fhg-poster);
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 0.95;
+  font-size: clamp(2.4rem, 8vw, 4.6rem);
+  letter-spacing: 0.01em;
+}
+
+.comingTitle span {
+  display: block;
+  color: var(--teal);
+}
+
+.comingLead {
+  margin: 0;
+  max-width: 48ch;
+  color: var(--concrete);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.comingMail {
+  margin-top: 0.4rem;
+  font-family: var(--fhg-mono);
+  font-size: 0.9rem;
+  color: var(--bone);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--teal) 60%, transparent);
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+
+.comingMail:hover {
+  color: var(--teal);
+}

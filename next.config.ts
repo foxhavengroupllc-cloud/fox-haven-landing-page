@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  // The "Domains" page was renamed to "Systems"; keep old links working.
+  async redirects() {
+    return [{ source: '/domains', destination: '/systems', permanent: true }];
+  },
   async headers() {
     return [
       {

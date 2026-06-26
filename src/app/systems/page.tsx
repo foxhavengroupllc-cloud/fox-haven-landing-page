@@ -19,7 +19,7 @@ import styles from '@/styles/fhg.module.css';
 import { Header, Footer } from '@/components/fhg/SiteChrome';
 
 export const metadata: Metadata = {
-  title: 'Domains | Fox Haven Group',
+  title: 'Systems | Fox Haven Group',
   description:
     'Implementation and systems change transfer across behavioral health, public safety, substance use, maternal health, community health, government, and more. Applications, not identity.',
 };
@@ -39,7 +39,7 @@ const domains = [
   { Icon: LineChart, title: 'Evaluation', body: 'Measurement, learning, and continuous improvement.' },
 ];
 
-export default function DomainsPage() {
+export default function SystemsPage() {
   return (
     <main className={styles.shell}>
       <div className={styles.grain} aria-hidden="true" />
@@ -50,7 +50,7 @@ export default function DomainsPage() {
           <p className={styles.eyebrow}>Where We Work</p>
           <h1 className={styles.display}>Many applications. One purpose.</h1>
           <p className={styles.pageHeroLead}>
-            The deeper capability is implementation across complex systems. These are the domains
+            The deeper capability is implementation across complex systems. These are the areas
             where we apply it — not the limits of what we do.
           </p>
         </div>

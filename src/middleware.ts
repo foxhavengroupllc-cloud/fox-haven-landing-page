@@ -1,12 +1,19 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 
 const SUPABASE_URL = 'https://yusezaanxcehwofdagvk.supabase.co';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
-export function middleware() {
-  const response = NextResponse.next();
+// ── Private-preview gate (secret-link unlock) ─────────────────────
+// While SITE_UNLOCK_KEY is set (Vercel production), the public sees the
+// Coming Soon splash on every route. Visiting any URL with
+// ?key=<SITE_UNLOCK_KEY> sets a year-long cookie that unlocks the full
+// site. Leave the var unset (e.g. local dev) and the gate is off.
+// To open the site to everyone at launch, delete the env var.
+const UNLOCK_KEY = process.env.SITE_UNLOCK_KEY;
+const UNLOCK_COOKIE = 'fhg_unlock';
 
+function withSecurityHeaders(response: NextResponse): NextResponse {
   // Prevent clickjacking
   response.headers.set('X-Frame-Options', 'SAMEORIGIN');
   // Prevent MIME-type sniffing
@@ -36,6 +43,38 @@ export function middleware() {
   );
 
   return response;
+}
+
+export function middleware(request: NextRequest) {
+  if (UNLOCK_KEY) {
+    const url = request.nextUrl;
+    const providedKey = url.searchParams.get('key');
+    const unlocked = request.cookies.get(UNLOCK_COOKIE)?.value === UNLOCK_KEY;
+
+    // Secret link: stash the unlock cookie, then redirect to a clean URL
+    // so the key doesn't linger in the address bar or get shared by accident.
+    if (providedKey === UNLOCK_KEY) {
+      const clean = new URL(url);
+      clean.searchParams.delete('key');
+      const res = NextResponse.redirect(clean);
+      res.cookies.set(UNLOCK_COOKIE, UNLOCK_KEY, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'lax',
+        path: '/',
+        maxAge: 60 * 60 * 24 * 365, // 1 year
+      });
+      return res;
+    }
+
+    // Not unlocked → serve the Coming Soon splash on every route, while
+    // keeping the visited URL intact (rewrite, not redirect).
+    if (!unlocked) {
+      return withSecurityHeaders(NextResponse.rewrite(new URL('/coming-soon', request.url)));
+    }
+  }
+
+  return withSecurityHeaders(NextResponse.next());
 }
 
 export const config = {

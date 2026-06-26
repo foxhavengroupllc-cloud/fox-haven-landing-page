@@ -10,7 +10,7 @@ import styles from '@/styles/fhg.module.css';
 export const navItems = [
   { label: 'Method', href: '/method' },
   { label: 'Services', href: '/services' },
-  { label: 'Domains', href: '/domains' },
+  { label: 'Systems', href: '/systems' },
   { label: 'Field Notes', href: '/field-notes' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
@@ -86,7 +86,7 @@ export function Header() {
 const footerExplore = [
   { label: 'Method', href: '/method' },
   { label: 'Services', href: '/services' },
-  { label: 'Domains', href: '/domains' },
+  { label: 'Systems', href: '/systems' },
 ];
 
 const footerFirm = [
