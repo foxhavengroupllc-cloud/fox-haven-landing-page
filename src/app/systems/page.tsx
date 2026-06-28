@@ -50,8 +50,8 @@ export default function SystemsPage() {
           <p className={styles.eyebrow}>Where We Work</p>
           <h1 className={styles.display}>Many applications. One purpose.</h1>
           <p className={styles.pageHeroLead}>
-            The deeper capability is implementation across complex systems. These are the areas
-            where we apply it — not the limits of what we do.
+            Our core expertise is not a single issue area. It is helping complex systems implement
+            evidence-based work with fidelity, fit, and buy-in.
           </p>
         </div>
       </section>
@@ -74,11 +74,13 @@ export default function SystemsPage() {
         <div className={styles.container}>
           <div className={`${styles.sectionHead} reveal`} style={{ maxWidth: '62ch' }}>
             <p className={styles.eyebrow}>Applications, not identity</p>
-            <h2 className={styles.h2}>One visible application, not the whole company.</h2>
+            <h2 className={styles.h2}>
+              Overdose prevention is one visible application of our work, not the boundary of it.
+            </h2>
             <p className={styles.body}>
-              Fox Haven Group is not an overdose-prevention consultancy. Overdose prevention is one
-              place our work shows up — a visible application of a far rarer capability: bridging
-              research, policy, implementation, public health, public safety, and community systems.
+              We work across public health, safety, and community systems to help teams overcome a
+              common hurdle: making good policy work in the real world. No matter the specific topic,
+              our focus is always on taking evidence and strategy and putting them into practice.
             </p>
             <p className={styles.closingLine}>
               If your challenge crosses systems, it&rsquo;s in our domain.
