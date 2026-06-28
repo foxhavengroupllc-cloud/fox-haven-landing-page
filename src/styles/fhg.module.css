@@ -2333,3 +2333,84 @@
 .comingMail:hover {
   color: var(--teal);
 }
+
+/* ══════════════════════ ABOUT — credibility / bio block ══════════════════════ */
+.bioBlock {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) 1fr;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.bioPhoto {
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--teal) 30%, var(--line));
+  background: var(--card-bg);
+}
+
+.bioPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.bioBody h2 {
+  margin-top: 0.35rem;
+}
+
+.bioTitle {
+  margin: 0.4rem 0 0;
+  font-family: var(--fhg-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--teal);
+}
+
+.bioList {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.bioList li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--fg-muted);
+  line-height: 1.55;
+}
+
+.bioList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.bioNote {
+  margin-top: 1.4rem;
+  font-family: var(--fhg-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--fg-muted) 75%, transparent);
+}
+
+@media (max-width: 720px) {
+  .bioBlock {
+    grid-template-columns: 1fr;
+  }
+  .bioPhoto {
+    max-width: 260px;
+  }
+}
