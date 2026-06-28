@@ -6,7 +6,7 @@ import { Header, Footer } from '@/components/fhg/SiteChrome';
 import { bridgeSteps } from '@/components/fhg/ImplementationBridge';
 
 export const metadata: Metadata = {
-  title: 'The Implementation Bridge™ | Fox Haven Group',
+  title: 'The Implementation Bridge | Fox Haven Group',
   description:
     'Our method: a six-step path — Clarify, Engage, Design, Prepare, Implement, Learn & Adapt — that carries strategy across the implementation gap and into systems that hold.',
 };
@@ -21,12 +21,13 @@ export default function MethodPage() {
         <div className={styles.container}>
           <p className={styles.eyebrow}>Our Method</p>
           <h1 className={styles.display}>
-            The Implementation Bridge<span className={styles.gold}>™</span>
+            The Implementation Bridge
           </h1>
           <p className={styles.pageHeroLead}>
             Good strategy fails at the same place again and again: the gap between what is decided and
-            what gets done. The Implementation Bridge is the path across it — six steps that move work
-            from evidence to execution under real-world conditions.
+            what gets done. The Implementation Bridge is our practical framework for helping
+            communities move from evidence and policy to real-world implementation with fidelity,
+            fit, and buy-in.
           </p>
         </div>
       </section>
@@ -37,8 +38,8 @@ export default function MethodPage() {
             <p className={styles.eyebrow}>Six Steps</p>
             <h2 className={styles.h2}>From what is known to what is possible.</h2>
             <p className={styles.body}>
-              The Bridge is sequential but not rigid. We meet partners where the work actually is,
-              and we stay through the parts most firms hand off.
+              The Bridge is sequential but not rigid. We meet partners where they are, and work
+              together to design an implementation plan that works for their unique needs.
             </p>
           </div>
 
@@ -68,11 +69,11 @@ export default function MethodPage() {
           <div className={styles.ctaBand}>
             <div>
               <p className={styles.eyebrow}>Map the system. Build the roadmap.</p>
-              <h2 className={styles.h2}>See the Bridge applied to your system.</h2>
+              <h2 className={styles.h2}>See how the Bridge applies to your system.</h2>
             </div>
             <div className={styles.btnRow}>
               <Link className={`${styles.btn} ${styles.btnPrimary}`} href="/contact">
-                Start a Conversation
+                Start the conversation
                 <ArrowRight size={16} className="arrow" />
               </Link>
             </div>
