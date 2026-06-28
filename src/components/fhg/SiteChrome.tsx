@@ -11,7 +11,8 @@ export const navItems = [
   { label: 'Method', href: '/method' },
   { label: 'Services', href: '/services' },
   { label: 'Systems', href: '/systems' },
-  { label: 'Field Notes', href: '/field-notes' },
+  // Field Notes is hidden from nav until we have published pieces to show.
+  // The page still exists at /field-notes — just unlinked for now.
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -90,7 +91,7 @@ const footerExplore = [
 ];
 
 const footerFirm = [
-  { label: 'Field Notes', href: '/field-notes' },
+  // Field Notes hidden until we publish pieces (page still lives at /field-notes).
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
