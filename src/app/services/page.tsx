@@ -16,25 +16,25 @@ const offers = [
     kicker: 'Entry',
     title: 'Systems Diagnostic',
     body: 'A clear first engagement that identifies the problem, system barriers, stakeholder landscape, and practical next steps.',
-    items: ['Stakeholder map', 'Implementation barrier scan', 'Policy & funding alignment scan', 'Readiness assessment', '90-day action roadmap'],
+    items: ['Capabilities & constraints analysis', 'Stakeholder map', 'Readiness assessment', 'Implementation risks', 'Recommended next steps'],
   },
   {
     kicker: 'Core — Flagship',
     title: 'Implementation Blueprint',
     body: 'The full plan to take a strategy from intention to durable execution, with the infrastructure to carry it.',
-    items: ['Strategic implementation plan', 'Governance & workgroup model', 'Roles and responsibilities', 'Training & technical assistance plan', 'Evaluation & sustainability plan'],
+    items: ['Implementation roadmap', 'Roles and responsibilities', 'Fidelity/adaptation guidance', 'Timeline', 'Communication and buy-in plan', 'Sustainability considerations'],
   },
   {
     kicker: 'Recurring',
     title: 'Technical Assistance Partner',
     body: 'Ongoing support to help partners implement, adapt, and sustain the work as conditions change.',
-    items: ['Monthly TA sessions', 'Implementation coaching & office hours', 'Stakeholder facilitation', 'Adaptation support', 'Quarterly learning sessions'],
+    items: ['Monthly TA sessions', 'Implementation coaching', 'Troubleshooting support', 'Resource development', 'Partner facilitation', 'Learning sessions'],
   },
   {
     kicker: 'Premium',
     title: 'Systems Change Initiative',
     body: 'A larger engagement for funders, agencies, coalitions, and multi-sector efforts driving change at scale.',
-    items: ['Full systems-change strategy', 'Cross-sector governance', 'Multi-agency alignment', 'Policy translation & infrastructure', 'Evaluation, learning & scale plan'],
+    items: ['Multi-partner strategy', 'Governance structure', 'Implementation infrastructure', 'Cross-sector facilitation', 'Evaluation/learning loops'],
   },
 ];
 
@@ -47,7 +47,7 @@ export default function ServicesPage() {
       <section className={styles.pageHero}>
         <div className={styles.container}>
           <p className={styles.eyebrow}>Our Services</p>
-          <h1 className={styles.display}>Strategy. Science. Systems change.</h1>
+          <h1 className={styles.display}>Services that move evidence-based strategies into practice.</h1>
           <p className={styles.pageHeroLead}>
             Six transferable capabilities, and four clear ways to put them to work. What you buy is
             implementation capacity — the ability to move complex systems under real-world conditions.
@@ -107,6 +107,12 @@ export default function ServicesPage() {
               </article>
             ))}
           </div>
+          <p className={`${styles.body} reveal`} style={{ maxWidth: '74ch', margin: '2.75rem auto 0', textAlign: 'center' }}>
+            Fox Haven Group works with organizations through scoped consulting projects, technical
+            assistance partnerships, and grant-aligned implementation support. For funded projects,
+            we can help determine whether a contractor, consultant, or subaward role is the
+            appropriate fit.
+          </p>
         </div>
       </section>
 
@@ -119,7 +125,7 @@ export default function ServicesPage() {
             </div>
             <div className={styles.btnRow}>
               <Link className={`${styles.btn} ${styles.btnPrimary}`} href="/contact">
-                Start a Conversation
+                Start with a readiness diagnostic.
                 <ArrowRight size={16} className="arrow" />
               </Link>
             </div>
