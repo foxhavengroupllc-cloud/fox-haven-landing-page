@@ -56,6 +56,38 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section className={`${styles.section} ${styles.sectionLight}`}>
+        <div className={styles.container}>
+          <div className={`${styles.fitGrid} reveal`}>
+            <div>
+              <p className={styles.eyebrow}>Who we work with</p>
+              <h2 className={styles.h2}>Best fit for</h2>
+              <ul className={styles.bioList}>
+                <li>Community coalitions</li>
+                <li>Public health agencies</li>
+                <li>Nonprofits and community-based organizations</li>
+                <li>Grant-funded teams</li>
+                <li>Cross-sector initiatives</li>
+                <li>Partners implementing evidence-based strategies</li>
+              </ul>
+            </div>
+            <div>
+              <p className={styles.eyebrow}>Wherever you are</p>
+              <h2 className={styles.h2}>What stage are you in?</h2>
+              <ul className={styles.bioList}>
+                <li>Exploring an idea</li>
+                <li>Applying for funding</li>
+                <li>Recently funded</li>
+                <li>Planning implementation</li>
+                <li>Actively implementing</li>
+                <li>Stuck and troubleshooting</li>
+                <li>Evaluating or sustaining</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

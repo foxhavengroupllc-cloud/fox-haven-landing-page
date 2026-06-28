@@ -2414,3 +2414,16 @@
     max-width: 260px;
   }
 }
+
+/* ══════════════════════ CONTACT — best fit / stage columns ══════════════════════ */
+.fitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+@media (max-width: 720px) {
+  .fitGrid {
+    grid-template-columns: 1fr;
+  }
+}

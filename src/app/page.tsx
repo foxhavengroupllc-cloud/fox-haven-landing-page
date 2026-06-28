@@ -275,7 +275,7 @@ export default function Home() {
                 <small>GROUP</small>
               </span>
             </Link>
-            <p className={styles.footerBrandTag}>Evidence into action. Systems into motion.</p>
+            <p className={styles.footerBrandTag}>Evidence. Policy. Practice. People. That&rsquo;s the bridge.</p>
             <div className={styles.socials}>
               <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <Linkedin size={16} />

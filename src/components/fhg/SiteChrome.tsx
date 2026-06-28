@@ -102,7 +102,7 @@ export function Footer() {
       <div className={styles.footerInner}>
         <div>
           <Brand />
-          <p className={styles.footerBrandLine}>Evidence into action. Systems into motion.</p>
+          <p className={styles.footerBrandLine}>Evidence. Policy. Practice. People. That&rsquo;s the bridge.</p>
         </div>
         <div className={styles.footerCol}>
           <h4>Explore</h4>
