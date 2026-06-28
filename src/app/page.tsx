@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   ArrowRight,
-  FileSearch,
   Users,
   LayoutGrid,
   HandHeart,
@@ -42,12 +41,12 @@ const PURPLE = '#7c4dd0';
 const alt = (i: number) => (i % 2 === 0 ? TEAL : PURPLE);
 
 const bridge = [
-  { n: '1', t: 'Translate', d: 'Turn evidence, research, and policy into a clear, actionable strategy.', Icon: FileSearch },
-  { n: '2', t: 'Align', d: 'Bring the right partners, agencies, and communities around shared goals.', Icon: Users },
-  { n: '3', t: 'Build', d: 'Create the structures, plans, and tools that make implementation possible.', Icon: LayoutGrid },
-  { n: '4', t: 'Support', d: 'Provide technical assistance, coaching, and facilitation to navigate real-world challenges.', Icon: HandHeart },
-  { n: '5', t: 'Evaluate', d: "Measure what's working, learn what's not, and adapt as you go.", Icon: BarChart3 },
-  { n: '6', t: 'Sustain', d: 'Embed the work into systems, funding, roles, and policies for lasting change.', Icon: RefreshCw },
+  { n: '1', t: 'Clarify', d: 'Define the strategy, setting, success(es), and constraints.', Icon: Target },
+  { n: '2', t: 'Engage', d: 'Build shared understanding and stakeholder buy-in.', Icon: Users },
+  { n: '3', t: 'Design', d: 'Turn evidence into a local implementation plan.', Icon: LayoutGrid },
+  { n: '4', t: 'Prepare', d: 'Strengthen readiness, roles, workflows, and infrastructure.', Icon: Wrench },
+  { n: '5', t: 'Implement', d: 'Support real-world execution and troubleshooting.', Icon: HandHeart },
+  { n: '6', t: 'Learn & Adapt', d: 'Evaluate, adapt, and embed what works.', Icon: RefreshCw },
 ];
 
 const services = [
@@ -99,11 +98,6 @@ function HeroPhoto() {
           <circle key={i} cx={x} cy={y} r="3.2" fill="#00b8b5" />
         ))}
       </svg>
-      <div className={styles.quoteBox}>
-        <p>
-          Where evidence survives contact with the <span className={styles.teal}>real world.</span>
-        </p>
-      </div>
     </div>
   );
 }
@@ -120,13 +114,12 @@ export default function Home() {
         <div className={styles.gritHeroInner}>
           <div className={styles.gritHeroCopy}>
             <h1 className={styles.heroTitlePoster}>
-              Evidence into action.
-              <span className={styles.tealLine}>Systems into motion.</span>
+              What works only matters
+              <span className={styles.tealLine}>when it works here.</span>
             </h1>
             <p className={styles.gritSub}>
-              We help public agencies, nonprofits, coalitions, and communities implement
-              evidence-based solutions through strategy, technical assistance, training,
-              facilitation, evaluation, and policy-to-practice support.
+              We help communities translate evidence, policy, and strategy into implementation
+              plans that work in real systems, with real people.
             </p>
             <div className={styles.gritActions}>
               <Link className={`${styles.gritBtn} ${styles.gritBtnSolid}`} href="/method">
@@ -176,7 +169,7 @@ export default function Home() {
         <div className={styles.container}>
           <span className={styles.kicker}>Our Approach</span>
           <h2 className={styles.poster} style={{ fontSize: 'clamp(1.7rem, 3vw, 2.6rem)', color: 'var(--bone)' }}>
-            The Implementation Bridge<span className={styles.teal} style={{ fontStyle: 'normal' }}>™</span>
+            The Implementation Bridge
           </h2>
           <div className={`${styles.bridgeRow} reveal`}>
             {bridge.map((s, i) => (
@@ -269,7 +262,7 @@ export default function Home() {
             <h2 className={styles.letsBuildTitle}>Let&rsquo;s build what works.</h2>
             <p>Ready to map your system and build a plan that moves?</p>
             <Link className={`${styles.gritBtn} ${styles.gritBtnSolid}`} href="/contact" style={{ marginTop: '1rem' }}>
-              Start the Conversation
+              Start the conversation
               <ArrowRight size={16} />
             </Link>
           </div>

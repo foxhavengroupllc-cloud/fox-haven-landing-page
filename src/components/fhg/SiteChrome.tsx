@@ -51,7 +51,7 @@ export function Header() {
           })}
         </nav>
         <Link href="/contact" className={styles.headerCta}>
-          Start a Conversation
+          Start the conversation
         </Link>
         <button
           type="button"
@@ -74,7 +74,7 @@ export function Header() {
           ))}
           <li>
             <Link href="/contact" onClick={() => setOpen(false)}>
-              Start a Conversation
+              Start the conversation
             </Link>
           </li>
         </ul>
