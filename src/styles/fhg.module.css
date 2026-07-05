@@ -133,6 +133,8 @@
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.26em;
+  /* Counteract the wide tracking so word gaps don't read as double spaces. */
+  word-spacing: -0.14em;
   text-transform: uppercase;
   color: var(--gold);
 }
