@@ -19,7 +19,7 @@ export default function MethodPage() {
 
       <section className={styles.pageHero}>
         <div className={styles.container}>
-          <p className={styles.eyebrow}>Our Method</p>
+          <p className={styles.eyebrow}>Our Approach</p>
           <h1 className={styles.display}>
             The Implementation Bridge
           </h1>
@@ -69,7 +69,7 @@ export default function MethodPage() {
           <div className={styles.ctaBand}>
             <div>
               <p className={styles.eyebrow}>Map the system. Build the roadmap.</p>
-              <h2 className={styles.h2}>See how the Bridge applies to your system.</h2>
+              <h2 className={styles.h2}>See how The Bridge applies to your system.</h2>
             </div>
             <div className={styles.btnRow}>
               <Link className={`${styles.btn} ${styles.btnPrimary}`} href="/contact">

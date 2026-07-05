@@ -122,7 +122,7 @@ export default function Home() {
               plans that work in real systems, with real people.
             </p>
             <div className={styles.gritActions}>
-              <Link className={`${styles.gritBtn} ${styles.gritBtnSolid}`} href="/method">
+              <Link className={`${styles.gritBtn} ${styles.gritBtnSolid}`} href="/our-approach">
                 Map the System
                 <ArrowRight size={16} />
               </Link>
@@ -173,7 +173,7 @@ export default function Home() {
           </h2>
           <div className={`${styles.bridgeRow} reveal`}>
             {bridge.map((s, i) => (
-              <Link href="/method" className={styles.bridgeCol} key={s.n}>
+              <Link href="/our-approach" className={styles.bridgeCol} key={s.n}>
                 <span className={`${styles.bridgeCircle} ${i % 2 === 0 ? styles.bridgeTeal : styles.bridgePurple}`}>
                   <s.Icon size={28} strokeWidth={1.5} />
                 </span>
@@ -220,23 +220,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PROOF ── */}
-      <section className={styles.proofBand}>
+      {/* ── WHO WE WORK WITH (replaces the hidden metrics band until we have
+             real figures to report) ── */}
+      <section className={styles.paperBand}>
         <div className={styles.container}>
-          <div className={styles.proofInner}>
-            <div className={styles.proofIntro}>
-              <span className={styles.kicker}>Proof in Practice</span>
-              <p>We partner with communities to turn strategy into systems that deliver results.</p>
+          <div className={`${styles.fitGrid} reveal`}>
+            <div>
+              <span className={styles.kicker}>Who we work with</span>
+              <h2 className={styles.bandTitle}>Best fit for</h2>
+              <ul className={styles.bioList}>
+                <li>Community coalitions</li>
+                <li>Public health agencies</li>
+                <li>Nonprofits and community-based organizations</li>
+                <li>Grant-funded teams</li>
+                <li>Cross-sector initiatives</li>
+                <li>Partners implementing evidence-based strategies</li>
+              </ul>
             </div>
-            {proof.map((label) => (
-              <div className={styles.proofStat} key={label}>
-                <div className={styles.proofNum}>—</div>
-                <div className={styles.proofLabel}>{label}</div>
-              </div>
-            ))}
-            <p className={styles.proofPlaceholderNote}>
-              Metrics pending verification — real figures to be confirmed before launch.
-            </p>
+            <div>
+              <span className={styles.kicker}>Wherever you are</span>
+              <h2 className={styles.bandTitle}>What stage are you in?</h2>
+              <ul className={styles.bioList}>
+                <li>Exploring an idea</li>
+                <li>Applying for funding</li>
+                <li>Recently funded</li>
+                <li>Planning implementation</li>
+                <li>Actively implementing</li>
+                <li>Stuck and troubleshooting</li>
+                <li>Evaluating or sustaining</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -245,11 +258,11 @@ export default function Home() {
       <footer className={styles.bigFooter}>
         <div className={styles.bigFooterInner}>
           <div className={styles.footerSlogan}>
-            <Link href="/method"><b>Evidence</b></Link>
-            <Link href="/systems"><b>Policy</b></Link>
-            <Link href="/services"><b>Practice</b></Link>
-            <Link href="/about"><b>People</b></Link>
-            <Link className={styles.footerSloganBox} href="/method">That&rsquo;s the bridge.</Link>
+            <Link href="/our-approach"><b>Evidence.</b></Link>
+            <Link href="/systems"><b>Policy.</b></Link>
+            <Link href="/services"><b>Practice.</b></Link>
+            <Link href="/about"><b>People.</b></Link>
+            <Link className={styles.footerSloganBox} href="/our-approach">That&rsquo;s The Bridge.</Link>
           </div>
 
           <div className={styles.footerColG}>
@@ -260,7 +273,7 @@ export default function Home() {
 
           <div className={styles.footerColG}>
             <h2 className={styles.letsBuildTitle}>Let&rsquo;s build what works.</h2>
-            <p>Ready to map your system and build a plan that moves?</p>
+            <p>Ready to map your system and build a plan that works for your community?</p>
             <Link className={`${styles.gritBtn} ${styles.gritBtnSolid}`} href="/contact" style={{ marginTop: '1rem' }}>
               Start the conversation
               <ArrowRight size={16} />
@@ -275,7 +288,7 @@ export default function Home() {
                 <small>GROUP</small>
               </span>
             </Link>
-            <p className={styles.footerBrandTag}>Evidence. Policy. Practice. People. That&rsquo;s the bridge.</p>
+            <p className={styles.footerBrandTag}>Evidence. Policy. Practice. People. That&rsquo;s The Bridge.</p>
             <div className={styles.socials}>
               <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <Linkedin size={16} />

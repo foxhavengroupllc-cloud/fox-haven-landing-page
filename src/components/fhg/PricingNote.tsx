@@ -9,7 +9,9 @@ export default function PricingNote() {
   return (
     <aside className={styles.priceNoteBlock}>
       <p>
-        <strong>How we price.</strong> Every engagement is a flat fee, an hourly rate, or a
+        {/* Block heading with breathing room below, per the 6/28 punch list. */}
+        <strong style={{ display: 'block', marginBottom: '0.5rem' }}>How we price.</strong>
+        Every engagement is a flat fee, an hourly rate, or a
         retainer with a defined deliverable you can put in a purchase order. We never price grant
         work as a percentage of the award — federal agencies and major funders prohibit contingency
         and success-fee pricing, and it can disqualify an application. Application-development fees

@@ -10,7 +10,11 @@ const nextConfig: NextConfig = {
   },
   // The "Domains" page was renamed to "Systems"; keep old links working.
   async redirects() {
-    return [{ source: '/domains', destination: '/systems', permanent: true }];
+    return [
+      { source: '/domains', destination: '/systems', permanent: true },
+      // "Method" page renamed to "Our Approach"
+      { source: '/method', destination: '/our-approach', permanent: true },
+    ];
   },
   async headers() {
     return [

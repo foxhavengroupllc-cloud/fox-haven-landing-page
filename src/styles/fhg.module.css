@@ -1404,8 +1404,17 @@
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.24em;
+  /* Counteract the wide tracking so word gaps don't read as double spaces. */
+  word-spacing: -0.12em;
   text-transform: uppercase;
   color: var(--teal);
+}
+
+/* On light (paper) bands the bright teal washes out — use the deep teal
+   for kickers there so the labels stay readable. */
+.paperBand .kicker,
+.sectionLight .kicker {
+  color: var(--teal-deep);
 }
 
 /* ── HERO ── */

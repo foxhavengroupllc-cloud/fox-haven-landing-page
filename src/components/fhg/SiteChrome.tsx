@@ -8,7 +8,7 @@ import BrandMark from './BrandMark';
 import styles from '@/styles/fhg.module.css';
 
 export const navItems = [
-  { label: 'Method', href: '/method' },
+  { label: 'Our Approach', href: '/our-approach' },
   { label: 'Services', href: '/services' },
   { label: 'Systems', href: '/systems' },
   // Field Notes is hidden from nav until we have published pieces to show.
@@ -85,7 +85,7 @@ export function Header() {
 }
 
 const footerExplore = [
-  { label: 'Method', href: '/method' },
+  { label: 'Our Approach', href: '/our-approach' },
   { label: 'Services', href: '/services' },
   { label: 'Systems', href: '/systems' },
 ];
@@ -102,7 +102,7 @@ export function Footer() {
       <div className={styles.footerInner}>
         <div>
           <Brand />
-          <p className={styles.footerBrandLine}>Evidence. Policy. Practice. People. That&rsquo;s the bridge.</p>
+          <p className={styles.footerBrandLine}>Evidence. Policy. Practice. People. That&rsquo;s The Bridge.</p>
         </div>
         <div className={styles.footerCol}>
           <h4>Explore</h4>
@@ -113,7 +113,7 @@ export function Footer() {
           ))}
         </div>
         <div className={styles.footerCol}>
-          <h4>Firm</h4>
+          <h4>Fox Haven Group</h4>
           {footerFirm.map((l) => (
             <Link key={l.href} href={l.href}>
               {l.label}
