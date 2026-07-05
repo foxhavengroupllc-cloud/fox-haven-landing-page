@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
-const SUPABASE_URL = 'https://yusezaanxcehwofdagvk.supabase.co';
+const SUPABASE_URL = 'https://xymrqpywjycbtidbzhfg.supabase.co';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
