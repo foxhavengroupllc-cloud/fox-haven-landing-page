@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import styles from '@/styles/fhg.module.css';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Fox Haven Group | Coming Soon',
@@ -16,16 +15,6 @@ export default function ComingSoonPage() {
       <div className={styles.gritBg} aria-hidden="true" />
       <div className={styles.grain} aria-hidden="true" />
       <div className={styles.comingInner}>
-        <span className={styles.comingBrand}>
-          {/* Reversed stacked lockup from the 2026 brand sheet (234x452 source). */}
-          <Image
-            src="/images/brand/lockup-stacked.png"
-            width={124}
-            height={240}
-            alt="Fox Haven Group — Overdose-response. Strategy. Evaluation. Implementation. Public health solutions that save lives."
-            priority
-          />
-        </span>
         <p className={styles.comingKicker}>Coming soon</p>
         <h1 className={styles.comingTitle}>
           Evidence into action.
