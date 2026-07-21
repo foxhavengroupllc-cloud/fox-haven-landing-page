@@ -275,8 +275,8 @@ export default function Home() {
             <Link href="/" className={styles.brand} aria-label="Fox Haven Group, home">
               <Image
                 src="/images/brand/lockup-horizontal.png"
-                width={187}
-                height={72}
+                width={235}
+                height={90}
                 alt="Fox Haven Group — Overdose-response. Strategy. Evaluation. Implementation. Public health solutions that save lives."
               />
             </Link>

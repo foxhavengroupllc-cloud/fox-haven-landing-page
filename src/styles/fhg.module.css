@@ -320,8 +320,8 @@
   gap: 2rem;
   width: min(100%, 1320px);
   margin-inline: auto;
-  min-height: 74px;
-  padding: 0 clamp(1.25rem, 4vw, 3.25rem);
+  min-height: 96px;
+  padding: 0.5rem clamp(1.25rem, 4vw, 3.25rem);
 }
 
 .brand {
