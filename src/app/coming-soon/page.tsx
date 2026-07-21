@@ -28,7 +28,7 @@ export default function ComingSoonPage() {
           <span>Systems into motion.</span>
         </h1>
         <p className={styles.comingLead}>
-          We&rsquo;re building something new — an implementation and systems-change firm for public
+          We&rsquo;re building something new — implementation and systems-change support for public
           health, public safety, behavioral health, and the communities they serve.
         </p>
         <a className={styles.comingMail} href="mailto:hello@foxhavengrouphq.com">

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Fox Haven Group | Evidence into Action. Systems into Motion.',
     description:
-      'An implementation and systems-change firm for public health, public safety, behavioral health, and community systems. We close the gap between what works and what happens.',
+      'Implementation and systems-change support for public health, public safety, behavioral health, and community systems. We close the gap between what works and what happens.',
     type: 'website',
     url: 'https://foxhavengrouphq.com',
   },
