@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Linkedin, Mail, ArrowUpRight, ChevronDown } from 'lucide-react';
 import BrandMark from './BrandMark';
 import styles from '@/styles/fhg.module.css';
 
@@ -15,6 +15,14 @@ export const navItems = [
   // The page still exists at /field-notes — just unlinked for now.
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
+];
+
+/** The four engagement areas, shown as a dropdown under Services. */
+export const serviceChildren = [
+  { label: 'Systems Diagnostic', href: '/services/systems-diagnostic' },
+  { label: 'Implementation Blueprint', href: '/services/implementation-blueprint' },
+  { label: 'Technical Assistance Partner', href: '/services/technical-assistance-partner' },
+  { label: 'Systems Change Initiative', href: '/services/systems-change-initiative' },
 ];
 
 export function Brand() {
@@ -40,6 +48,29 @@ export function Header() {
         <nav className={styles.nav} aria-label="Primary">
           {navItems.map((item) => {
             const active = pathname === item.href;
+            // Services carries a dropdown listing the four engagement areas.
+            if (item.href === '/services') {
+              return (
+                <span className={styles.navDrop} key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`${styles.navLink} ${active ? styles.navLinkActive : ''}`}
+                  >
+                    {item.label}
+                  </Link>
+                  <ChevronDown size={12} className={styles.navDropCaret} aria-hidden="true" />
+                  <div className={styles.navDropMenu}>
+                    <div className={styles.navDropMenuInner}>
+                      {serviceChildren.map((c) => (
+                        <Link key={c.href} href={c.href}>
+                          {c.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </span>
+              );
+            }
             return (
               <Link
                 key={item.href}
@@ -71,6 +102,14 @@ export function Header() {
               <Link href={item.href} onClick={() => setOpen(false)}>
                 {item.label}
               </Link>
+              {item.href === '/services' &&
+                serviceChildren.map((c) => (
+                  <div className={styles.mobileSubItem} key={c.href}>
+                    <Link href={c.href} onClick={() => setOpen(false)}>
+                      {c.label}
+                    </Link>
+                  </div>
+                ))}
             </li>
           ))}
           <li>

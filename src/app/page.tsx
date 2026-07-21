@@ -71,15 +71,6 @@ const domains = [
   { t: 'Evaluation', Icon: BarChart3 },
 ];
 
-// PLACEHOLDER metrics — verify before launch (brief §15). Numbers intentionally blank.
-const proof = [
-  'Communities supported',
-  'Strategic plans & roadmaps built',
-  'Trainings & facilitations delivered',
-  'Agencies & coalitions receiving ongoing technical assistance',
-  'Years of cross-sector implementation experience',
-];
-
 function HeroPhoto() {
   return (
     <div className={styles.heroPhoto}>
