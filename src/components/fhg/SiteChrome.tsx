@@ -31,8 +31,8 @@ export function Brand() {
       {/* Full reversed horizontal lockup from the 2026 brand sheet (886x340 source). */}
       <Image
         src="/images/brand/lockup-horizontal.png"
-        width={209}
-        height={80}
+        width={250}
+        height={96}
         alt="Fox Haven Group — Overdose-response. Strategy. Evaluation. Implementation. Public health solutions that save lives."
         priority
       />
