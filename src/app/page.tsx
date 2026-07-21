@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 import styles from '@/styles/fhg.module.css';
 import { Header } from '@/components/fhg/SiteChrome';
-import BrandMark from '@/components/fhg/BrandMark';
+import Image from 'next/image';
 import SystemsMap from '@/components/fhg/SystemsMap';
 import SubscribeForm from '@/components/fhg/SubscribeForm';
 
@@ -273,11 +273,12 @@ export default function Home() {
 
           <div className={styles.footerBrandG}>
             <Link href="/" className={styles.brand} aria-label="Fox Haven Group, home">
-              <BrandMark />
-              <span className={styles.brandText}>
-                FOX HAVEN
-                <small>GROUP</small>
-              </span>
+              <Image
+                src="/images/brand/lockup-horizontal.png"
+                width={187}
+                height={72}
+                alt="Fox Haven Group — Overdose-response. Strategy. Evaluation. Implementation. Public health solutions that save lives."
+              />
             </Link>
             <p className={styles.footerBrandTag}>Evidence. Policy. Practice. People. That&rsquo;s The Bridge.</p>
             <div className={styles.socials}>

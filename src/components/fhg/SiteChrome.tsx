@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { Menu, X, Linkedin, Mail, ArrowUpRight, ChevronDown } from 'lucide-react';
-import BrandMark from './BrandMark';
 import styles from '@/styles/fhg.module.css';
 
 export const navItems = [
@@ -28,11 +28,14 @@ export const serviceChildren = [
 export function Brand() {
   return (
     <Link href="/" className={styles.brand} aria-label="Fox Haven Group, home">
-      <BrandMark />
-      <span className={styles.brandText}>
-        FOX HAVEN
-        <small>GROUP</small>
-      </span>
+      {/* Full reversed horizontal lockup from the 2026 brand sheet (886x340 source). */}
+      <Image
+        src="/images/brand/lockup-horizontal.png"
+        width={146}
+        height={56}
+        alt="Fox Haven Group — Overdose-response. Strategy. Evaluation. Implementation. Public health solutions that save lives."
+        priority
+      />
     </Link>
   );
 }
