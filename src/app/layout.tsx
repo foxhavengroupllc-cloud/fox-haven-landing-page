@@ -46,6 +46,18 @@ export const metadata: Metadata = {
       'Implementation and systems-change support for public health, public safety, behavioral health, and community systems. We close the gap between what works and what happens.',
     type: 'website',
     url: 'https://foxhavengrouphq.com',
+    images: [
+      {
+        url: '/images/brand/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Fox Haven Group — Overdose-response strategy. Evaluation. Implementation.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/brand/og.png'],
   },
 };
 
