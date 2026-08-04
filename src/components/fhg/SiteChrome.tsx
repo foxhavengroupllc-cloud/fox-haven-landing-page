@@ -138,6 +138,11 @@ const footerFirm = [
   { label: 'Contact', href: '/contact' },
 ];
 
+/** Pro-bono / community tools the firm builds and maintains. External links. */
+const footerCommunity = [
+  { label: 'Phoenix Heat Relief', href: 'https://phoenixheatreliefapps.com' },
+];
+
 export function Footer() {
   return (
     <footer className={styles.footer}>
@@ -162,6 +167,14 @@ export function Footer() {
             </Link>
           ))}
           <a href="mailto:hello@foxhavengrouphq.com">hello@foxhavengrouphq.com</a>
+        </div>
+        <div className={styles.footerCol}>
+          <h4>Community Projects</h4>
+          {footerCommunity.map((l) => (
+            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
+              {l.label}
+            </a>
+          ))}
         </div>
       </div>
       <div className={styles.footerBottom}>

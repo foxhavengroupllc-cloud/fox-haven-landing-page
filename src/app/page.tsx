@@ -295,6 +295,10 @@ export default function Home() {
         <div className={styles.footerBottomG}>
           <span>© 2026 Fox Haven Group, LLC</span>
           <nav>
+            {/* Community projects: pro-bono tools the firm builds and maintains. */}
+            <a href="https://phoenixheatreliefapps.com" target="_blank" rel="noopener noreferrer">
+              Phoenix Heat Relief
+            </a>
             <Link href="/contact">Privacy Policy</Link>
             <Link href="/contact">Terms of Service</Link>
           </nav>

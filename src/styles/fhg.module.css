@@ -1165,7 +1165,7 @@
 
 .footerInner {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: clamp(1.5rem, 4vw, 3.5rem);
   width: min(100%, 1320px);
   margin-inline: auto;
